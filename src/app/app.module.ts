@@ -3,7 +3,12 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MdButtonModule, MdGridListModule, MdListModule, MdProgressSpinnerModule,
+  MdButtonModule,
+  MdCardModule,
+  MdDialogModule,
+  MdGridListModule,
+  MdListModule,
+  MdProgressSpinnerModule,
   MdSidenavModule
 } from "@angular/material";
 import {GalleriaModule, ToggleButtonModule} from "primeng/primeng";
@@ -20,7 +25,8 @@ import {LanguageService} from "./language.service";
 import {WindowService} from "./window.service";
 import { ContactComponent } from './contact/contact.component';
 import { ProjectPreviewComponent } from './project-preview/project-preview.component';
-import { PersonPreviewComponent } from './person-preview/person-preview.component';
+import { PersonComponent } from './people/person.component';
+import { PersonDialogComponent } from './people/person-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { PersonPreviewComponent } from './person-preview/person-preview.componen
     PeopleComponent,
     ContactComponent,
     ProjectPreviewComponent,
-    PersonPreviewComponent
+    PersonComponent,
+    PersonDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -43,6 +50,8 @@ import { PersonPreviewComponent } from './person-preview/person-preview.componen
     MdProgressSpinnerModule,
     MdListModule,
     MdGridListModule,
+    MdDialogModule,
+    MdCardModule,
     GalleriaModule,
     ToggleButtonModule,
     RouterModule.forRoot([
@@ -55,6 +64,7 @@ import { PersonPreviewComponent } from './person-preview/person-preview.componen
     ])
   ],
   providers: [ContentfulService, LanguageService, WindowService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PersonDialogComponent]
 })
 export class AppModule { }

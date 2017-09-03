@@ -26,3 +26,7 @@ md-sidenav {
   margin: 20% auto 20% auto;
   left: 50%;
 }
+
+.cdk-global-scrollblock{
+  position: unset !important;
+}

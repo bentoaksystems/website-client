@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { createClient, Entry} from 'contentful';
+import { createClient} from 'contentful';
 
 //Config details for contentful
 const CONFIG = {
@@ -7,8 +7,8 @@ const CONFIG = {
   accessToken: '6f55cd79a0e3812ea24a362ff18894f4792d08ea62f2d8628c6329b4fc4bf87c',
   contentTypeIds: {
     projects: 'projects',
-    people: '',
-    about: '',
+    people: 'people',
+    about: 'about',
     home: 'homeData',
     contact: 'contact'
   }
@@ -50,6 +50,17 @@ export class ContentfulService {
   getProjects(query? : object): any{
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.projects
+    }, query))
+      .then(res => res.items)
+      .catch(err => {
+        console.log(err);
+        err;
+      })
+  }
+
+  getPeople(query? : object): any{
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.people
     }, query))
       .then(res => res.items)
       .catch(err => {

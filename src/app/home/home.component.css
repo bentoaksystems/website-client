@@ -5,3 +5,19 @@
 .technology-item{
   display: inline-block;
 }
+
+.title-wrapper{
+  opacity: 0;
+  max-width: 80px;
+  max-height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+  background: #dce2e0;
+  color: black;
+  /*transition: opacity .2s, visibility .2s;*/
+}
+
+.technology-item:hover .title-wrapper{
+  opacity: 1;
+  visibility: visible;
+}

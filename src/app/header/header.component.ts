@@ -15,9 +15,9 @@ export class HeaderComponent implements OnInit {
   constructor(public langService: LanguageService, public windowService: WindowService) { }
 
   ngOnInit() {
-    this.height = this.windowService.getWindow().innerHeight - 283;
+    this.height = this.windowService.getWindow().innerHeight - 250;
     this.windowService.getWindow().onresize = (e) => {
-      this.height = this.windowService.getWindow().innerHeight - 283;
+      this.height = this.windowService.getWindow().innerHeight - 250;
     };
   }
 

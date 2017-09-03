@@ -18,7 +18,13 @@ export class LanguageService {
     "best technologies, less time": "بهترین تکنولوژی ها، کمترین زمان",
     "the only limit to your impact is your imagination and commitment": "تنها محدودیت مؤثر بر شما، تصورات و تعهداتتان است",
     "tony robbins": "تونی رابینز",
-    "trust us to make better world": "به ما اعتماد کنید تا دنیایی بهتر بسازیم"
+    "trust us to make better world": "به ما اعتماد کنید تا دنیایی بهتر بسازیم",
+    "more...": "بیشتر...",
+    "you can see my skills and experience at linkedin ": "شما می توانید تجربیات و مهارت های من را در LinkedIn ببینید",
+    "my favorites are ": "علاقه مندی های من ",
+    "contact me": "راه های ارتباط با من",
+    "email: ": "ایمیل: ",
+    "phone: ": "تلفن: ",
   };
 
   constructor() { }

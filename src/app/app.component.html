@@ -1,13 +1,5 @@
 <div [style.font-family]="fontFamily">
-  <div>
-    <app-header (changeLang)="changeLang()"></app-header>
-  </div>
-  <div [style.height]="height + 'px'" style="overflow-y: auto">
-    <div style="padding: 20px; margin: 10px;">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-  <div style="position: absolute; bottom: 0; top: auto; left: 0; right: 0">
-    <app-footer></app-footer>
-  </div>
+  <app-header (changeLang)="changeLang()"></app-header>
+  <router-outlet style="padding: 20px; margin: 10px;"></router-outlet>
+  <app-footer style="top: auto; bottom: 0;"></app-footer>
 </div>

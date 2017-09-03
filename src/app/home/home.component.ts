@@ -46,4 +46,8 @@ export class HomeComponent implements OnInit {
         console.log(err);
       })
   }
+
+  openPage(link){
+    this.windowService.getWindow().open(link, '_blank');
+  }
 }

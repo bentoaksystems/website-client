@@ -1,3 +1,10 @@
-<p>
-  people works!
-</p>
+<div style="padding: 30px;">
+  <div *ngIf="!waiting">
+    <div *ngFor="let person of people" style="margin: 10px;">
+      <app-person [person]="person"></app-person>
+    </div>
+  </div>
+  <div *ngIf="waiting">
+    <md-spinner class="align-spinner"></md-spinner>
+  </div>
+</div>

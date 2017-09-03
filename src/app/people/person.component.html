@@ -1,0 +1,14 @@
+<div [style.direction]="langService.getDirection()" [style.text-align]="width < 768 ? 'center' : (langService.getDirection() === 'ltr' ? 'left' : 'right')">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+      <img src="{{person.image}}" alt="{{person.title}}" style="max-height: 120px; max-width: 120px;">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+      <h3 *ngIf="langService.getDirection() === 'ltr'">{{person.fullName_en}}</h3>
+      <h3 *ngIf="langService.getDirection() === 'rtl'">{{person.fullName_fa}}</h3>
+      <h4 *ngIf="langService.getDirection() === 'ltr'">{{person.responsibility_en}}</h4>
+      <h4 *ngIf="langService.getDirection() === 'rtl'">{{person.responsibility_fa}}</h4>
+      <a (click)="showDetails()" style="text-decoration: none; cursor: pointer;">{{langService.translate('More...')}}</a>
+    </div>
+  </div>
+</div>

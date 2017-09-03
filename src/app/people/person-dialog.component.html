@@ -1,0 +1,38 @@
+<div [style.direction]="langService.getDirection()">
+  <div>
+    <img src="{{data.person.cover}}" class="img-fluid">
+  </div>
+  <div>
+    <img src="{{data.person.image}}" class="img-fluid personal-image">
+  </div>
+  <md-card [style.font-family]="langService.getFontFamily()">
+    <br/>
+    <md-card-title *ngIf="langService.getDirection() === 'ltr'">{{data.person.fullName_en}}</md-card-title>
+    <md-card-title *ngIf="langService.getDirection() === 'rtl'">{{data.person.fullName_fa}}</md-card-title>
+    <md-card-content>
+      <h5 *ngIf="langService.getDirection() === 'ltr'">{{data.person.responsibility_en}}</h5>
+      <h4 *ngIf="langService.getDirection() === 'rtl'">{{data.person.responsibility_fa}}</h4>
+      <div class="section">
+        {{langService.translate('You can see my skills and experience at LinkedIn ')}}
+        <a *ngIf="langService.getDirection() === 'ltr'" href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{data.person.fullName_en}}</a>
+        <a *ngIf="langService.getDirection() === 'rtl'" href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{data.person.fullName_fa}}</a>
+      </div>
+      <div class="section">
+        <h4>{{langService.translate('My favorites are ')}}</h4>
+        <md-list *ngIf="langService.getDirection() === 'ltr'">
+          <md-list-item [style.font-family]="langService.getFontFamily()" *ngFor="let favorite of data.person.favorites_en">{{favorite}}</md-list-item>
+        </md-list>
+        <md-list *ngIf="langService.getDirection() === 'rtl'">
+          <md-list-item [style.font-family]="langService.getFontFamily()" *ngFor="let favorite of data.person.favorites_fa">{{favorite}}</md-list-item>
+        </md-list>
+      </div>
+      <div class="section">
+        <h4>{{langService.translate('Contact me')}}</h4>
+        <md-list>
+          <md-list-item [style.font-family]="langService.getFontFamily()" *ngIf="data.person.email">{{langService.translate('Email: ')}}{{data.person.email}}</md-list-item>
+          <md-list-item [style.font-family]="langService.getFontFamily()" *ngIf="data.person.phone">{{langService.translate('Phone: ')}}{{data.person.phone}}</md-list-item>
+        </md-list>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
