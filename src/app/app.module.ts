@@ -24,9 +24,10 @@ import { PeopleComponent } from './people/people.component';
 import {LanguageService} from "./language.service";
 import {WindowService} from "./window.service";
 import { ContactComponent } from './contact/contact.component';
-import { ProjectPreviewComponent } from './project-preview/project-preview.component';
 import { PersonComponent } from './people/person.component';
 import { PersonDialogComponent } from './people/person-dialog.component';
+import { ProjectComponent } from './projects/project.component';
+import { ProjectDialogComponent } from './projects/project-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { PersonDialogComponent } from './people/person-dialog.component';
     AboutUsComponent,
     PeopleComponent,
     ContactComponent,
-    ProjectPreviewComponent,
     PersonComponent,
-    PersonDialogComponent
+    PersonDialogComponent,
+    ProjectComponent,
+    ProjectDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -65,6 +67,6 @@ import { PersonDialogComponent } from './people/person-dialog.component';
   ],
   providers: [ContentfulService, LanguageService, WindowService],
   bootstrap: [AppComponent],
-  entryComponents: [PersonDialogComponent]
+  entryComponents: [PersonDialogComponent, ProjectDialogComponent]
 })
 export class AppModule { }

@@ -3,8 +3,18 @@
 
 /*Define persian font face*/
 @font-face {
-  font-family: 'gulf';
-  src: url('./assets/fonts/Gulf-regular.ttf');
+  font-family: 'iryekan';
+  src: url('assets/fonts/iranyekanwebregular.ttf');
+}
+
+@font-face {
+  font-family: 'irkharazmi';
+  src: url('assets/fonts/IRAN_Kharazmi.woff');
+}
+
+@font-face {
+  font-family: 'asansbold';
+  src: url('assets/fonts/ASansBOLD.ttf');
 }
 
 md-sidenav {
@@ -29,4 +39,8 @@ md-sidenav {
 
 .cdk-global-scrollblock{
   position: unset !important;
+}
+
+.mat-subheader{
+  font-size: 1.5rem !important;
 }

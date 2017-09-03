@@ -29,8 +29,18 @@
       <div class="section">
         <h4>{{langService.translate('Contact me')}}</h4>
         <md-list>
-          <md-list-item [style.font-family]="langService.getFontFamily()" *ngIf="data.person.email">{{langService.translate('Email: ')}}{{data.person.email}}</md-list-item>
-          <md-list-item [style.font-family]="langService.getFontFamily()" *ngIf="data.person.phone">{{langService.translate('Phone: ')}}{{data.person.phone}}</md-list-item>
+          <md-list-item [style.font-family]="langService.getFontFamily()" *ngIf="data.person.email">
+            <md-icon md-list-icon>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </md-icon>
+            <p md-line>{{data.person.email}}</p>
+          </md-list-item>
+          <md-list-item [style.font-family]="langService.getFontFamily()" *ngIf="data.person.phone">
+            <md-icon md-list-icon>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+            </md-icon>
+            <p md-line>{{data.person.phone}}</p>
+          </md-list-item>
         </md-list>
       </div>
     </md-card-content>
