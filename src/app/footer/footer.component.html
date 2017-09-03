@@ -1,0 +1,23 @@
+<div class="footer-back footer row" [style.direction]="langService.getDirection()">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" [style.direction]="langService.getDirection()">
+    <div class="footer-content" *ngIf="langService.getDirection() === 'rtl'">{{address.fa}}</div>
+    <div class="footer-content" *ngIf="langService.getDirection() === 'ltr'">{{address.en}}</div>
+    <div class="footer-content">{{langService.translate('Tel - UK: ')}}{{phone.uk}}</div>
+    <div class="footer-content">{{langService.translate('Tel - IR: ')}}{{phone.ir}}</div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
+    <div class="footer-content">
+      {{langService.translate('Follow us in ')}}
+      <a style="text-decoration: none" target="_blank" href="http://linkedin.com">LinkedIn</a>
+      <i class="fa fa-linkedin" aria-hidden="true" style="cursor: pointer;" (click)="openLinkedIn()"></i>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+  </div>
+</div>
+<div style="text-align: center; background-color: black;">
+  <label style="color: white; font-size: 0.8em">
+    {{langService.translate('All rights reserved for BentOakSystems')}} &copy;
+  </label>
+</div>

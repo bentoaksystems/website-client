@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/*Define persian font face*/
+@font-face {
+  font-family: 'gulf';
+  src: url('./assets/fonts/Gulf-regular.ttf');
+}
+
+md-sidenav {
+  width: 300px;
+}
+
+.mat-sidenav-content{
+  overflow: hidden !important;
+}
+
+.mat-grid-tile .mat-figure{
+  text-align: center;
+  padding: 3px;
+}
+
+.align-spinner{
+  height: 50px;
+  vertical-align: middle;
+  margin: 20% auto 20% auto;
+  left: 50%;
+}

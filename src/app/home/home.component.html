@@ -1,0 +1,39 @@
+<div [style.direction]="langService.getDirection()" style="padding-bottom: 20px;">
+  <div *ngIf="!waiting">
+    <md-grid-list cols="2" rowHeight="2:1" *ngFor="let image of images;let i = index" style="margin: 1px;">
+      <md-grid-tile class="tile">
+        <img *ngIf="i%2 === 1" src="{{image.source}}" alt="image.title" style="max-width: 200px; max-height: 200px;"/>
+        <label *ngIf="i%2 === 0">{{image.alt}}</label>
+      </md-grid-tile>
+      <md-grid-tile class="tile">
+        <img *ngIf="i%2 === 0" src="{{image.source}}" alt="image.title" style="max-width: 200px; max-height: 200px;"/>
+        <label *ngIf="i%2 === 1">{{image.alt}}</label>
+      </md-grid-tile>
+    </md-grid-list>
+    <br/>
+    <hr/>
+    <div style="text-align: center;">
+      <div>
+        "{{langService.translate('The only limit to your impact is your imagination and commitment')}}"
+      </div>
+      <div style="font-size: 0.8em;">{{langService.translate('Tony Robbins')}}</div>
+    </div>
+    <hr/>
+    <br/>
+    <div>
+      <h3 style="text-align: center;">
+        {{langService.translate('Trust us to make better world')}}
+      </h3>
+      <div style="text-align: center;">
+        <div *ngFor="let technology of technologies" class="technology-item">
+          <a href="{{technology.link}}" target="_blank">
+            <img src="{{technology.source}}" alt="technology.title" style="width: 80px; height: 80px; border: solid 1px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="waiting">
+    <md-spinner class="align-spinner"></md-spinner>
+  </div>
+</div>

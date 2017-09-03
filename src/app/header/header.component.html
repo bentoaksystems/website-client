@@ -1,0 +1,82 @@
+<div class="header-back header" [style.direction]="langService.getDirection()">
+  <div class="mobile-menu">
+    <div class="row">
+      <div class="col-7">
+        <button md-icon-button class="menu-button" (click)="sideNav.toggle()"
+                [style.float]="langService.getDirection() === 'ltr' ? 'left' : 'right'"
+                [style.left]="langService.getDirection() === 'ltr' ? '20px' : 'unset'"
+                [style.right]="langService.getDirection() === 'rtl' ? '20px' : 'unset'">
+          <md-icon>
+            <i class="fa fa-times" aria-hidden="true" *ngIf="sideNav._isOpened"></i>
+            <i class="fa fa-bars" aria-hidden="true" *ngIf="sideNav._isClosed"></i>
+          </md-icon>
+        </button>
+        <md-sidenav-container style="background-color: transparent; margin-top: 70px; margin-left: -10px; z-index: 100;"
+                              [style.margin-left]="langService.getDirection() === 'ltr' ? '-10px' : 'auto'"
+                              [style.margin-right]="langService.getDirection() === 'rtl' ? '-10px' : 'auto'"
+                              [style.right]="langService.getDirection() === 'ltr' ? 'auto' : '0'"
+                              [style.left]="langService.getDirection() === 'ltr' ? '0' : 'auto'"
+                              [style.height]="height + 'px'">
+          <md-sidenav class="side-menu" [align]="langService.getDirection() === 'ltr' ? 'start' : 'end'" #sideNav
+                      [style.height]="height + 'px'">
+            <md-list>
+              <md-list-item>
+                <a class="header-content" routerLink="/projects" (click)="sideNav.close()">{{langService.translate('Projects')}}</a>
+              </md-list-item>
+              <md-list-item>
+                <a class="header-content" routerLink="/people" (click)="sideNav.close()">{{langService.translate('People')}}</a>
+              </md-list-item>
+              <md-list-item>
+                <a class="header-content" routerLink="/about-us" (click)="sideNav.close()">{{langService.translate('About US')}}</a>
+              </md-list-item>
+              <md-list-item>
+                <a class="header-content" routerLink="/contact" (click)="sideNav.close()">{{langService.translate('Contact')}}</a>
+              </md-list-item>
+              <md-list-item>
+                <a class="header-content" (click)="switchLang()">En/Fa</a>
+              </md-list-item>
+            </md-list>
+          </md-sidenav>
+        </md-sidenav-container>
+      </div>
+      <div class="col-5">
+        <a routerLink="/home" [style.float]="langService.getDirection() === 'ltr' ? 'right' : 'left'" (click)="sideNav.close()">
+          <img src="../../assets/images/logo.png">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="usual-menu">
+    <div class="row">
+      <div class="col-lg-6 col-md-8 col-sm-8" style="margin-top: 40px;">
+        <div class="row">
+          <div class="header-item"
+               [style.margin-left]="langService.getDirection() === 'ltr' ? '20px' : '10px'"
+               [style.margin-right]="langService.getDirection() === 'rtl' ? '20px' : '10px'">
+            <a class="header-content" (click)="switchLang()" [style.font-size]="langService.getDirection() === 'ltr' ? '1em' : '0.7em'">En</a>
+            <a class="header-content" (click)="switchLang()">/</a>
+            <a class="header-content" (click)="switchLang()" [style.font-size]="langService.getDirection() === 'rtl' ? '1em' : '0.7em'">Fa</a>
+          </div>
+          <div class="header-item">
+            <a class="header-content" routerLink="/contact">{{langService.translate('Contact')}}</a>
+          </div>
+          <div class="header-item">
+            <a class="header-content" routerLink="/about-us">{{langService.translate('About')}}</a>
+          </div>
+          <div class="header-item">
+            <a class="header-content" routerLink="/people">{{langService.translate('People')}}</a>
+          </div>
+          <div class="header-item">
+            <a class="header-content" routerLink="/projects">{{langService.translate('Projects')}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-0 col-sm-1"></div>
+      <div class="col-lg-4 col-md-3 col-sm-3">
+        <a routerLink="/home" [style.float]="langService.getDirection() === 'ltr' ? 'right' : 'left'">
+          <img src="../../assets/images/logo.png">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

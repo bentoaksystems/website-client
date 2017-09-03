@@ -1,0 +1,13 @@
+.footer{
+  height: 170px;
+  margin: 0px;
+  padding: 10px;
+}
+
+.footer-back{
+  background-color: #171717 !important;
+}
+
+.footer-content{
+  color: rgba(176,182,180,0.71) !important;
+}
