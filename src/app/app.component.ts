@@ -9,7 +9,7 @@ import {WindowService} from "./window.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  fontFamily: string;
+  lang = 'en';
   height: number;
 
   constructor(private langService: LanguageService, private windowService: WindowService){}
@@ -18,12 +18,7 @@ export class AppComponent implements OnInit{
     this.height = this.windowService.getWindow().innerHeight - 283;
     this.windowService.getWindow().onresize = (e) => {
       this.height = this.windowService.getWindow().innerHeight - 283;
+      this.langService.lang$.subscribe( lang => this.lang = lang );
     };
-
-    this.changeLang();
-  }
-
-  changeLang(){
-    this.fontFamily = this.langService.getFontFamily();
   }
 }

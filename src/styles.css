@@ -3,20 +3,17 @@
 
 /*Define persian font face*/
 @font-face {
-  font-family: 'iryekan';
-  src: url('assets/fonts/iranyekanwebregular.ttf');
+  font-family: 'yekan';
+  src: url('./assets/fonts/iranyekanweblight.woff');
 }
-
 @font-face {
-  font-family: 'irkharazmi';
-  src: url('assets/fonts/IRAN_Kharazmi.woff');
+  font-family: 'kharazmi';
+  src: url('./assets/fonts/IRANKharazmi.woff');
 }
-
 @font-face {
-  font-family: 'asansbold';
-  src: url('assets/fonts/ASansBOLD.ttf');
+  font-family: 'aovel';
+  src: url('./assets/fonts/ASans.ttf');
 }
-
 md-sidenav {
   width: 300px;
 }
@@ -39,6 +36,24 @@ md-sidenav {
 
 .cdk-global-scrollblock{
   position: unset !important;
+}
+.fa {
+  text-align: justify;
+  direction: rtl;
+  font-family: yekan, serif;
+}
+.en {
+  text-align: left;
+  direction: ltr;
+  font-family: Roboto, serif;
+}
+
+h1 .fa{
+  font-family: kharazmi, sans-serif !important;
+}
+
+h1 .en{
+  font-family: aovel, sans-serif !important;
 }
 
 .mat-subheader{

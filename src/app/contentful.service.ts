@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient} from 'contentful';
 
-//Config details for contentful
+// Config details for contentful
 const CONFIG = {
   space: 'yati6i04nkb8',
   accessToken: '6f55cd79a0e3812ea24a362ff18894f4792d08ea62f2d8628c6329b4fc4bf87c',
@@ -32,7 +32,6 @@ export class ContentfulService {
       .then(res => res.items)
       .catch(err => {
         console.log(err);
-        err;
       });
   }
 
@@ -43,7 +42,6 @@ export class ContentfulService {
       .then(res => res.items)
       .catch(err => {
         console.log(err);
-        err;
       })
   }
 
@@ -54,7 +52,6 @@ export class ContentfulService {
       .then(res => res.items)
       .catch(err => {
         console.log(err);
-        err;
       })
   }
 
@@ -65,7 +62,6 @@ export class ContentfulService {
       .then(res => res.items)
       .catch(err => {
         console.log(err);
-        err;
       })
   }
 }
