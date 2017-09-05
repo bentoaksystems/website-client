@@ -12,6 +12,7 @@ import {
   MdSidenavModule
 } from "@angular/material";
 import {GalleriaModule, ToggleButtonModule} from "primeng/primeng";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -54,6 +55,7 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
     MdGridListModule,
     MdDialogModule,
     MdCardModule,
+    FlexLayoutModule,
     GalleriaModule,
     ToggleButtonModule,
     RouterModule.forRoot([

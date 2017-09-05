@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 670px) {
   .usual-menu{
     display: none;
   }
@@ -8,10 +8,14 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 669px) {
   .mobile-menu{
     display: none;
   }
+}
+
+.second-header{
+  margin-top: 30px;
 }
 
 .header{
@@ -22,7 +26,7 @@
 }
 
 .header-back{
-  background-color: rgba(72,43,255,0.67);
+  background-color: white;
 }
 
 .header-content{
@@ -52,11 +56,38 @@
 }
 
 .side-menu{
-  background-color: rgba(72,43,255,1);
+  background-color: white;
 }
 
 .header-item{
   display: inline-block;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.en .header-item{
+  float: right;
+}
+
+.fa .header-item{
+  float: left;
+}
+
+.logo{
+  padding: 10px;
+}
+
+.logo .en{
+  direction: ltr;
+  float: left;
+}
+
+.logo .fa{
+  direction: rtl;
+  float: right;
+}
+
+.lang-nav{
+  margin-top: 80px;
+  direction: ltr !important;
 }

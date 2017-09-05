@@ -1,71 +1,37 @@
 <div class="header-back header">
-  <div class="mobile-menu">
-    <div class="row">
-      <div class="col-7">
-        <button md-icon-button class="menu-button" (click)="sideNav.toggle()">
-          <md-icon>
-            <i class="fa fa-times" aria-hidden="true"></i>
-            <i class="fa fa-bars" aria-hidden="true"></i>
-          </md-icon>
-        </button>
-        <md-sidenav-container style="background-color: transparent; margin-top: 70px; margin-left: -10px; z-index: 100;">
-          <md-sidenav class="side-menu" [align]="" #sideNav>
-            <md-list>
-              <md-list-item>
-                <a class="header-content" routerLink="/projects" (click)="sideNav.close()">{{langService.translate('Projects')}}</a>
-              </md-list-item>
-              <md-list-item>
-                <a class="header-content" routerLink="/people" (click)="sideNav.close()">{{langService.translate('People')}}</a>
-              </md-list-item>
-              <md-list-item>
-                <a class="header-content" routerLink="/about-us" (click)="sideNav.close()">{{langService.translate('About US')}}</a>
-              </md-list-item>
-              <md-list-item>
-                <a class="header-content" routerLink="/contact" (click)="sideNav.close()">{{langService.translate('Contact')}}</a>
-              </md-list-item>
-              <md-list-item>
-                <a class="header-content" (click)="switchLang()">En/Fa</a>
-              </md-list-item>
-            </md-list>
-          </md-sidenav>
-        </md-sidenav-container>
+  <div class="flex-container" fxLayout="row" fxLayoutAlign="center center">
+    <div class="flex-item" fxFlex="15" fxFlex.md="10" fxFlex.sm="0" fxflex.xs="0"></div>
+    <div class="flex-item" fxFlex="70" fxFlex.md="80" fxFlex.sm="100" fxflex.xs="100">
+      <div class="lang-nav">
+        <a class="header-content" (click)="switchLang()">En/Fa</a>
       </div>
-      <div class="col-5">
-        <a routerLink="/home" (click)="sideNav.close()">
-          <h1 [ngClass]="['h1',lang]">{{langService.translate('Bent Oak Systems')}}</h1>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="usual-menu">
-    <div class="row">
-      <div class="col-lg-6 col-md-8 col-sm-8" style="margin-top: 40px;">
-        <div class="row">
-          <div class="header-item">
-            <a class="header-content" (click)="switchLang()">En</a>
-            <a class="header-content" (click)="switchLang()">/</a>
-            <a class="header-content" (click)="switchLang()">Fa</a>
+      <div>
+        <div class="flex-container"
+             fxLayout="row" fxLayoutAlign="center center"
+             fxLayout.sm="column" fxLayout.xs="column">
+          <div fxFlex="50" class="flex-item">
+            <a routerLink="/home" class="link logo">
+              <h1 [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</h1>
+            </a>
           </div>
-          <div class="header-item">
-            <a class="header-content" routerLink="/contact">{{langService.translate('Contact')}}</a>
-          </div>
-          <div class="header-item">
-            <a class="header-content" routerLink="/about-us">{{langService.translate('About')}}</a>
-          </div>
-          <div class="header-item">
-            <a class="header-content" routerLink="/people">{{langService.translate('People')}}</a>
-          </div>
-          <div class="header-item">
-            <a class="header-content" routerLink="/projects">{{langService.translate('Projects')}}</a>
+          <div fxFlex="50" class="flex-item" [ngClass]="[lang]">
+        <span class="header-item">
+          <a class="header-content" routerLink="/contact">{{langService.translate('Contact')}}</a>
+        </span>
+            <span class="header-item">
+          <a class="header-content" routerLink="/about-us">{{langService.translate('About us')}}</a>
+        </span>
+            <span class="header-item">
+          <a class="header-content" routerLink="/people">{{langService.translate('People')}}</a>
+        </span>
+            <span class="header-item">
+          <a class="header-content" routerLink="/projects">{{langService.translate('Projects')}}</a>
+        </span>
+            <span class="fill-remaining-space"></span>
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-md-0 col-sm-1"></div>
-      <div class="col-lg-4 col-md-3 col-sm-3">
-        <a routerLink="/home">
-          <h1>{{langService.translate('Bent Oak Systems')}}</h1>
-        </a>
-      </div>
     </div>
+    <div class="flex-item" fxFlex="15" fxFlex.md="10" fxFlex.sm="0" fxflex.xs="0"></div>
   </div>
 </div>

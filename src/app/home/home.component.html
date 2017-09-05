@@ -1,33 +1,43 @@
-<div style="padding-bottom: 50px;">
+<div class="page">
   <div *ngIf="!waiting">
-    <md-grid-list cols="2" rowHeight="2:1" *ngFor="let image of images;let i = index" style="margin: 1px;">
+    <md-grid-list cols="2" rowHeight="2:1" *ngFor="let image of images;let i = index" class="row-tile">
       <md-grid-tile class="tile">
-        <img *ngIf="i%2 === 1" src="{{image.source}}" alt="image.title" style="max-width: 200px; max-height: 200px;"/>
+        <img *ngIf="i%2 === 1" src="{{image.source}}" alt="image.title" class="tile-img"/>
         <label *ngIf="i%2 === 0">{{image.alt}}</label>
       </md-grid-tile>
       <md-grid-tile class="tile">
-        <img *ngIf="i%2 === 0" src="{{image.source}}" alt="image.title" style="max-width: 200px; max-height: 200px;"/>
+        <img *ngIf="i%2 === 0" src="{{image.source}}" alt="image.title" class="tile-img"/>
         <label *ngIf="i%2 === 1">{{image.alt}}</label>
       </md-grid-tile>
     </md-grid-list>
     <br/>
     <hr/>
-    <div style="text-align: center;">
-      <h3>
-        "{{langService.translate('The only limit to your impact is your imagination and commitment')}}"
-      </h3>
-      <div style="font-size: 0.8em;">{{langService.translate('Tony Robbins')}}</div>
+    <div class="center container">
+      <div class="jumbotron">
+        <h3>
+          "{{langService.translate('The only limit to your impact is your imagination and commitment')}}"
+        </h3>
+        <div style="font-size: 0.8em;">{{langService.translate('Tony Robbins')}}</div>
+      </div>
     </div>
     <hr/>
     <br/>
     <div>
-      <h2 style="text-align: center;">
+      <h2 class="center">
         {{langService.translate('Trust us to make better world')}}
       </h2>
-      <div style="text-align: center;">
-        <div *ngFor="let technology of technologies" class="technology-item">
-          <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="technology.alt" style="width: 80px; height: 80px; border: solid 1px; cursor: pointer;">
-          <p class="title-wrapper">{{technology.alt}}</p>
+      <div class="center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div *ngFor="let technology of technologies_1" class="flex-item" fxFlex="14">
+              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="technology.alt" class="img-link">
+            </div>
+          </div>
+          <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div *ngFor="let technology of technologies_2" class="flex-item" fxFlex="14">
+              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="technology.alt" class="img-link">
+            </div>
+          </div>
         </div>
       </div>
     </div>

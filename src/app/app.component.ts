@@ -18,7 +18,8 @@ export class AppComponent implements OnInit{
     this.height = this.windowService.getWindow().innerHeight - 283;
     this.windowService.getWindow().onresize = (e) => {
       this.height = this.windowService.getWindow().innerHeight - 283;
-      this.langService.lang$.subscribe( lang => this.lang = lang );
     };
+
+    this.langService.lang$.subscribe( lang => this.lang = lang );
   }
 }

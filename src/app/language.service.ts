@@ -4,9 +4,7 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class LanguageService {
-  private _direction: string = 'ltr'; // Left to right (ltr) or right to left (rtl)
   lang: string = 'en';       // Two options: (en: English, fa: Farsi/Persian)
-  private _fontFamily: string = 'times new roman'; // For persian fonts it is gulf
   private langSubject = new BehaviorSubject<string>('en');
   lang$: Observable<string> = this.langSubject.asObservable();
 
@@ -14,7 +12,7 @@ export class LanguageService {
     'tel - uk: ': 'تلفن انگلستان: ',
     'tel - ir: ': 'تلفن ایران: ',
     'contact': 'تماس با ما',
-    'about': 'درباره ما',
+    'about us': 'درباره ما',
     'people': 'افراد',
     'projects': 'پروژه ها',
     'all rights reserved for bentoaksystems': 'تمامی حقوق سایت متعلق به شرکت سامانه های بنتوک می باشد',
