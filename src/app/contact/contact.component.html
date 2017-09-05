@@ -1,3 +1,47 @@
-<p>
-  contact works!
-</p>
+<div class="page">
+  <div class="container-flex" fxLayout="row" fxLayoutAlign="center center">
+    <div class="flex-item" fxFlex="15" fxFlex.sm="0" fxFlex.xs="0"></div>
+    <div class="flex-item" fxFlex="70" fxFlex.sm="100" fxFlex.xs="100">
+      <h3>{{langService.translate('You can contact us via')}}</h3>
+      <div>
+        <div *ngIf="email">
+          <md-icon>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </md-icon>
+          <p>{{email}}</p>
+        </div>
+        <div *ngIf="linkedin">
+          <md-icon>
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </md-icon>
+          <p><a href="{{linkedin}}" target="_blank" class="link">{{langService.translate('Bent Oak Systems')}}</a></p>
+        </div>
+        <div *ngIf="langService.lang === 'english' && phone.uk">
+          <md-icon>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+          </md-icon>
+          <p>{{phone.uk}}</p>
+        </div>
+        <div *ngIf="langService.lang === 'farsi' && phone.ir">
+          <md-icon>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+          </md-icon>
+          <p>{{phone.ir}}</p>
+        </div>
+        <div *ngIf="langService.lang === 'english' && address.en">
+          <md-icon>
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </md-icon>
+          <p>{{address.en}}</p>
+        </div>
+        <div *ngIf="langService.lang === 'farsi' && address.fa">
+          <md-icon>
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </md-icon>
+          <p>{{address.fa}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-item" fxFlex="15" fxFlex.sm="0" fxFlex.xs="0"></div>
+  </div>
+</div>

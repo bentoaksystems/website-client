@@ -64,4 +64,12 @@ export class ContentfulService {
         console.log(err);
       })
   }
+
+  getAbout(query? : object): any{
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.about
+    }, query))
+      .then(res => res.items)
+      .catch(err => console.log(err));
+  }
 }
