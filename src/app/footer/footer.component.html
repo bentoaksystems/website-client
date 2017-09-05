@@ -1,7 +1,7 @@
-<div class="footer-back footer row" [style.direction]="langService.getDirection()">
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" [style.direction]="langService.getDirection()">
-    <div class="footer-content" *ngIf="langService.getDirection() === 'rtl'">{{address.fa}}</div>
-    <div class="footer-content" *ngIf="langService.getDirection() === 'ltr'">{{address.en}}</div>
+<div class="footer-back footer row">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="footer-content" *ngIf="langService.lang === 'fa'">{{address.fa}}</div>
+    <div class="footer-content" *ngIf="langService.lang === 'en'">{{address.en}}</div>
     <div class="footer-content">{{langService.translate('Tel - UK: ')}}{{phone.uk}}</div>
     <div class="footer-content">{{langService.translate('Tel - IR: ')}}{{phone.ir}}</div>
   </div>

@@ -29,16 +29,24 @@ export class ProjectsComponent implements OnInit {
       .then(res => {
         console.log(res);
         for(let project of res){
-          this.projects.push({
-            name_en: project.fields.displayNameEn,
-            name_fa: project.fields.displayNameFa,
+          let obj = {
+            title_en: project.fields.displayNameEn,
+            title_fa: project.fields.displayNameFa,
+            shortDescription_en: project.fields.shortDescriptionEn,
+            shortDescription_fa: project.fields.shortDescriptionFa,
             description_en: project.fields.descriptionEn,
             description_fa: project.fields.descriptionFa,
             mainImage: {
               url: project.fields.mainImage.fields.file.url,
               title: project.fields.mainImage.fields.title
             }
-          });
+          };
+
+          if(project.fields.screenShots)
+            for(let screenShot of project.fields.screenShots)
+              obj[screenShot].push({url: screenShot.fields.file.url, title: screenShot.fields.file.title, description: screenShot.fields.file.description});
+
+          this.projects.push(obj);
         }
 
         this.waiting = false;

@@ -9,7 +9,7 @@ import {WindowService} from "../window.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output('changeLang') changeLang = new EventEmitter();
+  lang: any;
   height: number = 500;
 
   constructor(public langService: LanguageService, public windowService: WindowService) { }
@@ -19,10 +19,10 @@ export class HeaderComponent implements OnInit {
     this.windowService.getWindow().onresize = (e) => {
       this.height = this.windowService.getWindow().innerHeight - 250;
     };
+    this.langService.lang$.subscribe(lang => this.lang = lang)
   }
 
   switchLang(){
     this.langService.changeLanguage();
-    this.changeLang.emit('changed');
   }
 }
