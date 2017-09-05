@@ -27,6 +27,18 @@
   .farsi{
     text-align: center;
   }
+
+  .show-more{
+    display: none !important;
+  }
+
+  .show-details{
+    display: block !important;
+  }
+
+  .width-center{
+    text-align: center !important;
+  }
 }
 
 
@@ -103,4 +115,93 @@ h1.english{
 
 .vertical-space{
   margin: 200px;
+}
+
+.show-more{
+  display: block;
+}
+
+.show-details{
+  display: none;
+}
+
+.width-center{
+  text-align: inherit;
+}
+
+.mat-card{
+  font-family: inherit;
+}
+
+.mat-list-item{
+  font-family: inherit;
+}
+
+/*set font-size for english and farsi fonts*/
+.english h1{
+  font-size: 2em;
+}
+
+.english h2{
+  font-size: 1.5em;
+}
+
+.english h3{
+  font-size: 1.17em;
+}
+
+.english h4{
+  font-size: 1em;
+}
+
+.english h5{
+  font-size: 0.83em;
+}
+
+.english h6{
+  font-size: 0.67em;
+}
+
+.farsi h1{
+  font-size: 2.2em;
+}
+
+.farsi h2{
+  font-size: 1.5em;
+}
+
+.farsi h3{
+  font-size: 1.17em;
+}
+
+.farsi h4{
+  font-size: 1em;
+}
+
+.farsi h5{
+  font-size: 0.83em;
+}
+
+.farsi  h6{
+  font-size: 0.67em;
+}
+
+span, div, label, p{
+  font-size: medium;
+}
+
+.english .personal-image{
+  float: right !important;
+}
+
+.farsi .personal-image{
+  float: left !important;
+}
+
+.english .project-image{
+  float: right !important;
+}
+
+.farsi .project-image{
+  float: left !important;
 }

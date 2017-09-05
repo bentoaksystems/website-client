@@ -1,14 +1,23 @@
 <div>
-  <div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-      <img src="{{project.mainImage.url}}" alt="{{project.title_en}}" style="max-height: 120px; max-width: 120px;">
+  <div class="flex-container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+    <div class="flex-item" fxFlex="25">
+      <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image">
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-      <h3 *ngIf="langService.lang === 'en'">{{project.title_en}}</h3>
-      <h3 *ngIf="langService.lang === 'fa'">{{project.title_fa}}</h3>
-      <h4 *ngIf="langService.lang === 'en'">{{project.shortDescription_en}}</h4>
-      <h4 *ngIf="langService.lang === 'fa'">{{project.shortDescription_fa}}</h4>
-      <a class="link" (click)="showDetails()">{{langService.translate('More...')}}</a>
+    <div class="flex-item" fxFlex="75">
+      <h3 class="width-center" *ngIf="langService.lang === 'english'">{{project.title_en}}</h3>
+      <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.title_fa}}</h3>
+      <h4 class="width-center" *ngIf="langService.lang === 'english'">{{project.shortDescription_en}}</h4>
+      <h4 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.shortDescription_fa}}</h4>
+      <a class="show-more link" (click)="showDetails()">{{langService.translate('More...')}}</a>
+      <div class="show-details">
+        <hr/>
+        <div class="center" *ngIf="langService.lang === 'english'">{{project.title_en}}</div>
+        <div class="center" *ngIf="langService.lang === 'farsi'">{{project.title_fa}}</div>
+        <div>
+          <p *ngIf="langService.lang === 'english'">{{project.description_en}}</p>
+          <p *ngIf="langService.lang === 'farsi'">{{project.description_fa}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

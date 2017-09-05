@@ -1,14 +1,14 @@
-<div [style.direction]="langService.getDirection()">
-  <div style="text-align: center;">
+<div>
+  <div class="center">
     <img src="{{data.project.mainImage.url}}" alt="{{data.project.mainImage.title}}" class="logo-img">
   </div>
-  <md-card [style.font-family]="langService.getFontFamily()">
+  <md-card>
     <br/>
-    <md-card-title style="text-align: center;" *ngIf="langService.getDirection() === 'ltr'">{{data.project.title_en}}</md-card-title>
-    <md-card-title style="text-align: center;" *ngIf="langService.getDirection() === 'rtl'">{{data.project.title_fa}}</md-card-title>
+    <md-card-title class="center" *ngIf="langService.lang === 'english'">{{data.project.title_en}}</md-card-title>
+    <md-card-title class="center" *ngIf="langService.lang === 'farsi'">{{data.project.title_fa}}</md-card-title>
     <md-card-content>
-      <div *ngIf="langService.getDirection() === 'ltr'">{{data.project.description_en}}</div>
-      <div *ngIf="langService.getDirection() === 'rtl'">{{data.project.description_fa}}</div>
+      <div *ngIf="langService.lang === 'english'">{{data.project.description_en}}</div>
+      <div *ngIf="langService.lang === 'farsi'">{{data.project.description_fa}}</div>
     </md-card-content>
   </md-card>
 </div>
