@@ -1,6 +1,6 @@
-<div style="padding: 30px;">
+<div class="page">
   <div *ngIf="!waiting">
-    <div *ngFor="let person of people" style="margin: 10px;">
+    <div *ngFor="let person of people" class="person">
       <app-person [person]="person"></app-person>
     </div>
   </div>

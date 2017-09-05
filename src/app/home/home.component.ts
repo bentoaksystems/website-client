@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
   images: any = [];
   height: number;
   waiting: boolean = false;
-  technologies: any = [];
+  technologies_1: any = [];
+  technologies_2: any = [];
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
               private windowService: WindowService) { }
@@ -37,8 +38,13 @@ export class HomeComponent implements OnInit {
         for(let s of slideshows)
           this.images.push({source: s.fields.file.url, alt: s.fields.description, title: s.fields.title});
 
-        for(let t of _technologies)
-          this.technologies.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
+        for(let index = 0; index < _technologies.length; index++){
+          let t = _technologies[index];
+          if(index < 7)
+            this.technologies_1.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
+          else
+            this.technologies_2.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
+        }
 
         this.waiting = false;
       })

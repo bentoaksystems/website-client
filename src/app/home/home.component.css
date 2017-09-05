@@ -14,10 +14,29 @@
   visibility: hidden;
   background: #dce2e0;
   color: black;
-  /*transition: opacity .2s, visibility .2s;*/
 }
 
 .technology-item:hover .title-wrapper{
   opacity: 1;
   visibility: visible;
+}
+
+.row-tile{
+  margin: 1px;
+}
+
+.tile-img{
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.img-link{
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.slide-show{
+  text-align: -webkit-center;
 }

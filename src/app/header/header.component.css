@@ -1,17 +1,5 @@
-@media only screen and (max-width: 600px) {
-  .usual-menu{
-    display: none;
-  }
-
-  .mobile-menu{
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .mobile-menu{
-    display: none;
-  }
+.second-header{
+  margin-top: 30px;
 }
 
 .header{
@@ -22,7 +10,7 @@
 }
 
 .header-back{
-  background-color: rgba(72,43,255,0.67);
+  background-color: white;
 }
 
 .header-content{
@@ -52,11 +40,38 @@
 }
 
 .side-menu{
-  background-color: rgba(72,43,255,1);
+  background-color: white;
 }
 
 .header-item{
   display: inline-block;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.english .header-item{
+  float: right;
+}
+
+.farsi .header-item{
+  float: left;
+}
+
+.logo{
+  padding: 10px;
+}
+
+.logo .english{
+  direction: ltr;
+  float: left;
+}
+
+.logo .farsi{
+  direction: rtl;
+  float: right;
+}
+
+.lang-nav{
+  margin-top: 80px;
+  direction: ltr !important;
 }

@@ -8,12 +8,43 @@
 }
 @font-face {
   font-family: 'kharazmi';
-  src: url('./assets/fonts/IRANKharazmi.woff');
+  src: url('./assets/fonts/IRAN_Kharazmi.woff');
 }
 @font-face {
   font-family: 'aovel';
   src: url('./assets/fonts/ASans.ttf');
 }
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
+}
+
+@media screen and (max-width: 768px){
+  .english{
+    text-align: center;
+  }
+
+  .farsi{
+    text-align: center;
+  }
+}
+
+
+.link{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page{
+  padding: 10px;
+  margin: 10px;
+  margin-top: 150px;
+}
+
+.center{
+  text-align: center;
+}
+
 md-sidenav {
   width: 300px;
 }
@@ -37,25 +68,39 @@ md-sidenav {
 .cdk-global-scrollblock{
   position: unset !important;
 }
-.fa {
+.farsi {
   text-align: justify;
   direction: rtl;
   font-family: yekan, serif;
+  font-size: 1.2em;
 }
-.en {
+.english {
   text-align: left;
   direction: ltr;
-  font-family: Roboto, serif;
+  font-family: roboto, serif;
 }
 
-h1 .fa{
+h1.farsi{
   font-family: kharazmi, sans-serif !important;
 }
 
-h1 .en{
+h1.english{
   font-family: aovel, sans-serif !important;
 }
 
 .mat-subheader{
   font-size: 1.5rem !important;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+/*Remove outer border in primeng slideshow*/
+.ui-widget-content{
+  border: none;
+}
+
+.vertical-space{
+  margin: 200px;
 }

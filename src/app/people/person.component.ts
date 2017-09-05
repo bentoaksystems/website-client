@@ -13,6 +13,7 @@ import {WindowService} from "../window.service";
 export class PersonComponent implements OnInit {
   @Input('person') person: any;
   width: number = 500;
+  lang: string;
 
   constructor(public langService: LanguageService, public dialog: MdDialog,
               private windowService: WindowService) { }
@@ -22,6 +23,8 @@ export class PersonComponent implements OnInit {
     this.windowService.getWindow().onresize = (e) => {
       this.width = this.windowService.getWindow().innerWidth;
     };
+
+    this.langService.lang$.subscribe(lang => this.lang = lang);
   }
 
   showDetails(){

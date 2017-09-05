@@ -1,23 +1,23 @@
 <div class="footer-back footer row">
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="footer-content" *ngIf="langService.lang === 'fa'">{{address.fa}}</div>
-    <div class="footer-content" *ngIf="langService.lang === 'en'">{{address.en}}</div>
+    <div class="footer-content" *ngIf="langService.lang === 'farsi'">{{address.fa}}</div>
+    <div class="footer-content" *ngIf="langService.lang === 'english'">{{address.en}}</div>
     <div class="footer-content">{{langService.translate('Tel - UK: ')}}{{phone.uk}}</div>
     <div class="footer-content">{{langService.translate('Tel - IR: ')}}{{phone.ir}}</div>
   </div>
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 center">
     <div class="footer-content">
       {{langService.translate('Follow us in ')}}
-      <a style="text-decoration: none" target="_blank" href="http://linkedin.com">LinkedIn</a>
-      <i class="fa fa-linkedin" aria-hidden="true" style="cursor: pointer;" (click)="openLinkedIn()"></i>
+      <a class="link" target="_blank" href="http://linkedin.com">LinkedIn</a>
+      <i class="fa fa-linkedin link" aria-hidden="true" (click)="openLinkedIn()"></i>
     </div>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
   </div>
 </div>
-<div style="text-align: center; background-color: black;">
-  <label style="color: white; font-size: 0.8em">
+<div class="socket-area">
+  <label class="socket-content">
     {{langService.translate('All rights reserved for BentOakSystems')}} &copy;
   </label>
 </div>

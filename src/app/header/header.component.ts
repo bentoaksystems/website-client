@@ -11,6 +11,7 @@ import {WindowService} from "../window.service";
 export class HeaderComponent implements OnInit {
   lang: any;
   height: number = 500;
+  width: number = 500;
 
   constructor(public langService: LanguageService, public windowService: WindowService) { }
 
@@ -19,6 +20,11 @@ export class HeaderComponent implements OnInit {
     this.windowService.getWindow().onresize = (e) => {
       this.height = this.windowService.getWindow().innerHeight - 250;
     };
+    this.width = this.windowService.getWindow().innerWidth - 30;
+    this.windowService.getWindow().onresize = (e) => {
+      this.width = this.windowService.getWindow().innerWidth - 30;
+    };
+
     this.langService.lang$.subscribe(lang => this.lang = lang)
   }
 
