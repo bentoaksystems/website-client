@@ -1,0 +1,33 @@
+@media screen and(max-width: 768px){
+  .show-more{
+    display: none;
+  }
+
+  .show-details{
+    display: block;
+  }
+}
+
+@media screen and(max-width: 8000px) {
+  .show-more{
+    display: block;
+  }
+
+  .show-details{
+    display: none;
+  }
+}
+
+.personal-image{
+  max-height: 120px;
+  max-width: 120px;
+  margin: 30px;
+}
+
+.english .personal-image{
+  float: right;
+}
+
+.farsi .personal-image{
+  float: right;
+}
