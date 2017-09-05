@@ -12,6 +12,7 @@ import {WindowService} from "../window.service";
 export class HomeComponent implements OnInit {
   images: any = [];
   height: number;
+  width: number;
   waiting: boolean = false;
   technologies_1: any = [];
   technologies_2: any = [];
@@ -25,10 +26,11 @@ export class HomeComponent implements OnInit {
     this.height = this.windowService.getWindow().innerHeight - 283;
     this.windowService.getWindow().onresize = (e) => {
       this.height = this.windowService.getWindow().innerHeight - 283;
-      console.log('home height: ', this.height);
     };
-
-    console.log('home height: ', this.height);
+    this.width = this.windowService.getWindow().innerWidth - 100;
+    this.windowService.getWindow().onresize = (e) => {
+      this.width = this.windowService.getWindow().innerWidth - 100;
+    };
 
     this.contentfulService.getHomeData()
       .then(res => {
