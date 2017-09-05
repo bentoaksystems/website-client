@@ -9,7 +9,7 @@ import {WindowService} from "./window.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  lang = 'en';
+  lang = 'english';
   height: number;
 
   constructor(private langService: LanguageService, private windowService: WindowService){}

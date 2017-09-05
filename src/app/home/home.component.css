@@ -36,3 +36,7 @@
   cursor: pointer;
   margin: 5px;
 }
+
+.slide-show{
+  text-align: -webkit-center;
+}

@@ -20,11 +20,11 @@
 }
 
 @media screen and (max-width: 768px){
-  .en{
+  .english{
     text-align: center;
   }
 
-  .fa{
+  .farsi{
     text-align: center;
   }
 }
@@ -38,6 +38,7 @@
 .page{
   padding: 10px;
   margin: 10px;
+  margin-top: 150px;
 }
 
 .center{
@@ -67,23 +68,23 @@ md-sidenav {
 .cdk-global-scrollblock{
   position: unset !important;
 }
-.fa {
+.farsi {
   text-align: justify;
   direction: rtl;
   font-family: yekan, serif;
   font-size: 1.2em;
 }
-.en {
+.english {
   text-align: left;
   direction: ltr;
   font-family: roboto, serif;
 }
 
-h1.fa{
+h1.farsi{
   font-family: kharazmi, sans-serif !important;
 }
 
-h1.en{
+h1.english{
   font-family: aovel, sans-serif !important;
 }
 
@@ -93,4 +94,13 @@ h1.en{
 
 .fill-remaining-space {
   flex: 1 1 auto;
+}
+
+/*Remove outer border in primeng slideshow*/
+.ui-widget-content{
+  border: none;
+}
+
+.vertical-space{
+  margin: 200px;
 }

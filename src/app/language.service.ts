@@ -4,8 +4,8 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class LanguageService {
-  lang: string = 'en';       // Two options: (en: English, fa: Farsi/Persian)
-  private langSubject = new BehaviorSubject<string>('en');
+  lang: string = 'english';       // Two options: (english, farsi)
+  private langSubject = new BehaviorSubject<string>('english');
   lang$: Observable<string> = this.langSubject.asObservable();
 
   private _translation = {
@@ -34,12 +34,12 @@ export class LanguageService {
   }
 
   changeLanguage() {
-    this.lang = (this.lang === 'en') ? 'fa' : 'en';
+    this.lang = (this.lang === 'english') ? 'farsi' : 'english';
     this.langSubject.next(this.lang);
   }
 
   translate(value: string) {
-    if (this.lang === 'en') {
+    if (this.lang === 'english') {
       return value;
     } else if (this._translation[value.toLowerCase()]) {
       return this._translation[value.toLowerCase()];

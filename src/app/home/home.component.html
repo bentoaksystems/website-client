@@ -1,17 +1,13 @@
 <div class="page">
   <div *ngIf="!waiting">
-    <md-grid-list cols="2" rowHeight="2:1" *ngFor="let image of images;let i = index" class="row-tile">
-      <md-grid-tile class="tile">
-        <img *ngIf="i%2 === 1" src="{{image.source}}" alt="image.title" class="tile-img"/>
-        <label *ngIf="i%2 === 0">{{image.alt}}</label>
-      </md-grid-tile>
-      <md-grid-tile class="tile">
-        <img *ngIf="i%2 === 0" src="{{image.source}}" alt="image.title" class="tile-img"/>
-        <label *ngIf="i%2 === 1">{{image.alt}}</label>
-      </md-grid-tile>
-    </md-grid-list>
-    <br/>
-    <hr/>
+    <div class="flex-container" fxLayout="row" fxLayoutAlign="center center">
+      <div class="flex-item" fxFlex="20" fxFlex.sm="0" fxFlex.xs="0"></div>
+      <div class="flex-item slide-show" fxFlex="60" fxFlex.sm="100" fxFlex.xs="100">
+        <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true" [showFilmstrip]="false"></p-galleria>
+      </div>
+      <div class="flex-item" fxFlex="20" fxFlex.sm="0" fxFlex.xs="0"></div>
+    </div>
+    <div class="vertical-space"></div>
     <div class="center container">
       <div class="jumbotron">
         <h3>
@@ -20,8 +16,7 @@
         <div style="font-size: 0.8em;">{{langService.translate('Tony Robbins')}}</div>
       </div>
     </div>
-    <hr/>
-    <br/>
+    <div class="vertical-space"></div>
     <div>
       <h2 class="center">
         {{langService.translate('Trust us to make better world')}}

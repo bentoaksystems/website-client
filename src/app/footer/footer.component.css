@@ -2,6 +2,7 @@
   height: 140px;
   margin: 0px;
   padding: 10px;
+  margin-top: 100px;
 }
 
 .footer-back{
@@ -10,4 +11,14 @@
 
 .footer-content{
   color: rgba(176,182,180,0.71) !important;
+}
+
+.socket-area{
+  text-align: center;
+  background-color: black;
+}
+
+.socket-content{
+  color: white;
+  font-size: 0.8em;
 }
