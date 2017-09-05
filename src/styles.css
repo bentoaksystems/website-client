@@ -27,8 +27,80 @@
   .farsi{
     text-align: center;
   }
+
+  .show-more{
+    display: none !important;
+  }
+
+  .show-details{
+    display: block !important;
+  }
+
+  .width-center{
+    text-align: center !important;
+  }
+
+  .visible-slideshow{
+    display: none !important;
+  }
+
+  .invisible-slideshow{
+    display: block !important;
+    margin-top: 30px;
+  }
 }
 
+.visible-slideshow{
+  display: flex;
+}
+
+.invisible-slideshow{
+  display: none;
+}
+
+/*@media screen and (min-width: 769px){*/
+  /**/
+/*}*/
+
+@media screen and (max-width: 400px){
+  .column-menu{
+    display: block !important;
+  }
+
+  .usual-menu{
+    display: none !important;
+  }
+
+  .logo .english{
+    font-size: 1.6em;
+  }
+
+  .logo .farsi{
+    font-size: 1.6em;
+  }
+
+  .lang-nav{
+    margin-top: 140px !important;
+  }
+
+  .english .header-item{
+    float: unset !important;
+  }
+
+  .farsi .header-item{
+    float: unset !important;
+  }
+}
+
+@media screen and (min-width: 401px){
+  .column-menu{
+    display: none !important;
+  }
+
+  .usual-menu{
+    display: block !important;
+  }
+}
 
 .link{
   text-decoration: none;
@@ -59,7 +131,7 @@ md-sidenav {
 }
 
 .align-spinner{
-  height: 50px;
+  height: 40px !important;
   vertical-align: middle;
   margin: 20% auto 20% auto;
   left: 50%;
@@ -103,4 +175,93 @@ h1.english{
 
 .vertical-space{
   margin: 200px;
+}
+
+.show-more{
+  display: block;
+}
+
+.show-details{
+  display: none;
+}
+
+.width-center{
+  text-align: inherit;
+}
+
+.mat-card{
+  font-family: inherit;
+}
+
+.mat-list-item{
+  font-family: inherit;
+}
+
+/*set font-size for english and farsi fonts*/
+.english h1{
+  font-size: 2em;
+}
+
+.english h2{
+  font-size: 1.5em;
+}
+
+.english h3{
+  font-size: 1.17em;
+}
+
+.english h4{
+  font-size: 1em;
+}
+
+.english h5{
+  font-size: 0.83em;
+}
+
+.english h6{
+  font-size: 0.67em;
+}
+
+.farsi h1{
+  font-size: 2.2em;
+}
+
+.farsi h2{
+  font-size: 1.5em;
+}
+
+.farsi h3{
+  font-size: 1.17em;
+}
+
+.farsi h4{
+  font-size: 1em;
+}
+
+.farsi h5{
+  font-size: 0.83em;
+}
+
+.farsi  h6{
+  font-size: 0.67em;
+}
+
+span, div, label, p{
+  font-size: medium;
+}
+
+.english .personal-image{
+  float: right !important;
+}
+
+.farsi .personal-image{
+  float: left !important;
+}
+
+.english .project-image{
+  float: right !important;
+}
+
+.farsi .project-image{
+  float: left !important;
 }

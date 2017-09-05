@@ -15,7 +15,7 @@ export class LanguageService {
     'about us': 'درباره ما',
     'people': 'افراد',
     'projects': 'پروژه ها',
-    'all rights reserved for bentoaksystems': 'تمامی حقوق سایت متعلق به شرکت سامانه های بنتوک می باشد',
+    'all rights reserved for bentoaksystems': 'تمامی حقوق سایت متعلق به شرکت بنتوک سامانه می باشد',
     'follow us in ': 'ما را دنبال کنید در',
     'best technologies, less time': 'بهترین تکنولوژی ها، کمترین زمان',
     'the only limit to your impact is your imagination and commitment': 'تنها محدودیت مؤثر بر شما، تصورات و تعهداتتان است',

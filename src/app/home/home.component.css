@@ -40,3 +40,14 @@
 .slide-show{
   text-align: -webkit-center;
 }
+
+.image-without-slideshow{
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.image-wrapper{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

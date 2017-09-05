@@ -1,6 +1,6 @@
 <div class="page">
   <div *ngIf="!waiting">
-    <div *ngFor="let project of projects" style="margin: 10px;">
+    <div *ngFor="let project of projects" class="project">
       <app-project [project]="project"></app-project>
     </div>
   </div>
@@ -8,27 +8,3 @@
     <md-spinner class="align-spinner"></md-spinner>
   </div>
 </div>
-
-
-<!--<div [style.direction]="langService.getDirection()">-->
-  <!--<div [style.text-align]="width < 768 ? 'center' : (langService.getDirection() === 'ltr' ? 'left' : 'right')">-->
-    <!--<h2>{{langService.translate('Projects')}}</h2>-->
-  <!--</div>-->
-  <!--<br/>-->
-  <!--<div *ngIf="!waiting" >-->
-    <!--<div class="row" *ngFor="let project of projects" [style.text-align]="width < 768 ? 'center' : (langService.getDirection() === 'ltr' ? 'left' : 'right')">-->
-      <!--<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">-->
-        <!--<img src="{{project.mainImage.url}}" width="100" height="100" alt="project.mainImage.title">-->
-      <!--</div>-->
-      <!--<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">-->
-        <!--<div *ngIf="langService.getDirection() === 'ltr'">{{project.name_en}}</div>-->
-        <!--<div *ngIf="langService.getDirection() === 'rtl'">{{project.name_fa}}</div>-->
-        <!--<div *ngIf="langService.getDirection() === 'ltr'">{{project.description_en}}</div>-->
-        <!--<div *ngIf="langService.getDirection() === 'rtl'">{{project.description_fa}}</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div *ngIf="waiting">-->
-    <!--<md-spinner class="align-spinner"></md-spinner>-->
-  <!--</div>-->
-<!--</div>-->
