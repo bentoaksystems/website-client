@@ -19,6 +19,14 @@
   src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
 }
 
+/*The upper width size for small screen*/
+@media screen and (max-width: 959px){
+  .lang-nav{
+    margin-left: 20px;
+  }
+}
+/*End of media*/
+
 @media screen and (max-width: 768px){
   .english{
     text-align: center;
@@ -264,4 +272,8 @@ span, div, label, p{
 
 .farsi .project-image{
   float: left !important;
+}
+
+.ui-panel-images{
+  max-width: 500px;
 }

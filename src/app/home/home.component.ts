@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit {
         let slideshows = res[0].fields.slideShow;
         let _technologies = res[1].fields.technologies;
         for(let s of slideshows)
-          this.images.push({source: s.fields.file.url, alt: s.fields.description, title: s.fields.title});
+          if(s.fields)
+            this.images.push({source: s.fields.file.url, alt: s.fields.description, title: s.fields.title});
 
         for(let index = 0; index < _technologies.length; index++){
           let t = _technologies[index];
