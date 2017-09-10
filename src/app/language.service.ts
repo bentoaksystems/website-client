@@ -16,7 +16,7 @@ export class LanguageService {
     'people': 'افراد',
     'projects': 'پروژه ها',
     'all rights reserved for bentoaksystems': 'تمامی حقوق سایت متعلق به شرکت بنتوک سامانه می باشد',
-    'follow us in ': 'ما را دنبال کنید در',
+    'follow us in ': 'صفحه ما در',
     'best technologies, less time': 'بهترین تکنولوژی ها، کمترین زمان',
     'the only limit to your impact is your imagination and commitment': 'تنها محدودیت مؤثر بر شما، تصورات و تعهداتتان است',
     'tony robbins': 'تونی رابینز',
@@ -27,7 +27,7 @@ export class LanguageService {
     'contact me': 'راه های ارتباط با من',
     'email: ': 'ایمیل: ',
     'phone: ': 'تلفن: ',
-    'bent oak systems': 'بُنتوک سامانـه',
+    'bent oak systems': 'بُنـتوک سـامانه',
   };
 
   constructor() {
