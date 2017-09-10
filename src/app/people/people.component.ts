@@ -18,9 +18,7 @@ export class PeopleComponent implements OnInit {
 
     this.contentfulService.getPeople()
       .then(res => {
-        console.log(res);
-
-        for(let item of res){
+         for(let item of res){
           this.people.push({
             title: item.fields.title,
             fullName_en: item.fields.fullNameEn,
@@ -37,7 +35,6 @@ export class PeopleComponent implements OnInit {
           });
         }
 
-        console.log(this.people);
         this.waiting = false;
       })
       .catch(err => {
