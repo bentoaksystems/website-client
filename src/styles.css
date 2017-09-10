@@ -19,6 +19,14 @@
   src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
 }
 
+/*The upper width size for small screen*/
+@media screen and (max-width: 959px){
+  .lang-nav{
+    margin-left: 20px;
+  }
+}
+/*End of media*/
+
 @media screen and (max-width: 768px){
   .english{
     text-align: center;
@@ -57,10 +65,6 @@
 .invisible-slideshow{
   display: none;
 }
-
-/*@media screen and (min-width: 769px){*/
-  /**/
-/*}*/
 
 @media screen and (max-width: 400px){
   .column-menu{
@@ -264,4 +268,36 @@ span, div, label, p{
 
 .farsi .project-image{
   float: left !important;
+}
+
+.ui-panel-images{
+  max-width: 500px;
+  max-height: 313px;
+}
+
+.english .ui-galleria-caption{
+  font-family: roboto, serif;
+  font-size: 0.8em;
+
+}
+
+.farsi .ui-galleria-caption{
+  font-family: yekan, serif;
+}
+
+.ui-galleria-caption p{
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.ui-galleria-caption h4{
+  text-align: center;
+}
+
+.fa-chevron-circle-right, .fa-chevron-circle-left{
+  display: none;
+}
+
+.fix-LTR{
+  direction: ltr;
 }

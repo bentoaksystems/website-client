@@ -27,7 +27,6 @@ export class ProjectsComponent implements OnInit {
 
     this.contentfulService.getProjects()
       .then(res => {
-        console.log(res);
         for(let project of res){
           let obj = {
             title_en: project.fields.displayNameEn,

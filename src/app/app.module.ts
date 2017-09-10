@@ -8,11 +8,11 @@ import {
   MdDialogModule,
   MdGridListModule,
   MdListModule,
-  MdProgressSpinnerModule,
-  MdSidenavModule
-} from "@angular/material";
-import {GalleriaModule, ToggleButtonModule} from "primeng/primeng";
+  MdProgressSpinnerModule} from "@angular/material";
+import {GalleriaModule} from "primeng/primeng";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import 'hammerjs';
+import {AotPlugin} from '@ngtools/webpack';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -48,7 +48,6 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    MdSidenavModule,
     MdButtonModule,
     MdProgressSpinnerModule,
     MdListModule,
@@ -57,7 +56,6 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
     MdCardModule,
     FlexLayoutModule,
     GalleriaModule,
-    ToggleButtonModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},

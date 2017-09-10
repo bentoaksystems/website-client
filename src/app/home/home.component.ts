@@ -10,6 +10,9 @@ import {WindowService} from "../window.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  lang: string;
+  private images_en: any = [];
+  private images_fa: any = [];
   images: any = [];
   height: number;
   width: number;
@@ -21,6 +24,11 @@ export class HomeComponent implements OnInit {
               private windowService: WindowService) { }
 
   ngOnInit() {
+    this.langService.lang$.subscribe(lang => {
+      this.lang = lang;
+      this.images = (this.lang === 'english') ? this.images_en : this.images_fa;
+    });
+
     this.waiting = true;
 
     this.height = this.windowService.getWindow().innerHeight - 283;
@@ -34,11 +42,21 @@ export class HomeComponent implements OnInit {
 
     this.contentfulService.getHomeData()
       .then(res => {
-        console.log(res);
         let slideshows = res[0].fields.slideShow;
         let _technologies = res[1].fields.technologies;
-        for(let s of slideshows)
-          this.images.push({source: s.fields.file.url, alt: s.fields.description, title: s.fields.title});
+
+        let maxHeight = 0, maxWidth = 0;
+
+        for(let s of slideshows) {
+          if (s.fields) {
+            let transDSCP = s.fields.description.split('|');
+
+            this.images_en.push({source: s.fields.file.url, alt: transDSCP[0], title: s.fields.title});
+            this.images_fa.push({source: s.fields.file.url, alt: transDSCP[1], title: s.fields.title});
+          }
+        }
+
+        this.images = (this.langService.lang === 'english') ?  this.images_en : this.images_fa;
 
         for(let index = 0; index < _technologies.length; index++){
           let t = _technologies[index];
