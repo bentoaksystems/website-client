@@ -114,7 +114,7 @@
 .page{
   padding: 10px;
   margin: 10px;
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .center{
@@ -277,8 +277,6 @@ span, div, label, p{
 
 .english .ui-galleria-caption{
   font-family: roboto, serif;
-  font-size: 0.8em;
-
 }
 
 .farsi .ui-galleria-caption{
@@ -300,4 +298,8 @@ span, div, label, p{
 
 .fix-LTR{
   direction: ltr;
+}
+
+.ui-galleria-panel{
+  text-align: center;
 }
