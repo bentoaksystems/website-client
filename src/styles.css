@@ -66,10 +66,6 @@
   display: none;
 }
 
-/*@media screen and (min-width: 769px){*/
-  /**/
-/*}*/
-
 @media screen and (max-width: 400px){
   .column-menu{
     display: block !important;
@@ -276,4 +272,32 @@ span, div, label, p{
 
 .ui-panel-images{
   max-width: 500px;
+  max-height: 313px;
+}
+
+.english .ui-galleria-caption{
+  font-family: roboto, serif;
+  font-size: 0.8em;
+
+}
+
+.farsi .ui-galleria-caption{
+  font-family: yekan, serif;
+}
+
+.ui-galleria-caption p{
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.ui-galleria-caption h4{
+  text-align: center;
+}
+
+.fa-chevron-circle-right, .fa-chevron-circle-left{
+  display: none;
+}
+
+.fix-LTR{
+  direction: ltr;
 }
