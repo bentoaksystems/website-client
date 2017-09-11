@@ -29,6 +29,7 @@ export class LanguageService {
     'phone: ': 'تلفن: ',
     'bent oak systems': 'بُنـتوک سـامانه',
     'you can contact us via': 'شما می توانید به کمک یکی از راه های زیر با ما در تماس باشید',
+    'our toolbox': 'ابزارهای ما',
   };
 
   constructor() {
