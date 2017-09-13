@@ -1,6 +1,6 @@
 <div>
   <div class="lang-nav">
-    <a class="header-content" (click)="switchLang()">En/Fa</a>
+    <a class="header-content" (click)="switchLang()"><span [class.chosenLang]="langService.lang==='english'">En</span>/<span [class.chosenLang]="langService.lang==='farsi'">Fa</span></a>
   </div>
   <div>
     <div class="flex-container"
