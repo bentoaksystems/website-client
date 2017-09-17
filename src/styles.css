@@ -18,6 +18,11 @@
   font-family: 'roboto';
   src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
 }
+.lang-nav {
+  direction: ltr !important;
+  font-family: Roboto !important;
+}
+
 @media screen and (max-width: 768px) and (min-width: 400px) {
   .column-menu{
     display: none !important;
@@ -259,6 +264,7 @@ span, div, label, p{
 
 .farsi .personal-image{
   float: left !important;
+  right: -10px !important;
 }
 
 .english .project-image{
