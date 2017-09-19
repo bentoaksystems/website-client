@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="[lang]">
   <div class="center">
     <img src="{{data.project.mainImage.url}}" alt="{{data.project.mainImage.title}}" class="logo-img" />
   </div>
@@ -7,8 +7,7 @@
     <md-card-title class="center" *ngIf="langService.lang === 'english'">{{data.project.title_en}}</md-card-title>
     <md-card-title class="center" *ngIf="langService.lang === 'farsi'">{{data.project.title_fa}}</md-card-title>
     <md-card-content>
-      <div *ngIf="langService.lang === 'english'">{{data.project.description_en}}</div>
-      <div *ngIf="langService.lang === 'farsi'">{{data.project.description_fa}}</div>
+      <div [innerHtml]="langService.lang==='english' ? data.project.description_en : data.project.description_fa"></div>
     </md-card-content>
   </md-card>
 </div>

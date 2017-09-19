@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as marked from 'marked';
 
 import {LanguageService} from "../language.service";
 import {ContentfulService} from "../contentful.service";
@@ -33,8 +34,8 @@ export class ProjectsComponent implements OnInit {
             title_fa: project.fields.displayNameFa,
             shortDescription_en: project.fields.shortDescriptionEn,
             shortDescription_fa: project.fields.shortDescriptionFa,
-            description_en: project.fields.descriptionEn,
-            description_fa: project.fields.descriptionFa,
+            description_en: marked(project.fields.descriptionEn),
+            description_fa: marked(project.fields.descriptionFa),
             mainImage: {
               url: project.fields.mainImage.fields.file.url,
               title: project.fields.mainImage.fields.title
