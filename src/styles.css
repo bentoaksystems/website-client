@@ -317,3 +317,11 @@ span, div, label, p{
 .show-details .personal-image{
   float: unset !important;
 }
+
+.show-details .project-image{
+  float: unset !important;
+}
+
+.project-text-align{
+  text-align: justify !important;
+}
