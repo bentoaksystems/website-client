@@ -27,13 +27,6 @@
   .column-menu{
     display: none !important;
   }
-  .show-more{
-    display: none !important;
-  }
-  .show-details{
-    display: block !important;
-    margin-bottom: 50px !important;
-  }
 }
 @media screen and (max-width: 768px){
   .english{
@@ -42,6 +35,13 @@
 
   .farsi{
     text-align: center;
+  }
+  .show-more{
+    display: none !important;
+  }
+  .show-details{
+    display: block !important;
+    margin-bottom: 50px !important;
   }
 
   .width-center{
