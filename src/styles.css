@@ -42,6 +42,7 @@
   }
   .show-details{
     display: block !important;
+    margin-bottom: 50px !important;
   }
 
   .width-center{
@@ -86,6 +87,7 @@
 
   .lang-nav{
     margin: 5px !important;
+    direction: ltr;
   }
 
   .english .header-item{
@@ -107,6 +109,7 @@
   }
   .lang-nav{
     margin-top: 140px !important;
+    direction: ltr;
   }
 }
 
@@ -309,4 +312,16 @@ span, div, label, p{
 
 .ui-galleria-panel{
   text-align: center;
+}
+
+.show-details .personal-image{
+  float: unset !important;
+}
+
+.show-details .project-image{
+  float: unset !important;
+}
+
+.project-text-align{
+  text-align: justify !important;
 }
