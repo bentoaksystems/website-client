@@ -18,15 +18,16 @@
   font-family: 'roboto';
   src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
 }
+.lang-nav {
+  direction: ltr !important;
+  font-family: Roboto !important;
+}
 
-/*The upper width size for small screen*/
-@media screen and (max-width: 959px){
-  .lang-nav{
-    margin-left: 20px;
+@media screen and (max-width: 768px) and (min-width: 400px) {
+  .column-menu{
+    display: none !important;
   }
 }
-/*End of media*/
-
 @media screen and (max-width: 768px){
   .english{
     text-align: center;
@@ -39,7 +40,6 @@
   .show-more{
     display: none !important;
   }
-
   .show-details{
     display: block !important;
   }
@@ -56,6 +56,7 @@
     display: block !important;
     margin-top: 30px;
   }
+
 }
 
 .visible-slideshow{
@@ -68,7 +69,7 @@
 
 @media screen and (max-width: 400px){
   .column-menu{
-    display: block !important;
+    display: block;
   }
 
   .usual-menu{
@@ -84,7 +85,7 @@
   }
 
   .lang-nav{
-    margin-top: 140px !important;
+    margin: 5px !important;
   }
 
   .english .header-item{
@@ -96,13 +97,16 @@
   }
 }
 
-@media screen and (min-width: 401px){
-  .column-menu{
-    display: none !important;
-  }
-
+@media screen and (min-width: 768px){
   .usual-menu{
     display: block !important;
+  }
+  .column-menu{
+    display: none !important;
+    visibility: hidden;
+  }
+  .lang-nav{
+    margin-top: 140px !important;
   }
 }
 
@@ -260,6 +264,7 @@ span, div, label, p{
 
 .farsi .personal-image{
   float: left !important;
+  right: -10px !important;
 }
 
 .english .project-image{
@@ -271,10 +276,12 @@ span, div, label, p{
 }
 
 .ui-panel-images{
-  max-width: 500px;
-  max-height: 313px;
+  max-width: 700px;
+  max-height: 700px;
 }
-
+.ui-galleria{
+  width:100%;
+}
 .english .ui-galleria-caption{
   font-family: roboto, serif;
 }

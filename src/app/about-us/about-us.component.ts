@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as marked from 'marked';
 import {LanguageService} from "../language.service";
 import {ContentfulService} from "../contentful.service";
 
@@ -19,8 +19,8 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getAbout()
       .then(res => {
-        this.description.en = res[0].fields.descriptionEn;
-        this.description.fa = res[0].fields.descriptionFa;
+        this.description.en = marked(res[0].fields.descriptionEn);
+        this.description.fa = marked(res[0].fields.descriptionFa);
       });
   }
 

@@ -1,11 +1,9 @@
 <div [ngClass]="[lang]">
   <div class="flex-container" fxLayout="row" fxLayoutAlign="center center">
-    <div class="flex-item" fxFlex="15" fxFlex.md="10" fxFlex.sm="0" fxflex.xs="0"></div>
-    <div class="flex-item" fxFlex="70" fxFlex.md="80" fxFlex.sm="100" fxflex.xs="100">
+    <div class="flex-item" fxFlex="70" fxFlex.md="80" fxFlex.sm="100" fxFlex.xs="100">
       <app-header></app-header>
       <router-outlet></router-outlet>
     </div>
-    <div class="flex-item" fxFlex="15" fxFlex.md="10" fxFlex.sm="0" fxflex.xs="0"></div>
   </div>
   <app-footer style="width:100%;"></app-footer>
 </div>

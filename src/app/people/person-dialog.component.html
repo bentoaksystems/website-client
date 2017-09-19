@@ -10,38 +10,9 @@
     <md-card-title *ngIf="langService.lang === 'english'">{{data.person.fullName_en}}</md-card-title>
     <md-card-title *ngIf="langService.lang === 'farsi'">{{data.person.fullName_fa}}</md-card-title>
     <md-card-content>
-      <h5 *ngIf="langService.lang === 'english'">{{data.person.responsibility_en}}</h5>
-      <h4 *ngIf="langService.lang === 'farsi'">{{data.person.responsibility_fa}}</h4>
+      <h4>{{data.person.responsibilities}}</h4>
       <div class="section">
-        {{langService.translate('You can see my skills and experience at LinkedIn ')}}
-        <a *ngIf="langService.lang === 'english'" href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{data.person.fullName_en}}</a>
-        <a *ngIf="langService.lang === 'farsi'" href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{data.person.fullName_fa}}</a>
-      </div>
-      <div class="section">
-        <h4>{{langService.translate('My favorites are ')}}</h4>
-        <md-list *ngIf="langService.lang === 'english'">
-          <md-list-item *ngFor="let favorite of data.person.favorites_en">{{favorite}}</md-list-item>
-        </md-list>
-        <md-list *ngIf="langService.lang === 'farsi'">
-          <md-list-item *ngFor="let favorite of data.person.favorites_fa">{{favorite}}</md-list-item>
-        </md-list>
-      </div>
-      <div class="section">
-        <h4>{{langService.translate('Contact me')}}</h4>
-        <md-list>
-          <md-list-item *ngIf="data.person.email">
-            <md-icon md-list-icon>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-            </md-icon>
-            <p md-line>{{data.person.email}}</p>
-          </md-list-item>
-          <md-list-item *ngIf="data.person.phone">
-            <md-icon md-list-icon>
-              <i class="fa fa-phone" aria-hidden="true"></i>
-            </md-icon>
-            <p md-line>{{data.person.phone}}</p>
-          </md-list-item>
-        </md-list>
+        <a *ngIf="langService.lang === 'english'" href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{langService.translate('LinkedIn Profile')}}</a>
       </div>
     </md-card-content>
   </md-card>

@@ -1,42 +1,60 @@
 <div class="page">
+  <div class="container">
+    <div class="jumbotron">
+     <h1>{{langService.translate('App Developers')}}</h1>
+      <p>{{langService.translate('Decades of progress in Information and Communication Technologies provided creative souls with great fabric of the Web, the mobile and social computing, and a huge wealth of free, accessible and open-source programmatic toolset that was not imaginable even a few years ago.')}}</p>
+      <p>{{langService.translate('Modern apps are combination of all these possibilities rammed into an easy-to-use, intuitive, usually hand-held gizmo for daily use.')}}</p>
+      <p>{{langService.translate('In Bent Oak Systems we strive to create good apps for our clients. We create them on the Web, and on various Mobile ecosystems, and we create well-thought micro-services and data stores to support them.')}}</p>
+      <p>{{langService.translate('In short we are software architects, designers and programmers focused on apps.')}}</p>
+      <h2>{{langService.translate('Thinking globally, acting locally')}}</h2>
+      <p>{{langService.translate('With global partners in the London, UK, we are a global software development team with high standards for quality and deliverance.')}}</p>
+      <p>{{langService.translate('On the other hand, we proudly use our local advantages: a dynamic startup environment in Tehran that generates lots of talented developers, and with inexpensive cost of living that enables us to reduce our cost of develpment to fraction and make real value for money.')}}</p>
+    </div>
+  </div>
+  <div class="vertical-space"></div>
+  <div class="center">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1>{{langService.translate('Our Toolbox')}}</h1>
+    </div>
+  </div>
   <div *ngIf="!waiting">
     <div class="flex-container visible-slideshow" fxLayout="row" fxLayoutAlign="center center">
-      <div class="flex-item" fxFlex="20" fxFlex.sm="0" fxFlex.xs="0"></div>
-      <div class="flex-item slide-show" fxFlex="60" fxFlex.sm="100" fxFlex.xs="100">
-        <p-galleria [ngClass]="[lang]" [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true" [showFilmstrip]="false" [transitionInterval]="5000"></p-galleria>
+      <div class="flex-item slide-show">
+        <p-galleria [ngClass]="[lang]" [images]="images" [showCaption]="true" panelWidth="700" panelHeight="785"
+                    [showFilmstrip]="true" [transitionInterval]="9000"></p-galleria>
       </div>
-      <div class="flex-item" fxFlex="20" fxFlex.sm="0" fxFlex.xs="0"></div>
     </div>
     <div class="invisible-slideshow">
       <div *ngFor="let image of images" class="center image-wrapper">
-        <img src="{{image.source}}" alt="{{image.title}}" class="image-without-slideshow" />
+        <h2>{{image.title}}</h2>
+        <img src="{{image.source}}" alt="{{image.title}}" class="image-without-slideshow"/>
         <p class="jumbotron">{{image.alt}}</p>
       </div>
     </div>
-    <div class="vertical-space"></div>
-    <div class="center container">
-      <div class="jumbotron">
-        <h3>
-          "{{langService.translate('The only limit to your impact is your imagination and commitment')}}"
-        </h3>
-        <div style="font-size: 0.8em;">{{langService.translate('Tony Robbins')}}</div>
-      </div>
-    </div>
+
     <div class="vertical-space"></div>
     <div>
-      <h2 class="center">
-        {{langService.translate('Trust us to make better world')}}
-      </h2>
+      <div class="center container">
+        <div class="jumbotron">
+          <h2>
+            "{{langService.translate('Be of the web, not behind the web!')}}"
+          </h2>
+          <div style="font-size: 0.8em;">{{langService.translate('Ian Robinson')}}
+          </div>
+        </div>
+      </div>
       <div class="center">
-        <div fxLayout="column" fxLayoutAlign="center center">
-          <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.xs="column">
+        <div class="techContainer" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="center center">
+          <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.xs="column" style="min-height:200px">
             <div *ngFor="let technology of technologies_1" class="flex-item" fxFlex="14">
-              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}" class="img-link" />
+              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}"
+                   class="img-link"/>
             </div>
           </div>
-          <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.xs="column">
+          <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.xs="column" style="min-height:200px">
             <div *ngFor="let technology of technologies_2" class="flex-item" fxFlex="14">
-              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}" class="img-link"/>
+              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}"
+                   class="img-link"/>
             </div>
           </div>
         </div>

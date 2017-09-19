@@ -6,8 +6,7 @@
     <div class="flex-item" fxFlex="70">
       <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
       <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
-      <h4 class="width-center" *ngIf="langService.lang === 'english'">{{person.responsibility_en}}</h4>
-      <h4 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.responsibility_fa}}</h4>
+      <h4 class="width-center">{{person.responsibilities}}</h4>
       <a class="show-more link" (click)="showDetails()">{{langService.translate('More...')}}</a>
       <div class="show-details">
         <hr/>

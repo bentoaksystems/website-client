@@ -24,7 +24,7 @@ export class PeopleComponent implements OnInit {
             fullName_en: item.fields.fullNameEn,
             fullName_fa: item.fields.fullNameFa,
             image: item.fields.image.fields.file.url,
-            cover: item.fields.cover.fields.file.url,
+            cover: item.fields.cover ? item.fields.cover.fields.file.url : null,
             linkedin: item.fields.linkedin,
             favorites_en: item.fields.favoritesEn,
             favorites_fa: item.fields.favoritesFa,
