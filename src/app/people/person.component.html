@@ -1,35 +1,35 @@
 <div>
-  <div class="show-more flex-container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+  <div class="flex-container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
     <div class="flex-item" fxFlex="30">
       <img src="{{person.image}}" alt="{{person.title}}" class="personal-image"/>
     </div>
     <div class="flex-item" fxFlex="70">
       <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
       <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
-      <h4 class="width-center" *ngIf="langService.lang === 'english'">{{person.responsibility_en}}</h4>
-      <h4 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.responsibility_fa}}</h4>
-      <a class="link" (click)="showDetails()">{{langService.translate('More...')}}</a>
-    </div>
-  </div>
-  <div class="show-details center">
-    <hr/>
-    <div class="row">
-      <div class="col-12">
-        <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
-        <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
-      </div>
-      <div class="col-12 center">
-        <img src="{{person.image}}" alt="{{person.title}}" class="personal-image"/>
-      </div>
-      <div class="col-12">
-        <h4 class="width-center" *ngIf="langService.lang === 'english'">{{person.responsibility_en}}</h4>
-        <h4 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.responsibility_fa}}</h4>
-      </div>
-      <div class="col-12">
+      <h4 class="width-center">{{person.responsibilities}}</h4>
+      <a class="show-more link" (click)="showDetails()">{{langService.translate('More...')}}</a>
+      <div class="show-details">
+        <hr/>
         <div>
           {{langService.translate('You can see my skills and experience at LinkedIn ')}}
           <a *ngIf="langService.lang === 'english'" href="{{person.linkedin}}" target="_blank" class="link">{{person.fullName_en}}</a>
           <a *ngIf="langService.lang === 'farsi'" href="{{person.linkedin}}" target="_blank" class="link">{{person.fullName_fa}}</a>
+        </div>
+        <div>
+          <h4>{{langService.translate('My favorites are ')}}</h4>
+          <div *ngIf="langService.lang === 'english'">
+            <div *ngFor="let favorite of person.favorites_en">{{favorite}}</div>
+          </div>
+          <div *ngIf="langService.lang === 'farsi'">
+            <div *ngFor="let favorite of person.favorites_fa">{{favorite}}</div>
+          </div>
+        </div>
+        <div>
+          <h4>{{langService.translate('Contact me')}}</h4>
+          <md-list>
+            <md-list-item class="center" *ngIf="person.email">{{langService.translate('Email: ')}}{{person.email}}</md-list-item>
+            <md-list-item class="center" *ngIf="person.phone">{{langService.translate('Phone: ')}}{{person.phone}}</md-list-item>
+          </md-list>
         </div>
       </div>
     </div>

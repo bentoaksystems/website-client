@@ -24,7 +24,18 @@ export class PersonComponent implements OnInit {
       this.width = this.windowService.getWindow().innerWidth;
     };
 
-    this.langService.lang$.subscribe(lang => this.lang = lang);
+    this.langService.lang$.subscribe(lang => {
+      this.lang = lang;
+      let res, j;
+      if (lang === 'english') {
+        res = this.person.responsibility_en;
+        j   = ', ';
+      } else {
+        res = this.person.responsibility_fa;
+        j   = '، ';
+      }
+      this.person.responsibilities = res.join(j);
+    });
   }
 
   showDetails(){

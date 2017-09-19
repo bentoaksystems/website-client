@@ -4,7 +4,16 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class LanguageService {
-  lang: string = 'english';       // Two options: (english, farsi)
+  private _lang = 'english';
+  get lang(): string{
+    return this._lang;
+  }
+
+  set lang(data: string){
+    this._lang = data;
+    localStorage.setItem('lang', data);
+  }
+
   private langSubject = new BehaviorSubject<string>('english');
   lang$: Observable<string> = this.langSubject.asObservable();
 
@@ -39,10 +48,28 @@ export class LanguageService {
   };
 
   constructor() {
+    setTimeout(() => {
+      let lang;
+      try {
+      let temp = localStorage.getItem('lang');
+      lang = temp ? temp : 'english';
+      } catch (e) {
+        lang = 'english';
+      }
+      if (lang !== this.lang) {
+        this.lang = lang;
+        this.langSubject.next(lang);
+      }
+    }, 0);
   }
 
-  changeLanguage() {
-    this.lang = (this.lang === 'english') ? 'farsi' : 'english';
+  changeLanguage(lang = null) {
+    if (!lang) {
+      this.lang = (this.lang === 'english') ? 'farsi' : 'english';
+    } else {
+      this.lang = lang;
+    }
+
     this.langSubject.next(this.lang);
   }
 
