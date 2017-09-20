@@ -28,6 +28,12 @@
     display: none !important;
   }
 }
+@media screen and (min-width: 960px){
+  .lang-nav{
+    margin-top: 140px !important;
+    direction: ltr;
+  }
+}
 @media screen and (max-width: 768px){
   .english{
     text-align: center;
@@ -66,6 +72,19 @@
 .invisible-slideshow{
   display: none;
 }
+.logo {
+  color: black !important;
+}
+.active-link{
+  color: #607d8b !important;
+  text-decoration: underline !important;
+}
+@media screen and (min-width: 400px){
+  .logo{
+    font-size: 157% !important;
+  }
+
+}
 
 @media screen and (max-width: 400px){
   .column-menu{
@@ -77,11 +96,11 @@
   }
 
   .logo .english{
-    font-size: 1.6em;
+    font-size: 2.6em;
   }
 
   .logo .farsi{
-    font-size: 1.6em;
+    font-size: 2.6em;
   }
 
   .lang-nav{
@@ -105,10 +124,6 @@
   .column-menu{
     display: none !important;
     visibility: hidden;
-  }
-  .lang-nav{
-    margin-top: 140px !important;
-    direction: ltr;
   }
 }
 

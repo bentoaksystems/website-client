@@ -45,6 +45,7 @@ export class LanguageService {
     'thinking globally, acting locally':'فکر جهانی، عملکرد محلی',
     'with global partners in the london, uk, we are a g':'با داشتن پایگاه و مشتری در لندن، ما تیم نرم‌افزاری با استانداردهای جهانی در کیفیت و تحویل محصول هستیم.',
     'on the other hand, we proudly use our local advant':'هم‌زمان ما از مزیت‌های خودمان به عنوان یک تیم ایرانی بهره‌مندیم. فضای استارتاپی جذاب در تهران برنامه‌نویسان با استعداد زیادی تربیت کرده و سبک زندگی به نسبت ارزان‌تر باعث شده قیمت تمام‌شده‌ی ما رقابتی‌تر باشد.',
+    'linkedin profile': 'نمایه در لینکدین',
   };
 
   constructor() {
