@@ -1,15 +1,6 @@
 <div class="page">
   <div class="container">
-    <div class="jumbotron">
-     <h1>{{langService.translate('App Developers')}}</h1>
-      <p>{{langService.translate('Decades of progress in Information and Communication Technologies provided creative souls with great fabric of the Web, the mobile and social computing, and a huge wealth of free, accessible and open-source programmatic toolset that was not imaginable even a few years ago.')}}</p>
-      <p>{{langService.translate('Modern apps are combination of all these possibilities rammed into an easy-to-use, intuitive, usually hand-held gizmo for daily use.')}}</p>
-      <p>{{langService.translate('In Bent Oak Systems we strive to create good apps for our clients. We create them on the Web, and on various Mobile ecosystems, and we create well-thought micro-services and data stores to support them.')}}</p>
-      <p>{{langService.translate('In short we are software architects, designers and programmers focused on apps.')}}</p>
-      <h2>{{langService.translate('Thinking globally, acting locally')}}</h2>
-      <p>{{langService.translate('With global partners in the London, UK, we are a global software development team with high standards for quality and deliverance.')}}</p>
-      <p>{{langService.translate('On the other hand, we proudly use our local advantages: a dynamic startup environment in Tehran that generates lots of talented developers, and with inexpensive cost of living that enables us to reduce our cost of develpment to fraction and make real value for money.')}}</p>
-    </div>
+    <div class="jumbotron" [innerHTML]="intro"></div>
   </div>
   <div class="vertical-space"></div>
   <div class="center">

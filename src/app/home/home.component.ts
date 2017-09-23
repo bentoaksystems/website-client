@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {ContentfulService} from "../contentful.service";
 import {LanguageService} from "../language.service";
 import {WindowService} from "../window.service";
+import * as marked from 'marked';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,8 @@ import {WindowService} from "../window.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  introRes: any = {introFa:'', introEn:''};
+  intro = '';
   lang: string;
   private images_en: any = [];
   private images_fa: any = [];
@@ -27,6 +30,7 @@ export class HomeComponent implements OnInit {
     this.langService.lang$.subscribe(lang => {
       this.lang = lang;
       this.images = (this.lang === 'english') ? this.images_en : this.images_fa;
+      this.intro = marked( (this.langService.lang === 'english') ? this.introRes.introEn : this.introRes.introFa );
     });
 
     this.waiting = true;
@@ -40,6 +44,11 @@ export class HomeComponent implements OnInit {
       this.width = this.windowService.getWindow().innerWidth - 100;
     };
 
+    this.contentfulService.getIntro()
+      .then( res => {
+        this.introRes = res;
+        this.intro = marked( (this.langService.lang === 'english') ? res.introEn : res.introFa );
+      });
     this.contentfulService.getHomeData()
       .then(res => {
         let slideshows = res[0].fields.slideShow;

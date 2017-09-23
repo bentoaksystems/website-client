@@ -10,7 +10,8 @@ const CONFIG = {
     people: 'people',
     about: 'about',
     home: 'homeData',
-    contact: 'contact'
+    contact: 'contact',
+    intro: 'intro',
   }
 };
 
@@ -72,4 +73,12 @@ export class ContentfulService {
       .then(res => res.items)
       .catch(err => console.log(err));
   }
+
+  getIntro(query?: object): any {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.intro
+    }, query))
+      .then( res => res.items[0].fields)
+      .catch( err => console.log(err));
+    };
 }
