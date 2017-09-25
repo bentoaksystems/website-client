@@ -6,13 +6,14 @@ import {
   MdButtonModule,
   MdCardModule,
   MdDialogModule,
-  MdGridListModule,
+  MdGridListModule, MdInputModule,
   MdListModule,
-  MdProgressSpinnerModule} from "@angular/material";
+  MdProgressSpinnerModule, MdSnackBarModule
+} from "@angular/material";
 import {GalleriaModule} from "primeng/primeng";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import 'hammerjs';
-import {AotPlugin} from '@ngtools/webpack';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -29,6 +30,9 @@ import { PersonComponent } from './people/person.component';
 import { PersonDialogComponent } from './people/person-dialog.component';
 import { ProjectComponent } from './projects/project.component';
 import { ProjectDialogComponent } from './projects/project-dialog.component';
+import {MessageService} from "./message.service";
+import {HttpService} from "./http.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -48,12 +52,17 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
+    MdInputModule,
     MdButtonModule,
     MdProgressSpinnerModule,
     MdListModule,
     MdGridListModule,
     MdDialogModule,
     MdCardModule,
+    MdSnackBarModule,
     FlexLayoutModule,
     GalleriaModule,
     RouterModule.forRoot([
@@ -65,7 +74,7 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
       {path: 'contact', component: ContactComponent}
     ])
   ],
-  providers: [ContentfulService, LanguageService, WindowService],
+  providers: [ContentfulService, LanguageService, WindowService, MessageService, HttpService],
   bootstrap: [AppComponent],
   entryComponents: [PersonDialogComponent, ProjectDialogComponent]
 })
