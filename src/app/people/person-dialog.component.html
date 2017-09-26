@@ -12,7 +12,7 @@
     <md-card-content>
       <h4>{{data.person.responsibilities}}</h4>
       <div class="section">
-        <a *ngIf="langService.lang === 'english'" href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{langService.translate('LinkedIn Profile')}}</a>
+        <a href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{langService.translate('LinkedIn Profile')}}</a>
       </div>
     </md-card-content>
   </md-card>

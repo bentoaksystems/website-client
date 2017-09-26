@@ -1,5 +1,5 @@
 <div>
-  <div class="show-more flex-container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+  <div class="show-more flex-container" fxLayout="row" fxLayoutAlign="center center">
     <div class="flex-item" fxFlex="30">
       <img src="{{person.image}}" alt="{{person.title}}" class="personal-image"/>
     </div>
@@ -22,10 +22,8 @@
       <div class="col-12">
         <h4 class="width-center">{{person.responsibilities}}</h4>
       </div>
-      <div>
-        {{langService.translate('You can see my skills and experience at LinkedIn ')}}
-        <a *ngIf="langService.lang === 'english'" href="{{person.linkedin}}" target="_blank" class="link">{{person.fullName_en}}</a>
-        <a *ngIf="langService.lang === 'farsi'" href="{{person.linkedin}}" target="_blank" class="link">{{person.fullName_fa}}</a>
+      <div class="col-12">
+        <a class="width-center" href="{{person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{langService.translate('LinkedIn Profile')}}</a>
       </div>
     </div>
     <hr/>
