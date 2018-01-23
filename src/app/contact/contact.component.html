@@ -5,24 +5,30 @@
   <br/>
   <form [formGroup]="contactForm" (ngSubmit)="send()">
     <div>
-      <md-input-container class="data-field">
-        <input mdInput type="email" formControlName="email" placeholder="{{langService.translate('Your Email')}}"/>
+      <md-input-container class="data-field" [ngClass]="emailClass">
+        <input mdInput type="email" formControlName="email"
+               placeholder="{{langService.translate('Your Email')}}"
+               (ngModelChange)="changeInput(inputType.email, email.value)" #email/>
       </md-input-container>
     </div>
     <div>
-      <md-input-container class="data-field">
-        <input mdInput type="text" formControlName="name" placeholder="{{langService.translate('Your name')}}"/>
+      <md-input-container class="data-field" [ngClass]="nameClass">
+        <input mdInput type="text" formControlName="name"
+               placeholder="{{langService.translate('Your name')}}"
+               (ngModelChange)="changeInput(inputType.name, name.value)" #name/>
       </md-input-container>
     </div>
     <div>
-      <md-form-field class="data-field">
-      <textarea mdInput rows="10" formControlName="content" placeholder="{{langService.translate('Content')}}">
+      <md-form-field class="data-field" [ngClass]="contentClass">
+      <textarea mdInput rows="10" formControlName="content"
+                placeholder="{{langService.translate('Content')}}"
+                (ngModelChange)="changeInput(inputType.content, content.value)" #content>
       </textarea>
       </md-form-field>
     </div>
     <div>
       <button md-raised-button type="submit" [disabled]="!contactForm.valid">
-        Send your message
+        {{langService.translate('Send your message')}}
       </button>
     </div>
   </form>
