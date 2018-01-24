@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MdDialog} from "@angular/material";
+import {MatDialog} from "@angular/material";
 
 import {LanguageService} from "../language.service";
 import {WindowService} from "../window.service";
@@ -15,7 +15,7 @@ export class ProjectComponent implements OnInit {
   width: number = 500;
 
   constructor(public langService: LanguageService, private windowService: WindowService,
-              public dialog: MdDialog) { }
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.width = this.windowService.getWindow().innerWidth;
