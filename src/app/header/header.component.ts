@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 
 import {LanguageService} from "../language.service";
 import {WindowService} from "../window.service";
@@ -13,17 +13,20 @@ export class HeaderComponent implements OnInit {
   height: number = 500;
   width: number = 500;
 
-  constructor(public langService: LanguageService, public windowService: WindowService) { }
+  constructor(public langService: LanguageService, public windowService: WindowService,
+              @Inject('isBrowser') private isBrowser: boolean) { }
 
   ngOnInit() {
-    this.height = this.windowService.getWindow().innerHeight - 250;
-    this.windowService.getWindow().onresize = (e) => {
+    if(this.isBrowser) {
       this.height = this.windowService.getWindow().innerHeight - 250;
-    };
-    this.width = this.windowService.getWindow().innerWidth - 30;
-    this.windowService.getWindow().onresize = (e) => {
+      this.windowService.getWindow().onresize = (e) => {
+        this.height = this.windowService.getWindow().innerHeight - 250;
+      };
       this.width = this.windowService.getWindow().innerWidth - 30;
-    };
+      this.windowService.getWindow().onresize = (e) => {
+        this.width = this.windowService.getWindow().innerWidth - 30;
+      };
+    }
 
     this.langService.lang$.subscribe(lang => this.lang = lang)
   }
