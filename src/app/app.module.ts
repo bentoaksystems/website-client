@@ -26,7 +26,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PeopleComponent } from './people/people.component';
 import {LanguageService} from "./language.service";
-import {WindowService} from "./window.service";
+import {WINDOW_PROVIDERS} from "./window.service";
 import { ContactComponent } from './contact/contact.component';
 import { PersonComponent } from './people/person.component';
 import { PersonDialogComponent } from './people/person-dialog.component';
@@ -76,7 +76,7 @@ import {HttpModule} from "@angular/http";
       {path: 'contact', component: ContactComponent}
     ])
   ],
-  providers: [ContentfulService, LanguageService, WindowService, MessageService, HttpService],
+  providers: [ContentfulService, LanguageService, WINDOW_PROVIDERS, MessageService, HttpService],
   bootstrap: [AppComponent],
   entryComponents: [PersonDialogComponent, ProjectDialogComponent]
 })

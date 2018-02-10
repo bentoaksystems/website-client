@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 
 import {ContentfulService} from "../contentful.service";
 import {LanguageService} from "../language.service";
-import {WindowService} from "../window.service";
+import {WINDOW} from "../window.service";
 import * as marked from 'marked';
 
 @Component({
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   technologies_2: any = [];
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
-              private windowService: WindowService) { }
+              @Inject(WINDOW) private window) { }
 
   ngOnInit() {
     this.langService.lang$.subscribe(lang => {
@@ -35,13 +35,13 @@ export class HomeComponent implements OnInit {
 
     this.waiting = true;
 
-    this.height = this.windowService.getWindow().innerHeight - 283;
-    this.windowService.getWindow().onresize = (e) => {
-      this.height = this.windowService.getWindow().innerHeight - 283;
+    this.height = this.window.innerHeight - 283;
+    this.window.onresize = (e) => {
+      this.height = this.window.innerHeight - 283;
     };
-    this.width = this.windowService.getWindow().innerWidth - 100;
-    this.windowService.getWindow().onresize = (e) => {
-      this.width = this.windowService.getWindow().innerWidth - 100;
+    this.width = this.window.innerWidth - 100;
+    this.window.onresize = (e) => {
+      this.width = this.window.innerWidth - 100;
     };
 
     this.contentfulService.getIntro()
@@ -83,6 +83,6 @@ export class HomeComponent implements OnInit {
   }
 
   openPage(link){
-    this.windowService.getWindow().open(link, '_blank');
+    this.window.open(link, '_blank');
   }
 }
