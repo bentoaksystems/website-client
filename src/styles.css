@@ -339,3 +339,20 @@ span, div, label, p{
 .project-text-align{
   text-align: justify !important;
 }
+
+.data-field{
+  width: 100%;
+  text-align: center;
+}
+
+.inform{
+  background-color: black;
+}
+
+.error{
+  background-color: darkred;
+}
+
+.warning{
+  background-color: greenyellow;
+}

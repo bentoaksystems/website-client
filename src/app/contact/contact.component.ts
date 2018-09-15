@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import {LanguageService} from "../language.service";
-import {ContentfulService} from "../contentful.service";
+import {MessageService} from "../message.service";
+import {HttpService} from "../http.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-contact',
@@ -9,31 +11,41 @@ import {ContentfulService} from "../contentful.service";
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  email: string = '';
-  linkedin: string = '';
-  location: any;
-  address = {
-    en: null,
-    fa: null
-  };
-  phone = {
-    uk: null,
-    ir: null
-  };
+  contactForm: FormGroup;
+  email = '';
+  name: string = '';
+  content: string = '';
 
-  constructor(public langService: LanguageService, private contentfulService: ContentfulService) { }
+  constructor(public langService: LanguageService, private msgService: MessageService,
+              private httpService: HttpService) { }
 
   ngOnInit() {
-    this.contentfulService.getContactData()
-      .then(details => {
-        this.address.en = details[0].fields.addressEn;
-        this.address.fa = details[0].fields.addressFa;
-        this.phone.uk = details[0].fields.phoneUk;
-        this.phone.ir = details[0].fields.phoneIr;
-        this.email = details[0].fields.email;
-        this.linkedin = details[0].fields.linkedin;
-        this.location = details[0].fields.location;
-      });
+    this.contactForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      name: new FormControl(null),
+      content: new FormControl(null, [Validators.required])
+    });
   }
 
+  send(){
+    //Check the form
+
+    let obj = {
+      email: this.email,
+      name: this.name,
+      content: this.content
+    };
+
+    this.httpService.postData('contact', obj).subscribe(
+      (res) => {
+        this.msgService.inform(this.langService.translate('Your message has been sent. We response you as soon as possible. Thanks'));
+        this.email = null;
+        this.name = null;
+        this.content = null;
+      },
+      (err) => {
+        this.msgService.error(this.langService.translate('Cannot send your message. Check your connection and try again.'));
+      }
+    );
+  }
 }
