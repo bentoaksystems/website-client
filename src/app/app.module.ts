@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MdButtonModule,
-  MdCardModule,
-  MdDialogModule,
-  MdGridListModule,
-  MdListModule,
-  MdProgressSpinnerModule} from "@angular/material";
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatListModule,
+  MatProgressSpinnerModule} from "@angular/material";
 import {GalleriaModule} from "primeng/primeng";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import 'hammerjs';
@@ -48,12 +48,12 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    MdButtonModule,
-    MdProgressSpinnerModule,
-    MdListModule,
-    MdGridListModule,
-    MdDialogModule,
-    MdCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatCardModule,
     FlexLayoutModule,
     GalleriaModule,
     RouterModule.forRoot([
