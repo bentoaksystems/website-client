@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material";
 
 import {LanguageService} from "../language.service";
 import {PersonDialogComponent} from "./person-dialog.component";
-import {WindowService} from "../window.service";
+import {WINDOW} from "../window.service";
 
 @Component({
   selector: 'app-person',
@@ -16,12 +16,12 @@ export class PersonComponent implements OnInit {
   lang: string;
 
   constructor(public langService: LanguageService, public dialog: MatDialog,
-              private windowService: WindowService) { }
+    @Inject(WINDOW) private window) {}
 
   ngOnInit() {
-    this.width = this.windowService.getWindow().innerWidth;
-    this.windowService.getWindow().onresize = (e) => {
-      this.width = this.windowService.getWindow().innerWidth;
+    this.width = this.window.innerWidth;
+    this.window.onresize = (e) => {
+      this.width = this.window.innerWidth;
     };
 
     this.langService.lang$.subscribe(lang => {
@@ -29,18 +29,18 @@ export class PersonComponent implements OnInit {
       let res, j;
       if (lang === 'english') {
         res = this.person.responsibility_en;
-        j   = ', ';
+        j = ', ';
       } else {
         res = this.person.responsibility_fa;
-        j   = '، ';
+        j = '، ';
       }
       this.person.responsibilities = res.join(j);
     });
   }
 
-  showDetails(){
-    let _width = this.windowService.getWindow().innerWidth;
-    let _height = this.windowService.getWindow().innerHeight;
+  showDetails() {
+    let _width = this.window.innerWidth;
+    let _height = this.window.innerHeight;
 
     this.dialog.open(PersonDialogComponent, {
       width: _width * 0.8 + 'px',
