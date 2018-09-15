@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MdSnackBar} from "@angular/material";
+import {MatSnackBar} from "@angular/material";
 
 import {LanguageService} from "./language.service";
 import {MessageType} from "./enum/message.enum";
@@ -8,7 +8,7 @@ import {MessageType} from "./enum/message.enum";
 export class MessageService {
   messageType = MessageType;
 
-  constructor(private snackBar: MdSnackBar, private langService: LanguageService) { }
+  constructor(private snackBar: MatSnackBar, private langService: LanguageService) { }
 
   inform(message){
     this.showMessage(message, this.messageType.inform);

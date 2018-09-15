@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
-  MdButtonModule,
-  MdCardModule,
-  MdDialogModule,
-  MdGridListModule, MdInputModule,
-  MdListModule,
-  MdProgressSpinnerModule, MdSnackBarModule
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatInputModule,
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule
 } from "@angular/material";
 import {GalleriaModule} from "primeng/primeng";
-import { FlexLayoutModule } from "@angular/flex-layout";
+import {FlexLayoutModule} from '@angular/flex-layout';
 import 'hammerjs';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
@@ -51,18 +53,18 @@ import {HttpModule} from "@angular/http";
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'website-client'}),
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    MdInputModule,
-    MdButtonModule,
-    MdProgressSpinnerModule,
-    MdListModule,
-    MdGridListModule,
-    MdDialogModule,
-    MdCardModule,
-    MdSnackBarModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatCardModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     GalleriaModule,
     RouterModule.forRoot([

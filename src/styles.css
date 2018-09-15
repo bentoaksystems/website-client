@@ -142,7 +142,7 @@
   text-align: center;
 }
 
-md-sidenav {
+mat-sidenav {
   width: 300px;
 }
 
@@ -355,4 +355,34 @@ span, div, label, p{
 
 .warning{
   background-color: greenyellow;
+}
+
+.english .mat-form-field-infix{
+  font-family: 'roboto';
+  text-align: left;
+}
+
+.farsi .mat-form-field-infix{
+  font-family: 'yekan';
+  text-align: right;
+}
+
+.english-style .mat-input-element{
+  font-family: 'roboto' !important;
+  text-align: left;
+  direction: ltr;
+}
+
+.farsi-style .mat-input-element{
+  font-family: 'yekan' !important;
+  text-align: right;
+  direction: rtl;
+}
+
+.english .mat-button-wrapper{
+  font-family: 'roboto';
+}
+
+.farsi .mat-button-wrapper{
+  font-family: 'yekan';
 }
