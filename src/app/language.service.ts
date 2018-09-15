@@ -38,6 +38,13 @@ export class LanguageService {
     'be of the web, not behind the web!': 'به جای پشت وب بودن، جزوی از وب باشید.',
     'ian robinson':'یان رابینسون',
     'linkedin profile': 'نمایه در لینکدین',
+    'contact us via below form': 'با ما از طریق فرم زیر در تماس باشید',
+    'your email': 'ایمیل شما',
+    'your name': 'نام شما',
+    'content': 'محتوا',
+    'send your message': 'ارسال پیامتان',
+    'your message has been sent. we response you as soon as possible. thanks': 'پیام شما ارسال شد. ما در اسرغ وقت به شما پاسخ خواهیم داد. با تشکر',
+    'cannot send your message. check your connection and try again.': 'قادر به ارسال پیام شما نیستیم. ارتباط خود را چک کرده و دوباره تلاش کنید.',
   };
 
   constructor() {

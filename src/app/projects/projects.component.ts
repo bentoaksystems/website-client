@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import * as marked from 'marked';
 
 import {LanguageService} from "../language.service";
 import {ContentfulService} from "../contentful.service";
-import {WindowService} from "../window.service";
+import {WINDOW} from "../window.service";
 
 @Component({
   selector: 'app-projects',
@@ -16,12 +16,12 @@ export class ProjectsComponent implements OnInit {
   waiting: boolean = false;
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
-              private windowService: WindowService) { }
+              @Inject(WINDOW) private window) { }
 
   ngOnInit() {
-    this.width = this.windowService.getWindow().innerWidth;
-    this.windowService.getWindow().onresize = (e) => {
-      this.width = this.windowService.getWindow().innerWidth;
+    this.width = this.window.innerWidth;
+    this.window.onresize = (e) => {
+      this.width = this.window.innerWidth;
     };
 
     this.waiting = true;

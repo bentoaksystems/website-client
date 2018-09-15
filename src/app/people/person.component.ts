@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MdDialog} from "@angular/material";
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material";
 
 import {LanguageService} from "../language.service";
 import {PersonDialogComponent} from "./person-dialog.component";
-import {WindowService} from "../window.service";
+import {WINDOW} from "../window.service";
 
 @Component({
   selector: 'app-person',
@@ -15,13 +15,13 @@ export class PersonComponent implements OnInit {
   width: number = 500;
   lang: string;
 
-  constructor(public langService: LanguageService, public dialog: MdDialog,
-              private windowService: WindowService) { }
+  constructor(public langService: LanguageService, public dialog: MatDialog,
+              @Inject(WINDOW) private window) { }
 
   ngOnInit() {
-    this.width = this.windowService.getWindow().innerWidth;
-    this.windowService.getWindow().onresize = (e) => {
-      this.width = this.windowService.getWindow().innerWidth;
+    this.width = this.window.innerWidth;
+    this.window.onresize = (e) => {
+      this.width = this.window.innerWidth;
     };
 
     this.langService.lang$.subscribe(lang => {
@@ -39,8 +39,8 @@ export class PersonComponent implements OnInit {
   }
 
   showDetails(){
-    let _width = this.windowService.getWindow().innerWidth;
-    let _height = this.windowService.getWindow().innerHeight;
+    let _width = this.window.innerWidth;
+    let _height = this.window.innerHeight;
 
     this.dialog.open(PersonDialogComponent, {
       width: _width * 0.8 + 'px',
