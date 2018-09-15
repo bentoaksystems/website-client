@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material";
 
 import {LanguageService} from "../language.service";
-import {WindowService} from "../window.service";
+import {WINDOW} from "../window.service";
 import {ProjectDialogComponent} from "./project-dialog.component";
 
 @Component({
@@ -14,19 +14,19 @@ export class ProjectComponent implements OnInit {
   @Input('project') project: any;
   width: number = 500;
 
-  constructor(public langService: LanguageService, private windowService: WindowService,
+  constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.width = this.windowService.getWindow().innerWidth;
-    this.windowService.getWindow().onresize = (e) => {
-      this.width = this.windowService.getWindow().innerWidth;
+    this.width = this.window.innerWidth;
+    this.window.onresize = (e) => {
+      this.width = this.window.innerWidth;
     };
   }
 
   showDetails(){
-    let _width = this.windowService.getWindow().innerWidth;
-    let _height = this.windowService.getWindow().innerHeight;
+    let _width = this.window.innerWidth;
+    let _height = this.window.innerHeight;
 
     this.dialog.open(ProjectDialogComponent, {
       width: _width * 0.8 + 'px',
