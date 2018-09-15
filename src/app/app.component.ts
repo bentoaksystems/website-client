@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import 'hammerjs';
-import {LanguageService} from "./language.service";
-import {WINDOW} from "./window.service";
+import {LanguageService} from "./shared/services/language.service";
+import {WINDOW} from "./shared/services/window.service";
 
 @Component({
   selector: 'app-root',

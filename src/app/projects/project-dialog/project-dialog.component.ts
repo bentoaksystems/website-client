@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
-import {LanguageService} from "../language.service";
+import {LanguageService} from "../../shared/services/language.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 
 @Component({

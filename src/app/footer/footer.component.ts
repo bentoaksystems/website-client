@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Entry} from 'contentful';
 
-import {ContentfulService} from "../contentful.service";
-import {LanguageService} from "../language.service";
+import {ContentfulService} from "../shared/services/contentful.service";
+import {LanguageService} from "../shared/services/language.service";
 
 @Component({
   selector: 'app-footer',

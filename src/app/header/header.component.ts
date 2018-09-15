@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 
-import {LanguageService} from "../language.service";
-import {WINDOW} from "../window.service";
+import {LanguageService} from "../shared/services/language.service";
+import {WINDOW} from "../shared/services/window.service";
 
 @Component({
   selector: 'app-header',

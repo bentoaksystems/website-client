@@ -1,9 +1,9 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material";
 
-import {LanguageService} from "../language.service";
-import {WINDOW} from "../window.service";
-import {ProjectDialogComponent} from "./project-dialog.component";
+import {LanguageService} from "../../shared/services/language.service";
+import {WINDOW} from "../../shared/services/window.service";
+import {ProjectDialogComponent} from "../project-dialog/project-dialog.component";
 
 @Component({
   selector: 'app-project',

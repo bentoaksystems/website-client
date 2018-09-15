@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
-import {ContentfulService} from "../contentful.service";
-import {LanguageService} from "../language.service";
-import {WINDOW} from "../window.service";
+import {ContentfulService} from "../shared/services/contentful.service";
+import {LanguageService} from "../shared/services/language.service";
+import {WINDOW} from "../shared/services/window.service";
 import * as marked from 'marked';
 
 @Component({

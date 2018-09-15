@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import * as marked from 'marked';
 
-import {LanguageService} from "../language.service";
-import {ContentfulService} from "../contentful.service";
-import {WINDOW} from "../window.service";
+import {LanguageService} from "../shared/services/language.service";
+import {ContentfulService} from "../shared/services/contentful.service";
+import {WINDOW} from "../shared/services/window.service";
 
 @Component({
   selector: 'app-projects',
