@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MdDialog} from "@angular/material";
+import {MatDialog} from '@angular/material';
 
-import {LanguageService} from "../language.service";
-import {PersonDialogComponent} from "./person-dialog.component";
-import {WindowService} from "../window.service";
+import {LanguageService} from '../language.service';
+import {PersonDialogComponent} from './person-dialog.component';
+import {WindowService} from '../window.service';
 
 @Component({
   selector: 'app-person',
@@ -15,7 +15,7 @@ export class PersonComponent implements OnInit {
   width: number = 500;
   lang: string;
 
-  constructor(public langService: LanguageService, public dialog: MdDialog,
+  constructor(public langService: LanguageService, public dialog: MatDialog,
               private windowService: WindowService) { }
 
   ngOnInit() {
