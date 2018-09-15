@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {LanguageService} from "../language.service";
-import {MessageService} from "../message.service";
-import {HttpService} from "../http.service";
+import {LanguageService} from "../shared/services/language.service";
+import {MessageService} from "../shared/services/message.service";
+import {HttpService} from "../shared/services/http.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {InputType} from "../enum/input.enum";
+import {InputType} from "../shared/enum/input.enum";
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +19,7 @@ export class ContactComponent implements OnInit {
   contentClass: string = 'english-style';
 
   constructor(public langService: LanguageService, private msgService: MessageService,
-              private httpService: HttpService) { }
+    private httpService: HttpService) {}
 
   ngOnInit() {
     this.contactForm = new FormGroup({
@@ -29,14 +29,14 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  send(){
+  send() {
     let obj = {
       email: this.contactForm.controls['email'].value,
       name: this.contactForm.controls['name'].value,
       content: this.contactForm.controls['content'].value
     };
 
-    this.httpService.postData('contact', obj).subscribe(
+    this.httpService.post('contact', obj).subscribe(
       (res) => {
         this.msgService.inform(this.langService.translate('Your message has been sent. We response you as soon as possible. Thanks'));
         this.contactForm.controls['email'].setValue(null);
@@ -49,33 +49,33 @@ export class ContactComponent implements OnInit {
     );
   }
 
-  changeInput(type, value){
+  changeInput(type, value) {
     let item = value.charCodeAt(0);
 
-    switch (type){
-      case this.inputType.email:{
-        if(item >= 32 && item <= 126)
+    switch (type) {
+      case this.inputType.email: {
+        if (item >= 32 && item <= 126)
           this.emailClass = 'english-style';
         else
           this.emailClass = 'farsi-style';
       }
-      break;
+        break;
 
-      case this.inputType.name:{
-        if(item >= 32 && item <= 126)
+      case this.inputType.name: {
+        if (item >= 32 && item <= 126)
           this.nameClass = 'english-style';
         else
           this.nameClass = 'farsi-style';
       }
-      break;
+        break;
 
-      case this.inputType.content:{
-        if(item >= 32 && item <= 126)
+      case this.inputType.content: {
+        if (item >= 32 && item <= 126)
           this.contentClass = 'english-style';
         else
           this.contentClass = 'farsi-style';
       }
-      break;
+        break;
     }
   }
 }

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 
-import {LanguageService} from "../language.service";
-import {WINDOW} from "../window.service";
+import {LanguageService} from "../shared/services/language.service";
+import {WINDOW} from "../shared/services/window.service";
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   height: number = 500;
   width: number = 500;
 
-  constructor(public langService: LanguageService, @Inject(WINDOW) public window) { }
+  constructor(public langService: LanguageService, @Inject(WINDOW) public window) {}
 
   ngOnInit() {
     this.height = this.window.innerHeight - 250;
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     this.langService.lang$.subscribe(lang => this.lang = lang)
   }
 
-  switchLang(){
+  switchLang() {
     this.langService.changeLanguage();
   }
 }

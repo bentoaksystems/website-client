@@ -11,7 +11,7 @@ module.exports = {
     prerender: './prerender.ts'
   },
   target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: {extensions: ['.ts', '.js']},
   // Make sure we include all node_modules etc
   externals: [/(node_modules|main\..*\.js)/,],
   output: {
@@ -21,7 +21,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.ts$/, loader: 'ts-loader' }
+      {test: /\.ts$/, loader: 'ts-loader'}
     ]
   },
   plugins: [

@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
-import {ContentfulService} from "../contentful.service";
-import {LanguageService} from "../language.service";
-import {WINDOW} from "../window.service";
+import {ContentfulService} from "../shared/services/contentful.service";
+import {LanguageService} from "../shared/services/language.service";
+import {WINDOW} from "../shared/services/window.service";
 import * as marked from 'marked';
 
 @Component({
@@ -11,7 +11,7 @@ import * as marked from 'marked';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  introRes: any = {introFa:'', introEn:''};
+  introRes: any = {introFa: '', introEn: ''};
   intro = '';
   lang: string;
   private images_en: any = [];
@@ -24,13 +24,13 @@ export class HomeComponent implements OnInit {
   technologies_2: any = [];
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
-              @Inject(WINDOW) private window) { }
+    @Inject(WINDOW) private window) {}
 
   ngOnInit() {
     this.langService.lang$.subscribe(lang => {
       this.lang = lang;
       this.images = (this.lang === 'english') ? this.images_en : this.images_fa;
-      this.intro = marked( (this.langService.lang === 'english') ? this.introRes.introEn : this.introRes.introFa );
+      this.intro = marked((this.langService.lang === 'english') ? this.introRes.introEn : this.introRes.introFa);
     });
 
     this.waiting = true;
@@ -45,9 +45,9 @@ export class HomeComponent implements OnInit {
     };
 
     this.contentfulService.getIntro()
-      .then( res => {
+      .then(res => {
         this.introRes = res;
-        this.intro = marked( (this.langService.lang === 'english') ? res.introEn : res.introFa );
+        this.intro = marked((this.langService.lang === 'english') ? res.introEn : res.introFa);
       });
     this.contentfulService.getHomeData()
       .then(res => {
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
 
         let maxHeight = 0, maxWidth = 0;
 
-        for(let s of slideshows) {
+        for (let s of slideshows) {
           if (s.fields) {
             let transDSCP = s.fields.description.split('|');
 
@@ -65,11 +65,11 @@ export class HomeComponent implements OnInit {
           }
         }
 
-        this.images = (this.langService.lang === 'english') ?  this.images_en : this.images_fa;
+        this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
 
-        for(let index = 0; index < _technologies.length; index++){
+        for (let index = 0; index < _technologies.length; index++) {
           let t = _technologies[index];
-          if(index < 7)
+          if (index < 7)
             this.technologies_1.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
           else
             this.technologies_2.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
       })
   }
 
-  openPage(link){
+  openPage(link) {
     this.window.open(link, '_blank');
   }
 }
