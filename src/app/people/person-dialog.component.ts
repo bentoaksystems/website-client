@@ -12,7 +12,7 @@ export class PersonDialogComponent implements OnInit {
   lang: string;
 
   constructor(public dialogRef: MatDialogRef<PersonDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any, public langService: LanguageService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, public langService: LanguageService) {}
 
   ngOnInit() {
     this.data.width -= 24;

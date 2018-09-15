@@ -5,11 +5,11 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class LanguageService {
   private _lang = 'english';
-  get lang(): string{
+  get lang(): string {
     return this._lang;
   }
 
-  set lang(data: string){
+  set lang(data: string) {
     this._lang = data;
     localStorage.setItem('lang', data);
   }
@@ -36,7 +36,7 @@ export class LanguageService {
     'you can contact us via': 'شما می توانید به کمک یکی از راه های زیر با ما در تماس باشید',
     'our toolbox': 'ابزارهای ما',
     'be of the web, not behind the web!': 'به جای پشت وب بودن، جزوی از وب باشید.',
-    'ian robinson':'یان رابینسون',
+    'ian robinson': 'یان رابینسون',
     'linkedin profile': 'نمایه در لینکدین',
     'contact us via below form': 'با ما از طریق فرم زیر در تماس باشید',
     'your email': 'ایمیل شما',
@@ -51,8 +51,8 @@ export class LanguageService {
     setTimeout(() => {
       let lang;
       try {
-      let temp = localStorage.getItem('lang');
-      lang = temp ? temp : 'english';
+        let temp = localStorage.getItem('lang');
+        lang = temp ? temp : 'english';
       } catch (e) {
         lang = 'english';
       }
@@ -76,8 +76,8 @@ export class LanguageService {
   translate(value: string) {
     if (this.lang === 'english') {
       return value;
-    } else if (this._translation[value.substring(0,50).toLowerCase()]) {
-      return this._translation[value.substring(0,50).toLowerCase()];
+    } else if (this._translation[value.substring(0, 50).toLowerCase()]) {
+      return this._translation[value.substring(0, 50).toLowerCase()];
     } else {
       return value;
     }

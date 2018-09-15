@@ -11,23 +11,19 @@ export class HttpService {
     this.serverAddress = `${origin}${this.serverAddress}`;
   }
 
-  postData(address, data) : Observable<Response>{
-    let headers = new Headers();
+  post(address, data): Observable<Response> {
     return this.http.post(this.serverAddress + '/' + address, data);
   }
 
-  putData(address, data) : Observable<Response> {
-    let headers = new Headers();
+  put(address, data): Observable<Response> {
     return this.http.put(this.serverAddress + '/' + address, data);
   }
 
-  getData(address) : Observable<Response>{
-    let headers = new Headers();
+  get(address): Observable<Response> {
     return this.http.get(this.serverAddress + '/' + address);
   }
 
-  deleteData(address) : Observable<Response>{
-    let headers = new Headers();
+  delete(address): Observable<Response> {
     return this.http.delete(this.serverAddress + '/' + address);
   }
 }

@@ -12,7 +12,7 @@ export class ProjectDialogComponent implements OnInit {
   lang: string
 
   constructor(public langService: LanguageService, public dialogRef: MatDialogRef<ProjectDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit() {
     this.langService.lang$.subscribe(lang => this.lang = lang);

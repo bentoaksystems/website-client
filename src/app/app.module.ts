@@ -76,8 +76,17 @@ import {HttpModule} from "@angular/http";
       {path: 'contact', component: ContactComponent}
     ])
   ],
-  providers: [ContentfulService, LanguageService, WINDOW_PROVIDERS, MessageService, HttpService],
+  providers: [
+    ContentfulService,
+    LanguageService,
+    WINDOW_PROVIDERS,
+    MessageService,
+    HttpService
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [PersonDialogComponent, ProjectDialogComponent]
+  entryComponents: [
+    PersonDialogComponent,
+    ProjectDialogComponent
+  ]
 })
 export class AppModule {}

@@ -8,18 +8,18 @@ import {WINDOW} from "./window.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   lang = 'english';
   height: number;
 
-  constructor(private langService: LanguageService, @Inject(WINDOW) private window){}
+  constructor(private langService: LanguageService, @Inject(WINDOW) private window) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.height = this.window.innerHeight - 283;
     this.window.onresize = (e) => {
       this.height = this.window.innerHeight - 283;
     };
 
-    this.langService.lang$.subscribe( lang => this.lang = lang );
+    this.langService.lang$.subscribe(lang => this.lang = lang);
   }
 }
