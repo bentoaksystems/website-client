@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
-import {LanguageService} from "../shared/services/language.service";
-import {MessageService} from "../shared/services/message.service";
-import {HttpService} from "../shared/services/http.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {InputType} from "../shared/enum/input.enum";
+import {LanguageService} from '../shared/services/language.service';
+import {MessageService} from '../shared/services/message.service';
+import {HttpService} from '../shared/services/http.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {InputType} from '../shared/enum/input.enum';
 
 @Component({
   selector: 'app-contact',
