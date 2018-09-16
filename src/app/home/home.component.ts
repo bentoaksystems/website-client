@@ -53,7 +53,6 @@ export class HomeComponent implements OnInit {
       .then(res => {
         let slideshows = res[0].fields.slideShow;
         let _technologies = res[1].fields.technologies;
-
         let maxHeight = 0, maxWidth = 0;
 
         for (let s of slideshows) {
