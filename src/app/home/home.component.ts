@@ -52,7 +52,11 @@ export class HomeComponent implements OnInit {
     this.contentfulService.getHomeData()
       .then(res => {
         let slideshows = res[0].fields.slideShow;
+        // let slideshows = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
+
         let _technologies = res[1].fields.technologies;
+        console.log('slideShow',slideshows);
+        console.log('technologies',_technologies);
 
         let maxHeight = 0, maxWidth = 0;
 

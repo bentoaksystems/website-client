@@ -11,20 +11,28 @@
   <div *ngIf="!waiting">
     <div class="flex-container visible-slideshow" fxLayout="row" fxLayoutAlign="center center">
       <div class="flex-item slide-show">
-        <p-galleria [ngClass]="[lang]" [images]="images" [showCaption]="true" panelWidth="700" panelHeight="785"
-          [showFilmstrip]="true" [transitionInterval]="9000"></p-galleria>
+        <p-galleria [ngClass]="[lang]" [images]="images" [showCaption]="true" panelWidth="500" panelHeight="585"
+                    [showFilmstrip]="true" [transitionInterval]="3000"></p-galleria>
       </div>
     </div>
     <div class="invisible-slideshow">
       <div *ngFor="let image of images" class="center image-wrapper">
         <h2>{{image.title}}</h2>
-        <img src="{{image.source}}" alt="{{image.title}}" class="image-without-slideshow" />
+        <img src="{{image.source}}" alt="{{image.title}}" class="image-without-slideshow"/>
         <p class="jumbotron">{{image.alt}}</p>
       </div>
     </div>
 
-    <div class="vertical-space"></div>
+
+      <div *ngFor="let image of images" class="center image-wrapper">
+        <div class="card shadow tiny">
+        <h2>{{image.title}}</h2>
+        <img src="{{image.source}}" alt="{{image.title}}" class="image-without-slideshow"/>
+        <p>{{image.alt}}</p>
+      </div>
+    </div>
     <div>
+
       <div class="center container">
         <div class="jumbotron">
           <h2>
@@ -38,12 +46,14 @@
         <div class="techContainer" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="center center">
           <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.xs="column" style="min-height:200px">
             <div *ngFor="let technology of technologies_1" class="flex-item" fxFlex="14">
-              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}" class="img-link" />
+              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}"
+                   class="img-link"/>
             </div>
           </div>
           <div class="flex-item" fxFlex="50" fxLayout="row" fxLayout.xs="column" style="min-height:200px">
             <div *ngFor="let technology of technologies_2" class="flex-item" fxFlex="14">
-              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}" class="img-link" />
+              <img (click)="openPage(technology.link)" src="{{technology.source}}" alt="{{technology.alt}}"
+                   class="img-link"/>
             </div>
           </div>
         </div>
