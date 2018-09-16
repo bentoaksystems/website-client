@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { createClient} from 'contentful';
+import {Injectable} from '@angular/core';
+import {createClient} from 'contentful';
 
 // Config details for contentful
 const CONFIG = {
@@ -26,7 +26,7 @@ export class ContentfulService {
     });
   }
 
-  getContactData(query? : object): any{
+  getContactData(query?: object): any {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.contact
     }, query))
@@ -36,7 +36,7 @@ export class ContentfulService {
       });
   }
 
-  getHomeData(query? : object): any{
+  getHomeData(query?: object): any {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.home
     }, query))
@@ -46,7 +46,7 @@ export class ContentfulService {
       })
   }
 
-  getProjects(query? : object): any{
+  getProjects(query?: object): any {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.projects
     }, query))
@@ -56,7 +56,7 @@ export class ContentfulService {
       })
   }
 
-  getPeople(query? : object): any{
+  getPeople(query?: object): any {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.people
     }, query))
@@ -66,7 +66,7 @@ export class ContentfulService {
       })
   }
 
-  getAbout(query? : object): any{
+  getAbout(query?: object): any {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.about
     }, query))
@@ -78,7 +78,7 @@ export class ContentfulService {
     return this.cdaClient.getEntries(Object.assign({
       content_type: CONFIG.contentTypeIds.intro
     }, query))
-      .then( res => res.items[0].fields)
-      .catch( err => console.log(err));
-    };
+      .then(res => res.items[0].fields)
+      .catch(err => console.log(err));
+  };
 }

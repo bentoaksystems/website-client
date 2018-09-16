@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 
-import {LanguageService} from '../language.service';
+import {LanguageService} from "../../shared/services/language.service";
 
 @Component({
   selector: 'app-person-dialog',
@@ -12,7 +12,7 @@ export class PersonDialogComponent implements OnInit {
   lang: string;
 
   constructor(public dialogRef: MatDialogRef<PersonDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any, public langService: LanguageService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, public langService: LanguageService) {}
 
   ngOnInit() {
     this.data.width -= 24;

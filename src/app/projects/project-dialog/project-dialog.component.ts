@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
-import {LanguageService} from '../language.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {LanguageService} from "../../shared/services/language.service";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-project-dialog',
@@ -12,7 +12,7 @@ export class ProjectDialogComponent implements OnInit {
   lang: string
 
   constructor(public langService: LanguageService, public dialogRef: MatDialogRef<ProjectDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit() {
     this.langService.lang$.subscribe(lang => this.lang = lang);

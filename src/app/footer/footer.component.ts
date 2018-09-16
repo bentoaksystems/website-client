@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Entry} from 'contentful';
 
-import {ContentfulService} from "../contentful.service";
-import {LanguageService} from "../language.service";
+import {ContentfulService} from "../shared/services/contentful.service";
+import {LanguageService} from "../shared/services/language.service";
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +13,8 @@ export class FooterComponent implements OnInit {
   address: any = {};
   phone: any = {};
 
-  constructor(private contentfulService: ContentfulService, public langService: LanguageService) { }
+  constructor(private contentfulService: ContentfulService, public langService: LanguageService) {
+  }
 
   ngOnInit() {
     this.contentfulService.getContactData()
@@ -25,7 +26,7 @@ export class FooterComponent implements OnInit {
       })
   }
 
-  openLinkedIn(){
+  openLinkedIn() {
     window.open('http://linkedin.com', '_blank');
   }
 }

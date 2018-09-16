@@ -1,34 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule} from "@angular/router";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
   MatGridListModule,
+  MatInputModule,
   MatListModule,
-  MatProgressSpinnerModule} from '@angular/material';
-import {GalleriaModule} from 'primeng/primeng';
-import { FlexLayoutModule } from '@angular/flex-layout';
+  MatProgressSpinnerModule,
+  MatSnackBarModule
+} from "@angular/material";
+import {GalleriaModule} from "primeng/primeng";
+import {FlexLayoutModule} from '@angular/flex-layout';
 import 'hammerjs';
-import {AotPlugin} from '@ngtools/webpack';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import {ContentfulService} from './contentful.service';
-import { HomeComponent } from './home/home.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { PeopleComponent } from './people/people.component';
-import {LanguageService} from './language.service';
-import {WindowService} from './window.service';
-import { ContactComponent } from './contact/contact.component';
-import { PersonComponent } from './people/person.component';
-import { PersonDialogComponent } from './people/person-dialog.component';
-import { ProjectComponent } from './projects/project.component';
-import { ProjectDialogComponent } from './projects/project-dialog.component';
+import {AppComponent} from './app.component';
+import {FooterComponent} from './footer/footer.component';
+import {HeaderComponent} from './header/header.component';
+import {ContentfulService} from "./shared/services/contentful.service";
+import {HomeComponent} from './home/home.component';
+import {ProjectsComponent} from './projects/projects.component';
+import {AboutUsComponent} from './about-us/about-us.component';
+import {PeopleComponent} from './people/people.component';
+import {LanguageService} from "./shared/services/language.service";
+import {WINDOW_PROVIDERS} from "./shared/services/window.service";
+import {ContactComponent} from './contact/contact.component';
+import {PersonComponent} from './people/person/person.component';
+import {PersonDialogComponent} from './people/person-dialog/person-dialog.component';
+import {ProjectComponent} from './projects/project/project.component';
+import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.component';
+import {MessageService} from "./shared/services/message.service";
+import {HttpService} from "./shared/services/http.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -47,13 +53,18 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'website-client'}),
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
+    MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
     MatListModule,
     MatGridListModule,
     MatDialogModule,
     MatCardModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     GalleriaModule,
     RouterModule.forRoot([
@@ -65,8 +76,17 @@ import { ProjectDialogComponent } from './projects/project-dialog.component';
       {path: 'contact', component: ContactComponent}
     ])
   ],
-  providers: [ContentfulService, LanguageService, WindowService],
+  providers: [
+    ContentfulService,
+    LanguageService,
+    WINDOW_PROVIDERS,
+    MessageService,
+    HttpService
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [PersonDialogComponent, ProjectDialogComponent]
+  entryComponents: [
+    PersonDialogComponent,
+    ProjectDialogComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 
-import {LanguageService} from "../language.service";
-import {WindowService} from "../window.service";
+import {LanguageService} from "../shared/services/language.service";
+import {WINDOW} from "../shared/services/window.service";
 
 @Component({
   selector: 'app-header',
@@ -13,22 +13,22 @@ export class HeaderComponent implements OnInit {
   height: number = 500;
   width: number = 500;
 
-  constructor(public langService: LanguageService, public windowService: WindowService) { }
+  constructor(public langService: LanguageService, @Inject(WINDOW) public window) {}
 
   ngOnInit() {
-    this.height = this.windowService.getWindow().innerHeight - 250;
-    this.windowService.getWindow().onresize = (e) => {
-      this.height = this.windowService.getWindow().innerHeight - 250;
+    this.height = this.window.innerHeight - 250;
+    this.window.onresize = (e) => {
+      this.height = this.window.innerHeight - 250;
     };
-    this.width = this.windowService.getWindow().innerWidth - 30;
-    this.windowService.getWindow().onresize = (e) => {
-      this.width = this.windowService.getWindow().innerWidth - 30;
+    this.width = this.window.innerWidth - 30;
+    this.window.onresize = (e) => {
+      this.width = this.window.innerWidth - 30;
     };
 
     this.langService.lang$.subscribe(lang => this.lang = lang)
   }
 
-  switchLang(){
+  switchLang() {
     this.langService.changeLanguage();
   }
 }

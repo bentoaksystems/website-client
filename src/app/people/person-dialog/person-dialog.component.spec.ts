@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PersonDialogComponent } from './person-dialog.component';
+import {PersonDialogComponent} from './person-dialog.component';
 
 describe('PersonDialogComponent', () => {
   let component: PersonDialogComponent;
@@ -8,9 +8,9 @@ describe('PersonDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonDialogComponent ]
+      declarations: [PersonDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
