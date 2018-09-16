@@ -1,0 +1,32 @@
+<div>
+  <div class="show-more flex-container" fxLayout="row" fxLayoutAlign="center center">
+    <div class="flex-item" fxFlex="30">
+      <img src="{{person.image}}" alt="{{person.title}}" class="personal-image" />
+    </div>
+    <div class="flex-item" fxFlex="70">
+      <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
+      <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
+      <h4 class="width-center">{{person.responsibilities}}</h4>
+      <a class="show-more link" (click)="showDetails()">{{langService.translate('More...')}}</a>
+    </div>
+  </div>
+  <div class="show-details center">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
+        <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
+      </div>
+      <div class="col-12">
+        <img src="{{person.image}}" alt="{{person.title}}" class="personal-image" />
+      </div>
+      <div class="col-12">
+        <h4 class="width-center">{{person.responsibilities}}</h4>
+      </div>
+      <div class="col-12">
+        <a class="width-center" href="{{person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{langService.translate('LinkedIn
+          Profile')}}</a>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>

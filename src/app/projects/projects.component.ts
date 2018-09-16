@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import * as marked from 'marked';
 
-import {LanguageService} from "../language.service";
-import {ContentfulService} from "../contentful.service";
-import {WINDOW} from "../window.service";
+import {LanguageService} from "../shared/services/language.service";
+import {ContentfulService} from "../shared/services/contentful.service";
+import {WINDOW} from "../shared/services/window.service";
 
 @Component({
   selector: 'app-projects',
@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit {
   waiting: boolean = false;
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
-              @Inject(WINDOW) private window) { }
+    @Inject(WINDOW) private window) {}
 
   ngOnInit() {
     this.width = this.window.innerWidth;
@@ -28,7 +28,7 @@ export class ProjectsComponent implements OnInit {
 
     this.contentfulService.getProjects()
       .then(res => {
-        for(let project of res){
+        for (let project of res) {
           let obj = {
             title_en: project.fields.displayNameEn,
             title_fa: project.fields.displayNameFa,
@@ -42,8 +42,8 @@ export class ProjectsComponent implements OnInit {
             }
           };
 
-          if(project.fields.screenShots)
-            for(let screenShot of project.fields.screenShots)
+          if (project.fields.screenShots)
+            for (let screenShot of project.fields.screenShots)
               obj[screenShot].push({url: screenShot.fields.file.url, title: screenShot.fields.file.title, description: screenShot.fields.file.description});
 
           this.projects.push(obj);

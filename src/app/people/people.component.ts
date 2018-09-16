@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {ContentfulService} from "../contentful.service";
+import {ContentfulService} from "../shared/services/contentful.service";
 
 @Component({
   selector: 'app-people',
@@ -11,14 +11,14 @@ export class PeopleComponent implements OnInit {
   people: any = [];
   waiting: boolean = false;
 
-  constructor(private contentfulService: ContentfulService) { }
+  constructor(private contentfulService: ContentfulService) {}
 
   ngOnInit() {
     this.waiting = true;
 
     this.contentfulService.getPeople()
       .then(res => {
-         for(let item of res){
+        for (let item of res) {
           this.people.push({
             title: item.fields.title,
             fullName_en: item.fields.fullNameEn,

@@ -1,19 +1,19 @@
-.second-header{
+.second-header {
   margin-top: 30px;
 }
 
-.header{
+.header {
   height: 80px;
   margin: 0px;
   padding: 10px;
   position: relative;
 }
 
-.header-back{
+.header-back {
   background-color: white;
 }
 
-.header-content{
+.header-content {
   color: black;
   cursor: pointer;
   top: auto;
@@ -21,52 +21,52 @@
   text-decoration: none;
 }
 
-.burger-menu{
+.burger-menu {
   top: unset;
   bottom: unset;
 }
 
-.header-content:hover{
+.header-content:hover {
   color: rgba(0,0,0,0.49);
 }
 
-.menu{
+.menu {
   list-style-type: none;
 }
 
-.menu-button{
+.menu-button {
   position: absolute;
   top: 20px;
 }
 
-.side-menu{
+.side-menu {
   background-color: white;
 }
 
-.header-item{
+.header-item {
   display: inline-block;
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.english .header-item{
+.english .header-item {
   float: right;
 }
 
-.farsi .header-item{
+.farsi .header-item {
   float: left;
 }
 
-.logo{
+.logo {
   padding: 10px;
 }
 
-.logo .english{
+.logo .english {
   direction: ltr;
   float: left;
 }
 
-.logo .farsi{
+.logo .farsi {
   direction: rtl;
   float: right;
 }
