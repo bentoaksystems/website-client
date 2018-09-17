@@ -22,6 +22,7 @@ export class LanguageService {
     'tel - ir: ': 'تلفن ایران: ',
     'contact': 'تماس با ما',
     'people': 'افراد',
+    'home': 'خانه',
     'about us': 'درباره ما',
     'projects': 'پروژه ها',
     'all rights reserved for bent oak systems': 'تمامی حقوق سایت متعلق به شرکت بنتوک سامانه می باشد',

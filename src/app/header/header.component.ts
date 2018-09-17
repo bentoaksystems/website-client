@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
         this.headerData = res;
       })
       .catch(err => {
-        console.error('Cannot get header info: ', err);
+        console.error('Cannot get header data from server: ', err);
       });
   }
 
