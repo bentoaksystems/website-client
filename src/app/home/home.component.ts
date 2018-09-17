@@ -4,6 +4,7 @@ import {ContentfulService} from "../shared/services/contentful.service";
 import {LanguageService} from "../shared/services/language.service";
 import {WINDOW} from "../shared/services/window.service";
 import * as marked from 'marked';
+import {GetJsonFileService} from '../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-home',
@@ -22,9 +23,12 @@ export class HomeComponent implements OnInit {
   waiting: boolean = false;
   technologies_1: any = [];
   technologies_2: any = [];
+  technologyData: any = {};
+  slideShows: any = [];
 
-  constructor(public langService: LanguageService, private contentfulService: ContentfulService,
-    @Inject(WINDOW) private window) {}
+
+  constructor(public langService: LanguageService, private contentfulService: ContentfulService, private getJsonFileService: GetJsonFileService,
+              @Inject(WINDOW) private window) {}
 
   ngOnInit() {
     this.langService.lang$.subscribe(lang => {
@@ -49,20 +53,27 @@ export class HomeComponent implements OnInit {
         this.introRes = res;
         this.intro = marked((this.langService.lang === 'english') ? res.introEn : res.introFa);
       });
-    this.contentfulService.getHomeData()
-      .then(res => {
-        let slideshows = res[0].fields.slideShow;
-        // let slideshows = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
-
+    this.getJsonFileService.getTechnologyData()
+      .then((res) => {
+        console.log('res', res);
+        this.slideShows = res;
         let _technologies = res[1].fields.technologies;
-        console.log('slideShow',slideshows);
-        console.log('technologies',_technologies);
+
+        //   .then(res => {
+        //   console.log('res', res);
+        //   let slideshows = res[0].fields.slideShow;
+        //   // let slideshows = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
+        // )}
+        //     let _technologies = res[1].fields.technologies;
+        console.log('slideShow', this.slideShows);
+        // console.log('technologies',_technologies);
 
         let maxHeight = 0, maxWidth = 0;
 
-        for (let s of slideshows) {
+        for (let s of this.slideShows) {
           if (s.fields) {
             let transDSCP = s.fields.description.split('|');
+            console.log('transDSCP',transDSCP);
 
             this.images_en.push({source: s.fields.file.url, alt: transDSCP[0], title: s.fields.title});
             this.images_fa.push({source: s.fields.file.url, alt: transDSCP[1], title: s.fields.title});
@@ -71,22 +82,25 @@ export class HomeComponent implements OnInit {
 
         this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
 
-        for (let index = 0; index < _technologies.length; index++) {
-          let t = _technologies[index];
-          if (index < 7)
-            this.technologies_1.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
-          else
-            this.technologies_2.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
-        }
+        // for (let index = 0; index < _technologies.length; index++) {
+        //   let t = _technologies[index];
+        //   if (index < 7)
+        //     this.technologies_1.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
+        //   else
+        //     this.technologies_2.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
+        // }
 
         this.waiting = false;
+        // .catch(err => {
+        //   console.log(err);
+        // })
+        //     openPage(link)
+        //     {
+        //       this.window.open(link, '_blank');
+        //     }
       })
       .catch(err => {
-        console.log(err);
-      })
-  }
-
-  openPage(link) {
-    this.window.open(link, '_blank');
+        console.error('Cannot get data: ', err);
+      });
   }
 }
