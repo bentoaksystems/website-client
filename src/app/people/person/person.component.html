@@ -1,32 +1,26 @@
-<div>
-  <div class="show-more flex-container" fxLayout="row" fxLayoutAlign="center center">
-    <div class="flex-item" fxFlex="30">
-      <img src="{{person.image}}" alt="{{person.title}}" class="personal-image" />
-    </div>
-    <div class="flex-item" fxFlex="70">
-      <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
-      <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
-      <h4 class="width-center">{{person.responsibilities}}</h4>
-      <a class="show-more link" (click)="showDetails()">{{langService.translate('More...')}}</a>
-    </div>
+<mat-card class="shadow softened-edge" (mouseenter)="person.in = true" (mouseleave)="person.in = false" [ngStyle]="{'border-radius': person.in ? '40px' : '0px',
+'padding': person.in ? '20px' : '24px'}">
+  <div>
+    <img mat-card-image src="{{person.image}}" alt="{{person.fullname + ' image'}}" style="background-size: cover;">
+    <a href="{{'mailto:' + person.email}}" style="text-decoration: none;" aria-hidden="true">
+      <div class="item-title">
+        <div style="font-size: 1.4em;">{{person.fullname}}</div>
+        <div style="font-family: fantasy;">{{person.responsibility}}</div>
+        <div class="email-pos">
+        </div>
+      </div>
+    </a>
   </div>
-  <div class="show-details center">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="width-center" *ngIf="langService.lang === 'english'">{{person.fullName_en}}</h3>
-        <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{person.fullName_fa}}</h3>
-      </div>
-      <div class="col-12">
-        <img src="{{person.image}}" alt="{{person.title}}" class="personal-image" />
-      </div>
-      <div class="col-12">
-        <h4 class="width-center">{{person.responsibilities}}</h4>
-      </div>
-      <div class="col-12">
-        <a class="width-center" href="{{person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">{{langService.translate('LinkedIn
-          Profile')}}</a>
-      </div>
+  <mat-card-content>
+    <div fxLayoutAlign="center start" class="desc-wrapper" [ngStyle]="{'margin': person.in ? '4px' : '0px'}">
+      <div>{{person.description}}</div>
     </div>
-    <hr />
-  </div>
-</div>
+  </mat-card-content>
+  <mat-card-actions class="links-wrapper">
+    <a *ngFor="let s of getKeys(person.social)" href="{{person.social[s]}}" target="_blank" rel="noopener noreferrer">
+      <button mat-button *ngIf="person.social[s]" class="tiny-button">
+        <img class="tiny-img" src="{{images[s.toLowerCase()]}}">
+      </button>
+    </a>
+  </mat-card-actions>
+</mat-card>

@@ -14,30 +14,26 @@ export class PersonComponent implements OnInit {
   @Input('person') person: any;
   width: number = 500;
   lang: string;
+  images: any = {};
 
   constructor(public langService: LanguageService, public dialog: MatDialog,
-    @Inject(WINDOW) private window) {}
+    @Inject(WINDOW) private window) {
+    this.images = {
+      github: 'assets/images/social/github.png',
+      linkedin: 'assets/images/social/linkedin.png',
+      telegram: 'assets/images/social/telegram.png',
+      email: 'assets/images/social/email.png',
+    };
+  }
 
   ngOnInit() {
     this.width = this.window.innerWidth;
     this.window.onresize = (e) => {
       this.width = this.window.innerWidth;
     };
-
-    this.langService.lang$.subscribe(lang => {
-      this.lang = lang;
-      let res, j;
-      if (lang === 'english') {
-        res = this.person.responsibility_en;
-        j = ', ';
-      } else {
-        res = this.person.responsibility_fa;
-        j = '، ';
-      }
-      this.person.responsibilities = res.join(j);
-    });
   }
 
+  // for a probable person-dialog, I kept this
   showDetails() {
     let _width = this.window.innerWidth;
     let _height = this.window.innerHeight;
@@ -51,5 +47,9 @@ export class PersonComponent implements OnInit {
         height: _height * 0.8
       }
     });
+  }
+
+  getKeys(obj) {
+    return Object.keys(obj);
   }
 }

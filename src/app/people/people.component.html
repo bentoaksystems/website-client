@@ -1,7 +1,10 @@
 <div class="page">
   <div *ngIf="!waiting">
-    <div *ngFor="let person of people" class="person">
-      <app-person [person]="person"></app-person>
+    <div style="font-size: 2em; font-weight: bold;">Who we are</div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <div fxFlex="300px" *ngFor="let person of people;" class="person-item">
+        <app-person [person]="person"></app-person>
+      </div>
     </div>
   </div>
   <div *ngIf="waiting">

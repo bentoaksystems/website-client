@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpService} from './http.service';
 
 @Injectable()
 export class GetJsonFileService {
   headerData: any = {};
+  peopleData: any = [];
+
 
   constructor(private httpService: HttpService) {
   }
@@ -16,9 +18,23 @@ export class GetJsonFileService {
           resolve(data)
         },
         (err) => {
-          console.error('error');
+          reject(err);
         }
       );
+    });
+  }
+
+  getPeopleData() {
+    return new Promise((resolve, reject) => {
+      this.httpService.get('people').subscribe(
+        data => {
+          this.peopleData = data;
+          resolve(data);
+        },
+        err => {
+          reject(err);
+        }
+      )
     });
   }
 
