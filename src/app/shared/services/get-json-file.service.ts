@@ -3,7 +3,6 @@ import {HttpService} from './http.service';
 
 @Injectable()
 export class GetJsonFileService {
-  headerData: any = {};
 
   constructor(private httpService: HttpService) {
   }
@@ -12,7 +11,19 @@ export class GetJsonFileService {
     return new Promise((resolve, reject) => {
       this.httpService.get('header').subscribe(
         (data) => {
-          this.headerData = data;
+          resolve(data)
+        },
+        (err) => {
+          console.error('error');
+        }
+      );
+    });
+  }
+
+  getHomeTopSectionData() {
+    return new Promise((resolve, reject) => {
+      this.httpService.get('home/top_section').subscribe(
+        (data) => {
           resolve(data)
         },
         (err) => {
