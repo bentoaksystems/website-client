@@ -1,9 +1,9 @@
 .footer {
-  height: 140px;
+  height: 180px;
   margin: 0px;
   padding: 10px;
   margin-top: 100px;
-  font-size: 0.7em !important;
+  font-size: 0.5em !important;
 }
 
 .footer-back {
@@ -19,13 +19,17 @@
 .socket-area {
   text-align: center;
   background-color: black;
+  border-top: solid;
+  border-color: grey;
 }
 
 .socket-content {
   color: white;
   font-size: 0.6em;
+
 }
 
 .footer-label {
-  color: #0275d8;
+  color: #c0c0c0;
+  font-weight: bold;
 }
