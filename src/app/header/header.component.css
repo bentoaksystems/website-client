@@ -12,8 +12,7 @@
 .header-content {
   color: black;
   cursor: pointer;
-  top: auto;
-  bottom: 10px;
+  /*top: auto;*/
   text-decoration: none;
 }
 
@@ -23,7 +22,7 @@
 }
 
 .header-content:hover {
-  color: rgba(0,0,0,0.49);
+  color: #8a25b1;
 }
 
 .menu {
@@ -43,6 +42,7 @@
   display: inline-block;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .english .header-item {
@@ -70,7 +70,7 @@
 .chosenLang {
   text-weight: bolder;
   font-size:125%;
-  color: #0275d8;
+  color: #8a25b1;
 }
 
 .fixed{
@@ -79,5 +79,6 @@
   top:0;
   right:0;
   width:100%;
-  background-color: lightcyan;
+  background-color: #e9e9e9;
+  /*background-color: #6d7381;*/
 }
