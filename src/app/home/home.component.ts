@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   waiting: boolean = false;
   technologies_1: any = [];
   technologies_2: any = [];
-  technologyData: any = {};
   slideShows: any = [];
 
 
@@ -73,10 +72,8 @@ export class HomeComponent implements OnInit {
         for (let s of this.slideShows) {
           if (s.fields) {
             let transDSCP = s.fields.description.split('|');
-            console.log('transDSCP',transDSCP);
-
-            this.images_en.push({source: s.fields.file.url, alt: transDSCP[0], title: s.fields.title});
-            this.images_fa.push({source: s.fields.file.url, alt: transDSCP[1], title: s.fields.title});
+            this.images_en.push({source: s.fields.file.url, alt: transDSCP[0], title: s.fields.title, link: s.fields.url});
+            this.images_fa.push({source: s.fields.file.url, alt: transDSCP[1], title: s.fields.title, link: s.fields.url});
           }
         }
 
@@ -94,13 +91,14 @@ export class HomeComponent implements OnInit {
         // .catch(err => {
         //   console.log(err);
         // })
-        //     openPage(link)
-        //     {
-        //       this.window.open(link, '_blank');
-        //     }
+
       })
       .catch(err => {
-        console.error('Cannot get data: ', err);
+        console.error('Cannot get data!', err);
       });
+  }
+  openPage(link)
+  {
+    this.window.open(link, '_blank');
   }
 }

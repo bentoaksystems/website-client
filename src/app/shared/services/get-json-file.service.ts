@@ -5,6 +5,7 @@ import {HttpService} from './http.service';
 export class GetJsonFileService {
   headerData: any = {};
   technologyData: any = {};
+  footerData: any = {};
 
   constructor(private httpService: HttpService) {
   }
@@ -36,5 +37,18 @@ export class GetJsonFileService {
     });
   }
 
+  getFooterData() {
+    return new Promise((resolve, reject) => {
+      this.httpService.get('footer').subscribe(
+        (data) => {
+          this.footerData = data;
+          resolve(data)
+        },
+        (err) => {
+          console.error('error');
+        }
+      );
+    });
+  }
 
 }

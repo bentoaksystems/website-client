@@ -1,20 +1,17 @@
 <div class="footer-back footer row">
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="footer-content" *ngIf="langService.lang === 'farsi'">{{address.fa}}</div>
-    <div class="footer-content" *ngIf="langService.lang === 'english'">{{address.en}}</div>
+    <div class="footer-content">{{address}}</div>
     <div class="footer-content">
-      {{langService.translate('Tel - UK: ')}}
-      <label class="fix-LTR">{{phone.uk}}</label>
+      {{'Tel: '}}
+      <label class="fix-LTR">{{phone}}</label>
     </div>
-    <div class="footer-content">
-      {{langService.translate('Tel - IR: ')}}
-      <label class="fix-LTR">{{phone.ir}}</label>
-    </div>
+    <div class="footer-content" >{{email}}</div>
+
   </div>
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 center">
     <div class="footer-content">
       <!-- TODO: clean this -->
-      {{langService.translate('Follow us in ')}}
+      {{'Follow us in '}}
       <a class="link" target="_blank" href="https://www.linkedin.com/company/18228521/"><i class="fa fa-linkedin link"
           style="padding:3px;border-radius:5px;background:#008CC9;color:white" aria-hidden="true"></i> <a href="https://github.com/bentoaksystems/"
           style="padding:3px;border-radius:5px;background:transparent;color:white;font-size:125%"><i class="fa fa-github link"></i></a></a>
@@ -26,6 +23,6 @@
 </div>
 <div class="socket-area">
   <label class="socket-content">
-    {{langService.translate('All rights reserved for Bent Oak Systems')}} &copy;
+    {{'All rights reserved for Bent Oak Systems'}} &copy;
   </label>
 </div>
