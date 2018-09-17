@@ -1,13 +1,15 @@
-<div class="page">
-  <div *ngIf="!waiting">
-    <div style="font-size: 2em; font-weight: bold;">Who we are</div>
-    <div fxLayout="row wrap" fxLayoutAlign="space-between start">
-      <div fxFlex="300px" *ngFor="let person of people;" class="person-item">
-        <app-person [person]="person"></app-person>
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 10em;">
+  <div fxFlex="85" fxFlex.md="90" fxFlex.sm="95" fxFlex.xs="100">
+    <div *ngIf="!waiting">
+      <div style="font-size: 2em; font-weight: bold;">Who we are</div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between start">
+        <div fxFlex="300px" *ngFor="let person of people;" class="person-item">
+          <app-person [person]="person"></app-person>
+        </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="waiting">
-    <mat-spinner class="align-spinner"></mat-spinner>
+    <div *ngIf="waiting">
+      <mat-spinner class="align-spinner"></mat-spinner>
+    </div>
   </div>
 </div>
