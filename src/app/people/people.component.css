@@ -1,3 +1,5 @@
-.person {
-  margin: 10px;
+.person-item {
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
