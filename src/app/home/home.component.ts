@@ -22,9 +22,7 @@ export class HomeComponent implements OnInit {
   width: number;
   waiting: boolean = false;
   technologies_1: any = [];
-  technologies_2: any = [];
   slideShows: any = [];
-
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService, private getJsonFileService: GetJsonFileService,
               @Inject(WINDOW) private window) {}
@@ -54,44 +52,18 @@ export class HomeComponent implements OnInit {
       });
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
-        console.log('res', res);
         this.slideShows = res;
-        let _technologies = res[1].fields.technologies;
-
-        //   .then(res => {
-        //   console.log('res', res);
-        //   let slideshows = res[0].fields.slideShow;
-        //   // let slideshows = JSON.parse(fs.readFileSync('dictionary.json', 'utf8'));
-        // )}
-        //     let _technologies = res[1].fields.technologies;
-        console.log('slideShow', this.slideShows);
-        // console.log('technologies',_technologies);
-
-        let maxHeight = 0, maxWidth = 0;
 
         for (let s of this.slideShows) {
           if (s.fields) {
             let transDSCP = s.fields.description.split('|');
-            this.images_en.push({source: s.fields.file.url, alt: transDSCP[0], title: s.fields.title, link: s.fields.url});
-            this.images_fa.push({source: s.fields.file.url, alt: transDSCP[1], title: s.fields.title, link: s.fields.url});
+            this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.fields.url});
           }
         }
 
         this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
 
-        // for (let index = 0; index < _technologies.length; index++) {
-        //   let t = _technologies[index];
-        //   if (index < 7)
-        //     this.technologies_1.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
-        //   else
-        //     this.technologies_2.push({source: t.fields.file.url, link: t.fields.description, alt: t.fields.title});
-        // }
-
         this.waiting = false;
-        // .catch(err => {
-        //   console.log(err);
-        // })
-
       })
       .catch(err => {
         console.error('Cannot get data!', err);
