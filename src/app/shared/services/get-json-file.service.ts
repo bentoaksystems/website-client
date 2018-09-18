@@ -39,5 +39,16 @@ export class GetJsonFileService {
     });
   }
 
-
+  getFooterData(){
+    return new Promise((resolve, reject) => {
+      this.httpService.get('footer').subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }

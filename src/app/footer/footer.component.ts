@@ -3,6 +3,7 @@ import {Entry} from 'contentful';
 
 import {ContentfulService} from "../shared/services/contentful.service";
 import {LanguageService} from "../shared/services/language.service";
+import {GetJsonFileService} from '../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,18 +13,22 @@ import {LanguageService} from "../shared/services/language.service";
 export class FooterComponent implements OnInit {
   address: any = {};
   phone: any = {};
+  email: any = {};
 
-  constructor(private contentfulService: ContentfulService, public langService: LanguageService) {
+  constructor(private contentfulService: ContentfulService, public langService: LanguageService, private getJsonFileService: GetJsonFileService) {
   }
 
   ngOnInit() {
-    this.contentfulService.getContactData()
-      .then(details => {
-        this.address.en = details[0].fields.addressEn;
-        this.address.fa = details[0].fields.addressFa;
-        this.phone.uk = details[0].fields.phoneUk;
-        this.phone.ir = details[0].fields.phoneIr;
+
+    this.getJsonFileService.getFooterData()
+      .then((details) => {
+        this.address = details[0].address;
+        this.phone = details[0].phone;
+        this.email = details[0].email;
       })
+      .catch(err => {
+        console.error('Cannot get data!', err);
+      });
   }
 
   openLinkedIn() {
