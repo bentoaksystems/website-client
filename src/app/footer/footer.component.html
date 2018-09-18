@@ -1,31 +1,48 @@
 <div class="footer-back footer row">
+  //First Section
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="footer-content" *ngIf="langService.lang === 'farsi'">{{address.fa}}</div>
-    <div class="footer-content" *ngIf="langService.lang === 'english'">{{address.en}}</div>
-    <div class="footer-content">
-      {{langService.translate('Tel - UK: ')}}
-      <label class="fix-LTR">{{phone.uk}}</label>
-    </div>
-    <div class="footer-content">
-      {{langService.translate('Tel - IR: ')}}
-      <label class="fix-LTR">{{phone.ir}}</label>
-    </div>
+    <label class="footer-label">{{'Get in touch with us'}} </label>
+    <div class="footer-content"><i class="fa fa-home" aria-hidden="true">   </i> {{ address}}</div>
+    <div class="footer-content"><i class="fa fa-phone" aria-hidden="true">    </i>   {{  phone}}</div>
+    <div class="footer-content"><i class="fa fa-envelope" aria-hidden="true">   </i> <a class="mail-label" href="mailto:info@bentoak.systems">{{ email}}</a></div>
   </div>
+
+  // Second Section
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 center">
     <div class="footer-content">
-      <!-- TODO: clean this -->
-      {{langService.translate('Follow us in ')}}
-      <a class="link" target="_blank" href="https://www.linkedin.com/company/18228521/"><i class="fa fa-linkedin link"
-          style="padding:3px;border-radius:5px;background:#008CC9;color:white" aria-hidden="true"></i> <a href="https://github.com/bentoaksystems/"
-          style="padding:3px;border-radius:5px;background:transparent;color:white;font-size:125%"><i class="fa fa-github link"></i></a></a>
+      <label class="footer-label" fxLayout="row" fxLayoutAlign="start start">{{'About Company'}} </label>
+      <div style="text-align: left"><a class="footer-content" target="_blank" href="#">Mobile App Development</a></div>
+      <div style="text-align: left"><a class="footer-content" target="_blank" href="#">Web Development</a></div>
+      <div style="text-align: left"><a class="footer-content" target="_blank" href="#">Software Development</a></div>
+      <div style="text-align: left"><a class="footer-content" target="_blank" href="#">Technical Support</a></div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+  // Third Section
+  <div class="footer-content">
+    <label class="footer-label"> {{'About Company'}} </label>
+    <div style="text-align: left"><a class="footer-content" target="_blank" href="#">About us</a></div>
+    <div style="text-align: left; margin-bottom: 10px"><a class="footer-content" target="_blank" href="#">Blog</a></div>
+
+    <label class="footer-label"> {{'Follow us'}} </label>
+    <div ><a target="_blank" href="https://www.linkedin.com/company/18228521/">
+      <i class="fa fa-linkedin" style="padding:3px;border-radius:2px; font-size:145%" ></i></a>
+
+    <a target="_blank" href="https://github.com/bentoaksystems/">
+      <i class="fa fa-github" style="padding:2px;border-radius:2px; font-size:145%"></i></a>
+
+   <a target="_blank" href="https://facebook.com/#/">
+      <i class="fa fa-facebook" style="padding:3px;border-radius:2px; font-size:150%"></i></a>
+
+   <a target="_blank" href="https://https://plus.google.com/#/">
+      <i class="fa fa-google-plus" style="padding:3px;border-radius:2px; font-size:150%"></i></a></div>
+      <!--<i class="fa fa-google-plus-square" style="padding:3px;border-radius:2px; background: transparent;  color: #d34836; font-size:150%"></i></a></div>-->
 
   </div>
 </div>
+
 <div class="socket-area">
   <label class="socket-content">
-    {{langService.translate('All rights reserved for Bent Oak Systems')}} &copy;
+    {{' © 2018 Bent Oak Systems. All rights reserved.'}}
   </label>
 </div>
