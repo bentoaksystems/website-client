@@ -33,7 +33,7 @@ export class LanguageService {
     'contact me': 'راه های ارتباط با من',
     'email: ': 'ایمیل: ',
     'phone: ': 'تلفن: ',
-    'bent oak systems': 'بُنـتوک سـامانه',
+    'Bent Oak Systems': 'بُنـتوک سـامانه',
     'you can contact us via': 'شما می توانید به کمک یکی از راه های زیر با ما در تماس باشید',
     'our toolbox': 'ابزارهای ما',
     'be of the web, not behind the web!': 'به جای پشت وب بودن، جزوی از وب باشید.',

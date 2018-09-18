@@ -2,7 +2,7 @@
     <div *ngIf="!waiting">
         <div>
             <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
-            <div class="title" [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</div>
+            <div class="title" [ngClass]="[lang]">{{langService.translate(homeTopSection.title)}}</div>
             <div class="intro">
                 <div [innerHTML]="intro"></div>
             </div>
