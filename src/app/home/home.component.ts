@@ -53,11 +53,11 @@ export class HomeComponent implements OnInit {
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
         this.slideShows = res;
-
+        
         for (let s of this.slideShows) {
-          if (s.fields) {
-            let transDSCP = s.fields.description.split('|');
-            this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.fields.url});
+          if (s.title) {
+            let transDSCP = s.description.split('|');
+            this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.url});
           }
         }
 
