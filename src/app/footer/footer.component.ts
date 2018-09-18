@@ -22,7 +22,6 @@ export class FooterComponent implements OnInit {
 
     this.getJsonFileService.getFooterData()
       .then((details) => {
-        console.log('details',details);
         this.address = details[0].address;
         this.phone = details[0].phone;
         this.email = details[0].email;

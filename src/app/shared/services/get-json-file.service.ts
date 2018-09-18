@@ -3,9 +3,6 @@ import {HttpService} from './http.service';
 
 @Injectable()
 export class GetJsonFileService {
-  headerData: any = {};
-  technologyData: any = {};
-  footerData: any = {};
 
   constructor(private httpService: HttpService) {
   }
@@ -14,7 +11,6 @@ export class GetJsonFileService {
     return new Promise((resolve, reject) => {
       this.httpService.get('header').subscribe(
         (data) => {
-          this.headerData = data;
           resolve(data)
         },
         (err) => {
@@ -27,7 +23,6 @@ export class GetJsonFileService {
     return new Promise((resolve, reject) => {
       this.httpService.get('technology').subscribe(
         (data) => {
-          this.technologyData = data;
           resolve(data)
         },
         (err) => {
@@ -41,7 +36,6 @@ export class GetJsonFileService {
     return new Promise((resolve, reject) => {
       this.httpService.get('footer').subscribe(
         (data) => {
-          this.footerData = data;
           resolve(data)
         },
         (err) => {
@@ -50,5 +44,4 @@ export class GetJsonFileService {
       );
     });
   }
-
 }
