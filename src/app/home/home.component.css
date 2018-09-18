@@ -2,27 +2,35 @@
   background-color: #d6dcda;
 }
 
-.technology-item {
-  display: inline-block;
-}
 
-.title-wrapper {
-  opacity: 0;
-  max-width: 80px;
-  max-height: 80px;
-  margin-top: -80px;
-  visibility: hidden;
-  background: #dce2e0;
-  color: black;
-}
-
-.technology-item:hover .title-wrapper {
-  opacity: 1;
-  visibility: visible;
-}
 
 .row-tile {
   margin: 1px;
+}
+
+.title {
+  position: relative;
+  top: -850px;
+  /*color: #A754B1;*/
+  color: #e9e9e9;
+  margin: 10px;
+  font-size: 80px
+}
+
+.intro {
+  position: relative;
+  top: -830px;
+  color: #e9e9e9;
+  width: 50%;
+  margin: 20px
+}
+
+.intro:hover {
+  color: #A48CB1;;
+}
+
+.title:hover {
+  color: #A48CB1;;
 }
 
 .tile-img {
