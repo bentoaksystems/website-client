@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   height: number;
   width: number;
   waiting: boolean = false;
-  technologies_1: any = [];
   slideShows: any = [];
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService, private getJsonFileService: GetJsonFileService,
@@ -53,7 +52,6 @@ export class HomeComponent implements OnInit {
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
         this.slideShows = res;
-        
         for (let s of this.slideShows) {
           if (s.title) {
             let transDSCP = s.description.split('|');
