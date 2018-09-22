@@ -23,9 +23,11 @@ export class HomeComponent implements OnInit {
   waiting: boolean = false;
   homeTopSection: any = {};
   slideShows: any = [];
+  rows = [];
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
-    @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService) {}
+              @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService) {
+  }
 
   ngOnInit() {
     this.langService.lang$.subscribe(lang => {
@@ -66,7 +68,7 @@ export class HomeComponent implements OnInit {
         }
 
         this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
-
+        this.images = this.images = this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
@@ -77,5 +79,29 @@ export class HomeComponent implements OnInit {
 
   openPage(link) {
     this.window.open(link, '_blank');
+  }
+
+  chunkArray() {
+    if (this.images.length <= 0) {
+      this.rows = [];
+      return;
+    }
+    this.rows = [];
+    let chunk = [], counter = 0;
+    for (const s in this.images) {
+      if (this.images.hasOwnProperty(s)) {
+        chunk.push(this.images[s]);
+        counter++;
+
+        if (counter >= 3) {
+          counter = 0;
+          this.rows.push(chunk);
+          chunk = [];
+        }
+      }
+    }
+    if (counter > 0) {
+      this.rows.push(chunk);
+    }
   }
 }
