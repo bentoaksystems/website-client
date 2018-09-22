@@ -1,0 +1,40 @@
+.title {
+  position: relative;
+  color: #000408;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.title:hover {
+  color: #026ae0;;
+}
+
+
+.contact-label {
+  color: #555555;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.mail {
+  text-decoration: none;
+}
+
+.contact-name {
+  background: url(../../assets/images/contact.png) 100%  no-repeat;
+  border: none;
+  /*border-right: 1px solid #ddd;*/
+  /*border-bottom: 1px solid #ddd;*/
+}
+
+.contact-email {
+  background: url(../../assets/images/email.png) 100%  no-repeat;
+  border: none;
+}
+
+.contact-message {
+  background: url(../../assets/images/message.png) 100% center no-repeat;
+  border: none;
+  margin-bottom: 5px;
+}

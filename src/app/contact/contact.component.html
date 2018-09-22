@@ -1,33 +1,46 @@
-<div class="page">
-  <div>
-    {{langService.translate('Contact us via below form')}}
-  </div>
-  <br />
-  <form [formGroup]="contactForm" (ngSubmit)="send()">
-    <div>
-      <mat-input-container class="data-field" [ngClass]="emailClass">
-        <input matInput type="email" formControlName="email" placeholder="{{langService.translate('Your Email')}}"
-          (ngModelChange)="changeInput(inputType.email, email.value)" #email />
-      </mat-input-container>
+<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center">
+<div fxFlex="5">&nbsp;</div>
+<div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+  <div class="page" fxFlex="60">
+    <div class="title">
+      {{'Ready to start a project?'}}
     </div>
-    <div>
-      <mat-input-container class="data-field" [ngClass]="nameClass">
-        <input matInput type="text" formControlName="name" placeholder="{{langService.translate('Your name')}}"
-          (ngModelChange)="changeInput(inputType.name, name.value)" #name />
-      </mat-input-container>
-    </div>
-    <div>
-      <mat-form-field class="data-field" [ngClass]="contentClass">
-        <textarea matInput rows="10" formControlName="content" placeholder="{{langService.translate('Content')}}"
-          (ngModelChange)="changeInput(inputType.content, content.value)" #content>
+    <br/>
+    <form [formGroup]="contactForm" (ngSubmit)="send()">
+      <div>
+        <mat-input-container class="data-field contact-email" [ngClass]="emailClass">
+          <input matInput type="email" formControlName="email" placeholder="{{'Your Email'}}"
+                 (ngModelChange)="changeInput(inputType.email, email.value)" #email/>
+        </mat-input-container>
+      </div>
+      <div>
+        <mat-input-container class="data-field contact-name" [ngClass]="nameClass">
+          <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"
+                 (ngModelChange)="changeInput(inputType.name, name.value)"  #name/>
+        </mat-input-container>
+      </div>
+      <div>
+        <mat-form-field class="data-field contact-message" [ngClass]="contentClass">
+        <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}"
+                  (ngModelChange)="changeInput(inputType.content, content.value)" #content>
 
       </textarea>
-      </mat-form-field>
-    </div>
-    <div>
-      <button mat-raised-button type="submit" [disabled]="!contactForm.valid">
-        {{langService.translate('Send your message')}}
-      </button>
-    </div>
-  </form>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button type="submit" [disabled]="!contactForm.valid">
+          {{'Send your message'}}
+        </button>
+      </div>
+    </form>
+  </div>
+  <div fxFlex="5" >&nbsp;</div>
+  <div fxFlex="35" class="page" >
+    <label class="title">{{'Get in touch with us'}} </label>
+    <div class="contact-label"><i class="fa fa-home" aria-hidden="true" style="padding:3px;border-radius:2px; font-size:185%"> </i> {{ address}}</div>
+    <div class="contact-label"><i class="fa fa-phone" aria-hidden="true" style="padding:3px;border-radius:2px; font-size:185%"> </i> {{ phone}}</div>
+    <div class="contact-label"><i class="fa fa-envelope" aria-hidden="true" style="padding:3px;border-radius:2px; font-size:185%"> </i><a class="mail" href="mailto:info@bentoak.systems">{{ emailAddress}}</a></div>
+  </div>
+</div>
+  <div fxFlex="5">&nbsp;</div>
 </div>
