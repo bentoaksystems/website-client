@@ -19,6 +19,7 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getAbout()
       .then(res => {
+        console.log('res',res);
         this.description.en = marked(res[0].fields.descriptionEn);
         this.description.fa = marked(res[0].fields.descriptionFa);
       });
