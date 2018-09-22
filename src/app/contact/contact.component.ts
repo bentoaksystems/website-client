@@ -5,6 +5,7 @@ import {MessageService} from '../shared/services/message.service';
 import {HttpService} from '../shared/services/http.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {InputType} from '../shared/enum/input.enum';
+import {GetJsonFileService} from '../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-contact',
@@ -17,9 +18,13 @@ export class ContactComponent implements OnInit {
   emailClass: string = 'english-style';
   nameClass: string = 'english-style';
   contentClass: string = 'english-style';
+  address: any = {};
+  phone: any = {};
+  emailAddress: any = {};
+
 
   constructor(public langService: LanguageService, private msgService: MessageService,
-    private httpService: HttpService) {}
+    private httpService: HttpService, private getJsonFileService: GetJsonFileService) {}
 
   ngOnInit() {
     this.contactForm = new FormGroup({
@@ -27,7 +32,18 @@ export class ContactComponent implements OnInit {
       name: new FormControl(null),
       content: new FormControl(null, [Validators.required])
     });
+
+    this.getJsonFileService.getFooterData()
+      .then((details) => {
+        this.address = details[0].address;
+        this.phone = details[0].phone;
+        this.emailAddress = details[0].email;
+      })
+      .catch(err => {
+        console.error('Cannot get data!', err);
+      });
   }
+
 
   send() {
     let obj = {

@@ -1,5 +1,5 @@
-<mat-card class="shadow softened-edge" (mouseenter)="person.in = true" (mouseleave)="person.in = false" [ngStyle]="{'border-radius': person.in ? '40px' : '0px',
-'padding': person.in ? '20px' : '24px'}">
+
+<mat-card class="shadow softened-edge" (mouseenter)="person.in = true" (mouseleave)="person.in = false" >
   <div>
     <img mat-card-image src="{{person.image}}" alt="{{person.fullname + ' image'}}" style="background-size: cover;">
     <a href="{{'mailto:' + person.email}}" style="text-decoration: none;" aria-hidden="true">
@@ -12,7 +12,7 @@
     </a>
   </div>
   <mat-card-content>
-    <div fxLayoutAlign="center start" class="desc-wrapper" [ngStyle]="{'margin': person.in ? '4px' : '0px'}">
+    <div fxLayoutAlign="center start" class="desc-wrapper" >
       <div>{{person.description}}</div>
     </div>
   </mat-card-content>
