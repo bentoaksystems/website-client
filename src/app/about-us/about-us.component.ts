@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as marked from 'marked';
-import {LanguageService} from "../shared/services/language.service";
-import {ContentfulService} from "../shared/services/contentful.service";
+import {LanguageService} from '../shared/services/language.service';
+import {ContentfulService} from '../shared/services/contentful.service';
 
 @Component({
   selector: 'app-about-us',

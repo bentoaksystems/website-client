@@ -12,7 +12,6 @@
 .footer-content {
   color: rgba(176,182,180,0.71) !important;
   margin-top: 2px;
-
 }
 
 .socket-area {
@@ -35,4 +34,7 @@
 
 .mail-label {
   text-decoration: none;
+}
+.align-text {
+  text-align: justify;
 }

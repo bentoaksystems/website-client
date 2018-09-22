@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
-import {LanguageService} from "../../shared/services/language.service";
+import {LanguageService} from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-person-dialog',
@@ -19,5 +19,4 @@ export class PersonDialogComponent implements OnInit {
 
     this.langService.lang$.subscribe(lang => this.lang = lang);
   }
-
 }
