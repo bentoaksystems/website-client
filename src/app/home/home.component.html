@@ -1,25 +1,40 @@
 <div>
-    <div *ngIf="!waiting">
-        <div>
-            <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
-            <div class="title" [ngClass]="[lang]">{{langService.translate(homeTopSection.title)}}</div>
-            <div class="intro">
-                <div [innerHTML]="intro"></div>
-            </div>
+  <div *ngIf="!waiting">
+    <div>
+      <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
+      <div class="title" [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</div>
+      <div class="intro">
+        <div [innerHTML]="intro"></div>
+      </div>
+    </div>
+    <!--<div class="vertical-space"></div>-->
+    <div style="align-items: center;" fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <div *ngFor="let image of images" class="center image-wrapper" style="display: inline-block; margin:auto"
+           fxFlex="250px">
+        <div class="card shadow tiny">
+          <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+               class="image-without-slideshow"/>
+          <p class="text-area">{{image.alt}}</p>
         </div>
-        <div class="vertical-space"></div>
-        <div class="center container">
-            <div>
-                <h2>
-                    "{{langService.translate('Be of the web, not behind the web!')}}"
-                </h2>
-                <div style="font-size: 0.8em;">{{langService.translate('Ian Robinson')}}
-                </div>
-            </div>
-        </div>
+      </div>
+      <div style=" margin:auto;" fxFlex="250px">
+        <button class="button" label="Show More">Show More</button>
+      </div>
+    </div>
 
-    </div>
-    <div *ngIf="waiting">
-        <mat-spinner class="align-spinner"></mat-spinner>
-    </div>
+
+    <!--<div class="center container">-->
+      <!--<div>-->
+        <!--<h2>-->
+          <!--"{{langService.translate('Be of the web, not behind the web!')}}"-->
+        <!--</h2>-->
+        <!--<div style="font-size: 0.8em;">{{langService.translate('Ian Robinson')}}-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  </div>
+  <div *ngIf="waiting">
+    <mat-spinner class="align-spinner"></mat-spinner>
+  </div>
 </div>

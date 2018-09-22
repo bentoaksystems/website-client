@@ -51,4 +51,17 @@ export class GetJsonFileService {
       );
     });
   }
+
+  getTechnologyData() {
+    return new Promise((resolve, reject) => {
+      this.httpService.get('technology').subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }

@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   width: number;
   waiting: boolean = false;
   homeTopSection: any = {};
+  slideShows: any = [];
 
   constructor(public langService: LanguageService, private contentfulService: ContentfulService,
     @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService) {}
@@ -53,7 +54,26 @@ export class HomeComponent implements OnInit {
       .catch(err => {
         console.error('Cannot get home data from server: ', err);
       });
+
+    this.getJsonFileService.getTechnologyData()
+      .then((res) => {
+        this.slideShows = res;
+        for (let s of this.slideShows) {
+          if (s.title) {
+            let transDSCP = s.description.split('|');
+            this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.url});
+          }
+        }
+
+        this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
+
+        this.waiting = false;
+      })
+      .catch(err => {
+        console.error('Cannot get data!', err);
+      });
   }
+
 
   openPage(link) {
     this.window.open(link, '_blank');
