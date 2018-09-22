@@ -12,71 +12,48 @@ import {
   MatProgressSpinnerModule,
   MatSnackBarModule
 } from '@angular/material';
-import {GalleriaModule} from 'primeng/primeng';
+import {GalleriaModule, SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import 'hammerjs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {FooterComponent} from './footer/footer.component';
-import {HeaderComponent} from './header/header.component';
 import {ContentfulService} from './shared/services/contentful.service';
-import {HomeComponent} from './home/home.component';
-import {ProjectsComponent} from './projects/projects.component';
-import {AboutUsComponent} from './about-us/about-us.component';
-import {PeopleComponent} from './people/people.component';
 import {LanguageService} from './shared/services/language.service';
 import {WINDOW_PROVIDERS} from './shared/services/window.service';
-import {ContactComponent} from './contact/contact.component';
-import {PersonComponent} from './people/person/person.component';
-import {PersonDialogComponent} from './people/person-dialog/person-dialog.component';
-import {ProjectComponent} from './projects/project/project.component';
-import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.component';
 import {MessageService} from './shared/services/message.service';
 import {HttpService} from './shared/services/http.service';
 import {GetJsonFileService} from './shared/services/get-json-file.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
+import {routing} from './app.routing';
+import {PersonDialogComponent} from './site/people/person-dialog/person-dialog.component';
+import {ProjectDialogComponent} from './site/projects/project-dialog/project-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    ProjectsComponent,
-    AboutUsComponent,
-    PeopleComponent,
-    ContactComponent,
-    PersonComponent,
-    PersonDialogComponent,
-    ProjectComponent,
-    ProjectDialogComponent
   ],
   imports: [
+    routing,
     BrowserAnimationsModule,
-    BrowserModule.withServerTransition({appId: 'website-client'}),
+    BrowserModule,
+    SharedModule,
     FormsModule,
     HttpClientModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    BrowserModule.withServerTransition({appId: 'website-client'}),
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule,
     MatProgressSpinnerModule,
     MatListModule,
     MatGridListModule,
     MatDialogModule,
-    MatCardModule,
     MatSnackBarModule,
-    FlexLayoutModule,
     GalleriaModule,
-    RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'people', component: PeopleComponent},
-      {path: 'projects', component: ProjectsComponent},
-      {path: 'about-us', component: AboutUsComponent},
-      {path: 'contact', component: ContactComponent}
-    ])
   ],
   providers: [
     ContentfulService,
@@ -88,9 +65,5 @@ import {ResponsiveService} from './shared/services/responsive.service';
     ResponsiveService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [
-    PersonDialogComponent,
-    ProjectDialogComponent
-  ]
 })
 export class AppModule {}

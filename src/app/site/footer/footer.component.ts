@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Entry} from 'contentful';
+import {LanguageService} from '../../shared/services/language.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 
-import {ContentfulService} from "../shared/services/contentful.service";
-import {LanguageService} from "../shared/services/language.service";
-import {GetJsonFileService} from '../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-footer',
@@ -15,7 +14,7 @@ export class FooterComponent implements OnInit {
   phone: any = {};
   email: any = {};
 
-  constructor(private contentfulService: ContentfulService, public langService: LanguageService, private getJsonFileService: GetJsonFileService) {
+  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService) {
   }
 
   ngOnInit() {

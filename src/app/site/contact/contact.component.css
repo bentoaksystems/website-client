@@ -22,19 +22,17 @@
 }
 
 .contact-name {
-  background: url(../../assets/images/contact.png) 100%  no-repeat;
+  background: url(../../../assets/images/contact.png) 100%  no-repeat;
   border: none;
-  /*border-right: 1px solid #ddd;*/
-  /*border-bottom: 1px solid #ddd;*/
 }
 
 .contact-email {
-  background: url(../../assets/images/email.png) 100%  no-repeat;
+  background: url(../../../assets/images/email.png) 100%  no-repeat;
   border: none;
 }
 
 .contact-message {
-  background: url(../../assets/images/message.png) 100% center no-repeat;
+  background: url(../../../assets/images/message.png) 100% center no-repeat;
   border: none;
   margin-bottom: 5px;
 }
