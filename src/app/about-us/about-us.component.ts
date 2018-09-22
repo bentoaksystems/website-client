@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as marked from 'marked';
 import {LanguageService} from "../shared/services/language.service";
 import {ContentfulService} from "../shared/services/contentful.service";
+import {GetJsonFileService} from '../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-about-us',
@@ -9,18 +10,17 @@ import {ContentfulService} from "../shared/services/contentful.service";
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-  description = {
-    en: null,
-    fa: null
-  };
+  description = {}
 
-  constructor(public langService: LanguageService, private contentfulService: ContentfulService) { }
+  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService) { }
 
   ngOnInit() {
-    this.contentfulService.getAbout()
-      .then(res => {
-        this.description.en = marked(res[0].fields.descriptionEn);
-        this.description.fa = marked(res[0].fields.descriptionFa);
+    this.getJsonFileService.getAboutUsData()
+      .then((details) => {
+        // this.description = details.description;
+      })
+      .catch(err => {
+        console.error('Cannot get data!', err);
       });
   }
 
