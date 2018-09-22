@@ -36,6 +36,7 @@ import {MessageService} from './shared/services/message.service';
 import {HttpService} from './shared/services/http.service';
 import {GetJsonFileService} from './shared/services/get-json-file.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ResponsiveService} from './shared/services/responsive.service';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import {HttpClientModule} from '@angular/common/http';
     WINDOW_PROVIDERS,
     MessageService,
     GetJsonFileService,
-    HttpService
+    HttpService,
+    ResponsiveService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

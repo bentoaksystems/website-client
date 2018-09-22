@@ -1,4 +1,4 @@
-<div class="fixed header">
+<div *ngIf="!isMobile" class="fixed header">
     <div fxLayout="row" fxLayoutAlign="center end" fxLayout.sm="column"
          fxLayout.xs="column">
         <div fxFlex="10">
@@ -11,7 +11,7 @@
                     [class.chosenLang]="langService.lang==='english'">En</span>/<span
                     [class.chosenLang]="langService.lang==='farsi'">Fa</span></a>
         </div>
-        <div fxFlex="85" fxFlex.sm="100" fxFlex.xs="100" [ngClass]="[lang]">
+        <div fxFlex="85" fxFlex.sm="100" [ngClass]="[lang]">
             <div class="usual-menu" style="margin-right: 20px">
                     <span *ngFor="let item of headerData.menu_tab" class="header-item">
                         <a class="header-content" routerLink="{{item.router_link}}">{{langService.translate(item.title)}}</a>
@@ -20,3 +20,4 @@
         </div>
     </div>
 </div>
+<div *ngIf="isMobile" class="fixed header">*****</div>
