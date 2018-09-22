@@ -4,8 +4,18 @@
 
 .section-block {
   border: 10px solid #f2f2f2;
-  padding: 30px 65px 100px 30px;
+  padding: 15px 100px 15px 15px;
   position: relative;
-  z-index: 9;
-  margin-top: 170px;
+  z-index: 4;
+  margin-top: 10px;
+}
+
+.img {
+  height: auto;
+  max-width: 100%;
+  margin-top: 250px;
+}
+
+.img-section {
+  margin: 0 -50px;
 }

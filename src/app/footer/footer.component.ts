@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
   phone: any = {};
   email: any = {};
 
-  constructor(private contentfulService: ContentfulService, public langService: LanguageService, private getJsonFileService: GetJsonFileService) {
+  constructor(private getJsonFileService: GetJsonFileService) {
   }
 
   ngOnInit() {
