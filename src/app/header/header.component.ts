@@ -10,23 +10,12 @@ import {ResponsiveService} from '../shared/services/responsive.service';
 })
 export class HeaderComponent implements OnInit {
   lang: any;
-  // height: number = 500;
-  // width: number = 500;
   headerData: any = {};
   isMobile = false;
-
   constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
-    // this.height = this.window.innerHeight - 250;
-    // this.window.onresize = (e) => {
-    //   this.height = this.window.innerHeight - 250;
-    // };
-    // this.width = this.window.innerWidth - 30;
-    // this.window.onresize = (e) => {
-    //   this.width = this.window.innerWidth - 30;
-    // };
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
 
