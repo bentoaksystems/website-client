@@ -1,6 +1,6 @@
 <div class="page">
     <div *ngIf="!waiting">
-        <div *ngFor="let project of projects" class="project">
+        <div  *ngFor="let project of projects" class="project">
             <app-project [project]="project"></app-project>
         </div>
     </div>
