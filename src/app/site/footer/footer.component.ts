@@ -3,7 +3,6 @@ import {Entry} from 'contentful';
 import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 
-
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
