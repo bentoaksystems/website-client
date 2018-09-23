@@ -1,0 +1,57 @@
+<!--row 1-->
+<div>
+    <div fxLayout="row">
+        <div fxFlex="100%">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px">
+                <div fxFlex="100%">
+                    <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
+                    <div class="title" [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</div>
+                    <div class="intro">
+                        <div [innerHTML]="intro"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--row-->
+<div fxLayout="row" fxLayout.sm="column"  fxLayout.xs="column" fxLayoutAlign="center center">
+
+    <div fxFlex="15">&nbsp;</div>
+    <div fxFlex="70">
+        <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
+             fxLayout.sm="column" fxLayout.xs="column">
+            <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
+                <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+                     class="image-without-slideshow"/>
+                <p class="text-area">{{image.alt}}</p>
+            </mat-card>
+
+        </div>
+
+    </div>
+    <div fxFlex="15">&nbsp;</div>
+</div>
+<div style="text-align: center">
+    <button class="button" label="Show More">Show More</button>
+</div>
+
+
+<div *ngIf="!waiting">
+
+    <!--<div class="center container">-->
+    <!--<div>-->
+    <!--<h2>-->
+    <!--"{{langService.translate('Be of the web, not behind the web!')}}"-->
+    <!--</h2>-->
+    <!--<div style="font-size: 0.8em;">{{langService.translate('Ian Robinson')}}-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+</div>
+<div *ngIf="waiting">
+    <mat-spinner class="align-spinner"></mat-spinner>
+</div>

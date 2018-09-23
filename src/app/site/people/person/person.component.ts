@@ -1,9 +1,9 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 
-import {LanguageService} from '../../shared/services/language.service';
+import {LanguageService} from '../../../shared/services/language.service';
 import {PersonDialogComponent} from '../person-dialog/person-dialog.component';
-import {WINDOW} from '../../shared/services/window.service';
+import {WINDOW} from '../../../shared/services/window.service';
 
 @Component({
   selector: 'app-person',

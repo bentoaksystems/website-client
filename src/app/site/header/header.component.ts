@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
-import {LanguageService} from '../shared/services/language.service';
-import {GetJsonFileService} from '../shared/services/get-json-file.service';
-import {ResponsiveService} from '../shared/services/responsive.service';
+import {Component, OnInit} from '@angular/core';
+import {LanguageService} from '../../shared/services/language.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {ResponsiveService} from '../../shared/services/responsive.service';
+
 
 @Component({
   selector: 'app-header',

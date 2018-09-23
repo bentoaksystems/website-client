@@ -31,7 +31,7 @@
 }
 
 .header-content:hover {
-  color: #8a25b1;
+  color: #2C7AA9;
 }
 
 .menu {
@@ -79,5 +79,5 @@
 .chosenLang {
   text-weight: bolder;
   font-size:125%;
-  color: #8a25b1;
+  color: #2C7AA9;
 }

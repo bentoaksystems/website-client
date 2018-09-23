@@ -1,11 +1,10 @@
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
 
-import {ContentfulService} from '../shared/services/contentful.service';
-import {LanguageService} from '../shared/services/language.service';
-import {WINDOW} from '../shared/services/window.service';
 import * as marked from 'marked';
-import {GetJsonFileService} from '../shared/services/get-json-file.service';
-import {ResponsiveService} from '../shared/services/responsive.service';
+import {LanguageService} from '../../shared/services/language.service';
+import {ResponsiveService} from '../../shared/services/responsive.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {WINDOW} from '../../shared/services/window.service';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +28,7 @@ export class HomeComponent implements OnInit {
   curWidth: number;
   curHeight: number;
 
-  constructor(public langService: LanguageService, private contentfulService: ContentfulService,
+  constructor(public langService: LanguageService,
               @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 

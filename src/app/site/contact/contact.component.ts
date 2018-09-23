@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 
-import {LanguageService} from '../shared/services/language.service';
-import {MessageService} from '../shared/services/message.service';
-import {HttpService} from '../shared/services/http.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {InputType} from '../shared/enum/input.enum';
-import {GetJsonFileService} from '../shared/services/get-json-file.service';
+import {InputType} from '../../shared/enum/input.enum';
+
+import {HttpService} from '../../shared/services/http.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {LanguageService} from '../../shared/services/language.service';
+import {MessageService} from '../../shared/services/message.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -23,8 +25,7 @@ export class ContactComponent implements OnInit {
   emailAddress: any = {};
 
 
-  constructor(public langService: LanguageService, private msgService: MessageService,
-    private httpService: HttpService, private getJsonFileService: GetJsonFileService) {}
+  constructor(public langService: LanguageService, private httpService: HttpService, private getJsonFileService: GetJsonFileService, private msgService: MessageService) {}
 
   ngOnInit() {
     this.contactForm = new FormGroup({
