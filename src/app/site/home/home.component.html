@@ -1,21 +1,12 @@
-<div *ngIf="!waiting" style="position: relative">
-    <div>
-        <div fxLayout="row">
-            <div fxFlex="100%">
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px">
-                    <div fxFlex="100%">
-                        <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
-                        <div class="title" [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</div>
-                        <div class="intro">
-                            <div [innerHTML]="intro"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div *ngIf="!waiting">
+    <div style="position: relative">
+        <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
+        <div class="title" [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</div>
+        <div class="intro">
+            <div [innerHTML]="intro"></div>
         </div>
     </div>
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-
         <div fxFlex="15">&nbsp;</div>
         <div fxFlex="70">
             <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"

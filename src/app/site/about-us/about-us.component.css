@@ -20,6 +20,16 @@
   margin: 100px -100px;
 }
 
+.img-mobile {
+  width: 100%;
+  height: 100%;
+}
+.section-block-mobile {
+  width: 100%;
+  border: 10px solid #f2f2f2;
+  padding: 15px 100px 15px 15px;
+}
+
 .page-section{
   padding: 10px;
   margin: 10px;
