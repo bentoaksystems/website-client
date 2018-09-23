@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as marked from 'marked';
-import {LanguageService} from "../shared/services/language.service";
-import {GetJsonFileService} from '../shared/services/get-json-file.service';
+import {LanguageService} from "../../shared/services/language.service";
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-about-us',
@@ -10,6 +10,7 @@ import {GetJsonFileService} from '../shared/services/get-json-file.service';
 })
 export class AboutUsComponent implements OnInit {
   aboutUs: any = {};
+  desc = null;
 
   constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService) { }
 
@@ -17,7 +18,7 @@ export class AboutUsComponent implements OnInit {
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
         this.aboutUs = details;
-      ;
+        this.desc = marked(this.aboutUs.description);
       })
       .catch(err => {
         console.error('Cannot get data!', err);

@@ -1,13 +1,8 @@
 <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center">
   <div fxFlex="5">&nbsp;</div>
   <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
-    <div class="page" fxFlex="50">
-      <div class="title">
-        {{'Bent Oak Systems'}}
-      </div>
-      <br/>
-      <div class="section-block" [innerHTML]="aboutUs.description"></div>
-      <!--<div class="section-block">&nbsp;</div>-->
+    <div class="page-section" fxFlex="50">
+      <div class="section-block content" [innerHTML]="desc"></div>
     </div>
     <div fxFlex="50">
       <img class="img img-section" src="{{aboutUs.background}}">
