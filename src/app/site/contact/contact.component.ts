@@ -7,7 +7,6 @@ import {HttpService} from '../../shared/services/http.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {LanguageService} from '../../shared/services/language.service';
 import {MessageService} from '../../shared/services/message.service';
-import {WINDOW} from '../../shared/services/window.service';
 
 
 @Component({
@@ -24,16 +23,12 @@ export class ContactComponent implements OnInit {
   address: any = {};
   phone: any = {};
   emailAddress: any = {};
-  curWidth: number;
-  curHeight: number;
 
 
-  constructor(public langService: LanguageService, private httpService: HttpService, @Inject(WINDOW) private window,
+  constructor(public langService: LanguageService, private httpService: HttpService,
               private getJsonFileService: GetJsonFileService, private msgService: MessageService) {}
 
   ngOnInit() {
-    this.curWidth = this.window.innerWidth;
-    this.curHeight = this.window.innerHeight;
     this.contactForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       name: new FormControl(null),
@@ -49,8 +44,6 @@ export class ContactComponent implements OnInit {
       .catch(err => {
         console.error('Cannot get data!', err);
       });
-
-    console.log(this.curHeight);
   }
 
 
