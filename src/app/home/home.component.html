@@ -25,7 +25,7 @@
          fxLayout.sm="column" fxLayout.xs="column">
       <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
         <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
-             class="image-without-slideshow"/>
+             class="image-without-slideShow"/>
         <p class="text-area">{{image.alt}}</p>
       </mat-card>
 
