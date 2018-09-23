@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as marked from 'marked';
-import {LanguageService} from '../shared/services/language.service';
-import {ContentfulService} from '../shared/services/contentful.service';
+import {LanguageService} from '../../shared/services/language.service';
+import {ContentfulService} from '../../shared/services/contentful.service';
 
 @Component({
   selector: 'app-about-us',
@@ -19,7 +19,7 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getAbout()
       .then(res => {
-        console.log('res',res);
+        console.log('res : ', res);
         this.description.en = marked(res[0].fields.descriptionEn);
         this.description.fa = marked(res[0].fields.descriptionFa);
       });

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GetJsonFileService} from '../shared/services/get-json-file.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-people',

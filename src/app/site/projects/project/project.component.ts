@@ -1,8 +1,8 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material";
 
-import {LanguageService} from "../../shared/services/language.service";
-import {WINDOW} from "../../shared/services/window.service";
+import {LanguageService} from "../../../shared/services/language.service";
+import {WINDOW} from "../../../shared/services/window.service";
 import {ProjectDialogComponent} from "../project-dialog/project-dialog.component";
 
 @Component({
