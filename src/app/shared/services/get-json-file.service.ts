@@ -64,4 +64,17 @@ export class GetJsonFileService {
       );
     });
   }
+
+  getAboutUsData() {
+    return new Promise((resolve, reject) => {
+      this.httpService.get('about_us').subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }
