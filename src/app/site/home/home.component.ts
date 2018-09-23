@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 
 import * as marked from 'marked';
 import {LanguageService} from '../../shared/services/language.service';
@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
   slideShows: any = [];
   rows = [];
   isMobile = false;
-  curWidth: number;
-  curHeight: number;
 
   constructor(public langService: LanguageService,
               @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
@@ -39,11 +37,8 @@ export class HomeComponent implements OnInit {
       this.intro = marked((this.langService.lang === 'english') ? this.introRes.introEn : this.introRes.introFa);
     });
 
-    this.curWidth = this.window.innerWidth;
-    this.curHeight = this.window.innerHeight;
-    this.isMobile = this.isMobileCalc();
-    this.updateResponsiveService();
-    this.onResize(null, this.curWidth, this.curHeight);
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
 
     this.waiting = true;
 
@@ -61,9 +56,9 @@ export class HomeComponent implements OnInit {
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
         this.slideShows = res;
-        for (let s of this.slideShows) {
+        for (const s of this.slideShows) {
           if (s.title) {
-            let transDSCP = s.description.split('|');
+            const transDSCP = s.description.split('|');
             this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.url});
           }
         }
@@ -76,30 +71,6 @@ export class HomeComponent implements OnInit {
         console.error('Cannot get data!', err);
       });
 
-  }
-
-  private updateResponsiveService() {
-    [this.responsiveService.curWidth, this.responsiveService.curHeight, this.responsiveService.isMobile] =
-      [this.curWidth, this.curHeight, this.isMobile];
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event, width?, height?) {
-    const [w, h] = [event ? event.target.innerWidth : width, event ? event.target.innerHeight : height];
-    if (this.curWidth !== w || this.curHeight !== h) {
-      [this.curWidth, this.curHeight] = [w, h];
-      this.updateResponsiveService();
-      this.responsiveService.resize$.next([w, h]);
-    }
-    if (this.isMobile !== this.isMobileCalc(w, h)) {
-      this.responsiveService.switch$.next(this.isMobileCalc(w, h));
-      this.isMobile = this.isMobileCalc(w, h);
-      this.responsiveService.isMobile = this.isMobile;
-    }
-  }
-
-  isMobileCalc(width = this.curWidth, height = this.curHeight): boolean {
-    return width < 960;
   }
 
   openPage(link) {
