@@ -7,17 +7,16 @@
 }
 
 .title {
-    position: relative;
-    top: -850px;
-    /*color: #A754B1;*/
+    position: absolute;
+    top: 65px;
     color: #e9e9e9;
     margin: 10px;
     font-size: 80px
 }
 
 .intro {
-    position: relative;
-    top: -830px;
+    position: absolute;
+    top: 200px;
     color: #e9e9e9;
     width: 50%;
     margin: 20px;
@@ -74,8 +73,8 @@ body {
 .card {
     background: #fff;
     display: inline-block;
-    min-height: 250px;
-    max-height: 250px;
+    min-height: 270px;
+    max-height: 270px;
     margin: 10px;
     position: relative;
     width: 250px;
@@ -98,8 +97,8 @@ body {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-    min-height: 250px;
-    max-height: 250px;
+    min-height: 270px;
+    max-height: 270px;
 }
 
 .shadow.tiny:hover {
@@ -112,7 +111,7 @@ body {
     font-size: 10px;
     text-align: center;
     border-radius: 10px;
-    background: #e9e9e9;
+    background: #e2e2e2;
     background: -moz-buttonhoverface;
     color: #2C7AA9;
     cursor: pointer;

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Entry} from 'contentful';
 import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {ResponsiveService} from '../../shared/services/responsive.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,8 +12,10 @@ export class FooterComponent implements OnInit {
   address: any = {};
   phone: any = {};
   email: any = {};
+  isMobile = false;
 
-  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService) {
+
+  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
@@ -27,9 +29,8 @@ export class FooterComponent implements OnInit {
       .catch(err => {
         console.error('Cannot get data!', err);
       });
-  }
 
-  openLinkedIn() {
-    window.open('http://linkedin.com', '_blank');
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {InputType} from '../../shared/enum/input.enum';
@@ -25,7 +25,8 @@ export class ContactComponent implements OnInit {
   emailAddress: any = {};
 
 
-  constructor(public langService: LanguageService, private httpService: HttpService, private getJsonFileService: GetJsonFileService, private msgService: MessageService) {}
+  constructor(public langService: LanguageService, private httpService: HttpService,
+              private getJsonFileService: GetJsonFileService, private msgService: MessageService) {}
 
   ngOnInit() {
     this.contactForm = new FormGroup({
