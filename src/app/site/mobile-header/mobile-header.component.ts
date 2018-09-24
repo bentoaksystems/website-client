@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {ResponsiveService} from '../../shared/services/responsive.service';
+import {LanguageService} from '../../shared/services/language.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-mobile-header',
@@ -7,9 +11,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobileHeaderComponent implements OnInit {
 
-  constructor() { }
+  headerData: any = {};
+  isMobile = false;
+  lang: any;
+  sideNavIsOpen = false;
+  array: any = [];
+  @Input() menuWidth = 100;
+  @Input() menuHeight = 100;
+
+  constructor(private responsiveService: ResponsiveService, public langService: LanguageService,
+              private getJsonFileService: GetJsonFileService, private router: Router) { }
 
   ngOnInit() {
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
+
+    this.langService.lang$.subscribe(lang => this.lang = lang);
+
+
+    this.getJsonFileService.getHeaderData()
+      .then((res: any) => {
+        this.headerData = res;
+        for ( let i = 0; i < this.headerData.menu_tab.length; i++) {
+          if (this.headerData.menu_tab[i].title === 'Home') {
+            Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-home'});
+          } else if (this.headerData.menu_tab[i].title === 'People') {
+            Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-user'});
+          } else if (this.headerData.menu_tab[i].title === 'Contact') {
+            Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-envelope'});
+          } else if (this.headerData.menu_tab[i].title === 'Projects') {
+            Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-desktop'});
+          } else if (this.headerData.menu_tab[i].title === 'About us') {
+            Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-file'});
+          }
+        }
+        this.array = this.headerData.menu_tab.reverse();
+      })
+      .catch(err => {
+        console.error('Cannot get header data from server: ', err);
+      });
+  }
+
+  navigate(arr) {
+    this.router.navigate(arr);
+    this.sideNavIsOpen = false;
   }
 
 }

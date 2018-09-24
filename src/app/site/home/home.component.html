@@ -1,9 +1,16 @@
 <div *ngIf="!waiting">
-    <div style="position: relative">
+    <div *ngIf="!isMobile" style="position: relative">
         <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
         <div class="title" [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</div>
         <div class="intro">
             <div [innerHTML]="intro"></div>
+        </div>
+    </div>
+    <div *ngIf="isMobile">
+        <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
+        <!--<h2 [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</h2>-->
+        <div class="page-section">
+            <div class="section-block content" [innerHTML]="intro"></div>
         </div>
     </div>
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
