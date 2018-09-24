@@ -60,12 +60,12 @@ export class HomeComponent implements OnInit {
         this.slideShows = res;
         for (const s of this.slideShows) {
           if (s.title) {
-            const transDSCP = s.description.split('|');
+            const transDSCP = s.description;
             this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.url});
           }
         }
 
-        this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
+        this.images = this.images_en;
         this.images = this.images = this.chunkArray();
         this.waiting = false;
       })
