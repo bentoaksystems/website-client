@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
-      console.log('*****', this.isMobile);
     });
 
     this.waiting = true;

@@ -386,3 +386,18 @@ span, div, label, p{
 .farsi .mat-button-wrapper{
   font-family: 'yekan';
 }
+
+.clickable-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mat-drawer {
+  position: fixed !important;
+}
+
+.mat-drawer-container {
+  z-index: 10 !important;
+  overflow: visible !important;
+  background-color: #e9e9e9;
+}

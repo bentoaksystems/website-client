@@ -1,8 +1,10 @@
 <div>
-    <app-header *ngIf="!isMobile"></app-header>
-    <app-mobile-header *ngIf="isMobile"></app-mobile-header>
+    <div class="fixed">
+        <app-header *ngIf="!isMobile"></app-header>
+        <app-mobile-header *ngIf="isMobile" [menuWidth]="curWidth - 40" [menuHeight]="curHeight"></app-mobile-header>
+    </div>
+    <div [style.min-height]="(curHeight - 210) + 'px'">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
 </div>
-<div [style.min-height]="(curHeight - 210) + 'px'">
-    <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>

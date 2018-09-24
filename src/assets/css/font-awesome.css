@@ -204,6 +204,12 @@
 .fa-user:before {
   content: "\f007";
 }
+
+.fa-user-friends:before {
+  content: "\f500";
+}
+
+
 .fa-film:before {
   content: "\f008";
 }
