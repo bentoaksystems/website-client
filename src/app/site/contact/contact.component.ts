@@ -7,6 +7,7 @@ import {HttpService} from '../../shared/services/http.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {LanguageService} from '../../shared/services/language.service';
 import {MessageService} from '../../shared/services/message.service';
+import {ResponsiveService} from '../../shared/services/responsive.service';
 
 
 @Component({
@@ -23,12 +24,17 @@ export class ContactComponent implements OnInit {
   address: any = {};
   phone: any = {};
   emailAddress: any = {};
+  isMobile = false;
 
 
   constructor(public langService: LanguageService, private httpService: HttpService,
-              private getJsonFileService: GetJsonFileService, private msgService: MessageService) {}
+              private getJsonFileService: GetJsonFileService, private msgService: MessageService, private responsiveService: ResponsiveService) {}
 
   ngOnInit() {
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => {
+      this.isMobile = isMobile;
+    });
     this.contactForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       name: new FormControl(null),
