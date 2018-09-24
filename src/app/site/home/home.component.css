@@ -127,7 +127,6 @@ body {
     padding: 3px;
 }
 
-
 .section-block {
     border: 10px solid #f2f2f2;
     padding: 15px 100px 15px 15px;
@@ -139,7 +138,4 @@ body {
     text-align: justify;
 }
 
-.img {
-    background-image: url(/../../../assets/images/home-banner.jpg);
-}
 

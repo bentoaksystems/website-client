@@ -1,11 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {InputType} from '../../shared/enum/input.enum';
 
 import {HttpService} from '../../shared/services/http.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
-import {LanguageService} from '../../shared/services/language.service';
 import {MessageService} from '../../shared/services/message.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 
@@ -27,7 +26,7 @@ export class ContactComponent implements OnInit {
   isMobile = false;
 
 
-  constructor(public langService: LanguageService, private httpService: HttpService,
+  constructor(private httpService: HttpService,
               private getJsonFileService: GetJsonFileService, private msgService: MessageService, private responsiveService: ResponsiveService) {}
 
   ngOnInit() {
@@ -62,13 +61,13 @@ export class ContactComponent implements OnInit {
 
     this.httpService.post('contact', obj).subscribe(
       (res) => {
-        this.msgService.inform(this.langService.translate('Your message has been sent. We response you as soon as possible. Thanks'));
+        this.msgService.inform('Your message has been sent. We response you as soon as possible. Thanks');
         this.contactForm.controls['email'].setValue(null);
         this.contactForm.controls['name'].setValue(null);
         this.contactForm.controls['content'].setValue(null);
       },
       (err) => {
-        this.msgService.error(this.langService.translate('Cannot send your message. Check your connection and try again.'));
+        this.msgService.error('Cannot send your message. Check your connection and try again.');
       }
     );
   }

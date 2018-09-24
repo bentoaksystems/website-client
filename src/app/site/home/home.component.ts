@@ -12,8 +12,6 @@ import {WINDOW} from '../../shared/services/window.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  introRes: any = {introFa: '', introEn: ''};
-  intro = '';
   lang: string;
   private images_en: any = [];
   private images_fa: any = [];
@@ -25,7 +23,7 @@ export class HomeComponent implements OnInit {
   slideShows: any = [];
   rows = [];
   isMobile = false;
-  x = '../../../assets/images/home-banner.jpg';
+  intro = '';
 
   constructor(public langService: LanguageService,
               @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
@@ -35,7 +33,6 @@ export class HomeComponent implements OnInit {
     this.langService.lang$.subscribe(lang => {
       this.lang = lang;
       this.images = (this.lang === 'english') ? this.images_en : this.images_fa;
-      this.intro = marked((this.langService.lang === 'english') ? this.introRes.introEn : this.introRes.introFa);
     });
 
     this.isMobile = this.responsiveService.isMobile;
@@ -48,8 +45,7 @@ export class HomeComponent implements OnInit {
     this.getJsonFileService.getHomeTopSectionData()
       .then((res: any) => {
         this.homeTopSection = res;
-        this.introRes = this.homeTopSection.introRes;
-        this.intro = marked((this.langService.lang === 'english') ? this.introRes.introEn : this.introRes.introFa);
+        this.intro = marked(this.homeTopSection.intro);
         this.waiting = false;
       })
       .catch(err => {
