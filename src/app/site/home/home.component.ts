@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   slideShows: any = [];
   rows = [];
   isMobile = false;
+  x = '../../../assets/images/home-banner.jpg';
 
   constructor(public langService: LanguageService,
               @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
