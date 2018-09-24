@@ -7,7 +7,9 @@
         </div>
     </div>
     <div *ngIf="isMobile">
-        <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
+        <div>
+            <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
+        </div>
         <!--<h2 [ngClass]="[lang]">{{langService.translate('Bent Oak Systems')}}</h2>-->
         <div class="page-section">
             <div class="section-block content" [innerHTML]="intro"></div>
