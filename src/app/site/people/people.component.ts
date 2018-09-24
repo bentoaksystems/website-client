@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {ResponsiveService} from '../../shared/services/responsive.service';
 
 @Component({
   selector: 'app-people',
@@ -9,13 +10,16 @@ import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 export class PeopleComponent implements OnInit {
   people: any = [];
   waiting: boolean = false;
-
-  constructor(private getJsonService: GetJsonFileService) {
+  isMobile = false;
+  constructor(private getJsonService: GetJsonFileService, private responsiveService: ResponsiveService ) {
   }
 
   ngOnInit() {
     this.waiting = true;
-
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => {
+      this.isMobile = isMobile;
+    });
     this.getJsonService.getPeopleData()
       .then(res => {
         this.people = res;

@@ -2,7 +2,7 @@
 <div fxFlex="5">&nbsp;</div>
 <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
   <div class="page" fxFlex="60">
-    <div class="title">
+    <div class="title" [class.title-mobile]="isMobile">
       {{'Ready to start a project?'}}
     </div>
     <br/>
@@ -35,8 +35,8 @@
     </form>
   </div>
   <div fxFlex="5" >&nbsp;</div>
-  <div fxFlex="35" class="page" >
-    <label class="title">{{'Get in touch with us'}} </label>
+  <div fxFlex="35" class="page">
+    <label class="title" [class.title-mobile]="isMobile">{{'Get in touch with us'}} </label>
     <div class="contact-label"><i class="fa fa-home" aria-hidden="true" style="padding:3px;border-radius:2px; font-size:185%"> </i> {{ address}}</div>
     <div class="contact-label"><i class="fa fa-phone" aria-hidden="true" style="padding:3px;border-radius:2px; font-size:185%"> </i> {{ phone}}</div>
     <div class="contact-label"><i class="fa fa-envelope" aria-hidden="true" style="padding:3px;border-radius:2px; font-size:185%"> </i><a class="mail" href="mailto:info@bentoak.systems">{{ emailAddress}}</a></div>

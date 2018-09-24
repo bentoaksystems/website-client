@@ -3,7 +3,7 @@
         <app-header *ngIf="!isMobile"></app-header>
         <app-mobile-header *ngIf="isMobile" [menuWidth]="curWidth - 40" [menuHeight]="curHeight"></app-mobile-header>
     </div>
-    <div [style.min-height]="(curHeight - 210) + 'px'">
+    <div [style.min-height]="(curHeight - 210) + 'px'" style="margin-top: 70px">
         <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>

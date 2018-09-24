@@ -6,15 +6,10 @@
                 <img src="{{headerData.logo}}" style="width:160px; height: 60px">
             </a>
         </div>
-        <div fxFlex="5" style="margin-bottom: 5px">
-            <a class="header-content" (click)="switchLang()"><span
-                    [class.chosenLang]="langService.lang==='english'">En</span>/<span
-                    [class.chosenLang]="langService.lang==='farsi'">Fa</span></a>
-        </div>
-        <div fxFlex="85" fxFlex.sm="100" [ngClass]="[lang]">
-            <div class="usual-menu" style="margin-right: 20px">
+        <div fxFlex="90" fxFlex.sm="100">
+            <div class="usual-menu" style="margin-right: 20px; text-align: right">
                     <span *ngFor="let item of headerData.menu_tab" class="header-item">
-                        <a class="header-content" routerLink="{{item.router_link}}">{{langService.translate(item.title)}}</a>
+                        <a class="header-content" routerLink="{{item.router_link}}">{{item.title}}</a>
                     </span>
             </div>
         </div>

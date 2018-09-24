@@ -6,6 +6,10 @@
   margin-top: 20px;
 }
 
+.title-mobile {
+  margin-top: 0px !important;
+}
+
 .title:hover {
   color: #026ae0;;
 }

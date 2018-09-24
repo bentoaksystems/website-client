@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 
@@ -15,7 +14,7 @@ export class FooterComponent implements OnInit {
   isMobile = false;
 
 
-  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 
@@ -9,18 +8,14 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  lang: any;
   headerData: any = {};
   isMobile = false;
-  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
-
-    this.langService.lang$.subscribe(lang => this.lang = lang);
-
 
     this.getJsonFileService.getHeaderData()
       .then((res: any) => {
@@ -29,9 +24,5 @@ export class HeaderComponent implements OnInit {
       .catch(err => {
         console.error('Cannot get header data from server: ', err);
       });
-  }
-
-  switchLang() {
-    this.langService.changeLanguage();
   }
 }
