@@ -38,7 +38,9 @@ export class HomeComponent implements OnInit {
     });
 
     this.isMobile = this.responsiveService.isMobile;
-    this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
+    this.responsiveService.switch$.subscribe(isMobile => {
+      this.isMobile = isMobile;
+    });
 
     this.waiting = true;
 

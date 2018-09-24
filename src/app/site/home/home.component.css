@@ -128,3 +128,21 @@ body {
   font-weight: bold;
   color: #afafaf;
 }
+
+
+.page-section{
+    padding: 3px;
+}
+
+
+.section-block {
+    border: 10px solid #f2f2f2;
+    padding: 15px 100px 15px 15px;
+    position: relative;
+    z-index: 4;
+}
+
+.content{
+    text-align: justify;
+}
+

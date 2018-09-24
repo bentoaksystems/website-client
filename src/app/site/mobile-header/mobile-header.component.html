@@ -1,1 +1,41 @@
-<div class="fixed header" style="text-align: center;">*****</div>
+<div dir="rtl" class="mobile-header">
+    <mat-sidenav-container class="header">
+        <mat-sidenav #sidenav mode="push" [style.height]="menuHeight + 'px'" [style.width]="menuWidth + 'px'"
+                     style=" margin-right: -10px;"
+                     (opened)="sideNavIsOpen = true"
+                     (closed)="sideNavIsOpen = false" [opened]="sideNavIsOpen">
+            <div class="menu-item menu-title clickable-link" (click)="navigate(['/contact'])">
+                {{langService.translate('Login/Join')}}<i
+                    class="fa fa-sign-in" style="margin-right: 5px"></i>
+            </div>
+            <div *ngFor="let item of array" class="menu-item menu-title clickable-link"
+                 (click)="navigate([item.router_link])">{{langService.translate(item.title)}}<i class="{{item.iconLogo}}"
+                                                                                               style="margin-right: 5px"></i>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div style="left: 8px; top: 8px; background-color: transparent;" fxLayout="row"
+                 fxLayoutAlign="center center">
+                <div fxFlex="70" style="text-align: right; margin-right: 3px">
+                    <a class="mobile-header-item" (click)="sidenav.toggle()">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <!--<div fxFlex="5" style="margin-bottom: 5px">-->
+                    <!--<a class="header-content" (click)="switchLang()"><span-->
+                            <!--[class.chosenLang]="langService.lang==='english'">En</span>/<span-->
+                            <!--[class.chosenLang]="langService.lang==='farsi'">Fa</span></a>-->
+                <!--</div>-->
+                <div fxFlex="30" style="text-align: left; margin-left: 7px">
+                    <a routerLink="/" class="mobile-header-item">
+                        <span>
+                        <img src="{{headerData.logo}}"
+                             style="width:110px; height: 40px; margin-left: 2px; margin-bottom: 5px">
+                            </span>
+                    </a>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
