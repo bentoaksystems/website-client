@@ -1,4 +1,4 @@
-.mobile-header{
+.mobile-header {
     padding: 0px;
     overflow: hidden;
 }
@@ -17,42 +17,25 @@
     font-size: 2em;
 }
 
-.menu-item{
+.menu-item {
     padding: 20px;
     text-align: right;
-    border-bottom: solid rgba(197,203,201,0.68) thin;
-    background-color: rgba(197,203,201,0.3);
+    border-bottom: solid rgba(197, 203, 201, 0.68) thin;
+    background-color: rgba(197, 203, 201, 0.3);
     position: relative !important;
 }
+
 .menu-item i {
     font-size: 20px;
 }
 
-.menu-title{
+.menu-title {
     color: gray;
     background-color: white;
     text-align: center;
 }
 
-a{
+a {
     color: black !important;
 }
 
-/*.mobile-logo {*/
-    /*font-family: nastaliq, sans-serif !Important;*/
-    /*font-size: 20px;*/
-    /*position: absolute;*/
-    /*top: 8px;*/
-    /*line-height: 40px;*/
-    /*right: 13px;*/
-    /*display: inline-block;*/
-    /*color: black;*/
-    /*transition: all .3s ease-in;*/
-/*}*/
-
-/*.mobile-logo span{*/
-    /*top: -16px;*/
-    /*right: -10px;*/
-    /*position: relative;*/
-    /*font-size: 80%;*/
-/*}*/

@@ -3,7 +3,6 @@ import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
