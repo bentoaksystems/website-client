@@ -17,7 +17,7 @@ export class ProjectDialogComponent implements OnInit {
   ngOnInit() {
     this.langService.lang$.subscribe(lang => this.lang = lang);
 
-    this.data.width -= 24;
+    // this.data.width -= 24;
   }
 
 }

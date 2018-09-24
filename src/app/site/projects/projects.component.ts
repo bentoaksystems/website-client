@@ -41,7 +41,7 @@ export class ProjectsComponent implements OnInit {
               title: project.mainImage.title
             }
           };
-          console.log('obj: ',obj);
+         // console.log('obj: ',obj);
           this.projects.push(obj);
         }
 
@@ -49,7 +49,6 @@ export class ProjectsComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
-        err;
       })
   }
 

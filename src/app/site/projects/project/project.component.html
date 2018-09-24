@@ -1,45 +1,37 @@
-<!--<div>-->
-  <!--<div class="show-more flex-container" fxLayout="row" fxLayoutAlign="center center">-->
-    <!--<div class="flex-item" fxFlex="25">-->
-      <!--<img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />-->
-    <!--</div>-->
-    <!--jhgj-->
-    <!--<div class="flex-item" fxFlex="75">-->
-      <!--<div class="width-center">{{project.title}}</div>-->
-      <!--<div class="width-center">{{project.shortDescription}}</div>-->
-      <!--<a class="show-more link" (click)="showDetails()">{{'More...'}}</a>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="show-details center">-->
-    <!--<div class="row">-->
-      <!--<div class="col-12">-->
-        <!--<h4 class="width-center">{{project.title}}</h4>-->
-      <!--</div>-->
-      <!--<div class="col-12">-->
-        <!--<img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />-->
-      <!--</div>-->
-      <!--<div class="col-12">-->
-        <!--<div class="width-center">{{project.shortDescription}}</div>-->
-      <!--</div>-->
-      <!--<div class="col-12 project-text-align">-->
-        <!--&lt;!&ndash;<div [innerHtml]="project.description"></div>&ndash;&gt;-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<hr/>-->
-  <!--</div>-->
-<!--</div>-->
-
-<div fxLayout="row" fxLayoutAlign="start center">
-  <div fxFlex="15">&nbsp;</div>
-  <div fxFlex="70">
-    <div class="center image-wrapper">
-      <mat-card fxFlex="33" class="card shadow tiny">
-        <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />
-        <div class="width-center">{{project.title}}</div>
-        <div class="width-center">{{project.shortDescription}}</div>
-        <a class="show-more link" (click)="showDetails()">{{'More...'}}</a>
+<div class="pic">
+  <div class="container" >
+      <mat-card  class="">
+        <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="image project-image" style="width:100%" />
+        <div class="middle">
+        <p class="">{{project.title}}</p>
+        <p class="">{{project.shortDescription}}</p>
+        <a class="info text" (click)="showDetails()">{{'More...'}}</a>
+        </div>
       </mat-card>
+
+    <!--<div class="flex-item" fxFlex="75">-->
+
     </div>
   </div>
-  <div fxFlex="15">&nbsp;</div>
-</div>
+  <!--<div class="show-details center">-->
+    <!--<div class="row">-->
+        <!--<h4 class="width-center">{{project.title}}</h4>-->
+        <!--<img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />-->
+      <!--</div>-->
+        <!--<div class="width-center">{{project.shortDescription}}</div>-->
+  <!--</div>-->
+
+
+  <!--<div fxFlex="100"  fxLayout="row">-->
+    <!--<div class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"-->
+         <!--fxLayout.sm="column" fxLayout.xs="column">-->
+      <!--<mat-card fxFlex="33" class="card shadow tiny">-->
+        <!--<img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />-->
+        <!--<p class="width-center">{{project.title}}</p>-->
+        <!--&lt;!&ndash;<div class="width-center">{{project.title}}</div>&ndash;&gt;-->
+        <!--<p class="width-center">{{project.shortDescription}}</p>-->
+        <!--&lt;!&ndash;<div class="width-center">{{project.shortDescription}}</div>&ndash;&gt;-->
+        <!--<a class="show-more link" (click)="showDetails()">{{'More...'}}</a>-->
+      <!--</mat-card>-->
+    <!--</div>-->
+  <!--</div>-->

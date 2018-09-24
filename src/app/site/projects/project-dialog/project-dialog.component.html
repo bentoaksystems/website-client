@@ -4,10 +4,9 @@
   </div>
   <mat-card>
     <br />
-    <mat-card-title class="center" *ngIf="langService.lang === 'english'">{{data.project.title_en}}</mat-card-title>
-    <mat-card-title class="center" *ngIf="langService.lang === 'farsi'">{{data.project.title_fa}}</mat-card-title>
+    <mat-card-title class="center">{{data.project.title}}</mat-card-title>
     <mat-card-content>
-      <div [innerHtml]="langService.lang==='english' ? data.project.description_en : data.project.description_fa"></div>
+      <div [innerHtml]="data.project.description"></div>
     </mat-card-content>
   </mat-card>
 </div>
