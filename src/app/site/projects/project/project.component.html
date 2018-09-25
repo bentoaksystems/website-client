@@ -1,14 +1,16 @@
 <div class="pic" fxLayout="column" fxLayoutAlign="space-around center">
   <div fxFlex="35"></div>
-  <div  class="container" fxFlex="40">
-      <mat-card class="mat">
-        <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="image"  />
+  <div class="container" fxFlex="40">
+    <mat-card class="mat">
+      <img mat-card-image  src="{{project.mainImage.url}}" alt="{{project.title}}" class="image">
+      <mat-card-content style=" margin-top: -100px;">
         <div class="middle">
-        <p>{{project.title}}</p>
-        <p>{{project.shortDescription}}</p>
-        <a class="more-button" (click)="showDetails()">{{'More'}}</a>
+          <p>{{project.title}}</p>
+          <p>{{project.shortDescription}}</p>
+          <a class="more-button" (click)="showDetails()">{{'More'}}</a>
         </div>
-      </mat-card>
-    </div>
+        </mat-card-content>
+    </mat-card>
+  </div>
   <div fxFlex="25"></div>
 </div>
