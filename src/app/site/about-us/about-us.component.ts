@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as marked from 'marked';
-import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 
@@ -14,7 +13,7 @@ export class AboutUsComponent implements OnInit {
   desc = null;
   isMobile = false;
 
-  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) { }
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) { }
 
   ngOnInit() {
     this.getJsonFileService.getAboutUsData()

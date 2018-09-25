@@ -1,6 +1,5 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../shared/services/responsive.service';
-import {LanguageService} from '../../shared/services/language.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {Router} from '@angular/router';
 
@@ -13,20 +12,17 @@ export class MobileHeaderComponent implements OnInit {
 
   headerData: any = {};
   isMobile = false;
-  lang: any;
   sideNavIsOpen = false;
   array: any = [];
   @Input() menuWidth = 100;
   @Input() menuHeight = 100;
 
-  constructor(private responsiveService: ResponsiveService, public langService: LanguageService,
+  constructor(private responsiveService: ResponsiveService,
               private getJsonFileService: GetJsonFileService, private router: Router) { }
 
   ngOnInit() {
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
-
-    this.langService.lang$.subscribe(lang => this.lang = lang);
 
 
     this.getJsonFileService.getHeaderData()
