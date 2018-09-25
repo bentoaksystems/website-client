@@ -1,5 +1,5 @@
 <div *ngIf="!waiting" style="width: 100%">
-    <div *ngIf="!isMobile" style="position: relative;">
+    <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
         <img src="{{homeTopSection.backgroundPic}}" style="display: block;">
         <div class="title">{{'Bent Oak Systems'}}</div>
         <div class="intro" [innerHTML]="intro">
@@ -16,9 +16,9 @@
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
         <div fxFlex="15">&nbsp;</div>
         <div fxFlex="65">
-          <div style="text-align: center; margin-bottom: 5px">
-            <label class="toolBox">Our Toolbox</label>
-          </div>
+            <div style="text-align: center; margin-bottom: 5px">
+                <label class="toolBox">Our Toolbox</label>
+            </div>
             <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
                  fxLayout.sm="row" fxLayout.xs="column">
                 <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">

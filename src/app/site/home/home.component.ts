@@ -12,10 +12,8 @@ import {WINDOW} from '../../shared/services/window.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  lang: string;
   private images_en: any = [];
   images: any = [];
-  height: number;
   width: number;
   waiting: boolean = false;
   homeTopSection: any = {};
@@ -25,11 +23,11 @@ export class HomeComponent implements OnInit {
   intro = '';
 
   constructor(public langService: LanguageService,
-              @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+              @Inject(WINDOW) public window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
-    // this.images = this.images_en;
+    this.width = this.window.innerWidth;
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
