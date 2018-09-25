@@ -1,33 +1,14 @@
-<div>
-  <div class="show-more flex-container" fxLayout="row" fxLayoutAlign="center center">
-    <div class="flex-item" fxFlex="25">
-      <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />
+<div class="pic" fxLayout="column" fxLayoutAlign="space-around center">
+  <div fxFlex="35"></div>
+  <div  class="container" fxFlex="40">
+      <mat-card class="mat">
+        <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="image"  />
+        <div class="middle">
+        <p>{{project.title}}</p>
+        <p>{{project.shortDescription}}</p>
+        <a class="more-button" (click)="showDetails()">{{'More'}}</a>
+        </div>
+      </mat-card>
     </div>
-    <div class="flex-item" fxFlex="75">
-      <h3 class="width-center" *ngIf="langService.lang === 'english'">{{project.title_en}}</h3>
-      <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.title_fa}}</h3>
-      <h4 class="width-center" *ngIf="langService.lang === 'english'">{{project.shortDescription_en}}</h4>
-      <h4 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.shortDescription_fa}}</h4>
-      <a class="show-more link" (click)="showDetails()">{{'More...'}}</a>
-    </div>
-  </div>
-  <div class="show-details center">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="width-center" *ngIf="langService.lang === 'english'">{{project.title_en}}</h3>
-        <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.title_fa}}</h3>
-      </div>
-      <div class="col-12">
-        <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="project-image" />
-      </div>
-      <div class="col-12">
-        <h5 class="width-center" *ngIf="langService.lang === 'english'">{{project.shortDescription_en}}</h5>
-        <h5 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.shortDescription_fa}}</h5>
-      </div>
-      <div class="col-12 project-text-align">
-        <div [innerHtml]="langService.lang==='english' ? project.description_en : project.description_fa"></div>
-      </div>
-    </div>
-    <hr/>
-  </div>
+  <div fxFlex="25"></div>
 </div>

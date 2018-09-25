@@ -14,7 +14,6 @@ import {WINDOW} from '../../shared/services/window.service';
 export class HomeComponent implements OnInit {
   lang: string;
   private images_en: any = [];
-  private images_fa: any = [];
   images: any = [];
   height: number;
   width: number;
@@ -30,11 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.langService.lang$.subscribe(lang => {
-      this.lang = lang;
-      this.images = (this.lang === 'english') ? this.images_en : this.images_fa;
-    });
-
+    // this.images = this.images_en;
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
@@ -57,12 +52,12 @@ export class HomeComponent implements OnInit {
         this.slideShows = res;
         for (const s of this.slideShows) {
           if (s.title) {
-            const transDSCP = s.description.split('|');
-            this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.url});
+            const transDSCP = s.description;
+            this.images_en.push({source: s.file.url, description: transDSCP, title: s.title, link: s.url});
           }
         }
 
-        this.images = (this.langService.lang === 'english') ? this.images_en : this.images_fa;
+        this.images = this.images_en;
         this.images = this.images = this.chunkArray();
         this.waiting = false;
       })

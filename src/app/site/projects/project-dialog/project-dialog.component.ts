@@ -15,9 +15,6 @@ export class ProjectDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit() {
-    this.langService.lang$.subscribe(lang => this.lang = lang);
-
-    this.data.width -= 24;
   }
 
 }

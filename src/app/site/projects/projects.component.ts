@@ -1,9 +1,10 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import * as marked from 'marked';
 
-import {LanguageService} from "../../shared/services/language.service";
-import {ContentfulService} from "../../shared/services/contentful.service";
-import {WINDOW} from "../../shared/services/window.service";
+import {LanguageService} from '../../shared/services/language.service';
+import {ContentfulService} from '../../shared/services/contentful.service';
+import {WINDOW} from '../../shared/services/window.service';
+import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 
 @Component({
   selector: 'app-projects',
@@ -12,10 +13,11 @@ import {WINDOW} from "../../shared/services/window.service";
 })
 export class ProjectsComponent implements OnInit {
   projects: any = [];
+  details: any = [];
   width: number;
   waiting: boolean = false;
 
-  constructor(public langService: LanguageService, private contentfulService: ContentfulService,
+  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService,
     @Inject(WINDOW) private window) {}
 
   ngOnInit() {
@@ -26,26 +28,20 @@ export class ProjectsComponent implements OnInit {
 
     this.waiting = true;
 
-    this.contentfulService.getProjects()
+    this.getJsonFileService.getProjectData()
       .then(res => {
-        for (const project of res) {
+        this.details = res;
+        for (const project of this.details) {
           const obj = {
-            title_en: project.fields.displayNameEn,
-            title_fa: project.fields.displayNameFa,
-            shortDescription_en: project.fields.shortDescriptionEn,
-            shortDescription_fa: project.fields.shortDescriptionFa,
-            description_en: marked(project.fields.descriptionEn),
-            description_fa: marked(project.fields.descriptionFa),
+            title: project.displayName,
+            shortDescription: project.shortDescription,
+            description: marked(project.description),
             mainImage: {
-              url: project.fields.mainImage.fields.file.url,
-              title: project.fields.mainImage.fields.title
+              url: project.mainImage.url,
+              title: project.mainImage.title
             }
           };
-
-          if (project.fields.screenShots)
-            for (const screenShot of project.fields.screenShots)
-              obj[screenShot].push({url: screenShot.fields.file.url, title: screenShot.fields.file.title, description: screenShot.fields.file.description});
-
+         // console.log('obj: ',obj);
           this.projects.push(obj);
         }
 
