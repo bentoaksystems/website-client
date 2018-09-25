@@ -28,8 +28,8 @@ export class ProjectsComponent implements OnInit {
 
     this.contentfulService.getProjects()
       .then(res => {
-        for (let project of res) {
-          let obj = {
+        for (const project of res) {
+          const obj = {
             title_en: project.fields.displayNameEn,
             title_fa: project.fields.displayNameFa,
             shortDescription_en: project.fields.shortDescriptionEn,
@@ -43,7 +43,7 @@ export class ProjectsComponent implements OnInit {
           };
 
           if (project.fields.screenShots)
-            for (let screenShot of project.fields.screenShots)
+            for (const screenShot of project.fields.screenShots)
               obj[screenShot].push({url: screenShot.fields.file.url, title: screenShot.fields.file.title, description: screenShot.fields.file.description});
 
           this.projects.push(obj);
@@ -53,7 +53,6 @@ export class ProjectsComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
-        err;
       })
   }
 

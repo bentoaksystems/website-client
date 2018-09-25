@@ -8,7 +8,7 @@
       <h3 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.title_fa}}</h3>
       <h4 class="width-center" *ngIf="langService.lang === 'english'">{{project.shortDescription_en}}</h4>
       <h4 class="width-center" *ngIf="langService.lang === 'farsi'">{{project.shortDescription_fa}}</h4>
-      <a class="show-more link" (click)="showDetails()">{{langService.translate('More...')}}</a>
+      <a class="show-more link" (click)="showDetails()">{{'More...'}}</a>
     </div>
   </div>
   <div class="show-details center">
