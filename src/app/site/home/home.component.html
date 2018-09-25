@@ -20,11 +20,11 @@
             <label class="toolBox">Our Toolbox</label>
           </div>
             <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
-                 fxLayout.sm="column" fxLayout.xs="column">
+                 fxLayout.sm="row" fxLayout.xs="column">
                 <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
                     <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
                          class="image-without-slideshow"/>
-                    <p class="text-area">{{image.alt}}</p>
+                    <p class="text-area">{{image.description}}</p>
                 </mat-card>
 
             </div>

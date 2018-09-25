@@ -29,11 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.langService.lang$.subscribe(lang => {
-      this.lang = lang;
-      this.images = this.images_en;
-    });
-
+    // this.images = this.images_en;
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
@@ -57,15 +53,12 @@ export class HomeComponent implements OnInit {
         for (const s of this.slideShows) {
           if (s.title) {
             const transDSCP = s.description;
-            this.images_en.push({source: s.file.url, alt: transDSCP[0], title: s.title, link: s.url});
+            this.images_en.push({source: s.file.url, description: transDSCP, title: s.title, link: s.url});
           }
         }
 
         this.images = this.images_en;
-        console.log('images',this.images_en);
-
-        this.images = this.chunkArray();
-        console.log('images',this.images);
+        this.images = this.images = this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
