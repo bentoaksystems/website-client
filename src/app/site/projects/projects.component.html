@@ -1,6 +1,7 @@
 <div class="page">
     <div *ngIf="!waiting">
-        <div *ngFor="let project of projects" class="project">
+      <div style="font-size: 2em; font-weight: bold; margin-left: 250px;">Our Projects</div>
+      <div  *ngFor="let project of projects" class="project">
             <app-project [project]="project"></app-project>
         </div>
     </div>

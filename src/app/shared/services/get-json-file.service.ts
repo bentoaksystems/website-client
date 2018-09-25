@@ -77,4 +77,17 @@ export class GetJsonFileService {
       );
     });
   }
+
+  getProjectData(){
+    return new Promise((resolve, reject) => {
+      this.httpService.get('project').subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }
