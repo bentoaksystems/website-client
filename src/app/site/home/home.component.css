@@ -1,25 +1,25 @@
 .title {
-    position: absolute;
-    top: 65px;
-    color: #e9e9e9;
-    margin: 10px;
-    font-size: 80px
+  position: absolute;
+  top: 65px;
+  color: #e9e9e9;
+  margin: 10px;
+  font-size: 80px
 }
 
 .intro {
-    position: absolute;
-    top: 200px;
-    color: #e9e9e9;
-    width: 50%;
-    margin: 20px;
+  position: absolute;
+  top: 200px;
+  color: #e9e9e9;
+  width: 50%;
+  margin: 20px;
 }
 
 .intro:hover {
-    color: #2C7AA9;;
+  color: #2C7AA9;;
 }
 
 .title:hover {
-    color: #2C7AA9;;
+  color: #2C7AA9;;
 }
 
 .image {
@@ -30,32 +30,32 @@
 }
 
 .image-wrapper {
-    margin-bottom: 10px;
-    cursor: pointer;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 /* Technology BOX */
 
 
 .card {
-    background: #fff;
-    display: inline-block;
-    min-height: 270px;
-    max-height: 270px;
-    margin: 10px;
-    position: relative;
-    width: 250px;
-    font-size: 7px;
+  background: #fff;
+  display: inline-block;
+  min-height: 270px;
+  max-height: 270px;
+  margin: 10px;
+  position: relative;
+  width: 250px;
+  font-size: 7px;
 
 }
 
 .text-area {
-    font-size: 12px;
-    text-align: center;
-    margin: 5px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .shadow .tiny {
@@ -87,31 +87,58 @@
 }
 
 .button:hover {
-    background: #2C7AA9;
-    color: #e9e9e9;
+  background: #2C7AA9;
+  color: #e9e9e9;
 }
 
 .toolBox {
-    font-size: 25px;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555555;
+  font-size: 25px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555555;
+;
 }
 
 .page-section {
-    padding: 3px;
+  padding: 3px;
 }
 
 .section-block {
-    border: 10px solid #f2f2f2;
-    padding: 15px 100px 15px 15px;
-    position: relative;
-    z-index: 4;
+  border: 10px solid #f2f2f2;
+  padding: 15px 100px 15px 15px;
+  position: relative;
+  z-index: 4;
 }
 
 .content {
-    text-align: justify;
+  text-align: justify;
 }
 
+/*Our Process*/
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  height: 40%;
+}
 
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
 
+.img-process {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width:100%;
+  height:430px;
+  background-repeat:no-repeat;
+  /*background-size:cover;*/
+  /*object-fit: cover;*/
+
+}
+
+.vertical-space {
+  margin-top:10px;
+  width: 100%;
+}

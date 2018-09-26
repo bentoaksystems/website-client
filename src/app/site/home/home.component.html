@@ -1,42 +1,155 @@
 <div *ngIf="!waiting">
-    <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
-        <img src="{{homeTopSection.backgroundPic}}" style="display: block">
-        <div class="title">{{'Bent Oak Systems'}}</div>
-        <div class="intro" [innerHTML]="intro">
-        </div>
+  <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
+    <img src="{{homeTopSection.backgroundPic}}" style="display: block">
+    <div class="title">{{'Bent Oak Systems'}}</div>
+    <div class="intro" [innerHTML]="intro">
     </div>
-    <div *ngIf="isMobile">
-        <div>
-            <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
-        </div>
-        <div class="page-section">
-            <div class="section-block content" [innerHTML]="intro"></div>
-        </div>
+  </div>
+  <div *ngIf="isMobile">
+    <div>
+      <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-        <div fxFlex="15">&nbsp;</div>
-        <div fxFlex="65">
-            <div style="text-align: center; margin-bottom: 5px">
-                <label class="toolBox">Our Toolbox</label>
-            </div>
-            <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
-                 fxLayout.sm="row" fxLayout.xs="column">
-                <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
-                    <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
-                         class="image"/>
-                    <p class="text-area">{{image.description}}</p>
-                </mat-card>
+    <div class="page-section">
+      <div class="section-block content" [innerHTML]="intro"></div>
+    </div>
+  </div>
 
-            </div>
-
+  <!--Our Process-->
+  <div style="text-align: center; margin-bottom: 10px">
+    <label class="toolBox">Our Process</label>
+  </div>
+      <div class="jumbotron" fxLayout="row"  fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+        <div fxFlex="45" >
+          <img  class="img-process" src="../../../assets/images/process.jpg">
         </div>
-        <div fxFlex="15">&nbsp;</div>
+        <div fxFlex="5"></div>
+        <div fxFlex="50" [class.vertical-space] = 'isMobile'>
+        <mat-accordion class="example-headers-align">
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                IDEA
+              </mat-panel-title>
+                <mat-icon>filter_1</mat-icon>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              We shape your business ideas into reality and offer solutions which add value to your business.
+              </mat-panel-description>
+            <mat-action-row>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                PLAN
+              </mat-panel-title>
+              <mat-icon>filter_2</mat-icon>
+            </mat-expansion-panel-header>
+              <mat-panel-description>
+                We shape your business ideas into reality and offer solutions which add value to your business.
+              </mat-panel-description>
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                DESIGN
+              </mat-panel-title>
+              <mat-icon>filter_3</mat-icon>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              We create innovative & attractive web design with great functionality to engage web traffic.
+            </mat-panel-description>
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                DEVELOPMENT
+              </mat-panel-title>
+              <mat-icon>filter_4</mat-icon>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              We offer specialized web development services which are functional & give a phenomenal performance.
+            </mat-panel-description>
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                TESTING
+              </mat-panel-title>
+              <mat-icon>filter_5</mat-icon>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              Our expert team executes comprehensive testing before approval.
+            </mat-panel-description>
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                DELIVERY
+              </mat-panel-title>
+              <mat-icon>filter_6</mat-icon>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              We deliver final product with utmost adherence to quality, time and efficiency.
+            </mat-panel-description>
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">End</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+        </div>
+
+      </div>
+  </div>
+
+  <!--our Toolbox-->
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+    <div fxFlex="15">&nbsp;</div>
+    <div fxFlex="65">
+      <div style="text-align: center; margin-bottom: 5px">
+        <label class="toolBox">Our Toolbox</label>
+      </div>
+      <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
+           fxLayout.sm="row" fxLayout.xs="column">
+        <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
+          <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+               class="image"/>
+          <p class="text-area">{{image.description}}</p>
+        </mat-card>
+
+      </div>
+
     </div>
-    <div style="text-align: center; margin-bottom: 15px">
-        <button class="button" label="Show More">Show More</button>
-    </div>
-</div>
+    <div fxFlex="15">&nbsp;</div>
+  </div>
+  <div style="text-align: center; margin-bottom: 15px">
+    <button class="button" label="Show More">Show More</button>
+  </div>
 
 <div *ngIf="waiting">
-    <mat-spinner class="align-spinner"></mat-spinner>
+  <mat-spinner class="align-spinner"></mat-spinner>
 </div>
