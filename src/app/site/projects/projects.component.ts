@@ -2,9 +2,9 @@ import {Component, Inject, OnInit} from '@angular/core';
 import * as marked from 'marked';
 
 import {LanguageService} from '../../shared/services/language.service';
-import {ContentfulService} from '../../shared/services/contentful.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
+import {ResponsiveService} from '../../shared/services/responsive.service';
 
 @Component({
   selector: 'app-projects',
@@ -16,15 +16,16 @@ export class ProjectsComponent implements OnInit {
   details: any = [];
   width: number;
   waiting: boolean = false;
+  isMobile = false;
 
-  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService,
-    @Inject(WINDOW) private window) {}
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
+  @Inject(WINDOW) private window) {}
 
   ngOnInit() {
-    this.width = this.window.innerWidth;
-    this.window.onresize = (e) => {
-      this.width = this.window.innerWidth;
-    };
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => {
+      this.isMobile = isMobile;
+    });
 
     this.waiting = true;
 
@@ -41,7 +42,6 @@ export class ProjectsComponent implements OnInit {
               title: project.mainImage.title
             }
           };
-         // console.log('obj: ',obj);
           this.projects.push(obj);
         }
 
