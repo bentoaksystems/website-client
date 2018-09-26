@@ -10,26 +10,8 @@
   text-decoration: none;
 }
 
-.burger-menu {
-  top: unset;
-  bottom: unset;
-}
-
 .header-content:hover {
   color: #2C7AA9;
-}
-
-.menu {
-  list-style-type: none;
-}
-
-.menu-button {
-  position: absolute;
-  top: 20px;
-}
-
-.side-menu {
-  background-color: #e9e9e9;
 }
 
 .header-item {
@@ -37,32 +19,12 @@
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
-}
-
-.english .header-item {
   float: right;
-}
-
-.farsi .header-item {
-  float: left;
 }
 
 .logo {
   padding: 10px;
-}
-
-.logo .english {
   direction: ltr;
   float: left;
 }
 
-.logo .farsi {
-  direction: rtl;
-  float: right;
-}
-
-.chosenLang {
-  text-weight: bolder;
-  font-size:125%;
-  color: #2C7AA9;
-}

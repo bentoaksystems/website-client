@@ -1,7 +1,7 @@
 <div *ngIf="!waiting">
   <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
     <img src="{{homeTopSection.backgroundPic}}" style="display: block">
-    <div class="title">{{langService.translate('Bent Oak Systems')}}</div>
+    <div class="title">{{'Bent Oak Systems'}}</div>
     <div class="intro" [innerHTML]="intro">
     </div>
   </div>
@@ -137,7 +137,7 @@
            fxLayout.sm="row" fxLayout.xs="column">
         <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
           <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
-               class="image-without-slideshow"/>
+               class="image"/>
           <p class="text-area">{{image.description}}</p>
         </mat-card>
 

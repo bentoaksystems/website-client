@@ -1,8 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MatExpansionModule} from '@angular/material/expansion';
-
 import * as marked from 'marked';
-import {LanguageService} from '../../shared/services/language.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
@@ -13,11 +10,8 @@ import {WINDOW} from '../../shared/services/window.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  lang: string;
   private images_en: any = [];
   images: any = [];
-  height: number;
-  width: number;
   waiting: boolean = false;
   homeTopSection: any = {};
   slideShows: any = [];
@@ -27,8 +21,7 @@ export class HomeComponent implements OnInit {
   step = 0;
 
 
-  constructor(public langService: LanguageService,
-              @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(@Inject(WINDOW) public window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
