@@ -29,7 +29,7 @@
   border-top: 5px ridge;
   border-bottom: 5px ridge;
   overflow: hidden;
-  /* min-height: 700px; */ /* Makes the height of the cards equal, but also corrupts the action items! */
+   /*min-height: 700px;  !* Makes the height of the cards equal, but also corrupts the action items! *!*/
 }
 
 .email-pos {

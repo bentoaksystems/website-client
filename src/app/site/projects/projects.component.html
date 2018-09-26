@@ -1,11 +1,15 @@
-<div class="page">
-    <div *ngIf="!waiting">
-      <div style="font-size: 2em; font-weight: bold; margin-left: 250px;">Our Projects</div>
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 10em;">
+  <div fxFlex="85" fxFlex.md="90" fxFlex.sm="95" fxFlex.xs="100">
+  <div *ngIf="!waiting">
+    <div style="font-size: 2em; font-weight: bold;" [style.text-align]="isMobile ? 'center' : 'left'">Our Projects</div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start">
       <div  *ngFor="let project of projects" class="project">
-            <app-project [project]="project"></app-project>
-        </div>
+        <app-project [project]="project"></app-project>
+      </div>
     </div>
     <div *ngIf="waiting">
-        <mat-spinner class="align-spinner"></mat-spinner>
+      <mat-spinner class="align-spinner"></mat-spinner>
     </div>
+  </div>
+</div>
 </div>
