@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import * as marked from 'marked';
 import {LanguageService} from '../../shared/services/language.service';
@@ -23,13 +24,14 @@ export class HomeComponent implements OnInit {
   rows = [];
   isMobile = false;
   intro = '';
+  step = 0;
+
 
   constructor(public langService: LanguageService,
               @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
-    // this.images = this.images_en;
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
@@ -93,5 +95,18 @@ export class HomeComponent implements OnInit {
     if (counter > 0) {
       this.rows.push(chunk);
     }
+  }
+
+  //our Process
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 }
