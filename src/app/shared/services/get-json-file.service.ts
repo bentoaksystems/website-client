@@ -90,4 +90,17 @@ export class GetJsonFileService {
       );
     });
   }
+
+  getProcessData(){
+    return new Promise((resolve, reject) => {
+      this.httpService.get('process').subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }

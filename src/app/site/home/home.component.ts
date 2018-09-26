@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   waiting: boolean = false;
   homeTopSection: any = {};
   slideShows: any = [];
+  process: any = [];
   rows = [];
   isMobile = false;
   intro = '';
@@ -58,6 +59,15 @@ export class HomeComponent implements OnInit {
       })
       .catch(err => {
         console.error('Cannot get data!', err);
+      });
+
+    this.getJsonFileService.getProcessData()
+      .then((res: any) => {
+        this.process = res;
+        this.waiting = false;
+      })
+      .catch(err => {
+        console.error('Cannot get data from server: ', err);
       });
 
   }
