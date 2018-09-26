@@ -17,7 +17,8 @@ import {
   MatProgressSpinnerModule,
   MatListModule,
   MatSliderModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatExpansionModule
 } from '@angular/material';
 import {AboutUsComponent} from './about-us/about-us.component';
 import {SharedModule} from 'primeng/primeng';
@@ -62,6 +63,7 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
     MatSliderModule,
     SharedModule,
     MatTooltipModule,
+    MatExpansionModule
   ],
   declarations: [
     AboutUsComponent,
