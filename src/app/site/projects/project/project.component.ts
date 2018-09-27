@@ -25,16 +25,16 @@ export class ProjectComponent implements OnInit {
   }
 
   showDetails() {
-    let _width = this.window.innerWidth;
-    let _height = this.window.innerHeight;
+    const _width = this.window.innerWidth;
+    const _height = this.window.innerHeight;
 
     this.dialog.open(ProjectDialogComponent, {
-      width: _width * 0.8 + 'px',
-      height: _height * 0.8 + 'px',
+      width: _width * 0.7 + 'px',
+      height: _height * 0.5 + 'px',
       data: {
         project: this.project,
-        width: _width * 0.8,
-        height: _height * 0.8
+        width: _width * 0.7,
+        height: _height * 0.5
       }
     })
   }

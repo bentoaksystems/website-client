@@ -14,9 +14,21 @@
   font-weight: bold;
 }
 
+.header-content:hover {
+  color: #2C7AA9;
+}
+
 .header-item {
   display: inline-block;
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
+  float: right;
 }
+
+.logo {
+  padding: 10px;
+  direction: ltr;
+  float: left;
+}
+

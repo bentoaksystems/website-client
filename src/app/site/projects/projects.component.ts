@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import * as marked from 'marked';
 
-import {LanguageService} from "../../shared/services/language.service";
-import {WINDOW} from "../../shared/services/window.service";
+import {LanguageService} from '../../shared/services/language.service';
+import {WINDOW} from '../../shared/services/window.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 
@@ -18,7 +18,7 @@ export class ProjectsComponent implements OnInit {
   waiting: boolean = false;
   isMobile = false;
 
-  constructor(public langService: LanguageService, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
   @Inject(WINDOW) private window) {}
 
   ngOnInit() {
@@ -32,8 +32,8 @@ export class ProjectsComponent implements OnInit {
     this.getJsonFileService.getProjectData()
       .then(res => {
         this.details = res;
-        for (let project of this.details) {
-          let obj = {
+        for (const project of this.details) {
+          const obj = {
             title: project.displayName,
             shortDescription: project.shortDescription,
             description: marked(project.description),

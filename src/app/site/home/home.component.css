@@ -9,12 +9,15 @@
 .title {
   position: absolute;
   top: 65px;
+
   margin: 10px;
+
 }
 
 .intro {
   position: absolute;
   top: 200px;
+
   width: 50%;
   margin: 20px;
 }
@@ -31,11 +34,7 @@
   margin: 5px;
 }
 
-.slide-show {
-  text-align: -webkit-center;
-}
-
-.image-without-slideshow {
+.image {
   width: 40%;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -47,19 +46,12 @@
   cursor: pointer;
 }
 
-.techContainer {
-  display: inline-block !important;
-}
-
 /* Technology BOX */
 
-body {
-  background: #fafafa;
-  text-align: left;
-}
-
 .card {
+
   display: inline-block;
+
   margin: 10px;
   position: relative;
   width: 250px;
@@ -67,6 +59,7 @@ body {
 }
 
 .text-area {
+
   text-align: center;
   margin: 5px;
   overflow-wrap: break-word;
@@ -76,7 +69,7 @@ body {
 
 .shadow.tiny {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -91,9 +84,11 @@ body {
 .button {
   width: 100px;
   height: 40px;
+
   text-align: center;
   border-radius: 10px;
   background: -moz-buttonhoverface;
+
   cursor: pointer;
   display: block;
   margin: auto;
@@ -119,4 +114,31 @@ body {
   text-align: justify;
 }
 
+/*Our Process*/
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  height: 40%;
+}
 
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-process {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  height: 430px;
+  background-repeat: no-repeat;
+  /*background-size:cover;*/
+  /*object-fit: cover;*/
+
+}
+
+.vertical-space {
+  margin-top: 10px;
+  width: 100%;
+}

@@ -1,5 +1,7 @@
-.project {
-  margin: auto;
-  margin-bottom: 1em;
-  margin-top: 1em;
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 40px;
+  padding-top: 30px;
+  color: #555555;
 }

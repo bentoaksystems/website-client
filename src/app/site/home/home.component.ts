@@ -1,10 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
-
 import * as marked from 'marked';
-import {LanguageService} from '../../shared/services/language.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
+import {LanguageService} from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-home',
@@ -12,24 +11,21 @@ import {WINDOW} from '../../shared/services/window.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  lang: string;
   private images_en: any = [];
   images: any = [];
-  height: number;
-  width: number;
-  waiting: boolean = false;
+  waiting = false;
   homeTopSection: any = {};
   slideShows: any = [];
   rows = [];
   isMobile = false;
   intro = '';
+  step = 0;
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
-    // this.images = this.images_en;
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
@@ -93,5 +89,18 @@ export class HomeComponent implements OnInit {
     if (counter > 0) {
       this.rows.push(chunk);
     }
+  }
+
+  // our Process
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 }
