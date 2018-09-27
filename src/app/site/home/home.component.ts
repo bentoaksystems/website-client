@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
   isMobile = false;
   intro = '';
 
-  constructor(public langService: LanguageService,
-              @Inject(WINDOW) private window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(public langService: LanguageService, @Inject(WINDOW) private window,
+              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {

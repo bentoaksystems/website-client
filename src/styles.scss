@@ -1,144 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /*Define persian font face*/
 @font-face {
   font-family: 'yekan';
   src: url('./assets/fonts/iranyekanweblight.woff');
 }
+
 @font-face {
   font-family: 'kharazmi';
   src: url('./assets/fonts/IRAN_Kharazmi.woff');
 }
+
 @font-face {
   font-family: 'aovel';
   src: url('./assets/fonts/ASans.ttf');
 }
+
 @font-face {
   font-family: 'roboto';
   src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
 }
+
+@import "./bos-theme";
+
 .lang-nav {
   direction: ltr !important;
   font-family: Roboto !important;
 }
 
 @media screen and (max-width: 768px) and (min-width: 400px) {
-  .column-menu{
+  .column-menu {
     display: none !important;
   }
 }
-@media screen and (min-width: 960px){
-  .lang-nav{
+
+@media screen and (min-width: 960px) {
+  .lang-nav {
     margin-top: 140px !important;
     direction: ltr;
   }
 }
-@media screen and (max-width: 768px){
-  .english{
+
+@media screen and (max-width: 768px) {
+  .english {
     text-align: center;
   }
 
-  .farsi{
+  .farsi {
     text-align: center;
   }
-  .show-more{
+  .show-more {
     display: none !important;
   }
-  .show-details{
+  .show-details {
     display: block !important;
     margin-bottom: 50px !important;
   }
 
-  .width-center{
+  .width-center {
     text-align: center !important;
   }
 
-  .visible-slideshow{
+  .visible-slideshow {
     display: none !important;
   }
 
-  .invisible-slideshow{
+  .invisible-slideshow {
     display: block !important;
     margin-top: 30px;
   }
 
 }
 
-.visible-slideshow{
+.visible-slideshow {
   display: flex;
 }
 
-.invisible-slideshow{
+.invisible-slideshow {
   display: none;
 }
+
 .logo {
   color: black !important;
 }
-.active-link{
+
+.active-link {
   color: #607d8b !important;
   text-decoration: underline !important;
 }
-@media screen and (min-width: 400px){
-  .logo{
+
+@media screen and (min-width: 400px) {
+  .logo {
     font-size: 157% !important;
   }
 
 }
 
-@media screen and (max-width: 400px){
-  .column-menu{
+@media screen and (max-width: 400px) {
+  .column-menu {
     display: block;
   }
 
-  .usual-menu{
+  .usual-menu {
     display: none !important;
   }
 
-  .logo .english{
+  .logo .english {
     font-size: 2.6em;
   }
 
-  .logo .farsi{
+  .logo .farsi {
     font-size: 2.6em;
   }
 
-  .lang-nav{
+  .lang-nav {
     margin: 5px !important;
     direction: ltr;
   }
 
-  .english .header-item{
+  .english .header-item {
     float: unset !important;
   }
 
-  .farsi .header-item{
+  .farsi .header-item {
     float: unset !important;
   }
 }
 
-@media screen and (min-width: 768px){
-  .usual-menu{
+@media screen and (min-width: 768px) {
+  .usual-menu {
     display: block !important;
   }
-  .column-menu{
+  .column-menu {
     display: none !important;
     visibility: hidden;
   }
 }
 
-.link{
+.link {
   text-decoration: none;
   cursor: pointer;
 }
 
-.page{
+.page {
   padding: 10px;
   margin: 10px;
   margin-top: 50px;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
@@ -146,46 +157,48 @@ mat-sidenav {
   width: 300px;
 }
 
-.mat-sidenav-content{
+.mat-sidenav-content {
   overflow: hidden !important;
 }
 
-.mat-grid-tile .mat-figure{
+.mat-grid-tile .mat-figure {
   text-align: center;
   padding: 3px;
 }
 
-.align-spinner{
+.align-spinner {
   height: 40px !important;
   vertical-align: middle;
   margin: 20% auto 20% auto;
   left: 50%;
 }
 
-.cdk-global-scrollblock{
+.cdk-global-scrollblock {
   position: unset !important;
 }
+
 .farsi {
   text-align: justify;
   direction: rtl;
   font-family: yekan, serif;
   font-size: 1.2em;
 }
+
 .english {
   text-align: left;
   direction: ltr;
   font-family: roboto, serif;
 }
 
-h1.farsi{
+h1.farsi {
   font-family: kharazmi, sans-serif !important;
 }
 
-h1.english{
+h1.english {
   font-family: aovel, sans-serif !important;
 }
 
-.mat-subheader{
+.mat-subheader {
   font-size: 1.5rem !important;
 }
 
@@ -194,196 +207,198 @@ h1.english{
 }
 
 /*Remove outer border in primeng slideshow*/
-.ui-widget-content{
+.ui-widget-content {
   border: none;
 }
 
-.vertical-space{
+.vertical-space {
   margin: 200px;
 }
 
-.show-more{
+.show-more {
   display: block;
 }
 
-.show-details{
+.show-details {
   display: none;
 }
 
-.width-center{
+.width-center {
   text-align: inherit;
 }
 
-.mat-card{
+.mat-card {
   font-family: inherit;
 }
 
-.mat-list-item{
+.mat-list-item {
   font-family: inherit;
 }
 
 /*set font-size for english and farsi fonts*/
-.english h1{
+.english h1 {
   font-size: 2em;
 }
 
-.english h2{
+.english h2 {
   font-size: 1.5em;
 }
 
-.english h3{
+.english h3 {
   font-size: 1.17em;
 }
 
-.english h4{
+.english h4 {
   font-size: 1em;
 }
 
-.english h5{
+.english h5 {
   font-size: 0.83em;
 }
 
-.english h6{
+.english h6 {
   font-size: 0.67em;
 }
 
-.farsi h1{
+.farsi h1 {
   font-size: 2.2em;
 }
 
-.farsi h2{
+.farsi h2 {
   font-size: 1.5em;
 }
 
-.farsi h3{
+.farsi h3 {
   font-size: 1.17em;
 }
 
-.farsi h4{
+.farsi h4 {
   font-size: 1em;
 }
 
-.farsi h5{
+.farsi h5 {
   font-size: 0.83em;
 }
 
-.farsi  h6{
+.farsi h6 {
   font-size: 0.67em;
 }
 
-span, div, label, p{
+span, div, label, p {
   font-size: medium;
 }
 
-.english .personal-image{
+.english .personal-image {
   float: right !important;
 }
 
-.farsi .personal-image{
+.farsi .personal-image {
   float: left !important;
   right: -10px !important;
 }
 
-.english .project-image{
+.english .project-image {
   float: right !important;
 }
 
-.farsi .project-image{
+.farsi .project-image {
   float: left !important;
 }
 
-.ui-panel-images{
+.ui-panel-images {
   max-width: 700px;
   max-height: 700px;
 }
-.ui-galleria{
-  width:100%;
+
+.ui-galleria {
+  width: 100%;
 }
-.english .ui-galleria-caption{
+
+.english .ui-galleria-caption {
   font-family: roboto, serif;
 }
 
-.farsi .ui-galleria-caption{
+.farsi .ui-galleria-caption {
   font-family: yekan, serif;
 }
 
-.ui-galleria-caption p{
+.ui-galleria-caption p {
   text-align: center;
   font-size: 0.8em;
 }
 
-.ui-galleria-caption h4{
+.ui-galleria-caption h4 {
   text-align: center;
 }
 
-.fa-chevron-circle-right, .fa-chevron-circle-left{
+.fa-chevron-circle-right, .fa-chevron-circle-left {
   display: none;
 }
 
-.fix-LTR{
+.fix-LTR {
   direction: ltr;
 }
 
-.ui-galleria-panel{
+.ui-galleria-panel {
   text-align: center;
 }
 
-.show-details .personal-image{
+.show-details .personal-image {
   float: unset !important;
 }
 
-.show-details .project-image{
+.show-details .project-image {
   float: unset !important;
 }
 
-.project-text-align{
+.project-text-align {
   text-align: justify !important;
 }
 
-.data-field{
+.data-field {
   width: 100%;
   text-align: center;
 }
 
-.inform{
+.inform {
   background-color: black;
 }
 
-.error{
+.error {
   background-color: darkred;
 }
 
-.warning{
+.warning {
   background-color: greenyellow;
 }
 
-.english .mat-form-field-infix{
+.english .mat-form-field-infix {
   font-family: 'roboto';
   text-align: left;
 }
 
-.farsi .mat-form-field-infix{
+.farsi .mat-form-field-infix {
   font-family: 'yekan';
   text-align: right;
 }
 
-.english-style .mat-input-element{
+.english-style .mat-input-element {
   font-family: 'roboto' !important;
   text-align: left;
   direction: ltr;
 }
 
-.farsi-style .mat-input-element{
+.farsi-style .mat-input-element {
   font-family: 'yekan' !important;
   text-align: right;
   direction: rtl;
 }
 
-.english .mat-button-wrapper{
+.english .mat-button-wrapper {
   font-family: 'roboto';
 }
 
-.farsi .mat-button-wrapper{
+.farsi .mat-button-wrapper {
   font-family: 'yekan';
 }
 
@@ -399,5 +414,5 @@ span, div, label, p{
 .mat-drawer-container {
   z-index: 10 !important;
   overflow: visible !important;
-  background-color: #e9e9e9;
+  background-color: mat-color($bw-primary) !important;
 }

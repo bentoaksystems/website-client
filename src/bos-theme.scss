@@ -1,0 +1,177 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$bw-primary: mat-palette($mat-gray, 300, 100, 600);
+$bw-accent: mat-palette($mat-light-blue, 700, 500, 900);
+
+// The warn palette is optional (defaults to red).
+$bw-warn: mat-palette($mat-red, 400);
+$bw-success: mat-palette($mat-light-green, 500);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$bw-theme: mat-light-theme($bw-primary, $bw-accent, $bw-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($bw-theme);
+
+// Typography
+$bw-font-family: "Roboto, sans-serif"; // default font family
+$bw-h1: mat-typography-level(5em, 1.5, 400); // for <h1> tags
+$bw-h2: mat-typography-level(3.5em, 1.5, 400);  // for <h2> tags
+$bw-h3: mat-typography-level(2em, 1.5, 400);  // for <h3> tags
+$bw-h4: mat-typography-level(1.5em, 1.5, 400);// for <h4> tags
+$bw-body-normal: mat-typography-level(1.2em, 1.5, 400);
+$bw-body-bold: mat-typography-level(1.2em, 1.5, 800);
+$bw-caption: mat-typography-level(1em, 1.5, 200);
+
+$bw-typography: mat-typography-config(
+  $font-family: $bw-font-family,
+  $headline: $bw-h1,
+  $title: $bw-h2,
+  $subheading-2: $bw-h3,
+  $subheading-1: $bw-h4,
+  $body-1: $bw-body-normal,
+  $body-2: $bw-body-bold,
+  $caption: $bw-caption
+);
+// For more customizations, refer to: https://material.angular.io/guide/typography
+@include angular-material-typography($bw-typography);
+
+// Base Coloring Theme Classes
+// Use these for BACKGROUNDS!
+// NOTE: these are NOT overridable!
+.primary {
+  background-color: mat-color($bw-primary, default) !important;
+  color: mat-color($bw-primary, default-contrast) !important;
+}
+
+.primary-lighter {
+  background-color: mat-color($bw-primary, lighter) !important;
+  color: mat-color($bw-primary, lighter-contrast) !important;
+}
+
+.primary-darker {
+  background-color: mat-color($bw-primary, darker) !important;
+  color: mat-color($bw-primary, darker-contrast) !important;
+}
+
+.accent {
+  background-color: mat-color($bw-accent, default) !important;
+  color: mat-color($bw-accent, default-contrast) !important;
+}
+
+.accent-lighter {
+  background-color: mat-color($bw-accent, lighter) !important;
+  color: mat-color($bw-accent, lighter-contrast) !important;
+}
+
+.accent-darker {
+  background-color: mat-color($bw-accent, darker) !important;
+  color: mat-color($bw-accent, darker-contrast) !important;
+}
+
+.warn {
+  background-color: mat-color($bw-warn) !important;
+  color: mat-color($bw-warn, default-contrast) !important;
+}
+
+.success {
+  background-color: mat-color($bw-success) !important;
+  color: mat-color($bw-success, default-contrast) !important;
+}
+
+// Use this class for every custom texts
+.t {
+  // Use these for text COLORS!
+  // NOTE: these are overridable!
+  &.t-primary {
+    color: mat-color($bw-primary, darker);
+
+    &.t-primary-hover:hover {
+      cursor: pointer;
+      color: mat-color($bw-accent);
+    }
+  }
+
+  &.t-accent {
+    color: mat-color($bw-accent);
+
+    &.t-accent-hover:hover {
+      cursor: pointer;
+      color: mat-color($bw-primary, darker);
+    }
+  }
+
+  &.t-warn {
+    color: mat-color($bw-warn);
+  }
+
+  &.t-success {
+    color: mat-color($bw-success);
+  }
+
+  &.t-light {
+    color: map-get($mat-gray, 100);
+
+    &.t-light-hover:hover {
+      cursor: pointer;
+      color: mat-color($bw-accent);
+    }
+  }
+
+  &.t-dark {
+    color: map-get($mat-gray, 800);
+
+    &.t-dark-hover:hover {
+      cursor: pointer;
+      color: mat-color($bw-accent);
+    }
+  }
+
+  // Use these for text SIZES!
+  // NOTE: these are overridable!
+  .t-title {
+    @include mat-typography-level-to-styles($bw-typography, title);
+  }
+
+  .t-subtitle {
+    @include mat-typography-level-to-styles($bw-typography, subheading-1);
+  }
+
+  .t-desc {
+    @include mat-typography-level-to-styles($bw-typography, body-1);
+  }
+
+  .t-caption {
+    @include mat-typography-level-to-styles($bw-typography, caption);
+  }
+
+  .t-little {
+    font-size: 0.6em !important;
+  }
+}
+
+/* Note: If encountered some errors about 'not finding directory or module' or
+something like that on first-time use, do the following, as there's known bugs related!
+  remove these folders from node_modules:
+    node-sass
+    @angular/cli (Best matching version: 1.6.8! Version 1.7.X seems to have related bugs)
+    postcss-loader
+    sass-loader
+then run 'npm install' again to download these again.
+If it didn't work, try removing 'node_module' folder completely and start from scratch.
+
+Also be careful about the flex-layout version! Only the following in 'package.json' works correctly:
+"@angular/flex-layout": "2.0.0-beta.10-4905443"
+(rc version is corrupted, avoid that)
+*/

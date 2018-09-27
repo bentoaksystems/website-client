@@ -10,6 +10,7 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 export class HeaderComponent implements OnInit {
   headerData: any = {};
   isMobile = false;
+
   constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 

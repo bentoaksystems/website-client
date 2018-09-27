@@ -1,42 +1,44 @@
 <div *ngIf="!waiting">
-    <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
-        <img src="{{homeTopSection.backgroundPic}}" style="display: block">
-        <div class="title">{{langService.translate('Bent Oak Systems')}}</div>
-        <div class="intro" [innerHTML]="intro">
-        </div>
+  <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
+    <img src="{{homeTopSection.backgroundPic}}" style="display: block">
+    <h1 class="t t-light t-light-hover title">{{langService.translate('Bent Oak Systems')}}</h1>
+    <div class="t t-light t-light-hover intro" [innerHTML]="intro">
     </div>
-    <div *ngIf="isMobile">
-        <div>
-            <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
-        </div>
-        <div class="page-section">
-            <div class="section-block content" [innerHTML]="intro"></div>
-        </div>
+  </div>
+  <div *ngIf="isMobile">
+    <div>
+      <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
     </div>
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-        <div fxFlex="15">&nbsp;</div>
-        <div fxFlex="65">
-          <div style="text-align: center; margin-bottom: 5px">
-            <label class="toolBox">Our Toolbox</label>
-          </div>
-            <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
-                 fxLayout.sm="row" fxLayout.xs="column">
-                <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
-                    <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
-                         class="image-without-slideshow"/>
-                    <p class="text-area">{{image.description}}</p>
-                </mat-card>
+    <div class="page-section">
+      <div class="section-block content" [innerHTML]="intro"></div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+    <div fxFlex="15">&nbsp;</div>
+    <div fxFlex="75">
+      <div style="text-align: center; margin-bottom: 5px">
+        <h3 class="t t-primary toolBox">Our Toolbox</h3>
+      </div>
+      <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
+           fxLayout.sm="row" fxLayout.xs="column">
+        <mat-card *ngFor="let image of row" fxFlex="33" class="primary-lighter card shadow tiny">
+          <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+               class="image-without-slideshow"/>
+          <p class="t t-little text-area">{{image.description}}</p>
+        </mat-card>
 
-            </div>
+      </div>
 
-        </div>
-        <div fxFlex="15">&nbsp;</div>
     </div>
-    <div style="text-align: center; margin-bottom: 15px">
-        <button class="button" label="Show More">Show More</button>
-    </div>
+    <div fxFlex="15">&nbsp;</div>
+  </div>
+  <div style="text-align: center; margin-bottom: 15px">
+    <button class="primary button" label="Show More">
+      <span class="t t-accent t-accent-hover">Show More</span>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="waiting">
-    <mat-spinner class="align-spinner"></mat-spinner>
+  <mat-spinner class="align-spinner"></mat-spinner>
 </div>

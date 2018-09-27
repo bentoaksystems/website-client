@@ -1,5 +1,5 @@
 .footer {
-  margin: 0px;
+  margin: 0;
   padding: 10px;
   font-size: 0.5em !important;
 }
@@ -8,14 +8,11 @@
   height: 180px;
 }
 
-
-
 .footer-back {
   background-color: #171717 !important;
 }
 
 .footer-content {
-  color: rgba(176,182,180,0.71) !important;
   margin-top: 2px;
 }
 
@@ -28,26 +25,15 @@
 }
 
 .socket-content {
-  color: white;
   font-size: 0.6em;
-
 }
 
 .footer-label {
-  color: #c0c0c0;
   font-weight: bold;
 }
 
 .mail-label {
   text-decoration: none;
 }
-.align-text {
-  text-align: justify;
-}
 
-.fixed{
-  position: fixed;
-  bottom: 0px;
-  right:0;
-}
 
