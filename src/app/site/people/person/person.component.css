@@ -9,18 +9,6 @@
   cursor: pointer;
 }
 
-.softened-edge {
-  border-top: 5px ridge;
-  border-bottom: 5px ridge;
-  overflow: hidden;
-}
-
-.desc-wrapper {
-  height: 190px;
-  overflow: hidden;
-  text-align: justify;
-}
-
 .links-wrapper {
   text-align: center;
   position: relative;

@@ -7,9 +7,10 @@
       <h5 class="t t-dark t-caption" style="font-weight: bold;">{{project.title}}</h5>
       <p class="t t-dark t-caption">{{project.shortDescription}}</p>
     </div>
-    <button mat-raised-button class="accent middle" (click)="showDetails()">
-      {{'More...'}}
-    </button>
+    <div style="height: 17%" class="middle">
+      <button mat-raised-button class="accent" (click)="showDetails()">
+        {{'More...'}}
+      </button>
+    </div>
   </div>
 </mat-card>
-
