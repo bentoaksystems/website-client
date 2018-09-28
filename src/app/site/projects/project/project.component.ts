@@ -30,11 +30,11 @@ export class ProjectComponent implements OnInit {
 
     this.dialog.open(ProjectDialogComponent, {
       width: _width * 0.7 + 'px',
-      height: _height * 0.5 + 'px',
+      height: _height * 0.7 + 'px',
       data: {
         project: this.project,
         width: _width * 0.7,
-        height: _height * 0.5
+        height: _height * 0.7
       }
     })
   }
