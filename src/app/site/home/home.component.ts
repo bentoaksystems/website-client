@@ -100,7 +100,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  //our Process
+  // our Process
   setStep(index: number) {
     this.step = index;
   }
