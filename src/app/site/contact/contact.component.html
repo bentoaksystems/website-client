@@ -29,15 +29,15 @@
           </mat-form-field>
         </div>
         <div>
-          <button mat-raised-button type="submit" [disabled]="!contactForm.valid">
-            {{'Send your message'}}
+          <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
+            <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
           </button>
         </div>
       </form>
     </div>
     <div fxFlex="5">&nbsp;</div>
     <div fxFlex="35" class="page">
-      <h4 class="title" [class.title-mobile]="isMobile">{{'Get in touch with us'}} </h4>
+      <h3 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">{{'Get in touch with us'}} </h3>
       <h5 class="t t-primary contact-label">
         <i class="fa fa-home contact-image" aria-hidden="true"></i>
         {{address}}
