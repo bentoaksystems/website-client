@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss",
+        "bos-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -29,13 +30,13 @@
       }
     },
     {
-      "platform": "server",
       "root": "src",
       "outDir": "dist/server",
       "assets": [
         "assets",
         "favicon.ico"
       ],
+      "platform": "server",
       "index": "index.html",
       "main": "main.server.ts",
       "test": "test.ts",
@@ -43,7 +44,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss",
+        "bos-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -76,15 +78,15 @@
   },
   "defaults": {
     "styleExt": "css",
+    "class": {
+      "spec": false
+    },
     "component": {
       "spec": false,
       "inlineStyle": true,
       "inlineTemplate": true
     },
     "directive": {
-      "spec": false
-    },
-    "class": {
       "spec": false
     },
     "guard": {
@@ -102,5 +104,8 @@
     "serve": {
       "port": 8080
     }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }

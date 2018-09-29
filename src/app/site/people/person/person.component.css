@@ -4,44 +4,9 @@
   margin: 30px;
 }
 
-/*.shadow {*/
-  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
-  /*transition: all 0.3s cubic-bezier(.25, .8, .25, 1);*/
-/*}*/
-
-.shadow.tiny:hover {
+.shadow:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   cursor: pointer;
-}
-
-/*.item-title {*/
-  /*width: 305px;*/
-  /*margin: auto;*/
-  /*text-align: center;*/
-  /*position: relative;*/
-  /*top: -40px;*/
-  /*left: -25px;*/
-  /*background-color: black;*/
-  /*color: white;*/
-/*}*/
-
-.softened-edge {
-  border-top: 5px ridge;
-  border-bottom: 5px ridge;
-  overflow: hidden;
-}
-
-.email-pos {
-  text-align: left;
-  position: relative;
-  left: 5px;
-  bottom: 2px;
-}
-
-.desc-wrapper {
-  height: 190px;
-  overflow: hidden;
-  text-align: justify;
 }
 
 .links-wrapper {
@@ -59,10 +24,8 @@
 }
 
 button:focus {
-  outline:0;
+  outline: 0;
 }
-
-/*////////////////////////////////////////*/
 
 .container {
   display: inline-block;
@@ -71,7 +34,6 @@ button:focus {
   height: 600px;
   font-size: 7px;
   padding: 0 !important;
-  background-color: #f4f4f4;
   margin-bottom: 10px !important;
 }
 
@@ -83,11 +45,9 @@ button:focus {
   hyphens: auto;
 }
 
-
 .image {
   height: 100%;
   width: 100%;
-  /*margin-top: 5px;*/
 }
 
 .item-title {
@@ -96,5 +56,4 @@ button:focus {
   top: -40px;
   left: -25px;
   background-color: black;
-  color: white;
 }

@@ -17,17 +17,18 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   inputType = InputType;
-  emailClass: string = 'english-style';
-  nameClass: string = 'english-style';
-  contentClass: string = 'english-style';
+  emailClass = 'english-style';
+  nameClass = 'english-style';
+  contentClass = 'english-style';
   address: any = {};
   phone: any = {};
   emailAddress: any = {};
   isMobile = false;
 
 
-  constructor(private httpService: HttpService,
-              private getJsonFileService: GetJsonFileService, private msgService: MessageService, private responsiveService: ResponsiveService) {}
+  constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
+              private msgService: MessageService, private responsiveService: ResponsiveService) {
+  }
 
   ngOnInit() {
     this.isMobile = this.responsiveService.isMobile;
@@ -53,7 +54,7 @@ export class ContactComponent implements OnInit {
 
 
   send() {
-    let obj = {
+    const obj = {
       email: this.contactForm.controls['email'].value,
       name: this.contactForm.controls['name'].value,
       content: this.contactForm.controls['content'].value
@@ -73,31 +74,29 @@ export class ContactComponent implements OnInit {
   }
 
   changeInput(type, value) {
-    let item = value.charCodeAt(0);
+    const item = value.charCodeAt(0);
 
     switch (type) {
-      case this.inputType.email: {
-        if (item >= 32 && item <= 126)
+      case this.inputType.email:
+        if (item >= 32 && item <= 126) {
           this.emailClass = 'english-style';
-        else
+        } else {
           this.emailClass = 'farsi-style';
-      }
+        }
         break;
-
-      case this.inputType.name: {
-        if (item >= 32 && item <= 126)
+      case this.inputType.name:
+        if (item >= 32 && item <= 126) {
           this.nameClass = 'english-style';
-        else
+        } else {
           this.nameClass = 'farsi-style';
-      }
+        }
         break;
-
-      case this.inputType.content: {
-        if (item >= 32 && item <= 126)
+      case this.inputType.content:
+        if (item >= 32 && item <= 126) {
           this.contentClass = 'english-style';
-        else
+        } else {
           this.contentClass = 'farsi-style';
-      }
+        }
         break;
     }
   }

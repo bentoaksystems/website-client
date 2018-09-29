@@ -1,15 +1,13 @@
-<mat-card class="container shadow tiny">
+<mat-card class="primary-lighter container shadow tiny">
   <div style="display: block; height: 100%">
     <div style="height: 50%; text-align: center;">
       <img src="{{person.image}}" alt="{{person.fullname + ' image'}}" class="image">
     </div>
     <div style="height: 10%">
       <a href="{{'mailto:' + person.email}}" style="text-decoration: none;" aria-hidden="true">
-        <div class="item-title">
-          <div style="font-size: 1em;">{{person.fullname}}</div>
-          <div style="font-family: fantasy;">{{person.responsibility}}</div>
-          <div class="email-pos">
-          </div>
+        <div class="t t-light t-light-hover item-title">
+          <h5 style="margin: 0;" class="t t-desc">{{person.fullname}}</h5>
+          <div style="font-family: fantasy;" class="t t-desc">{{person.responsibility}}</div>
         </div>
       </a>
     </div>
@@ -25,31 +23,3 @@
     </div>
   </div>
 </mat-card>
-
-
-
-<!--<mat-card class="shadow softened-edge" (mouseenter)="person.in = true" (mouseleave)="person.in = false" >-->
-  <!--<div>-->
-    <!--<img mat-card-image src="{{person.image}}" alt="{{person.fullname + ' image'}}" style="background-size: cover;">-->
-    <!--<a href="{{'mailto:' + person.email}}" style="text-decoration: none;" aria-hidden="true">-->
-      <!--<div class="item-title">-->
-        <!--<div style="font-size: 1.4em;">{{person.fullname}}</div>-->
-        <!--<div style="font-family: fantasy;">{{person.responsibility}}</div>-->
-        <!--<div class="email-pos">-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</a>-->
-  <!--</div>-->
-  <!--<mat-card-content>-->
-    <!--<div fxLayoutAlign="center start" class="desc-wrapper" >-->
-      <!--<div>{{person.description}}</div>-->
-    <!--</div>-->
-  <!--</mat-card-content>-->
-  <!--<mat-card-actions class="links-wrapper">-->
-    <!--<a *ngFor="let s of getKeys(person.social)" href="{{person.social[s]}}" target="_blank" rel="noopener noreferrer">-->
-      <!--<button mat-button *ngIf="person.social[s]" class="tiny-button">-->
-        <!--<img class="tiny-img" src="{{images[s.toLowerCase()]}}">-->
-      <!--</button>-->
-    <!--</a>-->
-  <!--</mat-card-actions>-->
-<!--</mat-card>-->

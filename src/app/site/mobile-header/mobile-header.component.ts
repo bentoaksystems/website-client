@@ -14,11 +14,10 @@ export class MobileHeaderComponent implements OnInit {
   isMobile = false;
   sideNavIsOpen = false;
   array: any = [];
-  @Input() menuWidth = 100;
-  @Input() menuHeight = 100;
 
   constructor(private responsiveService: ResponsiveService,
-              private getJsonFileService: GetJsonFileService, private router: Router) { }
+              private getJsonFileService: GetJsonFileService, private router: Router) {
+  }
 
   ngOnInit() {
     this.isMobile = this.responsiveService.isMobile;
@@ -28,7 +27,7 @@ export class MobileHeaderComponent implements OnInit {
     this.getJsonFileService.getHeaderData()
       .then((res: any) => {
         this.headerData = res;
-        for ( let i = 0; i < this.headerData.menu_tab.length; i++) {
+        for (let i = 0; i < this.headerData.menu_tab.length; i++) {
           if (this.headerData.menu_tab[i].title === 'Home') {
             Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-home'});
           } else if (this.headerData.menu_tab[i].title === 'People') {

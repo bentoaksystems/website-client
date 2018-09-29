@@ -3,6 +3,7 @@ import * as marked from 'marked';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
+import {LanguageService} from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import {WINDOW} from '../../shared/services/window.service';
 export class HomeComponent implements OnInit {
   private images_en: any = [];
   images: any = [];
-  waiting: boolean = false;
+  waiting = false;
   homeTopSection: any = {};
   slideShows: any = [];
   process: any = [];
@@ -21,8 +22,8 @@ export class HomeComponent implements OnInit {
   intro = '';
   step = 0;
 
-
-  constructor(@Inject(WINDOW) public window, private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(public langService: LanguageService, @Inject(WINDOW) private window,
+              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
   ngOnInit() {
@@ -100,7 +101,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  //our Process
+  // our Process
   setStep(index: number) {
     this.step = index;
   }
