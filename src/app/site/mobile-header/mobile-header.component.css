@@ -1,41 +1,63 @@
+.side-nav {
+  margin-right: -10px;
+  width: 70vw;
+  height: 100vh;
+}
+
+.menu-wrapper {
+  left: 8px;
+  top: 8px;
+  background-color: transparent;
+}
+
 .mobile-header {
-    padding: 0px;
-    overflow: hidden;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu-button {
+  text-align: right;
+  margin-right: 3px
+}
+
+.menu-logo-wrapper {
+  text-align: left;
+  margin-left: 7px
+}
+
+.logo-img {
+  width: 110px;
+  height: 40px;
+  margin-left: 2px;
+  margin-bottom: 5px
 }
 
 .header {
-    height: 70px;
-    margin: 0px;
-    padding: 5px;
+  height: 70px;
+  margin: 0;
+  padding: 5px;
 }
 
 .mobile-header-item {
-    margin: 5px;
-    top: 3px;
-    position: relative;
-    cursor: pointer;
-    font-size: 2em;
+  margin: 5px;
+  top: 3px;
+  position: relative;
+  font-size: 2em;
 }
 
 .menu-item {
-    padding: 20px;
-    text-align: right;
-    border-bottom: solid rgba(197, 203, 201, 0.68) thin;
-    background-color: rgba(197, 203, 201, 0.3);
-    position: relative !important;
+  position: relative !important;
+  padding: 20px;
+  text-align: center;
+  border-bottom: solid rgba(197, 203, 201, 0.68) thin;
 }
 
 .menu-item i {
-    font-size: 20px;
-}
-
-.menu-title {
-    color: gray;
-    background-color: white;
-    text-align: center;
+  font-size: 20px;
+  margin-right: 5px
 }
 
 a {
-    color: black !important;
+  color: black !important;
 }
 

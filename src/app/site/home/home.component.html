@@ -1,8 +1,8 @@
 <div *ngIf="!waiting">
   <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
     <img src="{{homeTopSection.backgroundPic}}" style="display: block">
-    <div class="title">{{'Bent Oak Systems'}}</div>
-    <div class="intro" [innerHTML]="intro">
+    <h1 class="t t-light t-light-hover title">{{'Bent Oak Systems'}}</h1>
+    <div class="t t-light t-light-hover intro" [innerHTML]="intro">
     </div>
   </div>
   <div *ngIf="isMobile">
@@ -16,59 +16,60 @@
 
   <!--Our Process-->
   <div style="text-align: center; margin-bottom: 10px">
-    <label class="toolBox">Our Process</label>
+    <h3 class="t t-primary toolBox">Our Process</h3>
   </div>
-      <div class="jumbotron" fxLayout="row"  fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-        <div fxFlex="45" >
-          <img  class="img-process" src="../../../assets/images/process.jpg">
-        </div>
-        <div fxFlex="5"></div>
-        <div fxFlex="50" [class.vertical-space] = 'isMobile' >
-        <mat-accordion class="example-headers-align" >
-          <mat-expansion-panel *ngFor="let p of process; let i = index;" [expanded]="step === i" (opened)="setStep(i)" hideToggle="true"  >
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-               {{ p.title}}
-              </mat-panel-title>
-                <mat-icon>{{p.icon}}</mat-icon>
-            </mat-expansion-panel-header>
-            <mat-panel-description>
-            {{p.description}}
-              </mat-panel-description>
-            <mat-action-row>
-              <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">Previous</button>
-              <button *ngIf="i !== process.length-1" mat-button color="primary" (click)="nextStep()">Next</button>
-              <button *ngIf="i === process.length-1" mat-button color="primary" (click)="nextStep()">End</button>
-            </mat-action-row>
-          </mat-expansion-panel>
-        </mat-accordion>
-        </div>
-      </div>
-  </div>
-
-  <!--our Toolbox-->
-  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-    <div fxFlex="15">&nbsp;</div>
-    <div fxFlex="65">
-      <div style="text-align: center; margin-bottom: 5px">
-        <label class="toolBox">Our Toolbox</label>
-      </div>
-      <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
-           fxLayout.sm="row" fxLayout.xs="column">
-        <mat-card *ngFor="let image of row" fxFlex="33" class="card shadow tiny">
-          <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
-               class="image"/>
-          <p class="text-area">{{image.description}}</p>
-        </mat-card>
-
-      </div>
-
+  <div class="jumbotron" fxLayout="row" fxLayout.sm="column"
+       fxLayout.xs="column" fxLayoutAlign="center center">
+    <div fxFlex="45">
+      <img class="img-process" src="../../../assets/images/process.jpg">
     </div>
-    <div fxFlex="15">&nbsp;</div>
+    <div fxFlex="5"></div>
+    <div fxFlex="50" [class.vertical-space]='isMobile'>
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel *ngFor="let p of process; let i = index;"
+                             [expanded]="step === i" (opened)="setStep(i)" hideToggle="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ p.title}}
+            </mat-panel-title>
+            <mat-icon>{{p.icon}}</mat-icon>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            {{p.description}}
+          </mat-panel-description>
+          <mat-action-row>
+            <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button *ngIf="i !== process.length-1" mat-button color="accent" (click)="nextStep()">Next</button>
+            <button *ngIf="i === process.length-1" mat-button color="accent" (click)="nextStep()">End</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
-  <div style="text-align: center; margin-bottom: 15px">
-    <button class="button" label="Show More">Show More</button>
+</div>
+
+<!--our Toolbox-->
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+  <div fxFlex="15">&nbsp;</div>
+  <div fxFlex="75">
+    <div style="text-align: center; margin-bottom: 5px">
+      <h3 class="t t-primary toolBox">Our Toolbox</h3>
+    </div>
+    <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
+         fxLayout.sm="row" fxLayout.xs="column">
+      <mat-card *ngFor="let image of row" fxFlex="33" class="primary-lighter card shadow tiny">
+        <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}" class="image"/>
+        <p class="t t-little text-area">{{image.description}}</p>
+      </mat-card>
+    </div>
   </div>
+  <div fxFlex="15">&nbsp;</div>
+</div>
+<div style="text-align: center; margin-bottom: 15px">
+  <button mat-raised-button class="primary button" label="Show More">
+    <span class="t t-accent t-accent-hover">Show More</span>
+  </button>
+</div>
 
 <div *ngIf="waiting">
   <mat-spinner class="align-spinner"></mat-spinner>

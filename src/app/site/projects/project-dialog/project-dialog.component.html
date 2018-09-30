@@ -1,11 +1,11 @@
 <div class="center">
-    <img src="{{data.project.mainImage.url}}" alt="{{data.project.mainImage.title}}" class="logo-img"/>
+  <img src="{{data.project.mainImage.url}}" alt="{{data.project.mainImage.title}}" class="logo-img"/>
 </div>
 <mat-card>
-    <br/>
-    <mat-card-title class="center">{{data.project.title}}</mat-card-title>
-    <mat-card-content>
-        <div [innerHtml]="data.project.description"></div>
-    </mat-card-content>
+  <br/>
+  <mat-card-title class="center"><h5>{{data.project.title}}</h5></mat-card-title>
+  <mat-card-content>
+    <div [innerHtml]="data.project.description"></div>
+  </mat-card-content>
 </mat-card>
 
