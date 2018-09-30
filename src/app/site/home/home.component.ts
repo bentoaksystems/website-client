@@ -18,9 +18,11 @@ export class HomeComponent implements OnInit {
   slideShows: any = [];
   process: any = [];
   rows = [];
+  temp_row = [];
   isMobile = false;
   intro = '';
   step = 0;
+  showMoreFlag = false;
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
@@ -55,13 +57,14 @@ export class HomeComponent implements OnInit {
         }
 
         this.images = this.images_en;
-        this.images = this.images = this.chunkArray();
+        this.images = this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
       });
 
+    // Our Process section
     this.getJsonFileService.getProcessData()
       .then((res: any) => {
         this.process = res;
@@ -99,6 +102,7 @@ export class HomeComponent implements OnInit {
     if (counter > 0) {
       this.rows.push(chunk);
     }
+    this.temp_row = [[...this.rows[0]],[...this.rows[1]]];
   }
 
   // our Process
@@ -113,4 +117,5 @@ export class HomeComponent implements OnInit {
   prevStep() {
     this.step--;
   }
+
 }

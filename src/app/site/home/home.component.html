@@ -55,7 +55,7 @@
     <div style="text-align: center; margin-bottom: 5px">
       <h3 class="t t-primary toolBox">Our Toolbox</h3>
     </div>
-    <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
+    <div *ngFor="let row of showMoreFlag ? rows : temp_row" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
          fxLayout.sm="row" fxLayout.xs="column">
       <mat-card *ngFor="let image of row" fxFlex="33" class="primary-lighter card shadow tiny">
         <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}" class="image"/>
@@ -66,8 +66,8 @@
   <div fxFlex="15">&nbsp;</div>
 </div>
 <div style="text-align: center; margin-bottom: 15px">
-  <button mat-raised-button class="primary button" label="Show More">
-    <span class="t t-accent t-accent-hover">Show More</span>
+  <button mat-raised-button class="primary button" label="Show More" (click)="showMoreFlag = !showMoreFlag">
+    <span class="t t-accent t-accent-hover">{{showMoreFlag ? 'Show Less' : 'Show More'}}</span>
   </button>
 </div>
 
