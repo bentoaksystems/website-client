@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {PricingComponent} from './pricing.component';
+import {PricingRouting} from './pricing.routing';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    PricingRouting
   ],
-  declarations: []
+  declarations: [PricingComponent]
 })
 export class PricingModule { }
