@@ -103,4 +103,17 @@ export class GetJsonFileService {
       );
     });
   }
+
+  getPricingData(){
+    return new Promise((resolve, reject) => {
+      this.httpService.get('pricing').subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
 }

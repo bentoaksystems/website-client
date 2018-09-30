@@ -1,0 +1,86 @@
+
+.title {
+  font-size: 35px;
+  margin: 10px;
+}
+
+
+.matCard {
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  width: 350px;
+  padding: 16px;
+}
+
+.text-area {
+  text-align: center;
+  margin: 5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.shadow.tiny {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+.shadow.tiny:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+.toolBox {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.page-section {
+  padding: 3px;
+}
+
+.section-block {
+  border: 10px solid #f2f2f2;
+  padding: 15px 100px 15px 15px;
+  position: relative;
+  z-index: 4;
+}
+
+.content {
+  text-align: justify;
+}
+
+.list-item {
+  text-align: left;
+  font-size: 7px;
+  padding: 10px;
+}
+
+.subtitle {
+  font-size: 30px;
+}
+
+.icon {
+  color: #14a4ff;
+  position: absolute;
+  left: 25px;
+}
+
+.desc {
+  position: absolute;
+  left: 30px;
+}
+
+.input {
+  text-align: left;
+}
+
+.center-line {
+  text-align: center;
+}
