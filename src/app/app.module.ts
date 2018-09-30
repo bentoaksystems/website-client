@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -27,8 +26,6 @@ import {GetJsonFileService} from './shared/services/get-json-file.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
 import {routing} from './app.routing';
-import {PersonDialogComponent} from './site/people/person-dialog/person-dialog.component';
-import {ProjectDialogComponent} from './site/projects/project-dialog/project-dialog.component';
 
 @NgModule({
   declarations: [

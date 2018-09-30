@@ -15,7 +15,8 @@ const Site_ROUTES: Routes = [
     {path: 'people', component: PeopleComponent},
     {path: 'projects', component: ProjectsComponent},
     {path: 'about-us', component: AboutUsComponent},
-    {path: 'contact', component: ContactComponent}
+    {path: 'contact', component: ContactComponent},
+    {path: 'pricing', loadChildren: 'app/site/pricing/pricing.module#PricingModule'},
   ]
   }
 ];
