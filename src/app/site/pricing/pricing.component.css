@@ -1,5 +1,5 @@
 
-.title {
+.title-box {
   font-size: 35px;
   margin: 10px;
 }
@@ -9,8 +9,8 @@
   display: inline-block;
   margin: 10px;
   position: relative;
-  width: 350px;
-  padding: 16px;
+  width: 400px;
+  padding: 10px;
 }
 
 .text-area {
@@ -62,7 +62,7 @@
   padding: 10px;
 }
 
-.subtitle {
+.subtitle-box {
   font-size: 30px;
 }
 
@@ -79,6 +79,8 @@
 
 .input {
   text-align: left;
+  font-size: 10px;
+  width: 300px;
 }
 
 .center-line {

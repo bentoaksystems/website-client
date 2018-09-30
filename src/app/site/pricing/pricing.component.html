@@ -2,21 +2,22 @@
   <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
 
     <!--Pricing-->
-    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
       <div fxFlex="5"></div>
-      <div fxFlex="80">
+      <div fxFlex="90">
         <div style="text-align: center; margin-top: 15px">
           <h3 class="t t-primary toolBox">Pricing</h3>
         </div>
-        <div *ngFor="let price of  pricing" class="center-line image-wrapper" fxFlex="40" >
-          <mat-card  class="primary-lighter matCard shadow tiny">
-            <mat-card-title class="title">{{price.title}}</mat-card-title>
-            <mat-card-subtitle class="subtitle">{{price.price}}</mat-card-subtitle>
-            <mat-form-field>
-              <input matInput  class="input" placeholder="How much hour do you need?">
+        <div *ngFor="let price of  pricing" class="center-line" fxFlex="40" fxLayout="row"
+             fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+          <mat-card class="primary-lighter matCard shadow tiny">
+            <mat-card-title class="title-box">{{price.title}}</mat-card-title>
+            <mat-card-subtitle class="subtitle-box">{{price.price}}</mat-card-subtitle>
+            <mat-form-field class="input">
+              <input matInput placeholder="How much hour do you need?">
             </mat-form-field>
             <div>
-              <button mat-raised-button class="accent">Calculate Price</button>
+              <button mat-raised-button class="accent" >Calculate Price</button>
             </div>
 
             <mat-list-item class="list-item">
@@ -34,7 +35,7 @@
           </mat-card>
         </div>
       </div>
-      <div fxFlex="5">&nbsp;</div>
+      <div fxFlex="5"></div>
     </div>
   </div>
 </div>
