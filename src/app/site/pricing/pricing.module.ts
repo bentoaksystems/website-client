@@ -9,18 +9,11 @@ import {
   MatSidenavModule,
   MatCardModule,
   MatInputModule,
-  MatOptionModule,
-  MatAutocompleteModule,
-  MatCheckboxModule,
-  MatStepperModule, MatRadioModule,
-  MatSnackBarModule,
   MatProgressSpinnerModule,
   MatListModule,
-  MatSliderModule,
   MatTooltipModule,
   MatExpansionModule
 } from '@angular/material';
-import {SiteRouting} from '../site.routing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
@@ -35,20 +28,13 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     RouterModule,
     MatCardModule,
     MatInputModule,
-    MatOptionModule,
-    MatAutocompleteModule,
     MatIconModule,
-    MatCheckboxModule,
-    MatStepperModule,
-    MatRadioModule,
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatSnackBarModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatSliderModule,
     SharedModule,
     MatTooltipModule,
     MatExpansionModule

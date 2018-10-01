@@ -1,9 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import * as marked from 'marked';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
-import {LanguageService} from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-pricing',
@@ -16,7 +14,7 @@ export class PricingComponent implements OnInit {
   pricing: any = [];
   isMobile = false;
 
-  constructor(public langService: LanguageService, @Inject(WINDOW) private window,
+  constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
