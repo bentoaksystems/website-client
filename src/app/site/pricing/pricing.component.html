@@ -1,1 +1,39 @@
-<p style="margin-top: 80px">Pricing works!</p>
+<div *ngIf="!waiting">
+    <!--Pricing-->
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+      <div fxFlex="85">
+        <div style="text-align: center; margin-top: 15px">
+          <h3 class="t t-primary toolBox">Pricing</h3>
+        </div>
+        <div class="center-line">
+          <mat-card *ngFor="let price of  pricing" class="primary-lighter matCard shadow tiny">
+            <mat-card-title class="title-box">{{price.title}}</mat-card-title>
+            <mat-card-subtitle class="subtitle-box">{{price.price}}</mat-card-subtitle>
+            <mat-form-field class="input">
+              <input matInput placeholder="How many hours do you need?">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button class="accent" >Calculate Price</button>
+            </div>
+            <div class="label">Your price{{' -- $'}}</div>
+            <mat-list-item class="list-item">
+              <p mat-line>
+                <mat-icon class="matIcon">done</mat-icon>
+                <span>{{price.description1}}</span>
+              </p>
+            </mat-list-item>
+            <mat-list-item class="list-item">
+              <p mat-line>
+                <mat-icon class="matIcon">done</mat-icon>
+                <span>{{price.description2}}</span>
+              </p>
+            </mat-list-item>
+          </mat-card>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="waiting">
+  <mat-spinner class="align-spinner"></mat-spinner>
+</div>

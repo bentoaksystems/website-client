@@ -1,0 +1,77 @@
+
+.title-box {
+  font-size: 35px;
+  margin: 10px;
+}
+
+
+.matCard {
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  width: 300px;
+  /*width: 30%;*/
+  padding: 10px;
+}
+
+.shadow.tiny {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  min-height: 400px;
+  max-height: 400px;
+}
+
+.shadow.tiny:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+.toolBox {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.content {
+  text-align: justify;
+}
+
+.list-item {
+  text-align: left;
+  font-size: 7px;
+  padding: 10px;
+  margin-left: 50px;
+}
+
+.subtitle-box {
+  font-size: 30px;
+}
+
+.icon {
+  color: #14a4ff;
+  position: absolute;
+  left: 25px;
+}
+
+.input {
+  text-align: left;
+  font-size: 7px !important;
+  width: 75%;
+}
+
+.center-line {
+  text-align: center;
+}
+p span {
+  font-size: small !important;
+}
+.matIcon {
+  font-size: 18px !important;
+}
+
+.label {
+  text-align: center !important;
+  margin-top: 15px !important;
+}
