@@ -50,20 +50,17 @@
 
 <!--our Toolbox-->
 <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-  <div fxFlex="15">&nbsp;</div>
-  <div fxFlex="75">
-    <div style="text-align: center; margin-bottom: 5px">
+  <div fxFlex="90">
+    <div style="text-align: center; ">
       <h3 class="t t-primary toolBox">Our Toolbox</h3>
     </div>
-    <div *ngFor="let row of rows" class="center image-wrapper" fxLayoutAlign="center center" fxLayout="row"
-         fxLayout.sm="row" fxLayout.xs="column">
-      <mat-card *ngFor="let image of row" fxFlex="33" class="primary-lighter card shadow tiny">
-        <img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}" class="image"/>
-        <p class="t t-little text-area">{{image.description}}</p>
+    <div *ngFor="let row of rows" class="center image-wrapper">
+      <mat-card *ngFor="let image of row" class="primary-lighter card shadow tiny" >
+        <div><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}" class="image"/></div>
+        <div class="t t-little">{{image.description}}</div>
       </mat-card>
     </div>
   </div>
-  <div fxFlex="15">&nbsp;</div>
 </div>
 <div style="text-align: center; margin-bottom: 15px">
   <button mat-raised-button class="primary button" label="Show More">

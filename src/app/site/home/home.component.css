@@ -16,14 +16,18 @@
 
 .image {
   width: 40%;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  height: 40%;
+  /*margin-top: 15px;*/
+  /*margin-bottom: 10px;*/
   border-radius: 10px;
+  margin: 15px;
 }
 
 .image-wrapper {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   cursor: pointer;
+  height: 100%;
+  width: 100%;
 }
 
 /* Technology BOX */
@@ -32,8 +36,8 @@
   display: inline-block;
   margin: 10px;
   position: relative;
-  width: 250px;
-  padding: 16px;
+  width: 300px;
+  padding: 10px;
 }
 
 .text-area {
@@ -50,8 +54,8 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 320px;
+  max-height: 320px;
 }
 
 .shadow.tiny:hover {
