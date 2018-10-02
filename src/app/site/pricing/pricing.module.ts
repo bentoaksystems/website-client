@@ -12,7 +12,7 @@ import {
   MatProgressSpinnerModule,
   MatListModule,
   MatTooltipModule,
-  MatExpansionModule
+  MatExpansionModule, MatCheckboxModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
@@ -27,6 +27,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     FormsModule,
     RouterModule,
     MatCardModule,
+    MatCheckboxModule,
     MatInputModule,
     MatIconModule,
     MatSidenavModule,

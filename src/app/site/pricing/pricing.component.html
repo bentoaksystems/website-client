@@ -1,39 +1,175 @@
 <div *ngIf="!waiting">
     <!--Pricing-->
     <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-      <div fxFlex="85">
-        <div style="text-align: center; margin-top: 15px">
-          <h3 class="t t-primary toolBox">Pricing</h3>
-        </div>
-        <div class="center-line">
-          <mat-card *ngFor="let price of  pricing" class="primary-lighter matCard shadow tiny">
-            <mat-card-title class="title-box">{{price.title}}</mat-card-title>
-            <mat-card-subtitle class="subtitle-box">{{price.price}}</mat-card-subtitle>
-            <mat-form-field class="input">
-              <input matInput placeholder="How many hours do you need?">
-            </mat-form-field>
-            <div>
-              <button mat-raised-button class="accent" >Calculate Price</button>
+        <div fxFlex="85">
+            <div style="margin-top: 15px" [class.center]="isMobile">
+                <h3 class="t t-primary toolBox">Pricing</h3>
             </div>
-            <div class="label">Your price{{' -- $'}}</div>
-            <mat-list-item class="list-item">
-              <p mat-line>
-                <mat-icon class="matIcon">done</mat-icon>
-                <span>{{price.description1}}</span>
-              </p>
-            </mat-list-item>
-            <mat-list-item class="list-item">
-              <p mat-line>
-                <mat-icon class="matIcon">done</mat-icon>
-                <span>{{price.description2}}</span>
-              </p>
-            </mat-list-item>
-          </mat-card>
+            <div class="center">
+                <mat-card *ngFor="let price of  pricing" class="primary-lighter matCard shadow tiny">
+                    <div style="text-align: left">
+                        <mat-checkbox *ngIf="price.title === 'Basic'" [(ngModel)]="selectBasic" (change)="selectPricing(selectBasic, false, false)"></mat-checkbox>
+                        <mat-checkbox *ngIf="price.title === 'Standard'" [(ngModel)]="selectStandard" (change)="selectPricing(false, selectStandard, false)"></mat-checkbox>
+                        <mat-checkbox *ngIf="price.title === 'Advanced'" [(ngModel)]="selectAdvanced" (change)="selectPricing(false, false, selectAdvanced)"></mat-checkbox>
+                    </div>
+                    <mat-card-title class="title-box">{{price.title}}
+                    </mat-card-title>
+                    <div *ngIf="price.title === 'Basic'" style="width: 100%;">
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Planing hours needed" [(ngModel)]="basicPlaningHour" readonly={{!selectBasic}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total {{basicPlaningHour
+                                * price.planing_price !== 0 ?
+                                basicPlaningHour * price.planing_price : ' -- '}}$
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.planing_price}}
+                            </div>
+                        </div>
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Programming hours needed"
+                                       [(ngModel)]="basicProgrammingHour" readonly={{!selectBasic}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{basicProgrammingHour * price.programming_price !== 0 ?
+                                basicProgrammingHour * price.programming_price : ' -- '}} $
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.programming_price}}
+                            </div>
+                        </div>
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Backing hours needed" [(ngModel)]="basicBackingHour" readonly={{!selectBasic}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total {{basicBackingHour
+                                * price.backing_price !== 0 ?
+                                basicBackingHour * price.backing_price : '--'}} $
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.backing_price}}
+                            </div>
+                        </div>
+                        <div class="accent" style="border-radius: 3px">Total price {{(basicPlaningHour *
+                            price.planing_price)
+                            +(basicProgrammingHour * price.programming_price)
+                            +(basicBackingHour * price.backing_price)}} $
+                        </div>
+                    </div>
+
+                    <div *ngIf="price.title === 'Standard'" style="width: 100%;">
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Planing hours needed" [(ngModel)]="standardPlaningHour" readonly={{!selectStandard}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{standardPlaningHour * price.planing_price !== 0 ?
+                                standardPlaningHour * price.planing_price : ' -- '}}$
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.planing_price}}
+                            </div>
+                        </div>
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Programming hours needed"
+                                       [(ngModel)]="standardProgrammingHour" readonly={{!selectStandard}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{standardProgrammingHour * price.programming_price !== 0 ?
+                                standardProgrammingHour * price.programming_price : '--'}} $
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.programming_price}}
+                            </div>
+                        </div>
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Backing hours needed" [(ngModel)]="standardBackingHour" readonly={{!selectStandard}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{standardBackingHour * price.backing_price !== 0 ?
+                                standardBackingHour * price.backing_price : '--'}} $
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.backing_price}}
+                            </div>
+                        </div>
+                        <div class="accent" style="border-radius: 3px">Total price {{(standardPlaningHour *
+                            price.planing_price)
+                            +(standardProgrammingHour * price.programming_price)
+                            +(standardBackingHour * price.backing_price)}} $
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="price.title === 'Advanced'" style="width: 100%;">
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Planing hours needed" [(ngModel)]="advancedPlaningHour" readonly={{!selectAdvanced}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{advancedPlaningHour * price.planing_price !== 0 ?
+                                advancedPlaningHour * price.planing_price : '--'}}$
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.planing_price}}
+                            </div>
+                        </div>
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Programming hours needed"
+                                       [(ngModel)]="advancedProgrammingHour" readonly={{!selectAdvanced}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{advancedProgrammingHour * price.programming_price !== 0 ?
+                                advancedProgrammingHour * price.programming_price : '--'}} $
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.programming_price}}
+                            </div>
+                        </div>
+                        <div>
+                            <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
+                                <input matInput placeholder="Backing hours needed" [(ngModel)]="advancedBackingHour" readonly={{!selectAdvanced}}>
+                            </mat-input-container>
+                            <div style="width: 50%; display: inline-block; text-align: center">total
+                                {{advancedBackingHour * price.backing_price !== 0 ?
+                                advancedBackingHour * price.backing_price : '--'}} $
+                            </div>
+                            <div style="width: 10%; display: inline-block; text-align: right">£
+                                {{price.backing_price}}
+                            </div>
+                        </div>
+                        <div class="accent" style="border-radius: 3px">Total price {{(advancedPlaningHour *
+                            price.planing_price)
+                            +(advancedProgrammingHour * price.programming_price)
+                            +(advancedBackingHour * price.backing_price)}} $
+                        </div>
+                    </div>
+                    <mat-list-item class="list-item">
+                        <p mat-line>
+                            <mat-icon class="matIcon">done</mat-icon>
+                            <span>{{price.description1}}</span>
+                        </p>
+                    </mat-list-item>
+                    <mat-list-item class="list-item">
+                        <p mat-line>
+                            <mat-icon class="matIcon">done</mat-icon>
+                            <span>{{price.description2}}</span>
+                        </p>
+                    </mat-list-item>
+                </mat-card>
+            </div>
+            <div class="center" style="margin-top: 10px">
+                <button mat-raised-button class="accent" (click)="goToContactPage()" [disabled]="!selectedModeInfo.selectedMode">Contact us to start</button>
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
 </div>
 
 <div *ngIf="waiting">
-  <mat-spinner class="align-spinner"></mat-spinner>
+    <mat-spinner class="align-spinner"></mat-spinner>
 </div>
