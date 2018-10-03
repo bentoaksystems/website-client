@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   slideShows: any = [];
   process: any = [];
   less_images = [];
+  more_images = [];
   isMobile = false;
   intro = '';
   step = 0;
@@ -52,11 +53,14 @@ export class HomeComponent implements OnInit {
             this.images.push({source: s.file.url, description: s.description, title: s.title, link: s.url});
           }
         }
-
-
         for (let i = 0; i < 5; i++) {
           this.less_images.push(this.images[i]);
         }
+        for (let i = 5; i < 9; i++) {
+          this.more_images.push(this.images[i]);
+        }
+
+
         this.waiting = false;
       })
       .catch(err => {
@@ -78,7 +82,6 @@ export class HomeComponent implements OnInit {
   openPage(link) {
     this.window.open(link, '_blank');
   }
-
 
   // our Process
   setStep(index: number) {
