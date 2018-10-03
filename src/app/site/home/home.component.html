@@ -56,7 +56,7 @@
         <div style="text-align: center;">
             <h3 class="t t-primary toolBox">Our Toolbox</h3>
         </div>
-        <mat-card *ngFor="let image of showMoreFlag ? images : less_images"
+        <mat-card *ngFor="let image of less_images"
                   class="primary-lighter container shadow tiny">
             <div style="height: 100%; display: block">
                 <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}"
@@ -67,35 +67,29 @@
         </mat-card>
 
 
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header [class.show-more]="!isMobile" [class.show-more-mobile]="isMobile">
+                    <mat-panel-title>
+                        <button mat-raised-button class="primary button" label="Show More" (click)="showMoreFlag = !showMoreFlag">
+                            <span class="t t-accent t-accent-hover">{{showMoreFlag ? 'Show Less' : 'Show More'}}</span>
+                        </button>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-card *ngFor="let image of more_images" class="primary-lighter container shadow tiny">
+                    <div style="height: 100%; display: block">
+                        <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}"
+                                                        alt="{{image.title}}"
+                                                        class="image"/></div>
+                        <div style="height: 50%" class="t t-little">{{image.description}}</div>
+                    </div>
+                </mat-card>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
 </div>
-<div style="text-align: center; margin-bottom: 15px">
-    <button mat-raised-button class="primary button" label="Show More" (click)="showMoreFlag = !showMoreFlag">
-        <span class="t t-accent t-accent-hover">{{showMoreFlag ? 'Show Less' : 'Show More'}}</span>
-    </button>
-</div>
-
 <div *ngIf="waiting">
     <mat-spinner class="align-spinner"></mat-spinner>
 </div>
 
 
-<!--<mat-accordion class="example-headers-align">-->
-<!--<mat-expansion-panel>-->
-<!--<mat-expansion-panel-header>-->
-<!--<mat-panel-title style="text-align: center;">-->
-<!--<button mat-raised-button class="primary button" label="Show More" (click)="showMoreFlag = !showMoreFlag">-->
-<!--<span class="t t-accent t-accent-hover">{{showMoreFlag ? 'Show Less' : 'Show More'}}</span>-->
-<!--</button>-->
-<!--</mat-panel-title>-->
-<!--</mat-expansion-panel-header>-->
-<!--<mat-card *ngFor="let image of more_images" class="primary-lighter container shadow tiny">-->
-<!--<div style="height: 100%; display: block">-->
-<!--<div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}"-->
-<!--alt="{{image.title}}"-->
-<!--class="image"/></div>-->
-<!--<div style="height: 50%" class="t t-little">{{image.description}}</div>-->
-<!--</div>-->
-<!--</mat-card>-->
-<!--</mat-expansion-panel>-->
-<!--</mat-accordion>-->
