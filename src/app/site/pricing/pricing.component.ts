@@ -91,5 +91,4 @@ export class PricingComponent implements OnInit {
     }
     this.router.navigate(['/contact']);
   }
-
 }

@@ -11,14 +11,13 @@ import {LanguageService} from '../../shared/services/language.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private images_en: any = [];
   images: any = [];
   waiting = false;
   homeTopSection: any = {};
   slideShows: any = [];
   process: any = [];
-  rows = [];
-  temp_row = [];
+  less_images = [];
+  more_images = [];
   isMobile = false;
   intro = '';
   step = 0;
@@ -51,13 +50,13 @@ export class HomeComponent implements OnInit {
         this.slideShows = res;
         for (const s of this.slideShows) {
           if (s.title) {
-            const transDSCP = s.description;
-            this.images_en.push({source: s.file.url, description: transDSCP, title: s.title, link: s.url});
+            this.images.push({source: s.file.url, description: s.description, title: s.title, link: s.url});
           }
         }
+        for (let i = 0; i < 5; i++) {
+          this.less_images.push(this.images[i]);
+        }
 
-        this.images = this.images_en;
-        this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
@@ -78,31 +77,6 @@ export class HomeComponent implements OnInit {
 
   openPage(link) {
     this.window.open(link, '_blank');
-  }
-
-  chunkArray() {
-    if (this.images.length <= 0) {
-      this.rows = [];
-      return;
-    }
-    this.rows = [];
-    let chunk = [], counter = 0;
-    for (const s in this.images) {
-      if (this.images.hasOwnProperty(s)) {
-        chunk.push(this.images[s]);
-        counter++;
-
-        if (counter >= 6) {
-          counter = 0;
-          this.rows.push(chunk);
-          chunk = [];
-        }
-      }
-    }
-    if (counter > 0) {
-      this.rows.push(chunk);
-    }
-    this.temp_row = [[...this.rows[0]]];
   }
 
   // our Process
