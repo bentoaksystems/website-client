@@ -56,10 +56,6 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < 5; i++) {
           this.less_images.push(this.images[i]);
         }
-        for (let i = 5; i < 9; i++) {
-          this.more_images.push(this.images[i]);
-        }
-
 
         this.waiting = false;
       })
