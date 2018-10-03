@@ -15,13 +15,13 @@ export class PricingComponent implements OnInit {
   pricing: any = [];
   isMobile = false;
 
-  basicPlaningHour = null;
+  basicPlanningHour = null;
   basicProgrammingHour = null;
   basicBackingHour = null;
-  standardPlaningHour = null;
+  standardPlanningHour = null;
   standardProgrammingHour = null;
   standardBackingHour = null;
-  advancedPlaningHour = null;
+  advancedPlanningHour = null;
   advancedProgrammingHour = null;
   advancedBackingHour = null;
   selectBasic = false;
@@ -63,28 +63,28 @@ export class PricingComponent implements OnInit {
     if (this.selectBasic) {
       this.selectedModeInfo = {
         selectedMode: 'basic',
-        planingHour: this.basicPlaningHour,
+        planningHour: this.basicPlanningHour,
         programmingHour: this.basicProgrammingHour,
         backingHour: this.basicBackingHour
       }
     } else if (this.selectStandard) {
       this.selectedModeInfo = {
         selectedMode: 'standard',
-        planingHour: this.standardPlaningHour,
+        planningHour: this.standardPlanningHour,
         programmingHour: this.standardProgrammingHour,
         backingHour: this.standardBackingHour
       }
     }  else if (this.selectAdvanced) {
       this.selectedModeInfo = {
         selectedMode: 'advanced',
-        planingHour: this.advancedPlaningHour,
+        planningHour: this.advancedPlanningHour,
         programmingHour: this.advancedProgrammingHour,
         backingHour: this.advancedBackingHour
       }
     } else {
       this.selectedModeInfo = {
         selectedMode: false,
-        planingHour: null,
+        planningHour: null,
         programmingHour: null,
         backingHour: null
       }
