@@ -15,25 +15,29 @@
 }
 
 .image {
-  width: 40%;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  width: 50%;
+  height: 80%;
+  margin-top: 10px;
   border-radius: 10px;
 }
 
 .image-wrapper {
-  margin-bottom: 10px;
   cursor: pointer;
+  height: 100%;
+  width: 100%;
 }
 
 /* Technology BOX */
 
-.card {
+.container {
   display: inline-block;
-  margin: 10px;
-  position: relative;
-  width: 250px;
-  padding: 16px;
+  margin: 5px;
+  width: 310px;
+  height: 600px;
+  font-size: 7px;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+  cursor: pointer;
 }
 
 .text-area {
@@ -50,26 +54,13 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 320px;
+  max-height: 320px;
 }
 
 .shadow.tiny:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
-/*.button {*/
-  /*width: 100px;*/
-  /*height: 40px;*/
-
-  /*text-align: center;*/
-  /*border-radius: 10px;*/
-  /*background: -moz-buttonhoverface;*/
-
-  /*cursor: pointer;*/
-  /*display: block;*/
-  /*margin: auto;*/
-/*}*/
 
 .toolBox {
   margin-top: 10px;
