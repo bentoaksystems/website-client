@@ -55,7 +55,8 @@ export class HomeComponent implements OnInit {
         }
 
         this.images = this.images_en;
-        this.images = this.images = this.chunkArray();
+        this.rows.push(this.images);
+        // this.images = this.images = this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
@@ -77,29 +78,29 @@ export class HomeComponent implements OnInit {
     this.window.open(link, '_blank');
   }
 
-  chunkArray() {
-    if (this.images.length <= 0) {
-      this.rows = [];
-      return;
-    }
-    this.rows = [];
-    let chunk = [], counter = 0;
-    for (const s in this.images) {
-      if (this.images.hasOwnProperty(s)) {
-        chunk.push(this.images[s]);
-        counter++;
-
-        if (counter >= 3) {
-          counter = 0;
-          this.rows.push(chunk);
-          chunk = [];
-        }
-      }
-    }
-    if (counter > 0) {
-      this.rows.push(chunk);
-    }
-  }
+  // chunkArray() {
+  //   if (this.images.length <= 0) {
+  //     this.rows = [];
+  //     return;
+  //   }
+  //   this.rows = [];
+  //   let chunk = [], counter = 0;
+  //   for (const s in this.images) {
+  //     if (this.images.hasOwnProperty(s)) {
+  //       chunk.push(this.images[s]);
+  //       counter++;
+  //
+  //       if (counter >= 3) {
+  //         counter = 0;
+  //         this.rows.push(chunk);
+  //         chunk = [];
+  //       }
+  //     }
+  //   }
+  //   if (counter > 0) {
+  //     this.rows.push(chunk);
+  //   }
+  // }
 
   // our Process
   setStep(index: number) {
