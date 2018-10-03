@@ -26,6 +26,11 @@ import {GetJsonFileService} from './shared/services/get-json-file.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
 import {routing} from './app.routing';
+import { RecaptchaModule } from 'ng-recaptcha';
+// if you need forms support:
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -51,6 +56,9 @@ import {routing} from './app.routing';
     MatDialogModule,
     MatSnackBarModule,
     GalleriaModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule, // if you need forms support
+
   ],
   providers: [
     ContentfulService,
