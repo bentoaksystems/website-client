@@ -57,9 +57,7 @@ export class HomeComponent implements OnInit {
         }
 
         this.images = this.images_en;
-        // this.rows.push(this.images);
-        this.images = this.chunkArray();
-        console.log('images',this.images);
+        this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {

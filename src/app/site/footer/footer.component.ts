@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
   address: any = {};
   phone: any = {};
   email: any = {};
+  social: any = {};
   isMobile = false;
 
 
@@ -24,6 +25,7 @@ export class FooterComponent implements OnInit {
         this.address = details[0].address;
         this.phone = details[0].phone;
         this.email = details[0].email;
+        this.social = details[0].social;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
