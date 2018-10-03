@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
@@ -10,8 +10,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./pricing.component.css']
 })
 export class PricingComponent implements OnInit {
-
-  @Output() customerOfferObj = new EventEmitter();
 
   waiting = false;
   pricing: any = [];
@@ -91,7 +89,6 @@ export class PricingComponent implements OnInit {
         backingHour: null
       }
     }
-    this.customerOfferObj.emit(this.selectedModeInfo);
     this.router.navigate(['/contact']);
   }
 }
