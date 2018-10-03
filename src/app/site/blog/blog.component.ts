@@ -6,11 +6,12 @@ import {WINDOW} from '../../shared/services/window.service';
 import {LanguageService} from '../../shared/services/language.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css']
 })
-export class HomeComponent implements OnInit {
+export class BlogComponent implements OnInit {
+
   private images_en: any = [];
   images: any = [];
   waiting = false;
@@ -36,16 +37,6 @@ export class HomeComponent implements OnInit {
 
     this.waiting = true;
 
-    this.getJsonFileService.getHomeTopSectionData()
-      .then((res: any) => {
-        this.homeTopSection = res;
-        this.intro = marked(this.homeTopSection.intro);
-        this.waiting = false;
-      })
-      .catch(err => {
-        console.error('Cannot get home data from server: ', err);
-      });
-
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
         this.slideShows = res;
@@ -57,21 +48,11 @@ export class HomeComponent implements OnInit {
         }
 
         this.images = this.images_en;
-        this.chunkArray();
+        this.images = this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
-      });
-
-    // Our Process section
-    this.getJsonFileService.getProcessData()
-      .then((res: any) => {
-        this.process = res;
-        this.waiting = false;
-      })
-      .catch(err => {
-        console.error('Cannot get data from server: ', err);
       });
 
   }
@@ -92,7 +73,7 @@ export class HomeComponent implements OnInit {
         chunk.push(this.images[s]);
         counter++;
 
-        if (counter >= 6) {
+        if (counter >= 3) {
           counter = 0;
           this.rows.push(chunk);
           chunk = [];
@@ -102,20 +83,8 @@ export class HomeComponent implements OnInit {
     if (counter > 0) {
       this.rows.push(chunk);
     }
-    this.temp_row = [[...this.rows[0]]];
+    this.temp_row = [[...this.rows[0]],[...this.rows[1]]];
   }
 
-  // our Process
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
 
 }
