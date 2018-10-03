@@ -57,8 +57,9 @@ export class HomeComponent implements OnInit {
         }
 
         this.images = this.images_en;
-        this.rows.push(this.images);
-        // this.images = this.images = this.chunkArray();
+        // this.rows.push(this.images);
+        this.images = this.chunkArray();
+        console.log('images',this.images);
         this.waiting = false;
       })
       .catch(err => {
@@ -93,7 +94,7 @@ export class HomeComponent implements OnInit {
         chunk.push(this.images[s]);
         counter++;
 
-        if (counter >= 3) {
+        if (counter >= 6) {
           counter = 0;
           this.rows.push(chunk);
           chunk = [];
@@ -103,7 +104,7 @@ export class HomeComponent implements OnInit {
     if (counter > 0) {
       this.rows.push(chunk);
     }
-    this.temp_row = [[...this.rows[0]],[...this.rows[1]]];
+    this.temp_row = [[...this.rows[0]]];
   }
 
   // our Process
