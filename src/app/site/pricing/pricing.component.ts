@@ -91,7 +91,6 @@ export class PricingComponent implements OnInit {
         backingHour: null
       }
     }
-    console.log('****', this.selectedModeInfo);
     this.customerOfferObj.emit(this.selectedModeInfo);
     this.router.navigate(['/contact']);
   }
