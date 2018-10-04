@@ -36,6 +36,7 @@ import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.c
 import {PersonComponent} from './people/person/person.component';
 import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   imports: [
@@ -79,6 +80,7 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
     ProjectDialogComponent,
     HomeComponent,
     MobileHeaderComponent,
+    BlogComponent,
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],

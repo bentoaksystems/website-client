@@ -17,6 +17,7 @@ p {
   height: 90%;
   width: 50%;
   margin-top: 5px;
+  border-radius: 25px;
 }
 
 .middle {
