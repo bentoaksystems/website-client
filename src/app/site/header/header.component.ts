@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
     this.getJsonFileService.getHeaderData()
       .then((res: any) => {
-        this.headerData = res;
+        this.headerData = res[0];
       })
       .catch(err => {
         console.error('Cannot get header data from server: ', err);
