@@ -45,7 +45,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "bos-theme.scss"
+        "bos-theme.scss",
+        "node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

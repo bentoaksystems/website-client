@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   intro = '';
   step = 0;
   showMoreFlag = false;
+  isCollapsed=true;
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
@@ -53,9 +54,11 @@ export class HomeComponent implements OnInit {
             this.images.push({source: s.file.url, description: s.description, title: s.title, link: s.url});
           }
         }
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
           this.less_images.push(this.images[i]);
         }
+        this.images.splice(0,5);
+        
 
         this.waiting = false;
       })

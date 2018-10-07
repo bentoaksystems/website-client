@@ -37,7 +37,9 @@ import {PersonComponent} from './people/person/person.component';
 import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { BlogComponent } from './blog/blog.component';
-
+// import{BrowserModule} from '@angular/platform-browser';
+import{CollapseModule}from './home/collapse/';
+// import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     SiteRouting,
@@ -45,6 +47,9 @@ import { BlogComponent } from './blog/blog.component';
     ReactiveFormsModule,
     FlexLayoutModule,
     FormsModule,
+    // BrowserModule, 
+    CollapseModule,
+    //  BrowserAnimationsModule,
     RouterModule,
     MatCardModule,
     MatInputModule,
@@ -82,6 +87,9 @@ import { BlogComponent } from './blog/blog.component';
     MobileHeaderComponent,
     BlogComponent,
   ],
+  
+  bootstrap:    [ HomeComponent ],
+
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],
   providers: []
