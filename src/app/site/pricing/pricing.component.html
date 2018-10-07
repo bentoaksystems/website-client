@@ -17,14 +17,14 @@
                     <div *ngIf="price.title === 'Basic'" style="width: 100%;">
                         <div>
                             <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
-                                <input matInput placeholder="Planing hours needed" [(ngModel)]="basicPlaningHour" readonly={{!selectBasic}}>
+                                <input matInput placeholder="Planning hours needed" [(ngModel)]="basicPlanningHour" readonly={{!selectBasic}}>
                             </mat-input-container>
-                            <div style="width: 50%; display: inline-block; text-align: center">total {{basicPlaningHour
-                                * price.planing_price !== 0 ?
-                                basicPlaningHour * price.planing_price : ' -- '}}$
+                            <div style="width: 50%; display: inline-block; text-align: center">total {{basicPlanningHour
+                                * price.planning_price !== 0 ?
+                                basicPlanningHour * price.planning_price : ' -- '}}$
                             </div>
                             <div style="width: 10%; display: inline-block; text-align: right">£
-                                {{price.planing_price}}
+                                {{price.planning_price}}
                             </div>
                         </div>
                         <div>
@@ -52,8 +52,8 @@
                                 {{price.backing_price}}
                             </div>
                         </div>
-                        <div class="accent" style="border-radius: 3px">Total price {{(basicPlaningHour *
-                            price.planing_price)
+                        <div class="accent" style="border-radius: 3px">Total price {{(basicPlanningHour *
+                            price.planning_price)
                             +(basicProgrammingHour * price.programming_price)
                             +(basicBackingHour * price.backing_price)}} $
                         </div>
@@ -62,14 +62,14 @@
                     <div *ngIf="price.title === 'Standard'" style="width: 100%;">
                         <div>
                             <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
-                                <input matInput placeholder="Planing hours needed" [(ngModel)]="standardPlaningHour" readonly={{!selectStandard}}>
+                                <input matInput placeholder="Planning hours needed" [(ngModel)]="standardPlanningHour" readonly={{!selectStandard}}>
                             </mat-input-container>
                             <div style="width: 50%; display: inline-block; text-align: center">total
-                                {{standardPlaningHour * price.planing_price !== 0 ?
-                                standardPlaningHour * price.planing_price : ' -- '}}$
+                                {{standardPlanningHour * price.planning_price !== 0 ?
+                                standardPlanningHour * price.planning_price : ' -- '}}$
                             </div>
                             <div style="width: 10%; display: inline-block; text-align: right">£
-                                {{price.planing_price}}
+                                {{price.planning_price}}
                             </div>
                         </div>
                         <div>
@@ -97,8 +97,8 @@
                                 {{price.backing_price}}
                             </div>
                         </div>
-                        <div class="accent" style="border-radius: 3px">Total price {{(standardPlaningHour *
-                            price.planing_price)
+                        <div class="accent" style="border-radius: 3px">Total price {{(standardPlanningHour *
+                            price.planning_price)
                             +(standardProgrammingHour * price.programming_price)
                             +(standardBackingHour * price.backing_price)}} $
                         </div>
@@ -108,14 +108,14 @@
                     <div *ngIf="price.title === 'Advanced'" style="width: 100%;">
                         <div>
                             <mat-input-container style="width: 30%; display: inline-block;  text-align: left">
-                                <input matInput placeholder="Planing hours needed" [(ngModel)]="advancedPlaningHour" readonly={{!selectAdvanced}}>
+                                <input matInput placeholder="Planning hours needed" [(ngModel)]="advancedPlanningHour" readonly={{!selectAdvanced}}>
                             </mat-input-container>
                             <div style="width: 50%; display: inline-block; text-align: center">total
-                                {{advancedPlaningHour * price.planing_price !== 0 ?
-                                advancedPlaningHour * price.planing_price : '--'}}$
+                                {{advancedPlanningHour * price.planning_price !== 0 ?
+                                advancedPlanningHour * price.planning_price : '--'}}$
                             </div>
                             <div style="width: 10%; display: inline-block; text-align: right">£
-                                {{price.planing_price}}
+                                {{price.planning_price}}
                             </div>
                         </div>
                         <div>
@@ -143,8 +143,8 @@
                                 {{price.backing_price}}
                             </div>
                         </div>
-                        <div class="accent" style="border-radius: 3px">Total price {{(advancedPlaningHour *
-                            price.planing_price)
+                        <div class="accent" style="border-radius: 3px">Total price {{(advancedPlanningHour *
+                            price.planning_price)
                             +(advancedProgrammingHour * price.programming_price)
                             +(advancedBackingHour * price.backing_price)}} $
                         </div>
