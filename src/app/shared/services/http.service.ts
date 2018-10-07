@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class HttpService {
-  serverAddress: string = 'api';
+  serverAddress = 'api';
 
   constructor(private http: HttpClient, @Optional() @Inject(APP_BASE_HREF) origin: string) {
     // this.serverAddress = `${origin}${this.serverAddress}`;

@@ -26,7 +26,7 @@ export class MobileHeaderComponent implements OnInit {
 
     this.getJsonFileService.getHeaderData()
       .then((res: any) => {
-        this.headerData = res;
+        this.headerData = res[0];
         for (let i = 0; i < this.headerData.menu_tab.length; i++) {
           if (this.headerData.menu_tab[i].title === 'Home') {
             Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-home'});
