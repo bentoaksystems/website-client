@@ -18,7 +18,7 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
-        this.aboutUs = details;
+        this.aboutUs = details[0];
         this.desc = marked(this.aboutUs.description);
       })
       .catch(err => {
