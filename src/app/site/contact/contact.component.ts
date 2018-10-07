@@ -24,6 +24,8 @@ export class ContactComponent implements OnInit {
   phone: any = {};
   emailAddress: any = {};
   isMobile = false;
+  waiting = false;
+
 
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
@@ -41,11 +43,14 @@ export class ContactComponent implements OnInit {
       content: new FormControl(null, [Validators.required])
     });
 
+    this.waiting = true;
+
     this.getJsonFileService.getFooterData()
       .then((details) => {
         this.address = details[0].address;
         this.phone = details[0].phone;
         this.emailAddress = details[0].email;
+        this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
