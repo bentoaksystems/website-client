@@ -29,7 +29,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatCardModule,
     MatCheckboxModule,
     MatInputModule,
-    MatIconModule,
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,

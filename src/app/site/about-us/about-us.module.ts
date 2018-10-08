@@ -6,7 +6,7 @@ import {
 
 } from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 @NgModule({
   imports: [
@@ -14,6 +14,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    RouterModule
 
   ],
   declarations: [AboutUsComponent]

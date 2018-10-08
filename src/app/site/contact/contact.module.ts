@@ -10,8 +10,6 @@ import {
   MatCardModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatListModule,
-  MatTooltipModule,
   MatExpansionModule, MatCheckboxModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -31,13 +29,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatInputModule,
     MatIconModule,
     MatSidenavModule,
-    MatIconModule,
     MatButtonModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatListModule,
     SharedModule,
-    MatTooltipModule,
     MatExpansionModule
   ],
   declarations: [ContactComponent]

@@ -6,17 +6,11 @@ import {
   MatButtonModule,
   MatDialogModule,
   MatIconModule,
-  MatSidenavModule,
   MatCardModule,
-  MatInputModule,
   MatProgressSpinnerModule,
-  MatListModule,
-  MatTooltipModule,
-  MatExpansionModule, MatCheckboxModule
 } from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {PersonDialogComponent} from './person-dialog/person-dialog.component';
 import {PersonComponent} from './person/person.component';
@@ -26,21 +20,12 @@ import {PersonComponent} from './person/person.component';
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    FormsModule,
     RouterModule,
     MatCardModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatIconModule,
-    MatSidenavModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatProgressSpinnerModule,
-    MatListModule,
-    SharedModule,
-    MatTooltipModule,
-    MatExpansionModule
+    MatProgressSpinnerModule
   ],
   declarations: [PeopleComponent, PersonDialogComponent, PersonComponent]
 })

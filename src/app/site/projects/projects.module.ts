@@ -4,15 +4,10 @@ import {ProjectsComponent} from './projects.component';
 import {ProjectRouting} from './projects.routing';
 import {
   MatButtonModule,
-  MatDialogModule,
-  MatIconModule,
-  MatSidenavModule,
   MatCardModule,
-  MatInputModule,
   MatProgressSpinnerModule,
-  MatListModule,
   MatTooltipModule,
-  MatExpansionModule, MatCheckboxModule
+  MatExpansionModule,
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
@@ -26,18 +21,10 @@ import {ProjectDialogComponent} from './project-dialog/project-dialog.component'
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    FormsModule,
     RouterModule,
     MatCardModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatIconModule,
     MatButtonModule,
-    MatDialogModule,
     MatProgressSpinnerModule,
-    MatListModule,
     SharedModule,
     MatTooltipModule,
     MatExpansionModule
