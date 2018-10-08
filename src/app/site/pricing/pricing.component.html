@@ -16,19 +16,19 @@
           </mat-card-title>
           <div *ngIf="price.title === 'Basic'" style="width: 100%;">
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="planing hours needed" [(ngModel)]="basicPlaningHour" readonly={{!selectBasic}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total {{basicPlaningHour
                 * price.planing_price !== 0 ?
                 basicPlaningHour * price.planing_price : ' -- '}}$
               </div>
-              <div style="width: 10%; display: inline-block; text-align: right">£
+              <div class="price-div">£
                 {{price.planing_price}}
               </div>
             </div>
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="Programming hours needed"
                        [(ngModel)]="basicProgrammingHour" readonly={{!selectBasic}}>
               </mat-form-field>
@@ -36,19 +36,19 @@
                 {{basicProgrammingHour * price.programming_price !== 0 ?
                 basicProgrammingHour * price.programming_price : ' -- '}} $
               </div>
-              <div style="width: 10%; display: inline-block; text-align: right">£
+              <div class="price-div">£
                 {{price.programming_price}}
               </div>
             </div>
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="Backing hours needed" [(ngModel)]="basicBackingHour" readonly={{!selectBasic}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total {{basicBackingHour
                 * price.backing_price !== 0 ?
                 basicBackingHour * price.backing_price : '--'}} $
               </div>
-              <div style="width: 10%; display: inline-block; text-align: right">£
+              <div class="price-div">£
                 {{price.backing_price}}
               </div>
             </div>
@@ -61,19 +61,19 @@
 
           <div *ngIf="price.title === 'Standard'" style="width: 100%;">
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="planing hours needed" [(ngModel)]="standardPlaningHour" readonly={{!selectStandard}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
                 {{standardPlaningHour * price.planing_price !== 0 ?
                 standardPlaningHour * price.planing_price : ' -- '}}$
               </div>
-              <div style="width: 10%; display: inline-block; text-align: right">£
+              <div class="price-div">£
                 {{price.planing_price}}
               </div>
             </div>
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="Programming hours needed"
                        [(ngModel)]="standardProgrammingHour" readonly={{!selectStandard}}>
               </mat-form-field>
@@ -81,12 +81,12 @@
                 {{standardProgrammingHour * price.programming_price !== 0 ?
                 standardProgrammingHour * price.programming_price : '--'}} $
               </div>
-              <div style="width: 10%; display: inline-block; text-align: right">£
+              <div class="price-div">£
                 {{price.programming_price}}
               </div>
             </div>
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="Backing hours needed" [(ngModel)]="standardBackingHour" readonly={{!selectStandard}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
@@ -107,7 +107,7 @@
 
           <div *ngIf="price.title === 'Advanced'" style="width: 100%;">
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="planing hours needed" [(ngModel)]="advancedPlaningHour" readonly={{!selectAdvanced}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
@@ -119,7 +119,7 @@
               </div>
             </div>
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="Programming hours needed"
                        [(ngModel)]="advancedProgrammingHour" readonly={{!selectAdvanced}}>
               </mat-form-field>
@@ -132,7 +132,7 @@
               </div>
             </div>
             <div>
-              <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
+              <mat-form-field>
                 <input matInput placeholder="Backing hours needed" [(ngModel)]="advancedBackingHour" readonly={{!selectAdvanced}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
