@@ -9,7 +9,7 @@ export class GetJsonFileService {
 
   getHeaderData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('header').subscribe(
+      this.httpService.get('page_info/header').subscribe(
         (data) => {
           resolve(data);
         },
@@ -22,7 +22,7 @@ export class GetJsonFileService {
 
   getHomeTopSectionData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('home/top_section').subscribe(
+      this.httpService.get('page_info/home/top_section').subscribe(
         (data) => {
           resolve(data)
         },
@@ -35,13 +35,13 @@ export class GetJsonFileService {
 
   getPeopleData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('people').subscribe(data => resolve(data), err => reject(err))
+      this.httpService.get('page_info/people').subscribe(data => resolve(data), err => reject(err))
     });
   }
 
-  getFooterData(){
+  getFooterData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('footer').subscribe(
+      this.httpService.get('page_info/footer').subscribe(
         (data) => {
           resolve(data);
         },
@@ -54,7 +54,7 @@ export class GetJsonFileService {
 
   getTechnologyData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('technology').subscribe(
+      this.httpService.get('page_info/technology').subscribe(
         (data) => {
           resolve(data);
         },
@@ -67,7 +67,7 @@ export class GetJsonFileService {
 
   getAboutUsData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('about_us').subscribe(
+      this.httpService.get('page_info/about_us').subscribe(
         (data) => {
           resolve(data);
         },
@@ -78,9 +78,9 @@ export class GetJsonFileService {
     });
   }
 
-  getProjectData(){
+  getProjectData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('project').subscribe(
+      this.httpService.get('page_info/project').subscribe(
         (data) => {
           resolve(data);
         },
@@ -91,9 +91,9 @@ export class GetJsonFileService {
     });
   }
 
-  getProcessData(){
+  getProcessData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('process').subscribe(
+      this.httpService.get('page_info/process').subscribe(
         (data) => {
           resolve(data);
         },
@@ -104,9 +104,9 @@ export class GetJsonFileService {
     });
   }
 
-  getPricingData(){
+  getPricingData() {
     return new Promise((resolve, reject) => {
-      this.httpService.get('pricing').subscribe(
+      this.httpService.get('page_info/pricing').subscribe(
         (data) => {
           resolve(data);
         },

@@ -8,16 +8,16 @@
       </h4>
       <form [formGroup]="contactForm" (ngSubmit)="send()">
 
-          <mat-input-container class="data-field contact-email" [ngClass]="emailClass">
+          <mat-form-field class="data-field contact-email" [ngClass]="emailClass">
             <input matInput type="email" formControlName="email" placeholder="{{'Your Email'}}"
                    (ngModelChange)="changeInput(inputType.email, email.value)" #email/>
-          </mat-input-container>
+          </mat-form-field>
 
 
-          <mat-input-container class="data-field contact-name" [ngClass]="nameClass">
+          <mat-form-field class="data-field contact-name" [ngClass]="nameClass">
             <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"
                    (ngModelChange)="changeInput(inputType.name, name.value)" #name/>
-          </mat-input-container>
+          </mat-form-field>
 
           <mat-form-field class="data-field contact-message" [ngClass]="contentClass">
         <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}"

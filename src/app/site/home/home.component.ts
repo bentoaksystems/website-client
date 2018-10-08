@@ -37,8 +37,8 @@ export class HomeComponent implements OnInit {
     this.waiting = true;
 
     this.getJsonFileService.getHomeTopSectionData()
-      .then((res: any) => {
-        this.homeTopSection = res;
+      .then(res => {
+        this.homeTopSection = res[0];
         this.intro = marked(this.homeTopSection.intro);
         this.waiting = false;
       })
