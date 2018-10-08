@@ -18,6 +18,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {PersonDialogComponent} from './person-dialog/person-dialog.component';
+import {PersonComponent} from './person/person.component';
 @NgModule({
   imports: [
     PeopleRouting,
@@ -40,6 +42,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatTooltipModule,
     MatExpansionModule
   ],
-  declarations: [PeopleComponent]
+  declarations: [PeopleComponent, PersonDialogComponent, PersonComponent]
 })
 export class PeopleModule { }

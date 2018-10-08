@@ -18,6 +18,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {ProjectComponent} from './project/project.component';
+import {ProjectDialogComponent} from './project-dialog/project-dialog.component';
 @NgModule({
   imports: [
     ProjectRouting,
@@ -40,6 +42,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatTooltipModule,
     MatExpansionModule
   ],
-  declarations: [ProjectsComponent]
+  declarations: [ProjectsComponent, ProjectComponent, ProjectDialogComponent]
 })
 export class ProjectModule { }
