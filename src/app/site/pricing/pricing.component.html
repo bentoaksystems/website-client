@@ -17,11 +17,11 @@
           <div *ngIf="price.title === 'Basic'" style="width: 100%;">
             <div>
               <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
-                <input matInput placeholder="planing hours needed" [(ngModel)]="basicplaningHour" readonly={{!selectBasic}}>
+                <input matInput placeholder="planing hours needed" [(ngModel)]="basicPlaningHour" readonly={{!selectBasic}}>
               </mat-form-field>
-              <div style="width: 50%; display: inline-block; text-align: center">total {{basicplaningHour
+              <div style="width: 50%; display: inline-block; text-align: center">total {{basicPlaningHour
                 * price.planing_price !== 0 ?
-                basicplaningHour * price.planing_price : ' -- '}}$
+                basicPlaningHour * price.planing_price : ' -- '}}$
               </div>
               <div style="width: 10%; display: inline-block; text-align: right">£
                 {{price.planing_price}}
@@ -52,7 +52,7 @@
                 {{price.backing_price}}
               </div>
             </div>
-            <div class="accent" style="border-radius: 3px">Total price {{(basicplaningHour *
+            <div class="accent" style="border-radius: 3px">Total price {{(basicPlaningHour *
               price.planing_price)
               +(basicProgrammingHour * price.programming_price)
               +(basicBackingHour * price.backing_price)}} $
@@ -62,11 +62,11 @@
           <div *ngIf="price.title === 'Standard'" style="width: 100%;">
             <div>
               <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
-                <input matInput placeholder="planing hours needed" [(ngModel)]="standardplaningHour" readonly={{!selectStandard}}>
+                <input matInput placeholder="planing hours needed" [(ngModel)]="standardPlaningHour" readonly={{!selectStandard}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
-                {{standardplaningHour * price.planing_price !== 0 ?
-                standardplaningHour * price.planing_price : ' -- '}}$
+                {{standardPlaningHour * price.planing_price !== 0 ?
+                standardPlaningHour * price.planing_price : ' -- '}}$
               </div>
               <div style="width: 10%; display: inline-block; text-align: right">£
                 {{price.planing_price}}
@@ -97,9 +97,9 @@
                 {{price.backing_price}}
               </div>
             </div>
-            <div class="accent" style="border-radius: 3px">Total price {{(standardplaningHour *
+            <div class="accent" style="border-radius: 3px">Total price {{(standardPlaningHour *
               price.planing_price)
-              +(standardProgrammingHour * price.programming_price)
+              + (standardProgrammingHour * price.programming_price)
               +(standardBackingHour * price.backing_price)}} $
             </div>
           </div>
@@ -108,11 +108,11 @@
           <div *ngIf="price.title === 'Advanced'" style="width: 100%;">
             <div>
               <mat-form-field style="width: 30%; display: inline-block;  text-align: left">
-                <input matInput placeholder="planing hours needed" [(ngModel)]="advancedplaningHour" readonly={{!selectAdvanced}}>
+                <input matInput placeholder="planing hours needed" [(ngModel)]="advancedPlaningHour" readonly={{!selectAdvanced}}>
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
-                {{advancedplaningHour * price.planing_price !== 0 ?
-                advancedplaningHour * price.planing_price : '--'}}$
+                {{advancedPlaningHour * price.planing_price !== 0 ?
+                advancedPlaningHour * price.planing_price : '--'}}$
               </div>
               <div style="width: 10%; display: inline-block; text-align: right">£
                 {{price.planing_price}}
@@ -143,7 +143,7 @@
                 {{price.backing_price}}
               </div>
             </div>
-            <div class="accent" style="border-radius: 3px">Total price {{(advancedplaningHour *
+            <div class="accent" style="border-radius: 3px">Total price {{(advancedPlaningHour *
               price.planing_price)
               +(advancedProgrammingHour * price.programming_price)
               +(advancedBackingHour * price.backing_price)}} $

@@ -3,6 +3,7 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {Router} from '@angular/router';
+import {PricingService} from '../../shared/services/pricing.service';
 
 @Component({
   selector: 'app-pricing',
@@ -31,7 +32,8 @@ export class PricingComponent implements OnInit {
   selectedModeInfo: any = {};
 
   constructor(@Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, protected router: Router) {
+              private getJsonFileService: GetJsonFileService,
+              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService) {
   }
 
   ngOnInit() {
@@ -57,9 +59,10 @@ export class PricingComponent implements OnInit {
     this.selectStandard = standardSel;
     this.selectAdvanced = AdvancedSel;
     this.selectedModeInfo.selectedMode = this.selectBasic || this.selectStandard || this.selectAdvanced ? true : false;
+    this.setPricingInfoToService();
   }
 
-  goToContactPage() {
+  setPricingInfoToService() {
     if (this.selectBasic) {
       this.selectedModeInfo = {
         selectedMode: 'basic',
@@ -89,6 +92,11 @@ export class PricingComponent implements OnInit {
         backingHour: null
       }
     }
+    this.pricingService.pricingInfo = this.selectedModeInfo;
+  }
+
+  goToContactPage() {
+    this.setPricingInfoToService();
     this.router.navigate(['/contact']);
   }
 }

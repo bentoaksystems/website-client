@@ -53,7 +53,7 @@ export class LanguageService {
     setTimeout(() => {
       let lang;
       try {
-        let temp = localStorage.getItem('lang');
+        const temp = localStorage.getItem('lang');
         lang = temp ? temp : 'english';
       } catch (e) {
         lang = 'english';
