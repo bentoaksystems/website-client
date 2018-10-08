@@ -7,6 +7,7 @@ import {HttpService} from '../../shared/services/http.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {MessageService} from '../../shared/services/message.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
+import {PricingService} from '../../shared/services/pricing.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class ContactComponent implements OnInit {
 
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
-              private msgService: MessageService, private responsiveService: ResponsiveService) {
+              private msgService: MessageService, private responsiveService: ResponsiveService, private pricingService: PricingService) {
   }
 
   ngOnInit() {
@@ -40,7 +41,8 @@ export class ContactComponent implements OnInit {
     this.contactForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       name: new FormControl(null),
-      content: new FormControl(null, [Validators.required])
+      phoneNumber: new FormControl(null, [Validators.required]),
+      content: new FormControl(null)
     });
 
     this.waiting = true;
@@ -59,18 +61,23 @@ export class ContactComponent implements OnInit {
 
 
   send() {
-    const obj = {
+    const customerOfferObj = {
       email: this.contactForm.controls['email'].value,
       name: this.contactForm.controls['name'].value,
-      content: this.contactForm.controls['content'].value
+      phoneNumber: this.contactForm.controls['phoneNumber'].value,
+      content: this.contactForm.controls['content'].value,
+      selectedPricingInfo : this.pricingService.pricingInfo,
     };
 
-    this.httpService.post('contact', obj).subscribe(
+    this.httpService.post('contact', customerOfferObj).subscribe(
       (res) => {
+        console.log('===>>', customerOfferObj);
         this.msgService.inform('Your message has been sent. We response you as soon as possible. Thanks');
         this.contactForm.controls['email'].setValue(null);
         this.contactForm.controls['name'].setValue(null);
+        this.contactForm.controls['phoneNumber'].setValue(null);
         this.contactForm.controls['content'].setValue(null);
+        this.pricingService.pricingInfo = {};
       },
       (err) => {
         this.msgService.error('Cannot send your message. Check your connection and try again.');
@@ -78,31 +85,4 @@ export class ContactComponent implements OnInit {
     );
   }
 
-  changeInput(type, value) {
-    const item = value.charCodeAt(0);
-
-    switch (type) {
-      case this.inputType.email:
-        if (item >= 32 && item <= 126) {
-          this.emailClass = 'english-style';
-        } else {
-          this.emailClass = 'farsi-style';
-        }
-        break;
-      case this.inputType.name:
-        if (item >= 32 && item <= 126) {
-          this.nameClass = 'english-style';
-        } else {
-          this.nameClass = 'farsi-style';
-        }
-        break;
-      case this.inputType.content:
-        if (item >= 32 && item <= 126) {
-          this.contentClass = 'english-style';
-        } else {
-          this.contentClass = 'farsi-style';
-        }
-        break;
-    }
-  }
 }

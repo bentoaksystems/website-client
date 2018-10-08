@@ -9,19 +9,20 @@
       <form [formGroup]="contactForm" (ngSubmit)="send()">
 
           <mat-form-field class="data-field contact-email" [ngClass]="emailClass">
-            <input matInput type="email" formControlName="email" placeholder="{{'Your Email'}}"
-                   (ngModelChange)="changeInput(inputType.email, email.value)" #email/>
+            <input matInput type="email" formControlName="email" placeholder="{{'Your Email'}}"/>
           </mat-form-field>
 
+        <mat-form-field class="data-field contact-name" [ngClass]="nameClass">
+          <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"/>
+        </mat-form-field>
 
-          <mat-form-field class="data-field contact-name" [ngClass]="nameClass">
-            <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"
-                   (ngModelChange)="changeInput(inputType.name, name.value)" #name/>
+          <mat-form-field class="data-field contact-phone">
+            <input matInput type="number" formControlName="phoneNumber" placeholder="{{'Your phone number'}}"/>
           </mat-form-field>
+
 
           <mat-form-field class="data-field contact-message" [ngClass]="contentClass">
-        <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}"
-                  (ngModelChange)="changeInput(inputType.content, content.value)" #content>
+        <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}">
 
       </textarea>
           </mat-form-field>

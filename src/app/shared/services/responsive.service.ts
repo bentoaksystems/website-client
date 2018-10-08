@@ -9,7 +9,5 @@ export class ResponsiveService {
   isMobile: boolean;
   resize$: Subject<number[]> = new Subject<number[]>();
   switch$: Subject<boolean> = new Subject<boolean>();
-
   constructor() { }
-
 }

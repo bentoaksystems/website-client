@@ -71,3 +71,20 @@ p span {
   margin-top: 15px !important;
 }
 
+.price-div {
+  width: 10%;
+  display: inline-block;
+  text-align: right;
+}
+
+mat-form-field {
+  width: 30%;
+  display: inline-block;
+  text-align: left
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
