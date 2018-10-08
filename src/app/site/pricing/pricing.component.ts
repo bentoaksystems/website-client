@@ -3,6 +3,7 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {Router} from '@angular/router';
+import {PricingService} from '../../shared/services/pricing.service';
 
 @Component({
   selector: 'app-pricing',
@@ -31,10 +32,30 @@ export class PricingComponent implements OnInit {
   selectedModeInfo: any = {};
 
   constructor(@Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, protected router: Router) {
+              private getJsonFileService: GetJsonFileService,
+              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService) {
   }
 
   ngOnInit() {
+    this.selectedModeInfo = this.pricingService.pricingInfo;
+
+    if (this.selectedModeInfo.selectedMode === 'basic') {
+      this.selectBasic = true;
+      this.basicPlaningHour = this.selectedModeInfo.planingHour;
+      this.basicProgrammingHour = this.selectedModeInfo.programmingHour;
+      this.basicBackingHour = this.selectedModeInfo.backingHour;
+    } else if (this.selectedModeInfo.selectedMode === 'standard') {
+      this.selectStandard = true;
+      this.standardPlaningHour = this.selectedModeInfo.planingHour;
+      this.standardProgrammingHour = this.selectedModeInfo.programmingHour;
+      this.standardBackingHour = this.selectedModeInfo.backingHour;
+    } else if (this.selectedModeInfo.selectedMode === 'advanced') {
+      this.selectAdvanced = true;
+      this.advancedPlaningHour = this.selectedModeInfo.planingHour;
+      this.advancedProgrammingHour = this.selectedModeInfo.programmingHour;
+      this.advancedBackingHour = this.selectedModeInfo.backingHour;
+    }
+
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
@@ -57,9 +78,10 @@ export class PricingComponent implements OnInit {
     this.selectStandard = standardSel;
     this.selectAdvanced = AdvancedSel;
     this.selectedModeInfo.selectedMode = this.selectBasic || this.selectStandard || this.selectAdvanced ? true : false;
+    this.setPricingInfoToService();
   }
 
-  goToContactPage() {
+  setPricingInfoToService() {
     if (this.selectBasic) {
       this.selectedModeInfo = {
         selectedMode: 'basic',
@@ -74,7 +96,7 @@ export class PricingComponent implements OnInit {
         programmingHour: this.standardProgrammingHour,
         backingHour: this.standardBackingHour
       }
-    }  else if (this.selectAdvanced) {
+    } else if (this.selectAdvanced) {
       this.selectedModeInfo = {
         selectedMode: 'advanced',
         planingHour: this.advancedPlaningHour,
@@ -89,6 +111,11 @@ export class PricingComponent implements OnInit {
         backingHour: null
       }
     }
+    this.pricingService.pricingInfo = this.selectedModeInfo;
+  }
+
+  goToContactPage() {
+    this.setPricingInfoToService();
     this.router.navigate(['/contact']);
   }
 }
