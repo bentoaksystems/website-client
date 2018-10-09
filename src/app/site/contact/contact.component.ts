@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
   phone: any = {};
   emailAddress: any = {};
   isMobile = false;
-  seen = {};
+  seen: any = {};
   curFocus = null;
 
 
@@ -55,7 +55,7 @@ export class ContactComponent implements OnInit {
       content: new FormControl(null)
     });
   }
-
+  //
   setSeen(item) {
     this.seen[item] = true;
     this.curFocus = item;
@@ -75,13 +75,15 @@ export class ContactComponent implements OnInit {
       (res) => {
         console.log('===>>', customerOfferObj);
         this.msgService.inform('Your message has been sent. We response you as soon as possible. Thanks');
-        this.contactForm.controls['email'].setValue(null);
+        this.contactForm.controls['email'].setValue(null, {emitEvent : false});
         this.contactForm.controls['name'].setValue(null);
-        this.contactForm.controls['phoneNumber'].setValue(null);
+        this.contactForm.controls['phoneNumber'].setValue(null, {emitEvent : false});
         this.contactForm.controls['content'].setValue(null);
         this.pricingService.pricingInfo = {};
+        // this.contactForm.reset();
         this.seen['email'] = false;
         this.seen['phoneNumber'] = false;
+        this.curFocus = null;
       },
       (err) => {
         this.msgService.error('Cannot send your message. Check your connection and try again.');

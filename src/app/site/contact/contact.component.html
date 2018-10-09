@@ -14,9 +14,9 @@
                            formControlName="email"
                            (focus)="setSeen('email')"
                            (blur)="curFocus = null"
-                           [class.input-error]="seen['email'] && curFocus !== 'email' && contactForm.controls['email'].hasError('required')"
+                           [class.input-error]="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))"
                            placeholder="{{'Your Email'}}"/>
-                    <mat-error *ngIf="seen['email'] && curFocus !== 'email' && contactForm.controls['email'].hasError('required')">{{'hhhh'}}</mat-error>
+                    <!--<mat-error *ngIf="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))">{{'Email address is needed'}}</mat-error>-->
                 </mat-form-field>
 
                 <mat-form-field class="data-field contact-name english-style">
@@ -24,7 +24,13 @@
                 </mat-form-field>
 
                 <mat-form-field class="data-field contact-phone english-style">
-                    <input matInput type="number" formControlName="phoneNumber" placeholder="{{'Your phone number'}}"/>
+                    <input matInput
+                           type="tel"
+                           formControlName="phoneNumber"
+                           (focus)="setSeen('phoneNumber')"
+                           (blur)="curFocus = null"
+                           placeholder="{{'Your phone number'}}"/>
+                    <!--<mat-error *ngIf="seen['phoneNumber'] && curFocus !== 'phoneNumber' && contactForm.controls['phoneNumber'].hasError('required')">{{'PhoneNumber is needed'}}</mat-error>-->
                 </mat-form-field>
 
 
