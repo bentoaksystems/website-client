@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   intro = '';
   step = 0;
   showMoreFlag = false;
+  panelOpenState: boolean = false;
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {

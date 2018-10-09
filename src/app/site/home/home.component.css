@@ -99,11 +99,33 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
   width: 100%;
-  height: 430px;
+  height: auto;
   background-repeat: no-repeat;
 }
 
 .vertical-space {
   margin-top: 10px;
   width: 100%;
+}
+
+/**/
+.square {
+  position: relative;
+  width: 50%;
+}
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.content {
+  position: absolute;
+  width: 100%;
+  /*height: 100%;*/
+  margin: 10px;
+}
+.example-card {
+  width:  300px;
+  height: auto;
+  max-height: 300px;
 }
