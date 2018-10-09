@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit {
   slideShows: any = [];
   process: any = [];
   less_images = [];
-  more_images = [];
   isMobile = false;
   intro = '';
   step = 0;
   showMoreFlag = false;
+
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
