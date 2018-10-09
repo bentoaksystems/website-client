@@ -23,6 +23,8 @@ export class ContactComponent implements OnInit {
   isMobile = false;
   seen: any = {};
   curFocus = null;
+  waiting = false;
+
 
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
@@ -36,11 +38,14 @@ export class ContactComponent implements OnInit {
     });
     this.initForm();
 
+    this.waiting = true;
+
     this.getJsonFileService.getFooterData()
       .then((details) => {
         this.address = details[0].address;
         this.phone = details[0].phone;
         this.emailAddress = details[0].email;
+        this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
@@ -69,7 +74,6 @@ export class ContactComponent implements OnInit {
       content: this.contactForm.controls['content'].value,
       selectedPricingInfo : this.pricingService.pricingInfo,
     };
-
 
     this.httpService.post('contact', customerOfferObj).subscribe(
       (res) => {

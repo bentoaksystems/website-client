@@ -1,12 +1,12 @@
-<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center">
-    <div fxFlex="5">&nbsp;</div>
-    <div fxFlex="90" fxLayout="row" fxLayout.sm="row"
-         fxLayout.xs="column" fxLayoutAlign="start stretch">
-        <div class="page" fxFlex="60">
-            <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">
-                {{'Ready to start a project?'}}
-            </h4>
-            <form [formGroup]="contactForm" (ngSubmit)="send()">
+<div *ngIf="!waiting" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center">
+  <div fxFlex="5">&nbsp;</div>
+  <div fxFlex="90" fxLayout="row" fxLayout.sm="row"
+       fxLayout.xs="column" fxLayoutAlign="start stretch">
+    <div class="page" fxFlex="60">
+      <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">
+        {{'Ready to start a project?'}}
+      </h4>
+      <form [formGroup]="contactForm" (ngSubmit)="send()">
 
                 <mat-form-field class="data-field contact-email english-style">
                     <input matInput
@@ -67,4 +67,7 @@
         </div>
     </div>
     <div fxFlex="5">&nbsp;</div>
+</div>
+<div *ngIf="waiting">
+  <mat-spinner class="align-spinner"></mat-spinner>
 </div>
