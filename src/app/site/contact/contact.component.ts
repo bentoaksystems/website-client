@@ -17,14 +17,12 @@ import {PricingService} from '../../shared/services/pricing.service';
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
-  inputType = InputType;
-  emailClass = 'english-style';
-  nameClass = 'english-style';
-  contentClass = 'english-style';
   address: any = {};
   phone: any = {};
   emailAddress: any = {};
   isMobile = false;
+  seen = {};
+  curFocus = null;
 
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
@@ -36,12 +34,7 @@ export class ContactComponent implements OnInit {
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
-    this.contactForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      name: new FormControl(null),
-      phoneNumber: new FormControl(null, [Validators.required]),
-      content: new FormControl(null)
-    });
+    this.initForm();
 
     this.getJsonFileService.getFooterData()
       .then((details) => {
@@ -54,6 +47,19 @@ export class ContactComponent implements OnInit {
       });
   }
 
+  initForm() {
+    this.contactForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      name: new FormControl(null),
+      phoneNumber: new FormControl(null, [Validators.required]),
+      content: new FormControl(null)
+    });
+  }
+
+  setSeen(item) {
+    this.seen[item] = true;
+    this.curFocus = item;
+  }
 
   send() {
     const customerOfferObj = {
@@ -64,6 +70,7 @@ export class ContactComponent implements OnInit {
       selectedPricingInfo : this.pricingService.pricingInfo,
     };
 
+
     this.httpService.post('contact', customerOfferObj).subscribe(
       (res) => {
         console.log('===>>', customerOfferObj);
@@ -73,6 +80,8 @@ export class ContactComponent implements OnInit {
         this.contactForm.controls['phoneNumber'].setValue(null);
         this.contactForm.controls['content'].setValue(null);
         this.pricingService.pricingInfo = {};
+        this.seen['email'] = false;
+        this.seen['phoneNumber'] = false;
       },
       (err) => {
         this.msgService.error('Cannot send your message. Check your connection and try again.');

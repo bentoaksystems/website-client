@@ -339,6 +339,12 @@ span, div, label, p {
   direction: ltr;
 }
 
+
+.input-error {
+  border-color: red !important;
+  border-width: 1px !important;
+}
+
 .ui-galleria-panel {
   text-align: center;
 }
