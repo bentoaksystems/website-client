@@ -8,6 +8,7 @@ import {
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {CICDComponent} from './components/cicd/cicd.component';
 @NgModule({
   imports: [
     AboutUsRouting,
@@ -15,8 +16,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule
-
   ],
-  declarations: [AboutUsComponent]
+  declarations: [AboutUsComponent, CICDComponent]
 })
 export class AboutUsModule { }

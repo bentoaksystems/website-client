@@ -38,6 +38,7 @@ import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { BlogComponent } from './blog/blog.component';
 import {PricingService} from '../shared/services/pricing.service';
+import {CICDComponent} from './about-us/components/cicd/cicd.component';
 
 @NgModule({
   imports: [
@@ -82,6 +83,7 @@ import {PricingService} from '../shared/services/pricing.service';
     HomeComponent,
     MobileHeaderComponent,
     BlogComponent,
+    CICDComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],
