@@ -12,14 +12,17 @@ export class AboutUsComponent implements OnInit {
   aboutUs: any = {};
   desc = null;
   isMobile = false;
+  waiting: boolean = false;
 
   constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) { }
 
   ngOnInit() {
+    this.waiting = true;
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
         this.aboutUs = details[0];
         this.desc = marked(this.aboutUs.description);
+        this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);

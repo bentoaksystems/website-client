@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {PricingComponent} from './pricing.component';
-import {PricingRouting} from './pricing.routing';
+import {ContactComponent} from './contact.component';
+import {ContactRouting} from './contact.routing';
 import {
   MatButtonModule,
   MatDialogModule,
@@ -10,8 +10,6 @@ import {
   MatCardModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatListModule,
-  MatTooltipModule,
   MatExpansionModule, MatCheckboxModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,7 +18,7 @@ import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
 @NgModule({
   imports: [
-    PricingRouting,
+    ContactRouting,
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
@@ -29,16 +27,14 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatCardModule,
     MatCheckboxModule,
     MatInputModule,
-    MatSidenavModule,
     MatIconModule,
+    MatSidenavModule,
     MatButtonModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatListModule,
     SharedModule,
-    MatTooltipModule,
     MatExpansionModule
   ],
-  declarations: [PricingComponent]
+  declarations: [ContactComponent]
 })
-export class PricingModule { }
+export class ContactModule { }

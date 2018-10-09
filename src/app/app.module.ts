@@ -17,7 +17,6 @@ import 'hammerjs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {ContentfulService} from './shared/services/contentful.service';
 import {LanguageService} from './shared/services/language.service';
 import {WINDOW_PROVIDERS} from './shared/services/window.service';
 import {MessageService} from './shared/services/message.service';
@@ -61,7 +60,6 @@ import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
   ],
   providers: [
-    ContentfulService,
     LanguageService,
     WINDOW_PROVIDERS,
     MessageService,
