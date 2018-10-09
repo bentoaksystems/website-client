@@ -38,6 +38,8 @@ import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { BlogComponent } from './blog/blog.component';
 import {PricingService} from '../shared/services/pricing.service';
+import {SlideShowComponent} from './home/slide-show/slide-show.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -65,7 +67,8 @@ import {PricingService} from '../shared/services/pricing.service';
     MatSliderModule,
     SharedModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
   declarations: [
     AboutUsComponent,
@@ -82,6 +85,7 @@ import {PricingService} from '../shared/services/pricing.service';
     HomeComponent,
     MobileHeaderComponent,
     BlogComponent,
+    SlideShowComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],

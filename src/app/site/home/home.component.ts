@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   less_images = [];
   isMobile = false;
   intro = '';
-  step = 0;
+  step = -1;
   showMoreFlag = false;
 
 

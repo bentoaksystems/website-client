@@ -18,6 +18,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { SlideShowComponent } from './slide-show/slide-show.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     HomeRouting,
@@ -38,8 +41,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatListModule,
     SharedModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule,
+    SlideShowComponent
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, SlideShowComponent]
 })
 export class HomeModule { }
