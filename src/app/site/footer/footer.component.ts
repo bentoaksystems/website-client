@@ -35,9 +35,4 @@ export class FooterComponent implements OnInit {
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
   }
-
-
-test() {
-  this.router.navigate(['/about-us'], {fragment: 'CICD'});
-}
 }
