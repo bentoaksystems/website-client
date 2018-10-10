@@ -1,0 +1,22 @@
+import {Injectable} from '@angular/core';
+// import {ProgressModeEnum} from '../enum/progressMode.enum';
+import {BehaviorSubject} from 'rxjs';
+
+@Injectable()
+export class SpinnerService {
+
+  isSpinner$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
+
+  constructor() {
+
+  }
+
+  enable() {
+    this.isSpinner$.next(true)
+  }
+
+  disable() {
+    this.isSpinner$.next(false)
+  }
+
+}

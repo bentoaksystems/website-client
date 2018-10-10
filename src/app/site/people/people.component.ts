@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {PricingService} from '../../shared/services/pricing.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-people',
@@ -10,13 +11,14 @@ import {PricingService} from '../../shared/services/pricing.service';
 })
 export class PeopleComponent implements OnInit {
   people: any = [];
-  waiting: boolean = false;
+  // waiting: boolean = false;
   isMobile = false;
-  constructor(private getJsonService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(private getJsonService: GetJsonFileService, private responsiveService: ResponsiveService,private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
-    this.waiting = true;
+    // this.waiting = true;
+    this.spinnerService.enable()
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
@@ -24,7 +26,8 @@ export class PeopleComponent implements OnInit {
     this.getJsonService.getPeopleData()
       .then(res => {
         this.people = res;
-        this.waiting = false;
+        // this.waiting = false;
+        this.spinnerService.disable()
       })
       .catch(err => console.error('people data fetch failed', err));
   }

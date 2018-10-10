@@ -1,4 +1,4 @@
-<!--<div *ngIf="!isMobile" style="position: relative; overflow: hidden">-->
+<div *ngIf="!isMobile" style="position: relative; overflow: hidden">
 <!--<ngb-carousel *ngFor="let slide of homeTopSection">-->
 <!--<ngb-carousel>-->
   <!--<ng-template ngbSlide *ngFor="let slide of homeTopSection">-->
@@ -9,22 +9,28 @@
     <!--</div>-->
   <!--</ng-template>-->
 <!--</ngb-carousel>-->
-<!--</div>-->
-
 
 <ngb-carousel>
   <ng-template ngbSlide >
-    <a href="./about-us"> <img [src]="homeTopSection[0].backgroundPic" style="display: block"></a>
+     <img [src]="homeTopSection[0].backgroundPic" style="display: block">
     <div class="carousel-caption">
-      <h1 class="t t-light t-light-hover title">{{homeTopSection[0].title}}</h1>
+      <a href="./about-us" style="text-decoration: none;"> <h1 class="t t-light t-light-hover title">{{homeTopSection[0].title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSection[0].intro"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
-   <a href="./about-us"> <img [src]="homeTopSection[1].backgroundPic" style="display: block"></a>
+   <img [src]="homeTopSection[1].backgroundPic" style="display: block">
     <div class="carousel-caption">
-      <h1 class="t t-light t-light-hover title">{{homeTopSection[1].title}}</h1>
+      <a href="./about-us" style="text-decoration: none;"><h1 class="t t-light t-light-hover title">{{homeTopSection[1].title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSection[1].intro"></div>
     </div>
   </ng-template>
+  <ng-template ngbSlide >
+    <img [src]="homeTopSection[2].backgroundPic" style="display: block">
+    <div class="carousel-caption">
+      <a href="./about-us" style="text-decoration: none;"><h1 class="t t-light t-light-hover title">{{homeTopSection[2].title}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSection[2].intro"></div>
+    </div>
+  </ng-template>
 </ngb-carousel>
+</div>
