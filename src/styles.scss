@@ -417,3 +417,7 @@ span, div, label, p {
   background-color: mat-color($bw-primary) !important;
 }
 
+.maxWidth {
+  max-width: 1100px;
+  margin:auto;
+}

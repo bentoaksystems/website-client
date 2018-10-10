@@ -1,23 +1,30 @@
-<ngb-carousel *ngIf="images">
-  <ng-template ngbSlide>
-    <img [src]="images[0]" alt="Random first slide">
+<!--<div *ngIf="!isMobile" style="position: relative; overflow: hidden">-->
+<!--<ngb-carousel *ngFor="let slide of homeTopSection">-->
+<!--<ngb-carousel>-->
+  <!--<ng-template ngbSlide *ngFor="let slide of homeTopSection">-->
+    <!--<img [src]="slide.backgroundPic" style="display: block">-->
+    <!--<div class="carousel-caption">-->
+      <!--<h1 class="t t-light t-light-hover title">{{slide.title}}</h1>-->
+      <!--<div class="t t-light t-light-hover intro" [innerHTML]="slide.intro"></div>-->
+    <!--</div>-->
+  <!--</ng-template>-->
+<!--</ngb-carousel>-->
+<!--</div>-->
+
+
+<ngb-carousel>
+  <ng-template ngbSlide >
+    <a href="./about-us"> <img [src]="homeTopSection[0].backgroundPic" style="display: block"></a>
     <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h1 class="t t-light t-light-hover title">{{homeTopSection[0].title}}</h1>
+      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSection[0].intro"></div>
     </div>
   </ng-template>
-  <ng-template ngbSlide>
-    <img [src]="images[1]" alt="Random second slide">
+  <ng-template ngbSlide >
+   <a href="./about-us"> <img [src]="homeTopSection[1].backgroundPic" style="display: block"></a>
     <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <img [src]="images[2]" alt="Random third slide">
-    <div class="carousel-caption">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h1 class="t t-light t-light-hover title">{{homeTopSection[1].title}}</h1>
+      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSection[1].intro"></div>
     </div>
   </ng-template>
 </ngb-carousel>

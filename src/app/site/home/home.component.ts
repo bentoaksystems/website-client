@@ -1,9 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import * as marked from 'marked';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
-import {LanguageService} from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +11,6 @@ import {LanguageService} from '../../shared/services/language.service';
 export class HomeComponent implements OnInit {
   images: any = [];
   waiting = false;
-  homeTopSection: any = {};
   slideShows: any = [];
   process: any = [];
   less_images = [];
@@ -22,8 +19,7 @@ export class HomeComponent implements OnInit {
   step = -1;
   showMoreFlag = false;
 
-
-  constructor(public langService: LanguageService, @Inject(WINDOW) private window,
+  constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
   }
 
@@ -34,16 +30,6 @@ export class HomeComponent implements OnInit {
     });
 
     this.waiting = true;
-
-    this.getJsonFileService.getHomeTopSectionData()
-      .then(res => {
-        this.homeTopSection = res[0];
-        this.intro = marked(this.homeTopSection.intro);
-        this.waiting = false;
-      })
-      .catch(err => {
-        console.error('Cannot get home data from server: ', err);
-      });
 
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
