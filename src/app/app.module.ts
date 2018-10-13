@@ -57,8 +57,8 @@ import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
     GalleriaModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
-
   ],
+
   providers: [
     LanguageService,
     WINDOW_PROVIDERS,
