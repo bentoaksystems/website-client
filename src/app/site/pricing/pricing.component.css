@@ -9,7 +9,8 @@
   display: inline-block;
   margin: 10px;
   position: relative;
-  width: 400px;
+  width: 350px;
+  height: 600px;
 }
 
 .shadow.tiny {
@@ -19,7 +20,8 @@
   word-wrap: break-word;
   hyphens: auto;
   min-height: 500px;
-  max-height: 500px;
+  /* max-height: 500px; */
+
 }
 
 .shadow.tiny:hover {
@@ -87,4 +89,10 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.matCard1{
+  display: inline-block;
+  margin: 10px;
+  position: relative;
+  width: 300px;
 }
