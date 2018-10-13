@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as marked from 'marked';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-about-us',
@@ -13,18 +14,17 @@ export class AboutUsComponent implements OnInit {
   result: any = null;
   desc = null;
   isMobile = false;
-  waiting: boolean = false;
 
-  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) { }
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, private spinnerService: SpinnerService) { }
 
   ngOnInit() {
-    this.waiting = true;
+    this.spinnerService.enable();
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
         this.result = details;
         this.aboutUs = this.result[0];
         this.desc = marked(this.aboutUs.description);
-        this.waiting = false;
+        this.spinnerService.disable();
       })
       .catch(err => {
         console.error('Cannot get data!', err);

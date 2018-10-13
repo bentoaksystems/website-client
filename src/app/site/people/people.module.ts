@@ -7,7 +7,6 @@ import {
   MatDialogModule,
   MatIconModule,
   MatCardModule,
-  MatProgressSpinnerModule,
 } from '@angular/material';
 import { ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
@@ -25,7 +24,6 @@ import {PersonComponent} from './person/person.component';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatProgressSpinnerModule
   ],
   declarations: [PeopleComponent, PersonDialogComponent, PersonComponent]
 })

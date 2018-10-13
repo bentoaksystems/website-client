@@ -38,8 +38,9 @@ import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { BlogComponent } from './blog/blog.component';
 import {PricingService} from '../shared/services/pricing.service';
+import {SlideShowComponent} from './home/slide-show/slide-show.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CICDComponent} from './about-us/components/cicd/cicd.component';
-
 import {WebDevelopmentComponent} from './about-us/components/web-development/web-development.component';
 import {SoftwareDevelopmentComponent} from './about-us/components/software-development/software-development.component';
 
@@ -69,7 +70,8 @@ import {SoftwareDevelopmentComponent} from './about-us/components/software-devel
     MatSliderModule,
     SharedModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
   declarations: [
     AboutUsComponent,
@@ -86,6 +88,7 @@ import {SoftwareDevelopmentComponent} from './about-us/components/software-devel
     HomeComponent,
     MobileHeaderComponent,
     BlogComponent,
+    SlideShowComponent,
     CICDComponent,
     SoftwareDevelopmentComponent,
     WebDevelopmentComponent

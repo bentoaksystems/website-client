@@ -4,6 +4,7 @@ import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {Router} from '@angular/router';
 import {PricingService} from '../../shared/services/pricing.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-pricing',
@@ -12,7 +13,6 @@ import {PricingService} from '../../shared/services/pricing.service';
 })
 export class PricingComponent implements OnInit {
 
-  waiting = false;
   pricing: any = [];
   isMobile = false;
 
@@ -33,10 +33,11 @@ export class PricingComponent implements OnInit {
 
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService,
-              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService) {
+              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService, private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
+    this.spinnerService.enable();
     this.selectedModeInfo = this.pricingService.pricingInfo;
 
     if (this.selectedModeInfo.selectedMode === 'basic') {
@@ -61,12 +62,10 @@ export class PricingComponent implements OnInit {
       this.isMobile = isMobile;
     });
 
-    this.waiting = true;
-
     this.getJsonFileService.getPricingData()
       .then((res) => {
         this.pricing = res;
-        this.waiting = false;
+        this.spinnerService.disable();
       })
       .catch(err => {
         console.error('Cannot get data!', err);
