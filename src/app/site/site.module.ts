@@ -36,6 +36,12 @@ import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.c
 import {PersonComponent} from './people/person/person.component';
 import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
+import { BlogComponent } from './blog/blog.component';
+import {PricingService} from '../shared/services/pricing.service';
+import {CICDComponent} from './about-us/components/cicd/cicd.component';
+
+import {WebDevelopmentComponent} from './about-us/components/web-development/web-development.component';
+import {SoftwareDevelopmentComponent} from './about-us/components/software-development/software-development.component';
 
 @NgModule({
   imports: [
@@ -79,10 +85,14 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
     ProjectDialogComponent,
     HomeComponent,
     MobileHeaderComponent,
+    BlogComponent,
+    CICDComponent,
+    SoftwareDevelopmentComponent,
+    WebDevelopmentComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],
-  providers: []
+  providers: [PricingService]
 })
 export class SiteModule {
 }

@@ -14,19 +14,20 @@ p {
 }
 
 .image {
-  height: 90%;
+  height: 75%;
   width: 50%;
-  margin-top: 5px;
+  margin-top: 15px;
+  border-radius: 5px;
 }
 
 .middle {
-  opacity: 0.3;
+  /*opacity: 0.3;*/
   text-align: center;
 }
 
 .container:hover .image {
-  opacity: 0.1;
-  color: #000000;
+  /*opacity: 0.1;*/
+  /*color: #000000;*/
   z-index: 1;
 }
 
@@ -44,4 +45,23 @@ p {
 
 .shadow.tiny:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/**/
+.square {
+  position: relative;
+  width: 50%;
+}
+
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 10px;
 }

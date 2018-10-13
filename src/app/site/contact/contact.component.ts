@@ -7,6 +7,7 @@ import {HttpService} from '../../shared/services/http.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {MessageService} from '../../shared/services/message.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
+import {PricingService} from '../../shared/services/pricing.service';
 
 
 @Component({
@@ -16,18 +17,18 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
-  inputType = InputType;
-  emailClass = 'english-style';
-  nameClass = 'english-style';
-  contentClass = 'english-style';
   address: any = {};
   phone: any = {};
   emailAddress: any = {};
   isMobile = false;
+  seen: any = {};
+  curFocus = null;
+  waiting = false;
+
 
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
-              private msgService: MessageService, private responsiveService: ResponsiveService) {
+              private msgService: MessageService, private responsiveService: ResponsiveService, private pricingService: PricingService) {
   }
 
   ngOnInit() {
@@ -35,37 +36,58 @@ export class ContactComponent implements OnInit {
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
-    this.contactForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      name: new FormControl(null),
-      content: new FormControl(null, [Validators.required])
-    });
+    this.initForm();
+
+    this.waiting = true;
 
     this.getJsonFileService.getFooterData()
       .then((details) => {
         this.address = details[0].address;
         this.phone = details[0].phone;
         this.emailAddress = details[0].email;
+        this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
       });
   }
 
+  initForm() {
+    this.contactForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      name: new FormControl(null),
+      phoneNumber: new FormControl(null, [Validators.required]),
+      content: new FormControl(null)
+    });
+  }
+  //
+  setSeen(item) {
+    this.seen[item] = true;
+    this.curFocus = item;
+  }
 
   send() {
-    const obj = {
+    const customerOfferObj = {
       email: this.contactForm.controls['email'].value,
       name: this.contactForm.controls['name'].value,
-      content: this.contactForm.controls['content'].value
+      phoneNumber: this.contactForm.controls['phoneNumber'].value,
+      content: this.contactForm.controls['content'].value,
+      selectedPricingInfo : this.pricingService.pricingInfo,
     };
 
-    this.httpService.post('contact', obj).subscribe(
+    this.httpService.post('contact', customerOfferObj).subscribe(
       (res) => {
+        console.log('===>>', customerOfferObj);
         this.msgService.inform('Your message has been sent. We response you as soon as possible. Thanks');
-        this.contactForm.controls['email'].setValue(null);
+        this.contactForm.controls['email'].setValue(null, {emitEvent : false});
         this.contactForm.controls['name'].setValue(null);
+        this.contactForm.controls['phoneNumber'].setValue(null, {emitEvent : false});
         this.contactForm.controls['content'].setValue(null);
+        this.pricingService.pricingInfo = {};
+        // this.contactForm.reset();
+        this.seen['email'] = false;
+        this.seen['phoneNumber'] = false;
+        this.curFocus = null;
       },
       (err) => {
         this.msgService.error('Cannot send your message. Check your connection and try again.');
@@ -73,31 +95,4 @@ export class ContactComponent implements OnInit {
     );
   }
 
-  changeInput(type, value) {
-    const item = value.charCodeAt(0);
-
-    switch (type) {
-      case this.inputType.email:
-        if (item >= 32 && item <= 126) {
-          this.emailClass = 'english-style';
-        } else {
-          this.emailClass = 'farsi-style';
-        }
-        break;
-      case this.inputType.name:
-        if (item >= 32 && item <= 126) {
-          this.nameClass = 'english-style';
-        } else {
-          this.nameClass = 'farsi-style';
-        }
-        break;
-      case this.inputType.content:
-        if (item >= 32 && item <= 126) {
-          this.contentClass = 'english-style';
-        } else {
-          this.contentClass = 'farsi-style';
-        }
-        break;
-    }
-  }
 }

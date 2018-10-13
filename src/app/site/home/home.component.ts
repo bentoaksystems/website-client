@@ -11,16 +11,17 @@ import {LanguageService} from '../../shared/services/language.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private images_en: any = [];
   images: any = [];
   waiting = false;
   homeTopSection: any = {};
   slideShows: any = [];
   process: any = [];
-  rows = [];
+  less_images = [];
   isMobile = false;
   intro = '';
   step = 0;
+  showMoreFlag = false;
+
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
@@ -35,8 +36,8 @@ export class HomeComponent implements OnInit {
     this.waiting = true;
 
     this.getJsonFileService.getHomeTopSectionData()
-      .then((res: any) => {
-        this.homeTopSection = res;
+      .then(res => {
+        this.homeTopSection = res[0];
         this.intro = marked(this.homeTopSection.intro);
         this.waiting = false;
       })
@@ -49,19 +50,20 @@ export class HomeComponent implements OnInit {
         this.slideShows = res;
         for (const s of this.slideShows) {
           if (s.title) {
-            const transDSCP = s.description;
-            this.images_en.push({source: s.file.url, description: transDSCP, title: s.title, link: s.url});
+            this.images.push({source: s.file.url, description: s.description, title: s.title, link: s.url});
           }
         }
+        for (let i = 0; i < 5; i++) {
+          this.less_images.push(this.images[i]);
+        }
 
-        this.images = this.images_en;
-        this.images = this.images = this.chunkArray();
         this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
       });
 
+    // Our Process section
     this.getJsonFileService.getProcessData()
       .then((res: any) => {
         this.process = res;
@@ -77,30 +79,6 @@ export class HomeComponent implements OnInit {
     this.window.open(link, '_blank');
   }
 
-  chunkArray() {
-    if (this.images.length <= 0) {
-      this.rows = [];
-      return;
-    }
-    this.rows = [];
-    let chunk = [], counter = 0;
-    for (const s in this.images) {
-      if (this.images.hasOwnProperty(s)) {
-        chunk.push(this.images[s]);
-        counter++;
-
-        if (counter >= 3) {
-          counter = 0;
-          this.rows.push(chunk);
-          chunk = [];
-        }
-      }
-    }
-    if (counter > 0) {
-      this.rows.push(chunk);
-    }
-  }
-
   // our Process
   setStep(index: number) {
     this.step = index;
@@ -113,4 +91,5 @@ export class HomeComponent implements OnInit {
   prevStep() {
     this.step--;
   }
+
 }

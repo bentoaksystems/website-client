@@ -13,7 +13,6 @@ import {WINDOW} from '../../../shared/services/window.service';
 export class PersonComponent implements OnInit {
   @Input('person') person: any;
   width: number = 500;
-  lang: string;
   images: any = {};
 
   constructor(public langService: LanguageService, public dialog: MatDialog,
