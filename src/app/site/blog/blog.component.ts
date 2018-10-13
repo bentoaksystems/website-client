@@ -4,6 +4,7 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {LanguageService} from '../../shared/services/language.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-blog',
@@ -14,19 +15,16 @@ export class BlogComponent implements OnInit {
 
   private images_en: any = [];
   images: any = [];
-  waiting = false;
-  homeTopSection: any = {};
   slideShows: any = [];
   process: any = [];
   rows = [];
   temp_row = [];
   isMobile = false;
   intro = '';
-  step = 0;
   showMoreFlag = false;
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, private spinnersService: SpinnerService) {
   }
 
   ngOnInit() {
@@ -35,7 +33,7 @@ export class BlogComponent implements OnInit {
       this.isMobile = isMobile;
     });
 
-    this.waiting = true;
+    this.spinnersService.enable();
 
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
@@ -49,7 +47,7 @@ export class BlogComponent implements OnInit {
 
         this.images = this.images_en;
         this.images = this.chunkArray();
-        this.waiting = false;
+        this.spinnersService.disable();
       })
       .catch(err => {
         console.error('Cannot get data!', err);

@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,6 @@ import {WINDOW} from '../../shared/services/window.service';
 })
 export class HomeComponent implements OnInit {
   images: any = [];
-  waiting = false;
   slideShows: any = [];
   process: any = [];
   less_images = [];
@@ -20,16 +20,15 @@ export class HomeComponent implements OnInit {
   showMoreFlag = false;
 
   constructor(@Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
+    this.spinnerService.enable();
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
-
-    this.waiting = true;
 
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
@@ -43,7 +42,7 @@ export class HomeComponent implements OnInit {
           this.less_images.push(this.images[i]);
         }
 
-        this.waiting = false;
+       this.spinnerService.disable();
       })
       .catch(err => {
         console.error('Cannot get data!', err);
@@ -53,7 +52,7 @@ export class HomeComponent implements OnInit {
     this.getJsonFileService.getProcessData()
       .then((res: any) => {
         this.process = res;
-        this.waiting = false;
+        this.spinnerService.disable();
       })
       .catch(err => {
         console.error('Cannot get data from server: ', err);

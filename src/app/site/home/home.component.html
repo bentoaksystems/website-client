@@ -1,14 +1,15 @@
-<div *ngIf="!waiting" class="maxWidth">
+<div class="maxWidth">
 
   <!--slide show-->
-  <div style="text-align: center; margin-bottom: 10px">
+  <div  *ngIf="!isMobile" style="text-align: center; margin-bottom: 10px">
     <app-slide-show></app-slide-show>
   </div>
 
-  <div *ngIf="isMobile">
-  <!---->
+  <div *ngIf="isMobile" [class.center]="isMobile">
+    <div style="text-align: center; margin-bottom: 10px">
+      <app-slide-show></app-slide-show>
+    </div>
   </div>
-
 
 
   <!--Our Process-->
@@ -70,6 +71,4 @@
     </button>
   </div>
 </div>
-<div *ngIf="waiting">
-  <mat-spinner class="align-spinner"></mat-spinner>
-</div>
+

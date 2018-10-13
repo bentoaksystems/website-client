@@ -1,4 +1,4 @@
-<div *ngIf="!waiting" class="maxWidth">
+<div class="maxWidth">
   <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row"
        fxLayout.xs="column" fxLayoutAlign="center center">
     <div fxFlex="5">&nbsp;</div>
@@ -19,7 +19,5 @@
     <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc"></div>
   </div>
 </div>
-<div *ngIf="waiting">
-  <mat-spinner class="align-spinner"></mat-spinner>
-</div>
+
 

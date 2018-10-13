@@ -1,4 +1,4 @@
-<div *ngIf="!waiting" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center"  class="maxWidth">
+<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center"  class="maxWidth">
   <div fxFlex="5">&nbsp;</div>
   <div fxFlex="90" fxLayout="row" fxLayout.sm="row"
        fxLayout.xs="column" fxLayoutAlign="start stretch">
@@ -54,7 +54,4 @@
     </div>
   </div>
   <div fxFlex="5">&nbsp;</div>
-</div>
-<div *ngIf="waiting">
-  <mat-spinner class="align-spinner"></mat-spinner>
 </div>
