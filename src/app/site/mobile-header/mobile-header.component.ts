@@ -38,7 +38,7 @@ export class MobileHeaderComponent implements OnInit {
             Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-desktop'});
           } else if (this.headerData.menu_tab[i].title === 'About us') {
             Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-file'});
-          }else if (this.headerData.menu_tab[i].title === 'Pricing') {
+          } else if (this.headerData.menu_tab[i].title === 'Pricing') {
             Object.assign(this.headerData.menu_tab[i], {iconLogo: 'fa fa-usd'});
           }
         }
