@@ -1,20 +1,24 @@
 <mat-card class="primary-lighter container shadow tiny">
   <div style="display: block; height: 100%">
-    <div style="height: 50%; text-align: center;">
+    <div class="newi">
       <img src="{{person.image}}" alt="{{person.fullname + ' image'}}" class="image">
     </div>
-    <div style="height: 10%">
-      <a href="{{'mailto:' + person.email}}" style="text-decoration: none;" aria-hidden="true">
-        <div class="t t-light t-light-hover item-title">
-          <h5 style="margin: 0;" class="t t-desc">{{person.fullname}}</h5>
-          <div style="font-family: fantasy;" class="t t-desc">{{person.responsibility}}</div>
-        </div>
-      </a>
+   
+<div style="height: 25%;margin: 10px;">
+  <a href="{{'mailto:' + person.email}}" style="text-decoration: none;" aria-hidden="true">
+    <div class="t t-light t-light-hover ">
+      <h5 class="text" >{{person.fullname}}</h5>
+      <div style="font-family:Trebuchet MS;color:black;">{{person.responsibility}}</div>
     </div>
-    <div style="height: 33%; text-align: justify; padding: 10px">
+  </a>
+</div> 
+ <!-- <div style="height: 23%;">
+      
+    </div>  -->
+    <!-- <div style="height: 33%; text-align: justify; padding: 10px">
       <p>{{person.description}}</p>
-    </div>
-    <div style="height: 7%;" class="links-wrapper">
+    </div> -->
+    <div style="height: 7%; margin:20px;" class="links-wrapper">
       <a *ngFor="let s of getKeys(person.social)" href="{{person.social[s]}}" target="_blank" rel="noopener noreferrer">
         <button mat-button *ngIf="person.social[s]" class="tiny-button">
           <img class="tiny-img" src="{{images[s.toLowerCase()]}}">

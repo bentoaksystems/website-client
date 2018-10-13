@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
             this.images.push({source: s.file.url, description: s.description, title: s.title, link: s.url});
           }
         }
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
           this.less_images.push(this.images[i]);
         }
 
