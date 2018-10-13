@@ -21,7 +21,7 @@ export class PersonComponent implements OnInit {
     this.images = {
       github: 'assets/images/social/github.png',
       linkedin: 'assets/images/social/linkedin.png',
-      telegram: 'assets/images/social/telegram.png',
+      slack: 'assets/images/social/slack.png',
       email: 'assets/images/social/email.png',
     };
   }
