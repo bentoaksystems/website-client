@@ -11,6 +11,7 @@ import {SpinnerService} from '../../shared/services/spinner.service';
 })
 export class AboutUsComponent implements OnInit {
   aboutUs: any = {};
+  result: any = null;
   desc = null;
   isMobile = false;
 
@@ -20,7 +21,8 @@ export class AboutUsComponent implements OnInit {
     this.spinnerService.enable();
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
-        this.aboutUs = details[0];
+        this.result = details;
+        this.aboutUs = this.result[0];
         this.desc = marked(this.aboutUs.description);
         this.spinnerService.disable();
       })

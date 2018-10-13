@@ -58,6 +58,7 @@ import {SpinnerService} from './shared/services/spinner.service';
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
   ],
+
   providers: [
     LanguageService,
     WINDOW_PROVIDERS,
