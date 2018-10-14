@@ -87,7 +87,7 @@ export class ContactComponent implements OnInit {
         this.curFocus = null;
       },
       (err) => {
-        this.msgService.error('Cannot send your message. Check your connection and try again.');
+        this.msgService.error('Cannot send your message. Check your connection and try again.\n' + err);
       }
     );
   }
