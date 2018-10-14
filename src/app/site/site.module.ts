@@ -61,7 +61,6 @@ import {HomeModule} from './home/home.module';
     MatTooltipModule,
     MatExpansionModule,
     NgbModule,
-    HomeModule,
   ],
   declarations: [
     FooterComponent,
