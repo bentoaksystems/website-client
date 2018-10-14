@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.sm="row"
+<div  *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row"
      fxLayout.xs="column" fxLayoutAlign="center center" style="margin-top: 10px">
     <div fxFlex="5"></div>
     <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
@@ -13,4 +13,10 @@
         </div>
     </div>
     <div fxFlex="5"></div>
+</div>
+<div *ngIf="isMobile">
+  <div class="img-mobile-wrapper">
+    <img class="img-mobile" src="{{webDevInfo.background}}">
+  </div>
+  <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc"></div>
 </div>
