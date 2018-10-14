@@ -36,12 +36,12 @@ import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.c
 import {PersonComponent} from './people/person/person.component';
 import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
-import { BlogComponent } from './blog/blog.component';
 import {PricingService} from '../shared/services/pricing.service';
 import {CICDComponent} from './about-us/components/cicd/cicd.component';
-
 import {WebDevelopmentComponent} from './about-us/components/web-development/web-development.component';
 import {SoftwareDevelopmentComponent} from './about-us/components/software-development/software-development.component';
+import {SlideShowComponent} from './home/slide-show/slide-show.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -69,7 +69,8 @@ import {SoftwareDevelopmentComponent} from './about-us/components/software-devel
     MatSliderModule,
     SharedModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
   declarations: [
     AboutUsComponent,
@@ -85,7 +86,7 @@ import {SoftwareDevelopmentComponent} from './about-us/components/software-devel
     ProjectDialogComponent,
     HomeComponent,
     MobileHeaderComponent,
-    BlogComponent,
+    SlideShowComponent,
     CICDComponent,
     SoftwareDevelopmentComponent,
     WebDevelopmentComponent
