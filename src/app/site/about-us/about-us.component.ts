@@ -22,7 +22,6 @@ export class AboutUsComponent implements OnInit {
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
         this.result = details;
-        console.log('result: ',this.result);
         this.aboutUs = this.result[0];
         this.desc = marked(this.aboutUs.description);
         this.spinnerService.disable();
