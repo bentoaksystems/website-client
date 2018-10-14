@@ -1,70 +1,67 @@
-<div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center"  class="maxWidth">
-  <div fxFlex="5">&nbsp;</div>
-  <div fxFlex="90" fxLayout="row" fxLayout.sm="row"
-       fxLayout.xs="column" fxLayoutAlign="start stretch">
+<div fxLayout="row" fxLayout.sm="row"
+     fxLayout.xs="column" fxLayoutAlign="start stretch" class="maxWidth">
     <div class="page" fxFlex="60">
-      <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">
-        {{'Ready to start a project?'}}
-      </h4>
-      <form [formGroup]="contactForm" (ngSubmit)="send()">
+        <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">
+            {{'Ready to start a project?'}}
+        </h4>
+        <form [formGroup]="contactForm" (ngSubmit)="send()">
 
-                <mat-form-field class="data-field contact-email english-style">
-                    <input matInput
-                           type="email"
-                           formControlName="email"
-                           (focus)="setSeen('email')"
-                           (blur)="curFocus = null"
-                           [class.input-error]="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))"
-                           placeholder="{{'Your Email'}}"/>
-                    <!--<mat-error *ngIf="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))">{{'Email address is needed'}}</mat-error>-->
-                </mat-form-field>
+            <mat-form-field class="data-field contact-email english-style">
+                <input matInput
+                       type="email"
+                       formControlName="email"
+                       (focus)="setSeen('email')"
+                       (blur)="curFocus = null"
+                       [class.input-error]="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))"
+                       placeholder="{{'Your Email'}}"/>
+                <!--<mat-error *ngIf="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))">{{'Email address is needed'}}</mat-error>-->
+            </mat-form-field>
 
-                <mat-form-field class="data-field contact-name english-style">
-                    <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"/>
-                </mat-form-field>
+            <mat-form-field class="data-field contact-name english-style">
+                <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"/>
+            </mat-form-field>
 
-                <mat-form-field class="data-field contact-phone english-style">
-                    <input matInput
-                           type="tel"
-                           formControlName="phoneNumber"
-                           (focus)="setSeen('phoneNumber')"
-                           (blur)="curFocus = null"
-                           placeholder="{{'Your phone number'}}"/>
-                    <!--<mat-error *ngIf="seen['phoneNumber'] && curFocus !== 'phoneNumber' && contactForm.controls['phoneNumber'].hasError('required')">{{'PhoneNumber is needed'}}</mat-error>-->
-                </mat-form-field>
+            <mat-form-field class="data-field contact-phone english-style">
+                <input matInput
+                       type="tel"
+                       formControlName="phoneNumber"
+                       (focus)="setSeen('phoneNumber')"
+                       (blur)="curFocus = null"
+                       placeholder="{{'Your phone number'}}"/>
+                <!--<mat-error *ngIf="seen['phoneNumber'] && curFocus !== 'phoneNumber' && contactForm.controls['phoneNumber'].hasError('required')">{{'PhoneNumber is needed'}}</mat-error>-->
+            </mat-form-field>
 
 
-                <mat-form-field class="data-field contact-message english-style">
+            <mat-form-field class="data-field contact-message english-style">
         <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}">
 
       </textarea>
-                </mat-form-field>
+            </mat-form-field>
 
 
-                <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
-                    <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
-                </button>
+            <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
+                <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
+            </button>
 
-            </form>
-        </div>
-        <div fxFlex="5"></div>
-        <div fxFlex="35" class="page">
-            <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">{{'Get in touch with us'}} </h4>
-            <h5 class="t t-primary contact-label">
-                <i class="fa fa-home contact-image" aria-hidden="true"></i>
-                {{address}}
-            </h5>
-            <h5 class="t t-primary contact-label">
-                <i class="fa fa-phone contact-image" aria-hidden="true"></i>
-                {{phone}}
-            </h5>
-            <h5 class="t t-primary contact-label">
-                <i class="fa fa-envelope contact-image" aria-hidden="true"></i>
-                <a class="mail" href="mailto:info@bentoak.systems">
-                    {{emailAddress}}
-                </a>
-            </h5>
-        </div>
+        </form>
     </div>
-    <div fxFlex="5">&nbsp;</div>
+    <div fxFlex="5"></div>
+    <div fxFlex="35" class="page">
+        <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">{{'Get in touch with us'}} </h4>
+        <h5 class="t t-primary contact-label">
+            <i class="fa fa-home contact-image" aria-hidden="true"></i>
+            {{address}}
+        </h5>
+        <h5 class="t t-primary contact-label">
+            <i class="fa fa-phone contact-image" aria-hidden="true"></i>
+            {{phone}}
+        </h5>
+        <h5 class="t t-primary contact-label">
+            <i class="fa fa-envelope contact-image" aria-hidden="true"></i>
+            <a class="mail" href="mailto:info@bentoak.systems">
+                {{emailAddress}}
+            </a>
+        </h5>
+    </div>
 </div>
+

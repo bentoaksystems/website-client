@@ -63,10 +63,11 @@
             <mat-checkbox [(ngModel)]="selectedPlan[pricingPlan.title]" (change)="chgPlan(pricingPlan.title)">{{pricingPlan.title}}</mat-checkbox>
           </div>
         </mat-card>
-      </div>
-      <div class="center" style="margin-top: 10px">
-        <button mat-raised-button class="accent" (click)="goToContactPage()" [disabled]="!selected">Contact us to start</button>
-      </div>
+    </div>
+    <div class="center" style="margin-top: 10px">
+        <button mat-raised-button class="accent" (click)="goToContactPage()"
+                [disabled]="!selected">Contact us to start
+        </button>
     </div>
   </div>
 </div>
