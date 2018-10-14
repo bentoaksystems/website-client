@@ -10,8 +10,7 @@ import {SpinnerService} from '../../shared/services/spinner.service';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-  aboutUs: any = {};
-  result: any = null;
+  results: any = null;
   desc = null;
   isMobile = false;
 
@@ -21,9 +20,8 @@ export class AboutUsComponent implements OnInit {
     this.spinnerService.enable();
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
-        this.result = details;
-        this.aboutUs = this.result[0];
-        this.desc = marked(this.aboutUs.description);
+        this.results = details;
+        this.results[0].description = marked(this.results[0].description);
         this.spinnerService.disable();
       })
       .catch(err => {
