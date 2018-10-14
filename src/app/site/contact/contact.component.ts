@@ -18,9 +18,6 @@ import {SpinnerService} from '../../shared/services/spinner.service';
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
-  emailClass = 'english-style';
-  nameClass = 'english-style';
-  contentClass = 'english-style';
   address: any = {};
   phone: any = {};
   emailAddress: any = {};
@@ -86,7 +83,6 @@ export class ContactComponent implements OnInit {
         this.contactForm.controls['phoneNumber'].setValue(null, {emitEvent : false});
         this.contactForm.controls['content'].setValue(null);
         this.pricingService.pricingInfo = {};
-        // this.contactForm.reset();
         this.seen['email'] = false;
         this.seen['phoneNumber'] = false;
         this.curFocus = null;
