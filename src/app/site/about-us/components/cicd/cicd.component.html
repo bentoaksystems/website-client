@@ -1,7 +1,5 @@
-<div fxLayout="row" fxLayout.sm="row"
+<div *ngIf="!isMobile"  fxLayout="row" fxLayout.sm="row"
      fxLayout.xs="column" fxLayoutAlign="center center">
-    <div fxFlex="5"></div>
-    <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
         <div fxFlex="40">
             <img class="img img-section shadow tiny" src="{{CICDInfo.background}}">
         </div>
@@ -11,6 +9,10 @@
             </h2>
             <div class="t t-primary description-section content-block" [innerHTML]="desc"></div>
         </div>
-    </div>
-    <div fxFlex="5"></div>
+</div>
+<div *ngIf="isMobile">
+  <div class="img-mobile-wrapper">
+    <img class="img-mobile" src="{{CICDInfo.background}}">
+  </div>
+  <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc"></div>
 </div>

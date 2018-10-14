@@ -4,6 +4,7 @@ import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {Router} from '@angular/router';
 import {PricingService} from '../../shared/services/pricing.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-pricing',
@@ -24,20 +25,20 @@ export class PricingComponent implements OnInit {
 
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService,
-              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService) {
+              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService, private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
+    this.spinnerService.enable();
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
 
-    this.waiting = true;
-
     this.getJsonFileService.getPricingData()
       .then((res: any[]) => {
         this.pricing = res;
+        this.spinnerService.disable();
         res.forEach(e => {
           ['planingHour', 'programmingHour', 'backingHour']
             .forEach(name =>

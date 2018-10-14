@@ -12,11 +12,11 @@
 .img {
     height: auto;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .img-section {
-    margin: 50px -100px;
+    margin: 100px -100px;
 }
 
 .img-mobile-wrapper {
@@ -32,7 +32,7 @@
 .section-block-mobile {
     width: 100%;
     border: 10px solid #f2f2f2;
-    padding: 15px 100px 15px 15px;
+    padding: 15px 15px 15px 15px;
 }
 
 .page-section {
