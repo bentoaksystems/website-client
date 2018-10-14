@@ -1,8 +1,5 @@
 <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row"
      fxLayout.xs="column" fxLayoutAlign="center center" style="margin-top: 10px">
-    <div fxFlex="5">&nbsp;</div>
-    <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
-         fxLayoutAlign="start stretch">
         <div class="page-section" fxFlex="60">
             <h2 class="t t-primary t-primary-hover title">
                 {{softwareDevInfo.title}}
@@ -12,8 +9,6 @@
         <div fxFlex="40">
             <img class="img img-section shadow tiny" src="{{softwareDevInfo.background}}">
         </div>
-    </div>
-    <div fxFlex="5">&nbsp;</div>
 </div>
 <div *ngIf="isMobile">
   <div class="img-mobile-wrapper">
