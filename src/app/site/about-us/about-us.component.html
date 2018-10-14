@@ -1,8 +1,5 @@
-<div *ngIf="!isMobile" class="maxWidth">
-    <div fxLayout="row" fxLayout.sm="row"
-         fxLayout.xs="column" fxLayoutAlign="center center">
-      <div fxFlex="5">&nbsp;</div>
-      <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
+<div class="maxWidth">
+      <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
            fxLayoutAlign="start stretch">
         <div class="page-section" fxFlex="50">
           <h2 class="t t-primary t-primary-hover title">
@@ -14,7 +11,11 @@
           <img class="img img-section shadow tiny" src="{{results[0].background}}">
         </div>
       </div>
-      <div fxFlex="5">&nbsp;</div>
+    <div *ngIf="isMobile">
+        <div class="img-mobile-wrapper">
+            <img class="img-mobile" src="{{results[0].background}}">
+        </div>
+        <div class="t t-primary section-block-mobile content-block" [innerHTML]="results[0].description"></div>
     </div>
     <a id="CICD"></a>
     <app-cicd [CICDInfo]="results[1]"></app-cicd>
@@ -24,15 +25,3 @@
     <app-web-development [webDevInfo]="results[2]"></app-web-development>
 </div>
 
-<div *ngIf="isMobile">
-  <div class="img-mobile-wrapper">
-    <img class="img-mobile" src="{{results[0].background}}">
-  </div>
-  <div class="t t-primary section-block-mobile content-block" [innerHTML]="results[0].description"></div>
-  <a id="CICD"></a>
-  <app-cicd [CICDInfo]="results[1]"></app-cicd>
-  <a id="Mobile-Dev"></a>
-  <app-software-development [softwareDevInfo]="results[3]"></app-software-development>
-  <a id="Web-Dev"></a>
-  <app-web-development [webDevInfo]="results[2]"></app-web-development>
-</div>
