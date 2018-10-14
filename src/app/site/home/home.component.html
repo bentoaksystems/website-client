@@ -1,18 +1,14 @@
-<div *ngIf="!waiting">
-    <div *ngIf="!isMobile" style="position: relative; overflow: hidden">
-        <img src="{{homeTopSection.backgroundPic}}" style="display: block">
-        <h1 class="t t-light t-light-hover title">{{'Bent Oak Systems'}}</h1>
-        <div class="t t-light t-light-hover intro" [innerHTML]="intro">
-        </div>
+<div class="maxWidth">
+  <!--slide show-->
+  <div  *ngIf="!isMobile" style="text-align: center; margin-bottom: 10px">
+    <app-slide-show></app-slide-show>
+  </div>
+
+  <div *ngIf="isMobile" [class.center]="isMobile">
+    <div style="text-align: center; margin-bottom: 10px">
+      <app-slide-show></app-slide-show>
     </div>
-    <div *ngIf="isMobile">
-        <div>
-            <img src="{{homeTopSection.backgroundPic}}" style="width: 100%">
-        </div>
-        <div class="page-section">
-            <div class="section-block content" [innerHTML]="intro"></div>
-        </div>
-    </div>
+  </div>
 
     <!--Our Process-->
     <div style="text-align: center; margin-bottom: 10px">
@@ -20,7 +16,7 @@
     </div>
     <div class="jumbotron square" fxLayout="row" fxLayout.sm="column"
          fxLayout.xs="column" fxLayoutAlign="center center">
-        <div fxFlex="50%" class="content">
+        <div fxFlex="50" class="content">
             <img class="img-process" src="../../../assets/images/process.jpg">
         </div>
             <div fxFlex="5"></div>
@@ -71,6 +67,5 @@
         </button>
     </div>
 </div>
-<div *ngIf="waiting">
-    <mat-spinner class="align-spinner"></mat-spinner>
-</div>
+
+

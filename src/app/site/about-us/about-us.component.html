@@ -1,4 +1,4 @@
-<div *ngIf="!waiting">
+<div class="maxWidth">
     <div *ngIf="!isMobile">
         <div fxLayout="row" fxLayout.sm="row"
              fxLayout.xs="column" fxLayoutAlign="center center">
@@ -28,10 +28,17 @@
         <div class="img-mobile-wrapper">
             <img class="img-mobile" src="{{aboutUs.background}}">
         </div>
-        <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc"></div>
+      <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc">
+      <div class="img-mobile-wrapper">
+            <img class="img-mobile" src="{{result[1].background}}">
+        </div>
+        <div class="t t-primary section-block-mobile content-block" [innerHTML]="result[1].description">
+
+        </div>
+
+      <app-software-development [softwareDevInfo]="result[2].background"></app-software-development>
+      <app-web-development [webDevInfo]="result[3].background"></app-web-development>
     </div>
 </div>
-<div *ngIf="waiting">
-    <mat-spinner class="align-spinner"></mat-spinner>
-</div>
 
+</div>

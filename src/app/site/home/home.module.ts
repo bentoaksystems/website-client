@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
 import {HomeRouting} from './home.routing';
 import {
@@ -18,6 +18,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {SlideShowComponent} from './slide-show/slide-show.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     HomeRouting,
@@ -38,8 +41,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatListModule,
     SharedModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, SlideShowComponent]
 })
-export class HomeModule { }
+export class HomeModule {
+}
