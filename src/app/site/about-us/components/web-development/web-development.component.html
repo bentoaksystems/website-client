@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayout.sm="row"
+     fxLayout.xs="column" fxLayoutAlign="center center" style="margin-top: 10px">
+    <div fxFlex="5"></div>
+    <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+        <div fxFlex="30">
+            <img class="img img-section shadow tiny" src="{{webDevInfo.background}}">
+        </div>
+        <div class="page-section" fxFlex="70">
+            <h2 class="t t-primary t-primary-hover title" style="margin-left: 120px">
+                {{webDevInfo.title}}
+            </h2>
+            <div class="t t-primary description-section content-block" [innerHTML]="desc"></div>
+        </div>
+    </div>
+    <div fxFlex="5"></div>
+</div>

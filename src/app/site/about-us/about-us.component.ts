@@ -10,6 +10,7 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 })
 export class AboutUsComponent implements OnInit {
   aboutUs: any = {};
+  result: any = null;
   desc = null;
   isMobile = false;
   waiting: boolean = false;
@@ -20,7 +21,8 @@ export class AboutUsComponent implements OnInit {
     this.waiting = true;
     this.getJsonFileService.getAboutUsData()
       .then((details) => {
-        this.aboutUs = details[0];
+        this.result = details;
+        this.aboutUs = this.result[0];
         this.desc = marked(this.aboutUs.description);
         this.waiting = false;
       })
