@@ -16,10 +16,9 @@ export class PricingComponent implements OnInit {
   pricing: any = [];
   planingHour: any = {};
   isMobile = false;
-
+  selected = false;
   selectedPlan: any = {};
 
-  selectedModeInfo: any = {};
   programmingHour: any = {};
   backingHour: any = {};
 
@@ -40,10 +39,12 @@ export class PricingComponent implements OnInit {
       .then((res: any[]) => {
         this.pricing = res;
         res.forEach(e => {
-          ['planingHour', 'programmingHour', 'backingHour'].forEach(name => {
-            this[name][e.title] =
-              e.title === this.pricingService.pricingInfo.title && this.pricingService.pricingInfo[name] ? this.pricingService.pricingInfo[name] : undefined;
-          });
+          ['planingHour', 'programmingHour', 'backingHour']
+            .forEach(name =>
+              this[name][e.title] =
+                e.title === this.pricingService.pricingInfo.title && this.pricingService.pricingInfo[name] ?
+                  this.pricingService.pricingInfo[name] : undefined
+          );
 
           this.selectedPlan[e.title] = e.title === this.pricingService.pricingInfo.title;
         });
@@ -58,8 +59,10 @@ export class PricingComponent implements OnInit {
     for (const key in this.selectedPlan) {
       if (this.selectedPlan.hasOwnProperty(key) && key !== plan) {
         this.selectedPlan[key] = false;
+        ['planingHour', 'programmingHour', 'backingHour'].forEach(name => this[name][key] = undefined);
       }
     }
+    this.selected = Object.keys(this.selectedPlan).map(r => this.selectedPlan[r]).reduce((x, y) => x || y, false);
     this.pricingService.pricingInfo = this.pricing.filter(r => r.title === plan)[0];
   }
 
@@ -80,6 +83,8 @@ export class PricingComponent implements OnInit {
   }
 
   setPricingInfoToService(title) {
+    this.selectedPlan[title] = true;
+    this.chgPlan(title);
     Object.assign(this.pricingService.pricingInfo, {
       planingHour: this.planingHour[title],
       programmingHour: this.programmingHour[title],

@@ -13,7 +13,7 @@
           <div style="width: 100%;">
             <div>
               <mat-form-field>
-                <input matInput placeholder="planing hours needed" [(ngModel)]="planingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)" readonly={{!selectedPlan[pricingPlan.title]}}>
+                <input matInput placeholder="planing hours needed" [(ngModel)]="planingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total £ {{totalPrice('planing', pricingPlan)}}
               </div>
@@ -24,7 +24,7 @@
             <div>
               <mat-form-field>
                 <input matInput placeholder="Programming hours needed"
-                       [(ngModel)]="programmingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)" readonly={{!selectedPlan[pricingPlan.title]}}>
+                       [(ngModel)]="programmingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
                 £{{totalPrice('programming', pricingPlan)}}
@@ -35,7 +35,7 @@
             </div>
             <div>
               <mat-form-field>
-                <input matInput placeholder="Backing hours needed" [(ngModel)]="backingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)" readonly={{!selectedPlan[pricingPlan.title]}}>
+                <input matInput placeholder="Backing hours needed" [(ngModel)]="backingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total £{{totalPrice('backing', pricingPlan)}}
               </div>
@@ -65,7 +65,7 @@
         </mat-card>
       </div>
       <div class="center" style="margin-top: 10px">
-        <button mat-raised-button class="accent" (click)="goToContactPage()" [disabled]="!selectedModeInfo.selectedMode">Contact us to start</button>
+        <button mat-raised-button class="accent" (click)="goToContactPage()" [disabled]="!selected">Contact us to start</button>
       </div>
     </div>
   </div>
