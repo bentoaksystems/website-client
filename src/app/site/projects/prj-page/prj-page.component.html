@@ -1,0 +1,9 @@
+<div>
+    <h3 class="t t-primary t-primary-hover title" style="text-align: center; margin-top: 20px">
+        {{project.title}}
+    </h3>
+    <div class="img-mobile-wrapper">
+        <img class="img-mobile" src="{{project.mainImage.url}}">
+    </div>
+    <div class="t t-primary section-block-mobile content-block" [innerHTML]="project.shortDescription"></div>
+</div>

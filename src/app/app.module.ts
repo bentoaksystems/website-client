@@ -29,6 +29,7 @@ import {RecaptchaModule} from 'ng-recaptcha';
 // if you need forms support:
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {SpinnerService} from './shared/services/spinner.service';
+import {ProjectService} from './shared/services/project.service';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import {SpinnerService} from './shared/services/spinner.service';
     GetJsonFileService,
     HttpService,
     ResponsiveService,
-    SpinnerService
+    SpinnerService,
+    ProjectService
   ],
   bootstrap: [AppComponent],
 })
