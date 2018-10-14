@@ -36,7 +36,7 @@ export class ContactComponent implements OnInit {
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
-
+    this.initForm();
     this.spinnersService.enable();
 
     this.getJsonFileService.getFooterData()

@@ -36,7 +36,6 @@ import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.c
 import {PersonComponent} from './people/person/person.component';
 import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
-import { BlogComponent } from './blog/blog.component';
 import {PricingService} from '../shared/services/pricing.service';
 import {CICDComponent} from './about-us/components/cicd/cicd.component';
 import {WebDevelopmentComponent} from './about-us/components/web-development/web-development.component';
@@ -87,7 +86,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ProjectDialogComponent,
     HomeComponent,
     MobileHeaderComponent,
-    BlogComponent,
     SlideShowComponent,
     CICDComponent,
     SoftwareDevelopmentComponent,
