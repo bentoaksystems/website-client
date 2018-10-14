@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import * as marked from 'marked';
 import {GetJsonFileService} from '../../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../../shared/services/responsive.service';
 import {SpinnerService} from '../../../shared/services/spinner.service';
@@ -15,7 +14,10 @@ export class SlideShowComponent implements OnInit {
   homeTopSections: any = [];
   isMobile = false;
 
-  constructor(private httpService:HttpService,private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, private spinnerService: SpinnerService) {
+  constructor(private httpService: HttpService,
+              private getJsonFileService: GetJsonFileService,
+              private responsiveService: ResponsiveService,
+              private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {

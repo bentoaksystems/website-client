@@ -13,108 +13,84 @@ import {SpinnerService} from '../../shared/services/spinner.service';
 })
 export class PricingComponent implements OnInit {
 
+  waiting = false;
   pricing: any = [];
+  planingHour: any = {};
   isMobile = false;
+  selected = false;
+  selectedPlan: any = {};
 
-  basicPlaningHour = null;
-  basicProgrammingHour = null;
-  basicBackingHour = null;
-  standardPlaningHour = null;
-  standardProgrammingHour = null;
-  standardBackingHour = null;
-  advancedPlaningHour = null;
-  advancedProgrammingHour = null;
-  advancedBackingHour = null;
-  selectBasic = false;
-  selectStandard = false;
-  selectAdvanced = false;
-
-  selectedModeInfo: any = {};
+  programmingHour: any = {};
+  backingHour: any = {};
 
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService,
-              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService, private spinnerService: SpinnerService) {
+              private responsiveService: ResponsiveService, protected router: Router,
+              private pricingService: PricingService, private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
     this.spinnerService.enable();
-    this.selectedModeInfo = this.pricingService.pricingInfo;
-
-    if (this.selectedModeInfo.selectedMode === 'basic') {
-      this.selectBasic = true;
-      this.basicPlaningHour = this.selectedModeInfo.planingHour;
-      this.basicProgrammingHour = this.selectedModeInfo.programmingHour;
-      this.basicBackingHour = this.selectedModeInfo.backingHour;
-    } else if (this.selectedModeInfo.selectedMode === 'standard') {
-      this.selectStandard = true;
-      this.standardPlaningHour = this.selectedModeInfo.planingHour;
-      this.standardProgrammingHour = this.selectedModeInfo.programmingHour;
-      this.standardBackingHour = this.selectedModeInfo.backingHour;
-    } else if (this.selectedModeInfo.selectedMode === 'advanced') {
-      this.selectAdvanced = true;
-      this.advancedPlaningHour = this.selectedModeInfo.planingHour;
-      this.advancedProgrammingHour = this.selectedModeInfo.programmingHour;
-      this.advancedBackingHour = this.selectedModeInfo.backingHour;
-    }
-
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
 
     this.getJsonFileService.getPricingData()
-      .then((res) => {
+      .then((res: any[]) => {
         this.pricing = res;
         this.spinnerService.disable();
+        res.forEach(e => {
+          ['planingHour', 'programmingHour', 'backingHour']
+            .forEach(name =>
+              this[name][e.title] =
+                e.title === this.pricingService.pricingInfo.title && this.pricingService.pricingInfo[name] ?
+                  this.pricingService.pricingInfo[name] : undefined
+          );
+
+          this.selectedPlan[e.title] = e.title === this.pricingService.pricingInfo.title;
+        });
+        this.waiting = false;
       })
       .catch(err => {
         console.error('Cannot get data!', err);
       });
   }
 
-  selectPricing(basicSel, standardSel, AdvancedSel) {
-    this.selectBasic = basicSel;
-    this.selectStandard = standardSel;
-    this.selectAdvanced = AdvancedSel;
-    this.selectedModeInfo.selectedMode = this.selectBasic || this.selectStandard || this.selectAdvanced ? true : false;
-    this.setPricingInfoToService();
-  }
-
-  setPricingInfoToService() {
-    if (this.selectBasic) {
-      this.selectedModeInfo = {
-        selectedMode: 'basic',
-        planingHour: this.basicPlaningHour,
-        programmingHour: this.basicProgrammingHour,
-        backingHour: this.basicBackingHour
-      }
-    } else if (this.selectStandard) {
-      this.selectedModeInfo = {
-        selectedMode: 'standard',
-        planingHour: this.standardPlaningHour,
-        programmingHour: this.standardProgrammingHour,
-        backingHour: this.standardBackingHour
-      }
-    } else if (this.selectAdvanced) {
-      this.selectedModeInfo = {
-        selectedMode: 'advanced',
-        planingHour: this.advancedPlaningHour,
-        programmingHour: this.advancedProgrammingHour,
-        backingHour: this.advancedBackingHour
-      }
-    } else {
-      this.selectedModeInfo = {
-        selectedMode: false,
-        planingHour: null,
-        programmingHour: null,
-        backingHour: null
+  chgPlan(plan) {
+    for (const key in this.selectedPlan) {
+      if (this.selectedPlan.hasOwnProperty(key) && key !== plan) {
+        this.selectedPlan[key] = false;
+        ['planingHour', 'programmingHour', 'backingHour'].forEach(name => this[name][key] = undefined);
       }
     }
-    this.pricingService.pricingInfo = this.selectedModeInfo;
+    this.selected = Object.keys(this.selectedPlan).map(r => this.selectedPlan[r]).reduce((x, y) => x || y, false);
+    this.pricingService.pricingInfo = this.pricing.filter(r => r.title === plan)[0];
   }
 
   goToContactPage() {
-    this.setPricingInfoToService();
     this.router.navigate(['/contact']);
+  }
+
+  totalPrice(planType, pricingPlan) {
+    if (planType) {
+      const key = planType + 'Hour';
+      return this[key][pricingPlan.title] ? this[key][pricingPlan.title] * pricingPlan[planType + '_price'] : ' -- ';
+    } else {
+      return ['planing', 'programming', 'backing']
+        .map(r => this.totalPrice(r, pricingPlan))
+        .filter(r => +r)
+        .reduce((x, y) => x + y, 0);
+    }
+  }
+
+  setPricingInfoToService(title) {
+    this.selectedPlan[title] = true;
+    this.chgPlan(title);
+    Object.assign(this.pricingService.pricingInfo, {
+      planingHour: this.planingHour[title],
+      programmingHour: this.programmingHour[title],
+      backingHour: this.backingHour[title],
+    });
   }
 }

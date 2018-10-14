@@ -20,28 +20,18 @@ import {
   MatTooltipModule,
   MatExpansionModule
 } from '@angular/material';
-import {AboutUsComponent} from './about-us/about-us.component';
 import {SharedModule} from 'primeng/primeng';
-import {ContactComponent} from './contact/contact.component';
 import {FooterComponent} from './footer/footer.component';
-import {PeopleComponent} from './people/people.component';
-import {ProjectsComponent} from './projects/projects.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {PersonDialogComponent} from './people/person-dialog/person-dialog.component';
-import {ProjectComponent} from './projects/project/project.component';
 import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.component';
-import {PersonComponent} from './people/person/person.component';
-import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import {PricingService} from '../shared/services/pricing.service';
-import {CICDComponent} from './about-us/components/cicd/cicd.component';
-import {WebDevelopmentComponent} from './about-us/components/web-development/web-development.component';
-import {SoftwareDevelopmentComponent} from './about-us/components/software-development/software-development.component';
-import {SlideShowComponent} from './home/slide-show/slide-show.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
   imports: [
@@ -70,26 +60,16 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     MatTooltipModule,
     MatExpansionModule,
-    NgbModule
+    NgbModule,
+    HomeModule,
   ],
   declarations: [
-    AboutUsComponent,
-    ContactComponent,
     FooterComponent,
     HeaderComponent,
-    PeopleComponent,
-    ProjectsComponent,
     SiteComponent,
-    PersonComponent,
     PersonDialogComponent,
-    ProjectComponent,
     ProjectDialogComponent,
-    HomeComponent,
     MobileHeaderComponent,
-    SlideShowComponent,
-    CICDComponent,
-    SoftwareDevelopmentComponent,
-    WebDevelopmentComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],
