@@ -38,6 +38,9 @@ import {HomeComponent} from './home/home.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { BlogComponent } from './blog/blog.component';
 import {PricingService} from '../shared/services/pricing.service';
+import {CICDComponent} from './about-us/components/cicd/cicd.component';
+import {WebDevelopmentComponent} from './about-us/components/web-development/web-development.component';
+import {SoftwareDevelopmentComponent} from './about-us/components/software-development/software-development.component';
 import {SlideShowComponent} from './home/slide-show/slide-show.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -85,7 +88,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     MobileHeaderComponent,
     BlogComponent,
-    SlideShowComponent
+    SlideShowComponent,
+    CICDComponent,
+    SoftwareDevelopmentComponent,
+    WebDevelopmentComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],
