@@ -9,7 +9,7 @@ import {
   MatInputModule,
   MatListModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule, MatSpinner
+  MatSnackBarModule,
 } from '@angular/material';
 import {GalleriaModule, SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';

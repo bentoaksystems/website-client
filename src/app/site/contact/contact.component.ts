@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {InputType} from '../../shared/enum/input.enum';
 
 import {HttpService} from '../../shared/services/http.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
@@ -28,7 +27,8 @@ export class ContactComponent implements OnInit {
 
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
-              private msgService: MessageService, private responsiveService: ResponsiveService, private pricingService: PricingService, private spinnersService: SpinnerService) {
+              private msgService: MessageService, private responsiveService: ResponsiveService,
+              private pricingService: PricingService, private spinnersService: SpinnerService) {
   }
 
   ngOnInit() {
@@ -75,8 +75,7 @@ export class ContactComponent implements OnInit {
     };
 
     this.httpService.post('contact', customerOfferObj).subscribe(
-      (res) => {
-        console.log('===>>', customerOfferObj);
+      () => {
         this.msgService.inform('Your message has been sent. We response you as soon as possible. Thanks');
         this.contactForm.controls['email'].setValue(null, {emitEvent : false});
         this.contactForm.controls['name'].setValue(null);
@@ -88,7 +87,7 @@ export class ContactComponent implements OnInit {
         this.curFocus = null;
       },
       (err) => {
-        this.msgService.error('Cannot send your message. Check your connection and try again.');
+        this.msgService.error('Cannot send your message. Check your connection and try again.', err);
       }
     );
   }
