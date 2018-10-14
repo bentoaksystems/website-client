@@ -38,6 +38,8 @@ export class ContactComponent implements OnInit {
     });
     this.initForm();
 
+
+
     this.waiting = true;
 
     this.getJsonFileService.getFooterData()
