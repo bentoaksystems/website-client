@@ -21,5 +21,12 @@
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[2]?.intro"></div>
     </div>
   </ng-template>
+  <ng-template ngbSlide >
+    <img [src]="homeTopSections[3]?.backgroundPic" style="display: block">
+    <div class="carousel-caption">
+      <a href="./about-us" style="text-decoration: none;"><h1 class="t t-light t-light-hover title">{{homeTopSections[3]?.title}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[3]?.intro"></div>
+    </div>
+  </ng-template>
 </ngb-carousel>
 </div>
