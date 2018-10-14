@@ -41,7 +41,8 @@ export class PricingComponent implements OnInit {
         this.pricing = res;
         res.forEach(e => {
           ['planingHour', 'programmingHour', 'backingHour'].forEach(name => {
-            this[name][e.title] = e.title === this.pricingService.pricingInfo.title && this.pricingService.pricingInfo[name] ? this.pricingService.pricingInfo[name] : undefined;
+            this[name][e.title] =
+              e.title === this.pricingService.pricingInfo.title && this.pricingService.pricingInfo[name] ? this.pricingService.pricingInfo[name] : undefined;
           });
 
           this.selectedPlan[e.title] = e.title === this.pricingService.pricingInfo.title;
