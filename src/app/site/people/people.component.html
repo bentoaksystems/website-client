@@ -2,12 +2,7 @@
   <h3 class="t t-primary t-primary-hover title" [style.text-align]="isMobile ? 'center' : 'left'">
     Who we are
   </h3>
-  <div fxLayout="row" fxLayout.sm="row"
-       fxLayout.xs="column" fxLayoutAlign="center center" style="margin-top: 25px">
-    <div fxFlex="10">&nbsp;</div>
-    <div fxFlex="80" style="text-align: center">
+    <div style="text-align: center; margin-top: 25px">
       <app-person *ngFor="let person of people" [person]="person"></app-person>
     </div>
-    <div fxFlex="10">&nbsp;</div>
-  </div>
 </div>
