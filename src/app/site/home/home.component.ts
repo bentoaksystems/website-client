@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   showMoreFlag = false;
 
   constructor(@Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, private spinnerService: SpinnerService) {
+              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
+              private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {

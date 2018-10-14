@@ -11,7 +11,8 @@ import {SpinnerService} from '../../shared/services/spinner.service';
 export class PeopleComponent implements OnInit {
   people: any = [];
   isMobile = false;
-  constructor(private getJsonService: GetJsonFileService, private responsiveService: ResponsiveService,private spinnerService: SpinnerService) {
+  constructor(private getJsonService: GetJsonFileService, private responsiveService: ResponsiveService,
+              private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {

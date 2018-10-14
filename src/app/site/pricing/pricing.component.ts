@@ -25,7 +25,8 @@ export class PricingComponent implements OnInit {
 
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService,
-              private responsiveService: ResponsiveService, protected router: Router, private pricingService: PricingService, private spinnerService: SpinnerService) {
+              private responsiveService: ResponsiveService, protected router: Router,
+              private pricingService: PricingService, private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {

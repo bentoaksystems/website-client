@@ -11,7 +11,6 @@ import {
 import { ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {PersonDialogComponent} from './person-dialog/person-dialog.component';
 import {PersonComponent} from './person/person.component';
 @NgModule({
   imports: [
@@ -25,6 +24,9 @@ import {PersonComponent} from './person/person.component';
     MatButtonModule,
     MatDialogModule,
   ],
-  declarations: [PeopleComponent, PersonDialogComponent, PersonComponent]
+  declarations: [
+    PeopleComponent,
+    PersonComponent,
+  ]
 })
 export class PeopleModule { }

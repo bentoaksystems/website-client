@@ -14,7 +14,8 @@ export class AboutUsComponent implements OnInit {
   desc = null;
   isMobile = false;
 
-  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, private spinnerService: SpinnerService) { }
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
+              private spinnerService: SpinnerService) { }
 
   ngOnInit() {
     this.spinnerService.enable();
