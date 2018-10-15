@@ -1,9 +1,15 @@
 <div [style.min-height]="(curHeight - 210) + 'px'">
-    <h3 class="t t-primary t-primary-hover title" class="title-section">
-        {{project?.title}}
-    </h3>
-    <div class="img-mobile-wrapper center">
-        <img class="img-mobile" src="{{project?.mainImage.url}}">
-    </div>
-    <div class="t t-primary section-block-mobile content-block" class="description-section" [innerHTML]="project?.description"></div>
+  <h3 class="t t-primary t-primary-hover title" class="title-section">
+    {{project?.title}}
+  </h3>
+  <div class="img-mobile-wrapper center">
+    <img class="img-mobile" src="{{project?.mainImage.url}}">
+  </div>
+  <div class="t t-primary section-block-mobile content-block" class="description-section"
+       [innerHTML]="project?.description"></div>
+  <div class="middle center" style="margin-top: 15px; margin-bottom: 10px">
+    <button mat-raised-button class="accent" (click)="backToProjectsPage()">
+      {{'All projects'}}
+    </button>
+  </div>
 </div>

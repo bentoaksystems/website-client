@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {ProjectService} from '../../../shared/services/project.service';
 import {WINDOW} from '../../../shared/services/window.service';
 import {ResponsiveService} from '../../../shared/services/responsive.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-prj-page',
@@ -15,13 +16,16 @@ export class PrjPageComponent implements OnInit {
   curHeight: number;
 
   constructor(private projectService: ProjectService, @Inject(WINDOW) private window,
-              private responsiveService: ResponsiveService) {
+              protected router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.curWidth = this.window.innerWidth;
     this.curHeight = this.window.innerHeight;
     this.project = this.projectService.projectInfo;
+  }
+  backToProjectsPage() {
+    this.router.navigate(['./projects']);
   }
 
 }
