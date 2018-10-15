@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {HomeComponent} from './home.component';
-import {HomeRouting} from './home.routing';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home.component';
+import { HomeRouting } from './home.routing';
 import {
   MatButtonModule,
   MatDialogModule,
@@ -14,15 +14,18 @@ import {
   MatTooltipModule,
   MatExpansionModule, MatCheckboxModule
 } from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {SharedModule} from 'primeng/primeng';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {SlideShowComponent} from './slide-show/slide-show.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from 'primeng/primeng';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SlideShowComponent } from './slide-show/slide-show.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CollapseModule } from './collapse/';
+
 
 @NgModule({
   imports: [
+    CollapseModule,
     HomeRouting,
     CommonModule,
     ReactiveFormsModule,
@@ -44,7 +47,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatExpansionModule,
     NgbModule
   ],
-  declarations: [HomeComponent, SlideShowComponent]
+  declarations: [HomeComponent, SlideShowComponent],
+  bootstrap: [HomeComponent]
 })
 export class HomeModule {
 }
