@@ -9,7 +9,7 @@ import {
   MatInputModule,
   MatListModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
 } from '@angular/material';
 import {GalleriaModule, SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -25,10 +25,10 @@ import {GetJsonFileService} from './shared/services/get-json-file.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
 import {routing} from './app.routing';
-import { RecaptchaModule } from 'ng-recaptcha';
+import {RecaptchaModule} from 'ng-recaptcha';
 // if you need forms support:
-import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
-
+import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
+import {SpinnerService} from './shared/services/spinner.service';
 
 
 @NgModule({
@@ -57,16 +57,18 @@ import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
     GalleriaModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
-
   ],
+
   providers: [
     LanguageService,
     WINDOW_PROVIDERS,
     MessageService,
     GetJsonFileService,
     HttpService,
-    ResponsiveService
+    ResponsiveService,
+    SpinnerService
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

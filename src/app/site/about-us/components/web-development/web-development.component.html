@@ -1,0 +1,21 @@
+<div  *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row"
+     fxLayout.xs="column" fxLayoutAlign="center center" style="margin-top: 10px">
+        <div fxFlex="30">
+            <img class="img img-section shadow tiny" src="{{webDevInfo.background}}">
+        </div>
+        <div class="page-section" fxFlex="70">
+            <h2 class="t t-primary t-primary-hover title" style="margin-left: 120px">
+                {{webDevInfo.title}}
+            </h2>
+            <div class="t t-primary description-section content-block" [innerHTML]="desc"></div>
+        </div>
+</div>
+<div *ngIf="isMobile">
+    <h3 class="t t-primary t-primary-hover title" style="text-align: center; margin-top: 20px">
+        {{webDevInfo.title}}
+    </h3>
+  <div class="img-mobile-wrapper">
+    <img class="img-mobile" src="{{webDevInfo.background}}">
+  </div>
+  <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc"></div>
+</div>

@@ -3,8 +3,13 @@
     <app-header *ngIf="!isMobile"></app-header>
     <app-mobile-header *ngIf="isMobile"></app-mobile-header>
   </div>
-  <div [style.min-height]="(curHeight - 210) + 'px'" style="margin-top: 70px">
+  <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
+             fxLayoutAlign="start stretch">
+    <div fxFlex="5"></div>
+  <div fxFlex="90" [style.min-height]="(curHeight - 210) + 'px'" style="margin-top: 70px">
     <router-outlet></router-outlet>
   </div>
-  <app-footer></app-footer>
+    <div fxFlex="5"></div>
+  </div>
+    <app-footer></app-footer>
 </div>

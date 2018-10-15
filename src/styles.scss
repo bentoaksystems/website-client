@@ -167,10 +167,7 @@ mat-sidenav {
 }
 
 .align-spinner {
-  height: 40px !important;
-  vertical-align: middle;
-  margin: 20% auto 20% auto;
-  //left: 50%;
+  margin: 200px auto;
 }
 
 .cdk-global-scrollblock {
@@ -339,6 +336,12 @@ span, div, label, p {
   direction: ltr;
 }
 
+
+.input-error {
+  border-color: yellow !important;
+  border-width: 1px !important;
+}
+
 .ui-galleria-panel {
   text-align: center;
 }
@@ -417,3 +420,7 @@ span, div, label, p {
   background-color: mat-color($bw-primary) !important;
 }
 
+.maxWidth {
+  max-width: 1400px;
+  margin:auto;
+}
