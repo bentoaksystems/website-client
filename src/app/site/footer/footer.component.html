@@ -30,19 +30,16 @@
             {{'About Company'}}
           </label>
           <div style="text-align: left">
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">CICD</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('CICD')">CICD</a>
           </div>
           <div style="text-align: left">
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">Mobile App Development</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('Software-Dev')">SoftwareDevelopment</a>
           </div>
           <div style="text-align: left">
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">Web Development</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('Web-Dev')">Web Development</a>
           </div>
           <div style="text-align: left">
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">SoftwareDevelopment</a>
-          </div>
-          <div style="text-align: left">
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">TechnicalSupport</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('Tech-Supp')">TechnicalSupport</a>
           </div>
         </div>
       </div>

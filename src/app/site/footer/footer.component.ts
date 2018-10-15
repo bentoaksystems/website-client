@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {Router} from '@angular/router';
+import {ScrollService} from '../../shared/services/scroll.service';
 
 @Component({
   selector: 'app-footer',
@@ -16,11 +17,11 @@ export class FooterComponent implements OnInit {
   isMobile = false;
 
 
-  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, protected router: Router) {
+  constructor(private getJsonFileService: GetJsonFileService, private scrollService: ScrollService,
+              private responsiveService: ResponsiveService, protected router: Router) {
   }
 
   ngOnInit() {
-
     this.getJsonFileService.getFooterData()
       .then((details) => {
         this.address = details[0].address;
@@ -34,5 +35,9 @@ export class FooterComponent implements OnInit {
 
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
+  }
+
+  setPosition(positionStr) {
+    this.scrollService.position = positionStr;
   }
 }

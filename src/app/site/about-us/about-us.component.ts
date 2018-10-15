@@ -3,6 +3,7 @@ import * as marked from 'marked';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
+import {ScrollService} from '../../shared/services/scroll.service';
 
 @Component({
   selector: 'app-about-us',
@@ -16,7 +17,7 @@ export class AboutUsComponent implements OnInit {
   bentoakData;
 
   constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
-              private spinnerService: SpinnerService) {
+              private spinnerService: SpinnerService, private scrollService: ScrollService) {
   }
 
   ngOnInit() {
@@ -31,9 +32,18 @@ export class AboutUsComponent implements OnInit {
         this.bentoakData = this.results.filter(x => x.title === 'Bent Oak Systems')[0];
         this.bentoakData.description = marked(this.bentoakData.description);
         this.spinnerService.disable();
+        if (this.scrollService.position !== '') {
+           this.scrollService.triggerScrollTo();
+         }
+        this.scrollService.position = '';
       })
       .catch(err => {
         console.error('Cannot get data!', err);
       });
+
+  }
+
+  triggerScrollTo() {
+    this.scrollService.triggerScrollTo();
   }
 }
