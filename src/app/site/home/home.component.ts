@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   isMobile = false;
   intro = '';
   step = -1;
-  showMoreFlag = false;
+  
+  isCollapsed= true;
 
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < 4; i++) {
           this.less_images.push(this.images[i]);
         }
+        this.images.splice(0,4)
 
        this.spinnerService.disable();
       })
