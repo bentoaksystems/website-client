@@ -1,19 +1,18 @@
 <div *ngIf="!waiting" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center">
   <div fxFlex="5">&nbsp;</div>
-  <div fxFlex="90" fxLayout="row" fxLayout.sm="row"
-       fxLayout.xs="column" fxLayoutAlign="start stretch">
+  <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
     <div class="page" fxFlex="60">
       <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">
         {{'Ready to start a project?'}}
       </h4>
       <form [formGroup]="contactForm" (ngSubmit)="send()">
 
-          <mat-form-field class="data-field contact-email" [ngClass]="emailClass">
-            <input matInput type="email" formControlName="email" placeholder="{{'Your Email'}}"/>
-          </mat-form-field>
+        <mat-form-field class="data-field contact-email" [ngClass]="emailClass">
+          <input matInput type="email" formControlName="email" placeholder="{{'Your Email'}}" />
+        </mat-form-field>
 
         <mat-form-field class="data-field contact-name" [ngClass]="nameClass">
-          <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"/>
+          <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}" />
         </mat-form-field>
 
         <mat-form-field class="data-field contact-phone english-style">
@@ -27,16 +26,16 @@
       </mat-form-field>
 
 
-          <mat-form-field class="data-field contact-message" [ngClass]="contentClass">
-        <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}">
+        <mat-form-field class="data-field contact-message" [ngClass]="contentClass">
+          <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}">
 
       </textarea>
-          </mat-form-field>
+        </mat-form-field>
 
 
-          <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
-            <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
-          </button>
+        <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
+          <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
+        </button>
 
       </form>
     </div>
