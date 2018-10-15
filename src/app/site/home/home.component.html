@@ -52,14 +52,55 @@
         </mat-accordion>
       </div>
     </div>
-  </div>
+    <div class="jumbotron square" fxLayout="row" fxLayout.sm="column"
+    fxLayout.xs="column" fxLayoutAlign="center center">
+   <div fxFlex="45" class="content">
+       <img class="img-process" src="../../../assets/images/process.jpg">
+   </div>
+   <div fxFlex="5"></div>
+   <div fxFlex="50" [class.vertical-space]='isMobile'>
+       <mat-accordion class="example-headers-align">
+           <mat-expansion-panel *ngFor="let p of process; let i = index;"
+                                [expanded]="step === i" (opened)="setStep(i)" hideToggle="true">
+               <mat-expansion-panel-header>
+                   <mat-panel-title>
+                       {{ p.title}}
+                   </mat-panel-title>
+                   <mat-icon>{{p.icon}}</mat-icon>
+               </mat-expansion-panel-header>
+               <mat-panel-description>
+                   {{p.description}}
+               </mat-panel-description>
+               <mat-action-row>
+                   <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">Previous</button>
+                   <button *ngIf="i !== process.length-1" mat-button color="accent" (click)="nextStep()">Next
+                   </button>
+                   <button *ngIf="i === process.length-1" mat-button color="accent" (click)="nextStep()">End
+                   </button>
+               </mat-action-row>
+           </mat-expansion-panel>
+       </mat-accordion>
+   </div>
 </div>
-
-<!-- our Toolbox-->
- <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-  <div fxFlex="90" class="center">
-    <div style="text-align: center;">
-      <h3 class="t t-primary toolBox">Our Toolbox</h3>
+<!--our Toolbox-->
+<div class="center">
+   <div>
+       <h3 class="t t-primary toolBox">Our Toolbox</h3>
+   </div>
+   <mat-card *ngFor="let image of showMoreFlag ? images : less_images"
+             class="primary-lighter container shadow tiny">
+       <div style="height: 100%; display: block">
+           <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}"
+                                           alt="{{image.title}}"
+                                           class="image"/></div>
+           <div style="height: 50%" class="t t-little">{{image.description}}</div>
+       </div>
+   </mat-card>
+</div>
+<div style="text-align: center; margin-bottom: 15px">
+   <button mat-raised-button class="primary button" label="Show More" (click)="showMoreFlag = !showMoreFlag">
+       <span class="t t-accent t-accent-hover">{{showMoreFlag ? 'Show Less' : 'Show More'}}</span>
+   </button>
     </div>
   </div>
 </div>

@@ -16,9 +16,15 @@
           <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"/>
         </mat-form-field>
 
-          <mat-form-field class="data-field contact-phone">
-            <input  matInput type="number" formControlName="phoneNumber" placeholder="{{'Your phone number'}}"/>
-          </mat-form-field>
+        <mat-form-field class="data-field contact-phone english-style">
+          <input matInput
+                 type="tel"
+                 formControlName="phoneNumber"
+                 (focus)="setSeen('phoneNumber')"
+                 (blur)="curFocus = null"
+                 placeholder="{{'Your phone number'}}"/>
+          <!--<mat-error *ngIf="seen['phoneNumber'] && curFocus !== 'phoneNumber' && contactForm.controls['phoneNumber'].hasError('required')">{{'PhoneNumber is needed'}}</mat-error>-->
+      </mat-form-field>
 
 
           <mat-form-field class="data-field contact-message" [ngClass]="contentClass">
