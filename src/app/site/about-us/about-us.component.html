@@ -1,32 +1,32 @@
 <div class="maxWidth">
-      <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
-           fxLayoutAlign="start stretch">
-        <div class="page-section" fxFlex="50">
-          <h2 class="t t-primary t-primary-hover title">
-            {{results[0].title}}
-          </h2>
-          <div class="t t-primary description-section content-block" [innerHTML]="results[0].description"></div>
-        </div>
-        <div fxFlex="50">
-          <img class="img img-section shadow tiny" src="{{results[0].background}}">
-        </div>
-      </div>
-    <div *ngIf="isMobile">
-        <h3 class="t t-primary t-primary-hover title" style="text-align: center; margin-top: 20px">
-            {{results[0].title}}
-        </h3>
-        <div class="img-mobile-wrapper">
-            <img class="img-mobile" src="{{results[0].background}}">
-        </div>
-        <div class="t t-primary section-block-mobile content-block" [innerHTML]="results[0].description"></div>
+  <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
+       fxLayoutAlign="start stretch">
+    <div class="page-section" fxFlex="50">
+      <h2 class="t t-primary t-primary-hover title">
+        {{bentoakData?.title}}
+      </h2>
+      <div class="t t-primary description-section content-block" [innerHTML]="bentoakData?.description"></div>
     </div>
-    <a id="CICD"></a>
-    <app-cicd [CICDInfo]="results[1]"></app-cicd>
-    <a id="Mobile-Dev"></a>
-    <app-software-development [softwareDevInfo]="results[3]"></app-software-development>
-    <a id="Web-Dev"></a>
-    <app-web-development [webDevInfo]="results[2]"></app-web-development>
-    <a id="tech-supp"></a>
+    <div fxFlex="50">
+      <img class="img img-section shadow tiny" src="{{bentoakData?.background}}">
+    </div>
+  </div>
+  <div *ngIf="isMobile">
+    <h3 class="t t-primary t-primary-hover title" style="text-align: center; margin-top: 20px">
+      {{bentoakData?.title}}
+    </h3>
+    <div class="img-mobile-wrapper">
+      <img class="img-mobile" src="{{bentoakData?.background}}">
+    </div>
+    <div class="t t-primary section-block-mobile content-block" [innerHTML]="bentoakData?.description"></div>
+  </div>
+  <a id="CICD"></a>
+  <app-cicd [CICDInfo]="results"></app-cicd>
+  <a id="Mobile-Dev"></a>
+  <app-software-development [softwareDevInfo]="results"></app-software-development>
+  <a id="Web-Dev"></a>
+  <app-web-development [webDevInfo]="results"></app-web-development>
+  <a id="tech-supp"></a>
     <app-technical-support [techsuppInfo]="results[4]"></app-technical-support>
 </div>
 
