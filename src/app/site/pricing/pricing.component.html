@@ -5,7 +5,7 @@
       <div style="margin-top: 15px" [class.center]="isMobile">
         <h3 class="t t-primary t-primary-hover toolBox">Pricing</h3>
       </div>
-      <div class="center">
+      <div class="center" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" >
         <mat-card *ngFor="let pricingPlan of pricing" class="primary-lighter matCard shadow tiny">
 
           <mat-card-title class="title-box">{{pricingPlan.title}}
