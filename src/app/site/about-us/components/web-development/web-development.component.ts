@@ -8,16 +8,22 @@ import * as marked from 'marked';
   styleUrls: ['./web-development.component.css']
 })
 export class WebDevelopmentComponent implements OnInit {
-  @Input() webDevInfo: any;
-  desc = null;
+  webDevInfo;
+  desc;
   isMobile = false;
+
+  @Input('webDevInfo') set webDev_Info (data) {
+    if(!data) return;
+
+    this.webDevInfo = data.filter(x => x.title === 'Web Development')[0];
+    this.desc = marked(this.webDevInfo.description)
+  }
 
   constructor(private responsiveService: ResponsiveService) { }
 
   ngOnInit() {
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
-    this.desc = marked(this.webDevInfo.description);
   }
 
 }
