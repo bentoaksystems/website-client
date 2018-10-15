@@ -43,6 +43,7 @@ export class ProjectComponent implements OnInit {
         }
       })
     } else {
+      this.projectService.projectInfo = this.project;
       this.router.navigate(['./projectPage'], {relativeTo : this.route});
     }
   }
