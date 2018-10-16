@@ -14,6 +14,7 @@ import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ProjectComponent} from './project/project.component';
+import { PrjPageComponent } from './prj-page/prj-page.component';
 @NgModule({
   imports: [
     ProjectRouting,
@@ -31,6 +32,7 @@ import {ProjectComponent} from './project/project.component';
   declarations: [
     ProjectsComponent,
     ProjectComponent,
+    PrjPageComponent,
   ]
 })
 export class ProjectsModule { }
