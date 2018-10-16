@@ -30,8 +30,8 @@ import {RecaptchaModule} from 'ng-recaptcha';
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {SpinnerService} from './shared/services/spinner.service';
 import {ProjectService} from './shared/services/project.service';
-import { GoogleAnalyticsModule, GA_TOKEN } from 'angular-ga';
-
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { GoogleAnalyticsModule, GA_TOKEN } from 'angular-ga';
     GalleriaModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
-    GoogleAnalyticsModule.forRoot()
+    Angulartics2Module.forRoot()
   ],
 
   providers: [
@@ -71,7 +71,6 @@ import { GoogleAnalyticsModule, GA_TOKEN } from 'angular-ga';
     ResponsiveService,
     SpinnerService,
     ProjectService,
-    { provide: GA_TOKEN, useValue: 'UA-127528225-1' }
   ],
   bootstrap: [AppComponent],
 })
