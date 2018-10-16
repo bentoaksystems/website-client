@@ -31,7 +31,6 @@ import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.c
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import {PricingService} from '../shared/services/pricing.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HomeModule} from './home/home.module';
 
 @NgModule({
   imports: [

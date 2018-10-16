@@ -29,6 +29,7 @@ import {RecaptchaModule} from 'ng-recaptcha';
 // if you need forms support:
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {SpinnerService} from './shared/services/spinner.service';
+import { GoogleAnalyticsModule, GA_TOKEN } from 'angular-ga';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {SpinnerService} from './shared/services/spinner.service';
     GalleriaModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
+    GoogleAnalyticsModule.forRoot()
   ],
 
   providers: [
@@ -66,7 +68,8 @@ import {SpinnerService} from './shared/services/spinner.service';
     GetJsonFileService,
     HttpService,
     ResponsiveService,
-    SpinnerService
+    SpinnerService,
+    { provide: GA_TOKEN, useValue: 'UA-127528225-1' }
   ],
   bootstrap: [AppComponent],
 })
