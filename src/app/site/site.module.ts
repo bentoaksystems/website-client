@@ -31,6 +31,8 @@ import {ProjectDialogComponent} from './projects/project-dialog/project-dialog.c
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import {PricingService} from '../shared/services/pricing.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Angulartics2Module } from 'angulartics2';
+
 
 @NgModule({
   imports: [
@@ -60,6 +62,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatTooltipModule,
     MatExpansionModule,
     NgbModule,
+    Angulartics2Module
   ],
   declarations: [
     FooterComponent,

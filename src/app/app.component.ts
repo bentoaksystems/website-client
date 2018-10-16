@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SpinnerService} from './shared/services/spinner.service';
-import { GoogleAnalyticsService } from 'angular-ga';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 
 @Component({
@@ -11,7 +11,9 @@ import { GoogleAnalyticsService } from 'angular-ga';
 export class AppComponent implements OnInit {
   spinnerEnabled = false;
 
-  constructor(private spinnerService: SpinnerService, private gaService: GoogleAnalyticsService) {
+  constructor(private spinnerService: SpinnerService, angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
+    angulartics2GoogleAnalytics.startTracking();
+
   }
 
   ngOnInit() {
@@ -20,6 +22,5 @@ export class AppComponent implements OnInit {
         this.spinnerEnabled = is_spinner;
       });
     });
-    this.gaService.configure('UA-127528225-1');
   }
 }
