@@ -1,6 +1,7 @@
 .footer {
   margin: 0;
   padding: 10px;
+  padding-top: 20px;
   font-size: 0.5em !important;
 }
 
@@ -36,4 +37,6 @@
   text-decoration: none;
 }
 
-
+.footerM {
+  text-align: left;
+}
