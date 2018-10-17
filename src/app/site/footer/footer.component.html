@@ -1,12 +1,11 @@
 <div style="width: 100%;">
-  <div class="footer-back footer" [class.footer-isNotMobile]="!isMobile"
-       fxLayout="row" fxLayout.sm="row"
-       fxLayout.xs="column"
-       fxLayoutAlign="center center">
+  <div class="footer-back footer" [class.footer-isNotMobile]="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
+  fxLayoutAlign="center center">
     <div fxFlex="5" fxFlex.sm="0" fxFlex.xs="0">&nbsp;</div>
-    <div fxFlex="90" fxLayout="row" fxLayout.sm="row"
-         fxLayout.xs="column" fxLayoutAlign="center center"
-         fxFlex.sm="100" fxFlex.xs="100">
+    <div fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="center center" fxFlex.sm="100"
+      fxFlex.xs="100">
+
+
       <div fxFlex="33">
         <label class="t t-light footer-label">{{'Get in touch with us'}} </label>
         <div class="t t-primary footer-content">
@@ -24,11 +23,16 @@
           </a>
         </div>
       </div>
+
+
+
+
       <div fxFlex="33">
         <div class="t t-primary footer-content">
           <label class="t t-light footer-label" fxLayout="row" fxLayoutAlign="start start">
             {{'About Company'}}
           </label>
+
           <div style="text-align: left">
             <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">CICD</a>
           </div>
@@ -46,8 +50,12 @@
           </div>
         </div>
       </div>
-      <div class="t t-primary footer-content" fxFlex="33">
-        <label class="t t-light footer-label"> {{'About Company'}} </label>
+
+
+
+      <div class="t t-primary footer-content ">
+          <label class="t t-light footer-label footerM "> {{'About Company'}} </label>
+
         <div style="text-align: left">
           <a class="t t-primary footer-content" target="_blank" href="/about-us">About us</a>
         </div>
@@ -55,8 +63,10 @@
           <a class="t t-primary footer-content" target="_blank" href="http://bentoak-blog.herokuapp.com/">Blog</a>
         </div>
 
-        <label class="t t-light footer-label"> {{'Follow us'}} </label>
+        <label class="t t-light footer-label  footerM"> {{'Follow us'}} </label>
         <div>
+
+
           <a target="_blank" href="{{social.linkedin}}">
             <i class="fa fa-linkedin" style="padding:3px;border-radius:2px; font-size:140%"></i>
           </a>
@@ -70,16 +80,19 @@
             <i class="fa fa-facebook" style="padding:3px;border-radius:2px; font-size:145%"></i>
           </a>
           <!--<a target="_blank" href="{{social.google}}">-->
-            <!--<i class="fa fa-google-plus" style="padding:3px;border-radius:2px; font-size:145%"></i>-->
+          <!--<i class="fa fa-google-plus" style="padding:3px;border-radius:2px; font-size:145%"></i>-->
           <!--</a>-->
         </div>
       </div>
     </div>
     <div fxFlex="5" fxFlex.sm="0" fxFlex.xs="0">&nbsp;</div>
   </div>
+
   <div class="socket-area">
+
     <label class="t t-light socket-content">
       {{' © 2018 Bent Oak Systems. All rights reserved.'}}
     </label>
+
   </div>
 </div>
