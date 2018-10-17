@@ -35,6 +35,7 @@ import {ScrollService} from './shared/services/scroll.service';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
     BrowserModule,
     SharedModule,
     ScrollToModule.forRoot(),
+    Ng2PageScrollModule,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,

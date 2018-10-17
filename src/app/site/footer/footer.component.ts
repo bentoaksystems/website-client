@@ -37,7 +37,8 @@ export class FooterComponent implements OnInit {
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
   }
 
-  setPosition(positionStr) {
+  setPosition(positionStr, containerStr) {
     this.scrollService.position = positionStr;
+    this.scrollService.container = containerStr;
   }
 }
