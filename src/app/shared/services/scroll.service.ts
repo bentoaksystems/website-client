@@ -5,13 +5,17 @@ import {ScrollToService, ScrollToConfigOptions} from '@nicky-lenaers/ngx-scroll-
 export class ScrollService {
 
   position: any = '';
+
   constructor(private _scrollToService: ScrollToService) {
   }
+
   public triggerScrollTo() {
     const config: ScrollToConfigOptions = {
       target: this.position,
+      offset: -30,
     };
-
-    this._scrollToService.scrollTo(config);
+    setTimeout(() => {
+      this._scrollToService.scrollTo(config)
+    }, 0);
   }
 }
