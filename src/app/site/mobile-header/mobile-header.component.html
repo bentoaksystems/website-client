@@ -2,10 +2,6 @@
   <mat-sidenav-container class="header">
     <mat-sidenav #sidenav mode="push" class="primary-lighter side-nav" (opened)="sideNavIsOpen = true"
                  (closed)="sideNavIsOpen = false" [opened]="sideNavIsOpen">
-      <div class="t t-primary t-primary-hover menu-item" (click)="navigate(['/contact'])">
-        {{'Login / Join'}}
-        <i class="fa fa-sign-in"></i>
-      </div>
       <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item"
            (click)="navigate([item.router_link])">
         {{item.title}}
