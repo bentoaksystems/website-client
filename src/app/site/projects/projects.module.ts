@@ -9,12 +9,12 @@ import {
   MatTooltipModule,
   MatExpansionModule,
 } from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ProjectComponent} from './project/project.component';
-import {ProjectDialogComponent} from './project-dialog/project-dialog.component';
+import { PrjPageComponent } from './prj-page/prj-page.component';
 @NgModule({
   imports: [
     ProjectRouting,
@@ -29,6 +29,10 @@ import {ProjectDialogComponent} from './project-dialog/project-dialog.component'
     MatTooltipModule,
     MatExpansionModule
   ],
-  declarations: [ProjectsComponent, ProjectComponent, ProjectDialogComponent]
+  declarations: [
+    ProjectsComponent,
+    ProjectComponent,
+    PrjPageComponent,
+  ]
 })
-export class ProjectModule { }
+export class ProjectsModule { }

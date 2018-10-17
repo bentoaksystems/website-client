@@ -1,9 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import * as marked from 'marked';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
-import {LanguageService} from '../../shared/services/language.service';
+import {SpinnerService} from '../../shared/services/spinner.service';
 
 @Component({
   selector: 'app-home',
@@ -12,38 +11,26 @@ import {LanguageService} from '../../shared/services/language.service';
 })
 export class HomeComponent implements OnInit {
   images: any = [];
-  waiting = false;
-  homeTopSection: any = {};
   slideShows: any = [];
   process: any = [];
   less_images = [];
   isMobile = false;
   intro = '';
-  step = 0;
-  showMoreFlag = false;
+  step = -1;
+  
+  isCollapsed= true;
 
-
-  constructor(public langService: LanguageService, @Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(@Inject(WINDOW) private window,
+              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
+              private spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
+    this.spinnerService.enable();
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => {
       this.isMobile = isMobile;
     });
-
-    this.waiting = true;
-
-    this.getJsonFileService.getHomeTopSectionData()
-      .then(res => {
-        this.homeTopSection = res[0];
-        this.intro = marked(this.homeTopSection.intro);
-        this.waiting = false;
-      })
-      .catch(err => {
-        console.error('Cannot get home data from server: ', err);
-      });
 
     this.getJsonFileService.getTechnologyData()
       .then((res) => {
@@ -53,11 +40,12 @@ export class HomeComponent implements OnInit {
             this.images.push({source: s.file.url, description: s.description, title: s.title, link: s.url});
           }
         }
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
           this.less_images.push(this.images[i]);
         }
+        this.images.splice(0,4)
 
-        this.waiting = false;
+       this.spinnerService.disable();
       })
       .catch(err => {
         console.error('Cannot get data!', err);
@@ -67,7 +55,7 @@ export class HomeComponent implements OnInit {
     this.getJsonFileService.getProcessData()
       .then((res: any) => {
         this.process = res;
-        this.waiting = false;
+        this.spinnerService.disable();
       })
       .catch(err => {
         console.error('Cannot get data from server: ', err);

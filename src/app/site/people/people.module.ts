@@ -7,12 +7,10 @@ import {
   MatDialogModule,
   MatIconModule,
   MatCardModule,
-  MatProgressSpinnerModule,
 } from '@angular/material';
 import { ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {PersonDialogComponent} from './person-dialog/person-dialog.component';
 import {PersonComponent} from './person/person.component';
 @NgModule({
   imports: [
@@ -25,8 +23,10 @@ import {PersonComponent} from './person/person.component';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatProgressSpinnerModule
   ],
-  declarations: [PeopleComponent, PersonDialogComponent, PersonComponent]
+  declarations: [
+    PeopleComponent,
+    PersonComponent,
+  ]
 })
 export class PeopleModule { }

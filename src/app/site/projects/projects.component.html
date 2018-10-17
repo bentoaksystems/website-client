@@ -1,14 +1,8 @@
-<h3 class="t t-primary t-primary-hover title" [style.text-align]="isMobile ? 'center' : 'left'">
-  Our Projects
-</h3>
-<div *ngIf="!waiting" fxLayout="row" fxLayout.sm="row"
-     fxLayout.xs="column" fxLayoutAlign="center center" style="margin-top: 25px">
-  <div fxFlex="5">&nbsp;</div>
-  <div fxFlex="90" style="text-align: center">
-    <app-project *ngFor="let project of projects" [project]="project"></app-project>
-  </div>
-  <div fxFlex="5">&nbsp;</div>
-</div>
-<div *ngIf="waiting">
-  <mat-spinner class="align-spinner"></mat-spinner>
+<div class="maxWidth">
+  <h3 class="t t-primary t-primary-hover title" [style.text-align]="isMobile ? 'center' : 'left'">
+    Our Projects
+  </h3>
+    <div style="text-align: center; margin-top: 25px">
+      <app-project [isMobile]="isMobile" *ngFor="let project of projects" [project]="project"></app-project>
+    </div>
 </div>

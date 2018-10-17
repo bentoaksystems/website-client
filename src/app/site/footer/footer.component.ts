@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -15,7 +16,7 @@ export class FooterComponent implements OnInit {
   isMobile = false;
 
 
-  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService) {
+  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService, protected router: Router) {
   }
 
   ngOnInit() {

@@ -6,4 +6,8 @@ const APP_ROUTES: Routes = [
 
 export const routing = RouterModule.forRoot(
   APP_ROUTES,
+  {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+  },
 );

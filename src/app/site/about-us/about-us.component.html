@@ -1,23 +1,32 @@
-<div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row"
-     fxLayout.xs="column" fxLayoutAlign="center center">
-  <div fxFlex="5">&nbsp;</div>
-  <div *ngIf="!waiting" fxFlex="90" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+<div class="maxWidth">
+  <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
+       fxLayoutAlign="start stretch">
     <div class="page-section" fxFlex="50">
-      <div class="t t-primary description-section content-block" [innerHTML]="desc"></div>
+      <h2 class="t t-primary t-primary-hover title">
+        {{bentoakData?.title}}
+      </h2>
+      <div class="t t-primary description-section content-block" [innerHTML]="bentoakData?.description"></div>
     </div>
     <div fxFlex="50">
-      <img class="img img-section" src="{{aboutUs.background}}">
+      <img class="img img-section shadow tiny" src="{{bentoakData?.background}}">
     </div>
   </div>
-  <div fxFlex="5">&nbsp;</div>
-</div>
-<div *ngIf="isMobile">
-  <div class="img-mobile-wrapper">
-    <img class="img-mobile" src="{{aboutUs.background}}">
+  <div *ngIf="isMobile">
+    <h3 class="t t-primary t-primary-hover title" style="text-align: center; margin-top: 20px">
+      {{bentoakData?.title}}
+    </h3>
+    <div class="img-mobile-wrapper">
+      <img class="img-mobile" src="{{bentoakData?.background}}">
+    </div>
+    <div class="t t-primary section-block-mobile content-block" [innerHTML]="bentoakData?.description"></div>
   </div>
-  <div class="t t-primary section-block-mobile content-block" [innerHTML]="desc"></div>
-</div>
-<div *ngIf="waiting">
-  <mat-spinner class="align-spinner"></mat-spinner>
+  <a id="CICD"></a>
+  <app-cicd [CICDInfo]="results"></app-cicd>
+  <a id="Mobile-Dev"></a>
+  <app-software-development [softwareDevInfo]="results"></app-software-development>
+  <a id="Web-Dev"></a>
+  <app-web-development [webDevInfo]="results"></app-web-development>
+  <a id="tech-supp"></a>
+    <app-technical-support [techsuppInfo]="results[4]"></app-technical-support>
 </div>
 
