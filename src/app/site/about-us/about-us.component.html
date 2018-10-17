@@ -20,13 +20,20 @@
     </div>
     <div class="t t-primary section-block-mobile content-block" [innerHTML]="bentoakData?.description"></div>
   </div>
+  <div>
   <a id="CICD"></a>
   <app-cicd [CICDInfo]="results"></app-cicd>
-  <a id="Mobile-Dev"></a>
+  </div>
+  <a id="Software-Dev"></a>
   <app-software-development [softwareDevInfo]="results"></app-software-development>
   <a id="Web-Dev"></a>
   <app-web-development [webDevInfo]="results"></app-web-development>
+<<<<<<< HEAD
   <a id="tech-supp"></a>
     <app-technical-support [techsuppInfo]="results"></app-technical-support>
+=======
+  <a id="Tech-Supp"></a>
+  <app-technical-support [techsuppInfo]="results"></app-technical-support>
+>>>>>>> 97837ace3128778875ddbd47980d78d9c3fb3e58
 </div>
 

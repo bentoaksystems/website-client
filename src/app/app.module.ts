@@ -26,11 +26,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
 import {routing} from './app.routing';
 import {RecaptchaModule} from 'ng-recaptcha';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 // if you need forms support:
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {SpinnerService} from './shared/services/spinner.service';
 import {ProjectService} from './shared/services/project.service';
+import {ScrollService} from './shared/services/scroll.service';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,8 @@ import {ProjectService} from './shared/services/project.service';
     BrowserAnimationsModule,
     BrowserModule,
     SharedModule,
+    ScrollToModule.forRoot(),
+    Ng2PageScrollModule,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,
@@ -58,6 +65,7 @@ import {ProjectService} from './shared/services/project.service';
     GalleriaModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
+    Angulartics2Module.forRoot()
   ],
 
   providers: [
@@ -68,7 +76,8 @@ import {ProjectService} from './shared/services/project.service';
     HttpService,
     ResponsiveService,
     SpinnerService,
-    ProjectService
+    ProjectService,
+    ScrollService
   ],
   bootstrap: [AppComponent],
 })
