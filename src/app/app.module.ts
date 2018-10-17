@@ -33,6 +33,8 @@ import {SpinnerService} from './shared/services/spinner.service';
 import {ProjectService} from './shared/services/project.service';
 import {ScrollService} from './shared/services/scroll.service';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import {ScrollService} from './shared/services/scroll.service';
     GalleriaModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule, // if you need forms support
+    Angulartics2Module.forRoot()
   ],
 
   providers: [
