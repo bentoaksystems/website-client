@@ -1,6 +1,7 @@
 .footer {
-  margin: 0px;
-  padding: 10px 70px;
+  margin: 0;
+  padding: 10px;
+  padding-top: 20px;
   font-size: 0.5em !important;
 }
 
@@ -13,8 +14,7 @@
 }
 
 .footer-content {
-  margin: 2px;
-
+  margin-top: 2px;
 }
 
 .socket-area {
@@ -23,12 +23,10 @@
   border-top: solid;
   border-color: grey;
   height: 30px;
-  margin-bottom: 10px;
 }
 
 .socket-content {
   font-size: 0.6em;
-  text-align: center;
 }
 
 .footer-label {
@@ -38,9 +36,7 @@
 .mail-label {
   text-decoration: none;
 }
-.footerM{
-  padding-right: 70px;
+
+.footerM {
   text-align: left;
 }
-
-
