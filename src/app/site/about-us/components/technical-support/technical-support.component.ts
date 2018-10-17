@@ -1,17 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ResponsiveService } from '../../../../shared/services/responsive.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {ResponsiveService} from '../../../../shared/services/responsive.service';
 import * as marked from 'marked';
 
 @Component({
-    selector: 'app-technical-support',
-    templateUrl: './technical-support.component.html',
-    styleUrls: ['./technical-support.component.css']
+  selector: 'app-technical-support',
+  templateUrl: './technical-support.component.html',
+  styleUrls: ['./technical-support.component.css']
 })
 
 export class TechnicalSupportComponent implements OnInit {
-     techsuppInfo;
-    desc;
-    isMobile = false;
+  techsuppInfo;
+  desc = null;
+  isMobile = false;
 
     @Input('techsuppInfo') set techsupp_Info (data) {
         if(!data) return;

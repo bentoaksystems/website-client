@@ -13,13 +13,15 @@ import { WebDevelopmentComponent } from './components/web-development/web-develo
 import { TechnicalSupportComponent } from './components/technical-support/technical-support.component';
 
 import { SoftwareDevelopmentComponent } from './components/software-development/software-development.component';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 @NgModule({
   imports: [
     AboutUsRouting,
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    RouterModule
+    RouterModule,
+    ScrollToModule.forRoot(),
   ],
   declarations: [AboutUsComponent, CICDComponent,TechnicalSupportComponent, WebDevelopmentComponent, SoftwareDevelopmentComponent]
 })
