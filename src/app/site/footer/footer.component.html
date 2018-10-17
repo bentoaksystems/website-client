@@ -30,16 +30,16 @@
             {{'About Company'}}
           </label>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">CICD</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('CICD')">CICD</a>
           </div>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">Software Development</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('SoftwareDev')">Software Development</a>
           </div>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">Web Development</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('WebDev')">Web Development</a>
           </div>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" href="#CICD">TechnicalSupport</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('TechSupp')">TechnicalSupport</a>
           </div>
         </div>
       </div>
