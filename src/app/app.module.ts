@@ -26,15 +26,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
 import {routing} from './app.routing';
 import {RecaptchaModule} from 'ng-recaptcha';
-import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 // if you need forms support:
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {SpinnerService} from './shared/services/spinner.service';
 import {ProjectService} from './shared/services/project.service';
 import {ScrollService} from './shared/services/scroll.service';
 
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import {Angulartics2Module} from 'angulartics2';
+import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 
 @NgModule({
   declarations: [
