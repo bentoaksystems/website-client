@@ -42,5 +42,4 @@ export class AboutUsComponent implements OnInit {
       });
 
   }
-
 }
