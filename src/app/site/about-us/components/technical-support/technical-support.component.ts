@@ -9,17 +9,21 @@ import * as marked from 'marked';
 })
 
 export class TechnicalSupportComponent implements OnInit {
-    @Input()
-     techsuppInfo: any;
-    desc = null;
+     techsuppInfo;
+    desc;
     isMobile = false;
+
+    @Input('techsuppInfo') set techsupp_Info (data) {
+        if(!data) return;
+        this.techsuppInfo = data.filter(x => x.title === 'Technical Support')[0];
+        this.desc = marked(this.techsuppInfo.description)
+      };
 
     constructor(private responsiveService: ResponsiveService) { }
 
     ngOnInit() {
         this.isMobile = this.responsiveService.isMobile;
         this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
-        this.desc = marked(this.techsuppInfo.description);
     }
 
 }
