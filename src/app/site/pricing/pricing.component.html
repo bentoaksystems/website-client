@@ -5,15 +5,16 @@
       <div style="margin-top: 15px" [class.center]="isMobile">
         <h3 class="t t-primary t-primary-hover toolBox">Pricing</h3>
       </div>
-      <div class="center" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" >
-        <mat-card *ngFor="let pricingPlan of pricing" class="primary-lighter matCard shadow tiny">
+      <div class="center"fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+        <mat-card *ngFor="let pricingPlan of  pricing" class="primary-lighter matCard shadow tiny">
 
           <mat-card-title class="title-box">{{pricingPlan.title}}
           </mat-card-title>
           <div style="width: 100%;">
             <div>
               <mat-form-field>
-                <input matInput placeholder="planing hours needed" [(ngModel)]="planingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
+                <input matInput placeholder="planing hours needed" [(ngModel)]="planingHour[pricingPlan.title]"
+                       (change)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total £ {{totalPrice('planing', pricingPlan)}}
               </div>
@@ -35,7 +36,8 @@
             </div>
             <div>
               <mat-form-field>
-                <input matInput placeholder="Backing hours needed" [(ngModel)]="backingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
+                <input matInput placeholder="Backing hours needed" [(ngModel)]="backingHour[pricingPlan.title]"
+                       (change)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total £{{totalPrice('backing', pricingPlan)}}
               </div>

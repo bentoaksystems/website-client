@@ -16,6 +16,6 @@ export class ScrollService {
     };
     setTimeout(() => {
       this._scrollToService.scrollTo(config)
-    }, 0);
+    });
   }
 }
