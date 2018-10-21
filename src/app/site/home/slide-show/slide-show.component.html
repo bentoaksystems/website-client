@@ -1,36 +1,36 @@
 <div style="position: relative; overflow: hidden;" class="maxWidth">
 <ngb-carousel>
   <ng-template ngbSlide >
-    <img [src]="homeTopSections[0]?.backgroundPic">
-    <div class="carousel-caption">
+    <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[0]?.backgroundPic">
+    <div [class.mobile]="isMobile" class="carousel-caption">
       <a href="./about-us"><h1 class="t t-light t-light-hover title">{{homeTopSections[0]?.title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[0]?.intro"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
-   <img [src]="homeTopSections[1]?.backgroundPic">
-    <div class="carousel-caption">
+   <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[1]?.backgroundPic">
+    <div [class.mobile]="isMobile"  class="carousel-caption">
       <a href="./about-us"><h1 class="t t-light t-light-hover title">{{homeTopSections[1]?.title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[1]?.intro"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
-    <img [src]="homeTopSections[2]?.backgroundPic">
-    <div class="carousel-caption">
+    <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[2]?.backgroundPic">
+    <div [class.mobile]="isMobile" class="carousel-caption">
       <a href="./about-us"><h1 class="t t-light t-light-hover title">{{homeTopSections[2]?.title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[2]?.intro"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
-    <img [src]="homeTopSections[3]?.backgroundPic">
-    <div class="carousel-caption">
+    <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[3]?.backgroundPic">
+    <div [class.mobile]="isMobile" class="carousel-caption">
       <a href="./about-us"><h1 class="t t-light t-light-hover title">{{homeTopSections[3]?.title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[3]?.intro"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
-    <img [src]="homeTopSections[4]?.backgroundPic">
-    <div class="carousel-caption">
+    <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[4]?.backgroundPic">
+    <div [class.mobile]="isMobile"  class="carousel-caption">
       <a href="./about-us"><h1 class="t t-light t-light-hover title">{{homeTopSections[4]?.title}}</h1></a>
       <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[4]?.intro"></div>
     </div>
