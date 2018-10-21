@@ -13,7 +13,8 @@ import {SpinnerService} from '../../shared/services/spinner.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
@@ -23,6 +24,7 @@ export class ContactComponent implements OnInit {
   isMobile = false;
   seen: any = {};
   curFocus = null;
+
 
 
 
@@ -56,7 +58,8 @@ export class ContactComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       name: new FormControl(null),
       phoneNumber: new FormControl(null, [Validators.required]),
-      content: new FormControl(null)
+      content: new FormControl(null),
+      recaptchaReactive: new FormControl(null, Validators.required)
     });
   }
   //

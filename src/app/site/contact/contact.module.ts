@@ -16,6 +16,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+// if you need forms support:
+import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
+
 @NgModule({
   imports: [
     ContactRouting,
@@ -33,8 +37,16 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatDialogModule,
     MatProgressSpinnerModule,
     SharedModule,
-    MatExpansionModule
+    MatExpansionModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule, // if you need forms support
   ],
-  declarations: [ContactComponent]
+  declarations: [ContactComponent],
+  providers: [{
+    provide: RECAPTCHA_SETTINGS,
+    useValue: {
+      siteKey: '6LcjF3YUAAAAAMXMLUyI_2ehbB95XlFre7f7mBQh',
+    } as RecaptchaSettings,
+  }]
 })
 export class ContactModule { }
