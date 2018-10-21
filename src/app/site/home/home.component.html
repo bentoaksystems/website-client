@@ -51,9 +51,9 @@
     <div>
       <mat-card *ngFor="let image of less_images" class="primary-lighter container shadow tiny">
         <div style="height: 100%; display: block">
-          <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+          <div style="height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
                                           class="image"/></div>
-          <div style="height: 50%" class="t t-little">{{image.description}}</div>
+          <div style="height: 50%" >{{image.description}}</div>
         </div>
       </mat-card>
     </div>
@@ -63,7 +63,7 @@
         <div style="height: 100%; display: block">
           <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
                                           class="image"/></div>
-          <div style="height: 50%" class="t t-little">{{image.description}}</div>
+          <div style="height: 50%" class="t">{{image.description}}</div>
         </div>
       </mat-card>
     </div>
