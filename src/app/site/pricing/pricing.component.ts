@@ -49,6 +49,9 @@ export class PricingComponent implements OnInit {
           );
 
           this.selectedPlan[e.title] = e.title === this.pricingService.pricingInfo.title;
+
+          this.selected = Object.keys(this.selectedPlan).map(r => this.selectedPlan[r]).reduce((x, y) => x || y, false);
+
         });
         this.waiting = false;
       })

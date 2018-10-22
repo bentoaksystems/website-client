@@ -39,5 +39,8 @@ export class FooterComponent implements OnInit {
 
   setPosition(positionStr) {
     this.scrollService.position = positionStr;
+    if (this.router.url === '/about-us') {
+      this.scrollService.triggerScrollTo();
+    }
   }
 }
