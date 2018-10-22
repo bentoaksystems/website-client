@@ -15,13 +15,12 @@ export class PricingComponent implements OnInit {
 
   waiting = false;
   pricing: any = [];
-  planingHour: any = {};
   isMobile = false;
   selected = false;
   selectedPlan: any = {};
-
-  programmingHour: any = {};
-  backingHour: any = {};
+  prices: any = {};
+  fields: any = {x:[]};
+  quantity: any = {};
 
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService,
@@ -38,22 +37,32 @@ export class PricingComponent implements OnInit {
 
     this.getJsonFileService.getPricingData()
       .then((res: any[]) => {
-        this.pricing = res;
         this.spinnerService.disable();
         res.forEach(e => {
-          ['planingHour', 'programmingHour', 'backingHour']
-            .forEach(name =>
-              this[name][e.title] =
+          const fields = Object.keys(e)
+            .filter(k => k.includes('_price') && e[k])
+            .map(k => k.substr(0, k.length - 6));
+
+          fields.forEach(name => {
+              if (!(name in this.quantity)) {
+                this.quantity[name] = {};
+              }
+              this.quantity[name][e.title] =
                 e.title === this.pricingService.pricingInfo.title && this.pricingService.pricingInfo[name] ?
-                  this.pricingService.pricingInfo[name] : undefined
+                  this.pricingService.pricingInfo[name] : undefined;
+              if (!(name in this.prices)) {
+                this.prices[name] = {};
+              }
+              this.prices[name][e.title] = e[name + '_price'];
+            }
           );
-
+          this.fields[e.title] = fields;
           this.selectedPlan[e.title] = e.title === this.pricingService.pricingInfo.title;
-
           this.selected = Object.keys(this.selectedPlan).map(r => this.selectedPlan[r]).reduce((x, y) => x || y, false);
-
         });
+        this.pricing = res;
         this.waiting = false;
+        console.log({fileds: this.fields, quantity: this.quantity})
       })
       .catch(err => {
         console.error('Cannot get data!', err);
@@ -64,7 +73,7 @@ export class PricingComponent implements OnInit {
     for (const key in this.selectedPlan) {
       if (this.selectedPlan.hasOwnProperty(key) && key !== plan) {
         this.selectedPlan[key] = false;
-        ['planingHour', 'programmingHour', 'backingHour'].forEach(name => this[name][key] = undefined);
+        this.fields[key].forEach(name => this.quantity[name][key] = undefined);
       }
     }
     this.selected = Object.keys(this.selectedPlan).map(r => this.selectedPlan[r]).reduce((x, y) => x || y, false);
@@ -75,25 +84,37 @@ export class PricingComponent implements OnInit {
     this.router.navigate(['/contact']);
   }
 
-  totalPrice(planType, pricingPlan) {
+  totalPrice(planType, pricingPlan, q = this.quantity[planType] ? this.quantity[planType][pricingPlan.title] : null) {
     if (planType) {
-      const key = planType + 'Hour';
-      return this[key][pricingPlan.title] ? this[key][pricingPlan.title] * pricingPlan[planType + '_price'] : ' -- ';
+      return q ? q * pricingPlan[planType + '_price'] : null;
     } else {
-      return ['planing', 'programming', 'backing']
+      return this.fields[pricingPlan.title] ?
+        this.fields[pricingPlan.title]
         .map(r => this.totalPrice(r, pricingPlan))
         .filter(r => +r)
-        .reduce((x, y) => x + y, 0);
+        .reduce((x, y) => x + y, 0) : null;
     }
+  }
+
+  equity(pricingPlan) {
+    if (!pricingPlan.equity_comp) {
+      return null;
+    }
+    const cashPlan = this.pricing.find(r => r.acronym === pricingPlan.cash_plan);
+    return this.selectedPlan[pricingPlan.title] && this.fields[pricingPlan.title] && cashPlan ?
+      this.fields[pricingPlan.title]
+        .map(r => this.totalPrice(r, cashPlan, this.quantity[r] ? this.quantity[r][pricingPlan.title] : 0) - this.totalPrice(r, pricingPlan))
+        .filter(r => +r)
+        .reduce((x, y) => x + y, 0) : null;
   }
 
   setPricingInfoToService(title) {
     this.selectedPlan[title] = true;
     this.chgPlan(title);
     Object.assign(this.pricingService.pricingInfo, {
-      planingHour: this.planingHour[title],
-      programmingHour: this.programmingHour[title],
-      backingHour: this.backingHour[title],
+      planingHour: this.prices[title],
+      programmingHour: this.prices[title],
+      backingHour: this.prices[title],
     });
   }
 }

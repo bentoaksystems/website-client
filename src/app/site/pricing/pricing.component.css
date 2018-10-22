@@ -5,23 +5,39 @@
 }
 
 .title-box {
-  font-size: 35px;
-  margin: 10px;
+  font-size: 24px;
 }
-
 
 .matCard {
   display: inline-block;
   margin: 10px;
   position: relative;
-  width: 350px;
-  height: 600px;
 }
 
-.cardWidth {
+.desktop .mat-card-content {
+  min-height: 1026px;
+  min-width: 220px;
+}
+
+.desktop .mat-card-actions {
+  min-width: 190px;
+}
+
+.mat-card-title {
+  min-height: 80px;
+}
+
+.desktop {
+  min-width: 250px;
   width: 400px !important;
 }
 
+.desktop .prosncons {
+  min-height: 700px;
+}
+.desktop .cost {
+  min-height: 395px;
+}
 .shadow.tiny {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.5s cubic-bezier(.25, .8, .25, 1);
@@ -34,7 +50,6 @@
 .shadow.tiny:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
 
 .toolBox {
   margin-top: 10px;
@@ -71,6 +86,7 @@
 p span {
   font-size: small !important;
 }
+
 .matIcon {
   font-size: 18px !important;
 }
@@ -81,15 +97,18 @@ p span {
 }
 
 .price-div {
-  width: 10%;
   display: inline-block;
   text-align: right;
+  margin-right: 10px;
 }
 
 mat-form-field {
-  width: 30%;
   display: inline-block;
   text-align: left
+}
+
+matInput {
+  width: 114px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -97,7 +116,8 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.matCard1{
+
+.matCard1 {
   display: inline-block;
   margin: 10px;
   position: relative;
