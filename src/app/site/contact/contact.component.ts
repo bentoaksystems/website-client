@@ -59,7 +59,7 @@ export class ContactComponent implements OnInit {
       name: new FormControl(null),
       phoneNumber: new FormControl(null, [Validators.required]),
       content: new FormControl(null),
-      recaptchaReactive: new FormControl(null, Validators.required)
+      // recaptchaReactive: new FormControl(null, Validators.required)
     });
   }
   //

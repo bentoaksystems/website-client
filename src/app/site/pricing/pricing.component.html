@@ -6,7 +6,7 @@
         <h3 class="t t-primary t-primary-hover toolBox">Pricing</h3>
       </div>
       <div class="center"fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-        <mat-card *ngFor="let pricingPlan of  pricing" class="primary-lighter matCard shadow tiny">
+        <mat-card *ngFor="let pricingPlan of  pricing" class="primary-lighter matCard shadow tiny" [class.cardWidth]="!isMobile">
 
           <mat-card-title class="title-box">{{pricingPlan.title}}
           </mat-card-title>
@@ -14,7 +14,7 @@
             <div>
               <mat-form-field>
                 <input matInput placeholder="planing hours needed" [(ngModel)]="planingHour[pricingPlan.title]"
-                       (change)="setPricingInfoToService(pricingPlan.title)">
+                       (keyup)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total £ {{totalPrice('planing', pricingPlan)}}
               </div>
@@ -25,7 +25,7 @@
             <div>
               <mat-form-field>
                 <input matInput placeholder="Programming hours needed"
-                       [(ngModel)]="programmingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
+                       [(ngModel)]="programmingHour[pricingPlan.title]" (keyup)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total
                 £{{totalPrice('programming', pricingPlan)}}
@@ -37,7 +37,7 @@
             <div>
               <mat-form-field>
                 <input matInput placeholder="Backing hours needed" [(ngModel)]="backingHour[pricingPlan.title]"
-                       (change)="setPricingInfoToService(pricingPlan.title)">
+                       (keyup)="setPricingInfoToService(pricingPlan.title)">
               </mat-form-field>
               <div style="width: 50%; display: inline-block; text-align: center">total £{{totalPrice('backing', pricingPlan)}}
               </div>
@@ -66,7 +66,8 @@
           </div>
         </mat-card>
     </div>
-    <div class="center" style="margin-top: 10px">
+    <div class="center" style="
+    margin-top: 10px">
         <button mat-raised-button class="accent" (click)="goToContactPage()"
                 [disabled]="!selected">Contact us to start
         </button>
