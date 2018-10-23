@@ -62,7 +62,6 @@ export class PricingComponent implements OnInit {
         });
         this.pricing = res;
         this.waiting = false;
-        console.log({fileds: this.fields, quantity: this.quantity})
       })
       .catch(err => {
         console.error('Cannot get data!', err);

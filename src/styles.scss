@@ -1,17 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-/*Define persian font face*/
-@font-face {
-  font-family: 'yekan';
-  src: url('./assets/fonts/iranyekanweblight.woff');
-}
-
-@font-face {
-  font-family: 'kharazmi';
-  src: url('./assets/fonts/IRAN_Kharazmi.woff');
-}
-
 @font-face {
   font-family: 'aovel';
   src: url('./assets/fonts/ASans.ttf');
@@ -19,7 +8,24 @@
 
 @font-face {
   font-family: 'roboto';
-  src: url('./assets/fonts/roboto-v15-latin-regular.ttf');
+  src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-Bold.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-Italic.ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/fonts/Roboto-BoldItalic.ttf');
+  font-weight: bold;
+  font-style: italic;
 }
 
 @import "./bos-theme";
@@ -43,13 +49,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .english {
-    text-align: center;
-  }
-
-  .farsi {
-    text-align: center;
-  }
   .show-more {
     display: none !important;
   }
@@ -110,20 +109,12 @@
     font-size: 2.6em;
   }
 
-  .logo .farsi {
-    font-size: 2.6em;
-  }
-
   .lang-nav {
     margin: 5px !important;
     direction: ltr;
   }
 
   .english .header-item {
-    float: unset !important;
-  }
-
-  .farsi .header-item {
     float: unset !important;
   }
 }
@@ -174,21 +165,10 @@ mat-sidenav {
   position: unset !important;
 }
 
-.farsi {
-  text-align: justify;
-  direction: rtl;
-  font-family: yekan, serif;
-  font-size: 1.2em;
-}
-
 .english {
   text-align: left;
   direction: ltr;
   font-family: roboto, serif;
-}
-
-h1.farsi {
-  font-family: kharazmi, sans-serif !important;
 }
 
 h1.english {
@@ -232,7 +212,6 @@ h1.english {
   font-family: inherit;
 }
 
-/*set font-size for english and farsi fonts*/
 .english h1 {
   font-size: 2em;
 }
@@ -257,30 +236,6 @@ h1.english {
   font-size: 0.67em;
 }
 
-.farsi h1 {
-  font-size: 2.2em;
-}
-
-.farsi h2 {
-  font-size: 1.5em;
-}
-
-.farsi h3 {
-  font-size: 1.17em;
-}
-
-.farsi h4 {
-  font-size: 1em;
-}
-
-.farsi h5 {
-  font-size: 0.83em;
-}
-
-.farsi h6 {
-  font-size: 0.67em;
-}
-
 span, div, label, p {
   font-size: medium;
 }
@@ -289,17 +244,8 @@ span, div, label, p {
   float: right !important;
 }
 
-.farsi .personal-image {
-  float: left !important;
-  right: -10px !important;
-}
-
 .english .project-image {
   float: right !important;
-}
-
-.farsi .project-image {
-  float: left !important;
 }
 
 .ui-panel-images {
@@ -313,10 +259,6 @@ span, div, label, p {
 
 .english .ui-galleria-caption {
   font-family: roboto, serif;
-}
-
-.farsi .ui-galleria-caption {
-  font-family: yekan, serif;
 }
 
 .ui-galleria-caption p {
@@ -375,34 +317,19 @@ span, div, label, p {
   background-color: greenyellow;
 }
 
-.english .mat-form-field-infix {
+.mat-form-field-infix {
   font-family: 'roboto';
   text-align: left;
 }
 
-.farsi .mat-form-field-infix {
-  font-family: 'yekan';
-  text-align: right;
-}
-
-.english-style .mat-input-element {
+.mat-input-element {
   font-family: 'roboto' !important;
   text-align: left;
   direction: ltr;
 }
 
-.farsi-style .mat-input-element {
-  font-family: 'yekan' !important;
-  text-align: right;
-  direction: rtl;
-}
-
-.english .mat-button-wrapper {
+.mat-button-wrapper {
   font-family: 'roboto';
-}
-
-.farsi .mat-button-wrapper {
-  font-family: 'yekan';
 }
 
 .clickable-link {
