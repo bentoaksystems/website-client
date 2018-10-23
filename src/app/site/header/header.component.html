@@ -9,7 +9,7 @@
     <div fxFlex="90" fxFlex.sm="100">
       <div class="header-content-wrapper">
         <span *ngFor="let item of headerData.menu_tab" class="header-item">
-          <a class="t t-accent t-accent-hover header-content" routerLink="{{item.router_link}}">
+          <a class="t t-accent t-accent-hover header-content" href="{{item.router_link}}">
             {{item.title}}
           </a>
         </span>
