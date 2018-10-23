@@ -40,3 +40,15 @@
 .footerM {
   text-align: left;
 }
+
+.desktopSocial {
+  padding:10px;
+  border-radius:2px;
+  font-size:140%;
+}
+
+.mobileSocial {
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 250%;
+}

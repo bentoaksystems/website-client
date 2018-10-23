@@ -1,12 +1,12 @@
 <div class="header">
   <div fxLayout="row" fxLayoutAlign="center end"
        fxLayout.sm="column" fxLayout.xs="column">
-    <div fxFlex="10">
+    <div fxFlex="30">
       <a style="cursor: pointer" routerLink="/">
-        <img src="{{headerData.logo}}" style="width:160px; height: 60px">
+        <img src="{{headerData.logo}}" style="height: 60px">
       </a>
     </div>
-    <div fxFlex="90" fxFlex.sm="100">
+    <div fxFlex="70">
       <div class="header-content-wrapper">
         <span *ngFor="let item of headerData.menu_tab" class="header-item">
           <a class="t t-accent t-accent-hover header-content" routerLink="{{item.router_link}}">
