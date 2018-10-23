@@ -43,7 +43,6 @@ import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
     BrowserModule,
     SharedModule,
     ScrollToModule.forRoot(),
-    Angulartics2GoogleAnalytics,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,

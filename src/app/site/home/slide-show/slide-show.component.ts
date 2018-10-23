@@ -3,6 +3,8 @@ import {GetJsonFileService} from '../../../shared/services/get-json-file.service
 import {ResponsiveService} from '../../../shared/services/responsive.service';
 import {SpinnerService} from '../../../shared/services/spinner.service';
 import {HttpService} from '../../../shared/services/http.service';
+import { Router } from '@angular/router';
+import { ScrollService } from 'app/shared/services/scroll.service';
 
 @Component({
   selector: 'app-slide-show',
@@ -15,6 +17,8 @@ export class SlideShowComponent implements OnInit {
   isMobile = false;
 
   constructor(private httpService: HttpService,
+    private scrollService: ScrollService,
+    protected router: Router,
               private getJsonFileService: GetJsonFileService,
               private responsiveService: ResponsiveService,
               private spinnerService: SpinnerService) {
@@ -36,5 +40,11 @@ export class SlideShowComponent implements OnInit {
         console.error('Cannot get home data from server: ', err);
       });
 
+  }
+  setPosition(positionStr, containerStr) {
+    this.scrollService.position = positionStr;
+    if (this.router.url === '/about-us') {
+      this.scrollService.triggerScrollTo();
+    }
   }
 }
