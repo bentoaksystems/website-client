@@ -35,11 +35,9 @@ export class AboutUsComponent implements OnInit {
         if (this.scrollService.position !== '') {
            this.scrollService.triggerScrollTo();
          }
-        this.scrollService.position = '';
-  })
+      })
       .catch(err => {
         console.error('Cannot get data!', err);
       });
-
   }
 }

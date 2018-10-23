@@ -25,17 +25,13 @@ import {GetJsonFileService} from './shared/services/get-json-file.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ResponsiveService} from './shared/services/responsive.service';
 import {routing} from './app.routing';
-import {RecaptchaModule} from 'ng-recaptcha';
-import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-// if you need forms support:
-import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {SpinnerService} from './shared/services/spinner.service';
 import {ProjectService} from './shared/services/project.service';
 import {ScrollService} from './shared/services/scroll.service';
 
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import {Angulartics2Module} from 'angulartics2';
+import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 
 @NgModule({
   declarations: [
@@ -47,7 +43,7 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
     BrowserModule,
     SharedModule,
     ScrollToModule.forRoot(),
-    Ng2PageScrollModule,
+    Angulartics2GoogleAnalytics,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,
@@ -63,8 +59,6 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
     MatDialogModule,
     MatSnackBarModule,
     GalleriaModule,
-    RecaptchaModule.forRoot(),
-    RecaptchaFormsModule, // if you need forms support
     Angulartics2Module.forRoot()
   ],
 

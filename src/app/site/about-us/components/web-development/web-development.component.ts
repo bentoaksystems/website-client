@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../../../shared/services/responsive.service';
 import * as marked from 'marked';
+import {ScrollService} from '../../../../shared/services/scroll.service';
 
 @Component({
   selector: 'app-web-development',
@@ -12,14 +13,17 @@ export class WebDevelopmentComponent implements OnInit {
   desc;
   isMobile = false;
 
-  @Input('webDevInfo') set webDev_Info (data) {
-    if(!data) return;
+
+  @Input('webDevInfo')
+  set webDev_Info(data) {
+    if (!data) return;
 
     this.webDevInfo = data.filter(x => x.title === 'Web Development')[0];
     this.desc = marked(this.webDevInfo.description)
   }
 
-  constructor(private responsiveService: ResponsiveService) { }
+  constructor(private responsiveService: ResponsiveService, private scrollService: ScrollService) {
+  }
 
   ngOnInit() {
     this.isMobile = this.responsiveService.isMobile;

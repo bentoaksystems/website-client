@@ -2,7 +2,7 @@
   <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
        fxLayoutAlign="start stretch">
     <div class="page-section" fxFlex="50">
-      <h2 class="t t-primary t-primary-hover title">
+      <h2 class="t t-primary t-primary-hover title" style="font-family: aovel">
         {{bentoakData?.title}}
       </h2>
       <div class="t t-primary description-section content-block" [innerHTML]="bentoakData?.description"></div>
@@ -20,14 +20,13 @@
     </div>
     <div class="t t-primary section-block-mobile content-block" [innerHTML]="bentoakData?.description"></div>
   </div>
-  <div>
-  <a id="CICD"></a>
+  <div id="CICD"></div>
   <app-cicd [CICDInfo]="results"></app-cicd>
-  </div>
-  <a id="Software-Dev"></a>
+  <div id="SoftwareDev"></div>
   <app-software-development [softwareDevInfo]="results"></app-software-development>
-  <a id="Web-Dev"></a>
+  <div id="WebDev"></div>
   <app-web-development [webDevInfo]="results"></app-web-development>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <a id="tech-supp"></a>
     <app-technical-support [techsuppInfo]="results"></app-technical-support>
@@ -35,5 +34,9 @@
   <a id="Tech-Supp"></a>
   <app-technical-support [techsuppInfo]="results"></app-technical-support>
 >>>>>>> 97837ace3128778875ddbd47980d78d9c3fb3e58
+=======
+  <div id="TechSupp"></div>
+  <app-technical-support [techsuppInfo]="results"></app-technical-support>
+>>>>>>> 620199eea2758b852ed2ff45ed4caf01410212ed
 </div>
 

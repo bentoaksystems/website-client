@@ -38,7 +38,8 @@
       </textarea>
             </mat-form-field>
 
-
+           <re-captcha formControlName="recaptchaReactive"></re-captcha>
+          
             <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
                 <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
             </button>
@@ -58,7 +59,7 @@
         </h5>
         <h5 class="t t-primary contact-label">
             <i class="fa fa-envelope contact-image" aria-hidden="true"></i>
-            <a class="mail" href="mailto:info@bentoak.systems">
+            <a class="mail" href="mailto:{{emailAddress}}">
                 {{emailAddress}}
             </a>
         </h5>

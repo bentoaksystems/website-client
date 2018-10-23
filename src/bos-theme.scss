@@ -140,23 +140,23 @@ $bw-typography: mat-typography-config(
 
   // Use these for text SIZES!
   // NOTE: these are overridable!
-  .t-title {
+  &.t-title {
     @include mat-typography-level-to-styles($bw-typography, title);
   }
 
-  .t-subtitle {
+  &.t-subtitle {
     @include mat-typography-level-to-styles($bw-typography, subheading-1);
   }
 
-  .t-desc {
+  &.t-desc {
     @include mat-typography-level-to-styles($bw-typography, body-1);
   }
 
-  .t-caption {
+  &.t-caption {
     @include mat-typography-level-to-styles($bw-typography, caption);
   }
 
-  .t-little {
+  &.t-little {
     font-size: 0.6em !important;
   }
 }
