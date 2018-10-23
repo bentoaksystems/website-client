@@ -49,7 +49,7 @@
       <h3 class="t t-primary toolBox">Our Toolbox</h3>
     </div>
     <div>
-      <mat-card *ngFor="let image of less_images" class="primary-lighter container shadow tiny">
+      <mat-card *ngFor="let image of less_images" class="primary-lighter container shadow tiny" [class.mobileCard]="isMobile">
         <div style="height: 100%; display: block">
           <div style="height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
                                           class="image"/></div>

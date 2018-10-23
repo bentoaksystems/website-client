@@ -1,8 +1,16 @@
-img {
-    display: block;
-    width: 100%
+.desktopImg {
+  display: block;
+  width: 100%
+}
+
+.mobileImg {
+  display: inline-table !important;
+  width: 200% !important;
+  position: relative;
+  left: -50%;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
+
