@@ -1,76 +1,66 @@
 <div class="maxWidth">
   <!--Pricing-->
-  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
+  <div fxLayout="column">
     <div fxFlex="85">
       <div style="margin-top: 15px" [class.center]="isMobile">
         <h3 class="t t-primary t-primary-hover toolBox">Pricing</h3>
       </div>
-      <div class="center"fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
-        <mat-card *ngFor="let pricingPlan of  pricing" class="primary-lighter matCard shadow tiny">
-
-          <mat-card-title class="title-box">{{pricingPlan.title}}
+      <div class="center" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center top">
+        <mat-card *ngFor="let pricingPlan of pricing" class="primary-lighter matCard shadow tiny"
+                  [class.desktop]="!isMobile">
+          <mat-card-title class="title-box">
+            {{pricingPlan.title}} ({{pricingPlan.acronym}})
           </mat-card-title>
-          <div style="width: 100%;">
-            <div>
-              <mat-form-field>
-                <input matInput placeholder="planing hours needed" [(ngModel)]="planingHour[pricingPlan.title]"
-                       (change)="setPricingInfoToService(pricingPlan.title)">
-              </mat-form-field>
-              <div style="width: 50%; display: inline-block; text-align: center">total £ {{totalPrice('planing', pricingPlan)}}
+          <mat-card-content>
+            <div class="prosncons">
+              <mat-card-subtitle>Pros/Cons</mat-card-subtitle>
+              <mat-list-item class="list-item" *ngFor="let pro of pricingPlan.pros">
+                <p mat-line>
+                  <mat-icon class="matIcon" style="color: darkgreen">done</mat-icon>
+                  <span>{{pro}}</span>
+                </p>
+              </mat-list-item>
+              <mat-list-item class="list-item" *ngFor="let con of pricingPlan.cons">
+                <p mat-line>
+                  <mat-icon class="matIcon" style="color: darkred">clear</mat-icon>
+                  <span>{{con}}</span>
+                </p>
+              </mat-list-item>
+            </div>
+            <div class="cost">
+              <mat-card-subtitle>Cost</mat-card-subtitle>
+              <div *ngFor="let field of fields[pricingPlan.title]">
+                <div class="price-div">£
+                  {{prices[field][pricingPlan.title].toLocaleString()}} x
+                </div>
+                <mat-form-field [style.width.px]="quantity[field][pricingPlan.title] && !isMobile ? 30 : 114">
+                  <input matInput [placeholder]="field" [(ngModel)]="quantity[field][pricingPlan.title]"
+                         (keyup)="setPricingInfoToService(pricingPlan.title)">
+                </mat-form-field>
+                <span
+                  *ngIf="totalPrice(field, pricingPlan)"> = £ {{totalPrice(field, pricingPlan).toLocaleString()}}</span>
               </div>
-              <div class="price-div">£
-                {{pricingPlan.planing_price}}
+              <div *ngIf="equity(pricingPlan)" class="accent-darker" style="border-radius: 3px;margin-bottom:2px">
+                Total equity comp. £ {{equity(pricingPlan).toLocaleString()}}
+              </div>
+              <div *ngIf="totalPrice(null, pricingPlan)" class="accent" style="border-radius: 3px">Total cash price £
+                {{totalPrice(null, pricingPlan).toLocaleString()}}
               </div>
             </div>
-            <div>
-              <mat-form-field>
-                <input matInput placeholder="Programming hours needed"
-                       [(ngModel)]="programmingHour[pricingPlan.title]" (change)="setPricingInfoToService(pricingPlan.title)">
-              </mat-form-field>
-              <div style="width: 50%; display: inline-block; text-align: center">total
-                £{{totalPrice('programming', pricingPlan)}}
-              </div>
-              <div class="price-div">£
-                {{pricingPlan.programming_price}}
-              </div>
-            </div>
-            <div>
-              <mat-form-field>
-                <input matInput placeholder="Backing hours needed" [(ngModel)]="backingHour[pricingPlan.title]"
-                       (change)="setPricingInfoToService(pricingPlan.title)">
-              </mat-form-field>
-              <div style="width: 50%; display: inline-block; text-align: center">total £{{totalPrice('backing', pricingPlan)}}
-              </div>
-              <div class="price-div">£
-                {{pricingPlan.backing_price}}
-              </div>
-            </div>
-            <div class="accent" style="border-radius: 3px">Total price £ {{totalPrice(null, pricingPlan)}}
-            </div>
-          </div>
-
-          <mat-list-item class="list-item">
-            <p mat-line>
-              <mat-icon class="matIcon">done</mat-icon>
-              <span>{{pricingPlan.description1}}</span>
-            </p>
-          </mat-list-item>
-          <mat-list-item class="list-item">
-            <p mat-line>
-              <mat-icon class="matIcon">done</mat-icon>
-              <span>{{pricingPlan.description2}}</span>
-            </p>
-          </mat-list-item>
-          <div style="text-align: center">
-            <mat-checkbox [(ngModel)]="selectedPlan[pricingPlan.title]" (change)="chgPlan(pricingPlan.title)">{{pricingPlan.title}}</mat-checkbox>
-          </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <mat-checkbox [(ngModel)]="selectedPlan[pricingPlan.title]" (change)="chgPlan(pricingPlan.title)">
+              {{pricingPlan.acronym}}
+            </mat-checkbox>
+          </mat-card-actions>
         </mat-card>
+      </div>
     </div>
-    <div class="center" style="margin-top: 10px">
-        <button mat-raised-button class="accent" (click)="goToContactPage()"
-                [disabled]="!selected">Contact us to start
-        </button>
+    <div fxFlex="15" class="center" style="
+    margin-top: 10px">
+      <button mat-raised-button class="accent" (click)="goToContactPage()"
+              [disabled]="!selected">Contact us to start
+      </button>
     </div>
   </div>
-</div>
 </div>
