@@ -42,5 +42,7 @@ export class SlideShowComponent implements OnInit {
 
   }
   setPosition(positionStr) {
+    this.scrollService.position = positionStr;
+
   }
 }
