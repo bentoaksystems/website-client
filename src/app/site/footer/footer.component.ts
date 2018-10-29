@@ -37,7 +37,7 @@ export class FooterComponent implements OnInit {
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
   }
 
-  setPosition(positionStr, containerStr) {
+  setPosition(positionStr) {
     this.scrollService.position = positionStr;
     if (this.router.url === '/about-us') {
       this.scrollService.triggerScrollTo();

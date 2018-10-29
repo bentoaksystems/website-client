@@ -41,10 +41,6 @@ export class SlideShowComponent implements OnInit {
       });
 
   }
-  setPosition(positionStr, containerStr) {
-    this.scrollService.position = positionStr;
-    if (this.router.url === '/about-us') {
-      this.scrollService.triggerScrollTo();
-    }
+  setPosition(positionStr) {
   }
 }

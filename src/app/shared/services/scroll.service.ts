@@ -9,9 +9,7 @@ export class ScrollService {
   }
 
   public triggerScrollTo() {
-    /**
-     * @see NOTE:1
-     */
+  
     const config: ScrollToConfigOptions = {
       target: this.position,
       offset: -30,
