@@ -45,7 +45,7 @@ import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
   providers: [{
     provide: RECAPTCHA_SETTINGS,
     useValue: {
-      siteKey: '6LcjF3YUAAAAAMXMLUyI_2ehbB95XlFre7f7mBQh',
+      siteKey: '6LcFcXYUAAAAAHuXrz-mEPd1hsjzwPdf1i1og9oH',
     } as RecaptchaSettings,
   }]
 })

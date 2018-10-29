@@ -5,7 +5,7 @@
   <div>
     <img src="{{data.person.image}}" class="img-fluid personal-image"/>
   </div>
-  <mat-card>
+  <mat-card [class.mobileCard]="isMobile">
     <br/>
     <mat-card-title *ngIf="langService.lang === 'english'">{{data.person.fullName_en}}</mat-card-title>
     <mat-card-title *ngIf="langService.lang === 'farsi'">{{data.person.fullName_fa}}</mat-card-title>

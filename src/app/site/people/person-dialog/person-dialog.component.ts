@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 import {LanguageService} from '../../../shared/services/language.service';
+import {ResponsiveService} from '../../../shared/services/responsive.service';
 
 @Component({
   selector: 'app-person-dialog',
@@ -10,13 +11,16 @@ import {LanguageService} from '../../../shared/services/language.service';
 })
 export class PersonDialogComponent implements OnInit {
   lang: string;
-
+  isMobile = false;
   constructor(public dialogRef: MatDialogRef<PersonDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, public langService: LanguageService) {}
+    @Inject(MAT_DIALOG_DATA) public data: any, public langService: LanguageService, private responsiveService: ResponsiveService,) {}
 
   ngOnInit() {
     this.data.width -= 24;
-
+    this.isMobile = this.responsiveService.isMobile;
+    this.responsiveService.switch$.subscribe(isMobile => {
+      this.isMobile = isMobile;
+    });
     this.langService.lang$.subscribe(lang => this.lang = lang);
   }
 }

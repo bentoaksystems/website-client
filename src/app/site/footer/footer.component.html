@@ -47,13 +47,13 @@
       <label class="t t-light footer-label"> {{'Follow us'}} </label>
       <div>
         <a target="_blank" href="{{social.linkedin}}">
-          <i class="fa fa-linkedin" style="padding:3px;border-radius:2px; font-size:140%"></i>
+          <i class="fa fa-linkedin" [class.mobileSocial]="isMobile" [class.desktopSocial]="!isMobile"></i>
         </a>
         <a target="_blank" href="{{social.github}}">
-          <i class="fa fa-github" style="padding:2px;border-radius:2px; font-size:140%"></i>
+          <i class="fa fa-github" [class.mobileSocial]="isMobile"  [class.desktopSocial]="!isMobile"></i>
         </a>
         <a target="_blank" href="{{social.slack}}">
-          <i class="fa fa-slack" style="padding:3px;border-radius:2px; font-size:145%"></i>
+          <i class="fa fa-slack" [class.mobileSocial]="isMobile"  [class.desktopSocial]="!isMobile"></i>
         </a>
       </div>
     </div>
