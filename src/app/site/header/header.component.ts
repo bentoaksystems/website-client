@@ -3,13 +3,14 @@ import { StartupService } from '../../shared/services/startup.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import { CookiesService } from 'app/shared/services/cookies.service';
-
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends TranslatorComponent implements OnInit {
   headerData: any = {};
   isMobile = false;
   languages = ['English', 'Dutch', 'German', 'Persian']
@@ -18,8 +19,10 @@ export class HeaderComponent implements OnInit {
     private getJsonFileService: GetJsonFileService,
     private responsiveService: ResponsiveService,
     private startupService: StartupService,
-    private cookiesService: CookiesService
+    private cookiesService: CookiesService,
+    dictionaryService: DictionaryService
     ) {
+      super(dictionaryService);
   }
 
   ngOnInit() {

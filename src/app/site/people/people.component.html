@@ -1,6 +1,6 @@
 <div class="maxWidth">
     <h3 class="t t-primary t-primary-hover title" [style.text-align]="isMobile ? 'center' : 'left'">
-        Who we are
+        {{trl('Who we are')}}
     </h3>
     <div style="text-align: center; margin-top: 25px">
         <app-person *ngFor="let person of people" [person]="person"></app-person>

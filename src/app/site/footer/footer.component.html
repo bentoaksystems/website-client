@@ -8,37 +8,35 @@
         <label class="t t-light footer-label">Contact us</label>
         <div class="t t-primary footer-content">
           <i class="fa fa-home" aria-hidden="true"></i>
-          {{address}}
+          {{trl(address)}}
         </div>
         <div class="t t-primary footer-content">
           <i class="fa fa-phone" aria-hidden="true"></i>
-          {{phone}}
+          {{trl(phone)}}
         </div>
         <div class="t t-primary footer-content">
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <a class="mail-label" href="mailto:{{email}}">
-            {{email}}
+            {{trl(email)}}
           </a>
         </div>
       </div>
       <div fxFlex="40" [class.center]="isMobile">
         <div class="t t-primary footer-content">
           <label class="t t-light footer-label">
-            About us
+            {{trl('About us')}}
           </label>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('CICD')">CI/CD</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('CICD')">{{trl('CI/CD')}}</a>
           </div>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('SoftwareDev')">Software
-              Development</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('SoftwareDev')">{{trl('Software Development')}}</a>
           </div>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('WebDev')">Web
-              Development</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('WebDev')">{{trl('Web Development')}}</a>
           </div>
           <div>
-            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('TechSupp')">Technical Support</a>
+            <a class="t t-primary footer-content" [routerLink]="'/about-us'" (click)="setPosition('TechSupp')">{{trl('Technical Support')}}</a>
           </div>
         </div>
 
@@ -61,6 +59,6 @@
 </div>
 <div class="socket-area">
   <label class="t t-light socket-content">
-    {{' © 2018 Bent Oak Systems. All rights reserved.'}}
+    {{trl('© 2018 Bent Oak Systems. All rights reserved.')}}
   </label>
 </div>

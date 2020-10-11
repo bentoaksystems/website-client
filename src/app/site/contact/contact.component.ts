@@ -8,6 +8,8 @@ import {MessageService} from '../../shared/services/message.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {PricingService} from '../../shared/services/pricing.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
 
 
 @Component({
@@ -16,7 +18,7 @@ import {SpinnerService} from '../../shared/services/spinner.service';
   styleUrls: ['./contact.component.css'],
 
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent extends TranslatorComponent implements OnInit {
   contactForm: FormGroup;
   address: any = {};
   phone: any = {};
@@ -30,7 +32,9 @@ export class ContactComponent implements OnInit {
 
   constructor(private httpService: HttpService, private getJsonFileService: GetJsonFileService,
               private msgService: MessageService, private responsiveService: ResponsiveService,
-              private pricingService: PricingService, private spinnersService: SpinnerService) {
+              private pricingService: PricingService, private spinnersService: SpinnerService,
+              dictionaryService: DictionaryService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {

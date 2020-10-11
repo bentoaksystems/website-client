@@ -3,15 +3,15 @@
   <div style="display: block; height: 100%">
 
     <div style="height: 50%; text-align: center;" class="square">
-      <img src="{{project.mainImage.url}}" alt="{{project.title}}" class="content">
+      <img src="{{project.mainImage.url}}" alt="{{trl(project.title)}}" class="content">
     </div>
     <div style="height: 33%;" class="middle">
-      <h5 class="t t-dark t-caption" style="font-weight: bold;">{{project.title}}</h5>
-      <p class="t t-dark t-caption">{{project.shortDescription}}</p>
+      <h5 class="t t-dark t-caption" style="font-weight: bold;">{{trl(project.title)}}</h5>
+      <p class="t t-dark t-caption">{{trl(project.shortDescription)}}</p>
     </div>
     <div style="height: 17%" class="middle">
       <button mat-raised-button class="accent" (click)="showDetails()">
-        {{'More...'}}
+        {{trl('More...')}}
       </button>
     </div>
   </div>

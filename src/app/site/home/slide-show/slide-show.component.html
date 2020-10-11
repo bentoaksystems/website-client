@@ -3,36 +3,36 @@
   <ng-template ngbSlide >
     <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[0]?.backgroundPic">
     <div class="carousel-caption">
-      <a href="./about-us"><h1 class="t t-light t-light-hover title" style="font-family: aovel" [style.fontSize.em]="isMobile ? 3 : 6">{{homeTopSections[0]?.title}}</h1></a>
-      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[0]?.intro"></div>
+      <a href="./about-us"><h1 class="t t-light t-light-hover title" style="font-family: aovel" [style.fontSize.em]="isMobile ? 3 : 6">{{trl(homeTopSections[0]?.title)}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="trl(homeTopSections[0]?.intro)"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
    <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[1]?.backgroundPic">
     <div  class="carousel-caption">
-      <a  [routerLink]="'/about-us'" (click)="setPosition('CICD')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{homeTopSections[1]?.title}}</h1></a>
-      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[1]?.intro"></div>
+      <a  [routerLink]="'/about-us'" (click)="setPosition('CICD')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{trl(homeTopSections[1]?.title)}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="trl(homeTopSections[1]?.intro)"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
     <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[2]?.backgroundPic">
     <div class="carousel-caption">
-      <a [routerLink]="'/about-us'" (click)="setPosition('SoftwareDev')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{homeTopSections[2]?.title}}</h1></a>
-      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[2]?.intro"></div>
+      <a [routerLink]="'/about-us'" (click)="setPosition('SoftwareDev')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{trl(homeTopSections[2]?.title)}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="trl(homeTopSections[2]?.intro)"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
     <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[3]?.backgroundPic">
     <div class="carousel-caption">
-      <a [routerLink]="'/about-us'" (click)="setPosition('WebDev')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{homeTopSections[3]?.title}}</h1></a>
-      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[3]?.intro"></div>
+      <a [routerLink]="'/about-us'" (click)="setPosition('WebDev')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{trl(homeTopSections[3]?.title)}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="trl(homeTopSections[3]?.intro)"></div>
     </div>
   </ng-template>
   <ng-template ngbSlide >
     <img [class.mobileImg]="isMobile" [class.desktopImg]="!isMobile" [src]="homeTopSections[4]?.backgroundPic">
     <div  class="carousel-caption">
-      <a [routerLink]="'/about-us'" (click)="setPosition('TechSupp')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{homeTopSections[4]?.title}}</h1></a>
-      <div class="t t-light t-light-hover intro" [innerHTML]="homeTopSections[4]?.intro"></div>
+      <a [routerLink]="'/about-us'" (click)="setPosition('TechSupp')"><h1 class="t t-light t-light-hover title" [style.fontSize.em]="isMobile ? 2 : 5">{{trl(homeTopSections[4]?.title)}}</h1></a>
+      <div class="t t-light t-light-hover intro" [innerHTML]="trl(homeTopSections[4]?.intro)"></div>
     </div>
   </ng-template>
 </ngb-carousel>

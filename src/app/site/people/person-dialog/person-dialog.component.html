@@ -7,13 +7,13 @@
   </div>
   <mat-card [class.mobileCard]="isMobile">
     <br/>
-    <mat-card-title *ngIf="langService.lang === 'english'">{{data.person.fullName_en}}</mat-card-title>
-    <mat-card-title *ngIf="langService.lang === 'farsi'">{{data.person.fullName_fa}}</mat-card-title>
+    <mat-card-title *ngIf="langService.lang === 'english'">{{trl(data.person.fullName_en)}}</mat-card-title>
+    <mat-card-title *ngIf="langService.lang === 'farsi'">{{trl(data.person.fullName_fa)}}</mat-card-title>
     <mat-card-content>
-      <h4>{{data.person.responsibilities}}</h4>
+      <h4>{{trl(data.person.responsibilities)}}</h4>
       <div class="section">
         <a href="{{data.person.linkedin}}" target="_blank" style="text-decoration: none; cursor: pointer;">
-          {{'LinkedIn Profile'}}
+          {{trl('LinkedIn Profile')}}
         </a>
       </div>
     </mat-card-content>

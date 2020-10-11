@@ -3,13 +3,15 @@ import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {Router} from '@angular/router';
 import {ScrollService} from '../../shared/services/scroll.service';
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent extends TranslatorComponent implements OnInit {
   address: any = {};
   phone: any = {};
   email: any = {};
@@ -18,7 +20,9 @@ export class FooterComponent implements OnInit {
 
 
   constructor(private getJsonFileService: GetJsonFileService, private scrollService: ScrollService,
-              private responsiveService: ResponsiveService, protected router: Router) {
+              private responsiveService: ResponsiveService, protected router: Router,
+              dictionaryService: DictionaryService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {

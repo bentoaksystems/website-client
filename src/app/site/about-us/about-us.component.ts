@@ -4,20 +4,27 @@ import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
 import {ScrollService} from '../../shared/services/scroll.service';
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
 
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.css']
 })
-export class AboutUsComponent implements OnInit {
+export class AboutUsComponent extends TranslatorComponent implements OnInit {
   results: any = null;
   desc = null;
   isMobile = false;
   bentoakData;
 
-  constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
-              private spinnerService: SpinnerService, private scrollService: ScrollService) {
+  constructor(
+    private getJsonFileService: GetJsonFileService,
+    private responsiveService: ResponsiveService,
+    private spinnerService: SpinnerService,
+    private scrollService: ScrollService,
+    dictionaryService: DictionaryService) {
+      super(dictionaryService);
   }
 
   ngOnInit() {

@@ -5,20 +5,23 @@ import {WINDOW} from '../../shared/services/window.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
-
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent extends TranslatorComponent implements OnInit {
   projects: any = [];
   details: any = [];
   width: number;
   isMobile = false;
 
   constructor(private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
-              @Inject(WINDOW) private window, private spinnerService: SpinnerService) {
+              @Inject(WINDOW) private window, private spinnerService: SpinnerService,
+              dictionaryService: DictionaryService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {

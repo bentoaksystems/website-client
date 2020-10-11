@@ -12,7 +12,7 @@
 
   <!--Our Process-->
   <div style="text-align: center; margin-bottom: 10px">
-    <h3 class="t t-primary toolBox">Our Process</h3>
+    <h3 class="t t-primary toolBox">{{trl('Our Process')}}</h3>
   </div>
   <div class="jumbotron square" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center">
     <div fxFlex="45" class="content">
@@ -34,10 +34,8 @@
           </mat-panel-description>
           <mat-action-row>
             <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">Previous</button>
-            <button *ngIf="i !== process.length-1" mat-button color="accent" (click)="nextStep()">Next
-            </button>
-            <button *ngIf="i === process.length-1" mat-button color="accent" (click)="nextStep()">End
-            </button>
+            <button *ngIf="i !== process.length-1" mat-button color="accent" (click)="nextStep()">{{trl('Next')}} </button>
+            <button *ngIf="i === process.length-1" mat-button color="accent" (click)="nextStep()">{{trl('End')}} </button>
           </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>
@@ -46,14 +44,14 @@
   <!-- our Toolbox -->
   <div class="center">
     <div>
-      <h3 class="t t-primary toolBox">Our Toolbox</h3>
+      <h3 class="t t-primary toolBox">{{trl('Our Toolbox')}}</h3>
     </div>
     <div>
       <mat-card *ngFor="let image of less_images" class="primary-lighter container shadow tiny" [class.mobileCard]="isMobile">
         <div style="height: 100%; display: block">
-          <div style="height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+          <div style="height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" [alt]="trl(image.title)"
                                           class="image"/></div>
-          <div style="height: 50%" class="t">{{image.description}}</div>
+          <div style="height: 50%" class="t">{{trl(image.description)}}</div>
         </div>
       </mat-card>
     </div>
@@ -61,16 +59,16 @@
     <div [collapse]="isCollapsed">
       <mat-card *ngFor="let image of images" class="primary-lighter container shadow tiny">
         <div style="height: 100%; display: block">
-          <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" alt="{{image.title}}"
+          <div style=" height: 50%;"><img (click)="openPage(image.link)" src="{{image.source}}" [alt]="trl(image.title)"
                                           class="image"/></div>
-          <div style="height: 50%" class="t">{{image.description}}</div>
+          <div style="height: 50%" class="t">{{trl(image.description)}}</div>
         </div>
       </mat-card>
     </div>
 
     <button class="btn primary mat-raised-button" type="button" (click)="isCollapsed = !isCollapsed"
             aria-expanded="false" aria-controls="collapseExample">
-      <span class="t t-accent t-accent-hover">{{isCollapsed ? 'Show More' : 'Show Less'}}</span>
+      <span class="t t-accent t-accent-hover">{{isCollapsed ? trl('Show More') : trl('Show Less')}}</span>
     </button>
 
     <hr>

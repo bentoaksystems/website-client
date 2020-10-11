@@ -5,14 +5,15 @@ import {SpinnerService} from '../../../shared/services/spinner.service';
 import {HttpService} from '../../../shared/services/http.service';
 import { Router } from '@angular/router';
 import { ScrollService } from 'app/shared/services/scroll.service';
-
+import { TranslatorComponent } from '../../../shared/components/translator.component';
+import { DictionaryService } from '../../../shared/services/dictionary.service';
 @Component({
   selector: 'app-slide-show',
   templateUrl: './slide-show.component.html',
   styleUrls: ['./slide-show.component.css'],
 })
 
-export class SlideShowComponent implements OnInit {
+export class SlideShowComponent extends TranslatorComponent implements OnInit {
   homeTopSections: any = [];
   isMobile = false;
 
@@ -21,7 +22,9 @@ export class SlideShowComponent implements OnInit {
     protected router: Router,
               private getJsonFileService: GetJsonFileService,
               private responsiveService: ResponsiveService,
-              private spinnerService: SpinnerService) {
+              private spinnerService: SpinnerService,
+              dictionaryService: DictionaryService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {
@@ -37,7 +40,7 @@ export class SlideShowComponent implements OnInit {
         this.spinnerService.disable();
       })
       .catch(err => {
-        console.error('Cannot get home data from server: ', err);
+        console.error('Cannot get home data from server:', err);
       });
 
   }

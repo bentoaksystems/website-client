@@ -5,13 +5,14 @@ import {WINDOW} from '../../shared/services/window.service';
 import {Router} from '@angular/router';
 import {PricingService} from '../../shared/services/pricing.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
-
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
 @Component({
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.css']
 })
-export class PricingComponent implements OnInit {
+export class PricingComponent extends TranslatorComponent implements OnInit {
 
   waiting = false;
   pricing: any = [];
@@ -25,7 +26,9 @@ export class PricingComponent implements OnInit {
   constructor(@Inject(WINDOW) private window,
               private getJsonFileService: GetJsonFileService,
               private responsiveService: ResponsiveService, protected router: Router,
-              private pricingService: PricingService, private spinnerService: SpinnerService) {
+              private pricingService: PricingService, private spinnerService: SpinnerService,
+              dictionaryService: DictionaryService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {

@@ -1,13 +1,13 @@
 <mat-card class="primary-lighter container shadow tiny">
   <div style="display: block; height: 100%">
     <div class="newi">
-      <img src="{{person.image}}" alt="{{person.fullname + ' image'}}" class="image">
+      <img src="{{person.image}}" alt="{{trl(person.fullname) + ' image'}}" class="image">
     </div>
 
 <div style="height: 25%;margin: 10px;">
     <div>
-      <h5 class="text">{{person.fullname}}</h5>
-      <div style="font-family:Trebuchet MS;color:black;">{{person.responsibility}}</div>
+      <h5 class="text">{{trl(person.fullname)}}</h5>
+      <div style="font-family:Trebuchet MS;color:black;">{{trl(person.responsibility)}}</div>
     </div>
 </div>
  <!-- <div style="height: 23%;">
