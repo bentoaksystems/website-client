@@ -10,7 +10,7 @@
       <div class="header-content-wrapper">
         <span class="header-item">
           <!-- <img class="img-process" src="../../../assets/images/Globe_int_blue.svg"> -->
-          <select name="" id="" (change)="onChange($event)" [value]="selectedLanguage">
+          <select [dir]="'ltr'" name="language" id="languageId" (change)="onChange($event)" [value]="selectedLanguage">
             <option *ngFor="let language of languages">{{trl(language)}}</option>
           </select>
         </span>

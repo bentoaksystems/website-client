@@ -26,7 +26,9 @@ export class HeaderComponent extends TranslatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedLanguage = this.cookiesService.getCookie('language');
+    if (this.cookiesService.getCookie('language')) {
+      this.selectedLanguage = this.cookiesService.getCookie('language');
+    }
     console.log(this.selectedLanguage);
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
@@ -44,6 +46,5 @@ export class HeaderComponent extends TranslatorComponent implements OnInit {
     await this.startupService.load(language);
     window.location.reload();
     this.cookiesService.setCookie('language', language, 1);
-    console.log(this.cookiesService.getCookie('language'));
   }
 }

@@ -2,30 +2,43 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {Router} from '@angular/router';
-
+import { TranslatorComponent } from '../../shared/components/translator.component';
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { StartupService } from '../../shared/services/startup.service';
+import { CookiesService } from '../../shared/services/cookies.service';
 @Component({
   selector: 'app-mobile-header',
   templateUrl: './mobile-header.component.html',
   styleUrls: ['./mobile-header.component.css']
 })
-export class MobileHeaderComponent implements OnInit {
+export class MobileHeaderComponent extends TranslatorComponent implements OnInit {
 
   headerData: any = {};
   isMobile = false;
   sideNavIsOpen = false;
   array: any = [];
+  languages = ['English', 'Dutch', 'German', 'Persian']
+  selectedLanguage = 'English';
 
   constructor(private responsiveService: ResponsiveService,
-              private getJsonFileService: GetJsonFileService, private router: Router) {
+              private getJsonFileService: GetJsonFileService, private router: Router,
+              dictionaryService: DictionaryService,
+              private startupService: StartupService,
+              private cookiesService: CookiesService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {
+    if (this.cookiesService.getCookie('language')) {
+      this.selectedLanguage = this.cookiesService.getCookie('language');
+    }
     this.isMobile = this.responsiveService.isMobile;
     this.responsiveService.switch$.subscribe(isMobile => this.isMobile = isMobile);
 
 
     this.getJsonFileService.getHeaderData()
       .then((res: any) => {
+        console.log(res);
         this.headerData = res[0];
         for (let i = 0; i < this.headerData.menu_tab.length; i++) {
           if (this.headerData.menu_tab[i].title === 'Home') {
@@ -52,6 +65,12 @@ export class MobileHeaderComponent implements OnInit {
   navigate(arr) {
     this.router.navigate(arr);
     this.sideNavIsOpen = false;
+  }
+  async onChange(event) {
+    const language = event.target.value;
+    await this.startupService.load(language);
+    window.location.reload();
+    this.cookiesService.setCookie('language', language, 1);
   }
 
 }

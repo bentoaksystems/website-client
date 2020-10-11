@@ -1,11 +1,14 @@
-<div dir="rtl" class="mobile-header">
+<div class="mobile-header">
   <mat-sidenav-container class="header">
     <mat-sidenav #sidenav mode="push" class="primary-lighter side-nav" (opened)="sideNavIsOpen = true"
                  (closed)="sideNavIsOpen = false" [opened]="sideNavIsOpen">
-      <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item"
-           (click)="navigate([item.router_link])">
-        {{item.title}}
-        <i class="{{item.iconLogo}}"></i>
+      <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item" (click)="navigate([item.router_link])"> 
+        {{trl(item.title)}} <i class="{{item.iconLogo}}"></i>
+      </div>
+      <div class="t t-primary t-primary-hover menu-item">
+        <select [dir]="direction" name="language" id="languageId"  (change)="onChange($event)" [value]="selectedLanguage">
+          <option *ngFor="let language of languages">{{trl(language)}}</option>
+        </select>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>
