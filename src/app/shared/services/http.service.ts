@@ -21,7 +21,7 @@ export class HttpService {
   }
 
   get(address): Observable<any> {
-    return this.http.get(this.serverAddress + '/' + address, {observe: 'response'}).map(el => el.body);
+    return this.http.get(this.serverAddress + '/' + address,{observe: 'response'}).map(el => el.body);
   }
 
   delete(address): Observable<any> {

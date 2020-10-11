@@ -3,13 +3,15 @@ import {ResponsiveService} from '../../shared/services/responsive.service';
 import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {WINDOW} from '../../shared/services/window.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
+import { DictionaryService } from '../../shared/services/dictionary.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends TranslatorComponent implements OnInit {
   images: any = [];
   slideShows: any = [];
   process: any = [];
@@ -20,9 +22,13 @@ export class HomeComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(@Inject(WINDOW) private window,
-              private getJsonFileService: GetJsonFileService, private responsiveService: ResponsiveService,
-              private spinnerService: SpinnerService) {
+  constructor(
+    @Inject(WINDOW) private window,
+  private getJsonFileService: GetJsonFileService,
+  private responsiveService: ResponsiveService,
+  dictionaryService: DictionaryService,
+  private spinnerService: SpinnerService) {
+    super(dictionaryService);
   }
 
   ngOnInit() {

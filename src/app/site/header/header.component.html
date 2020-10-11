@@ -8,6 +8,12 @@
     </div>
     <div fxFlex="70">
       <div class="header-content-wrapper">
+        <span class="header-item">
+          <!-- <img class="img-process" src="../../../assets/images/Globe_int_blue.svg"> -->
+          <select name="" id="" (change)="onChange($event)" [value]="selectedLanguage">
+            <option *ngFor="let language of languages">{{language}}</option>
+          </select>
+        </span>
         <span *ngFor="let item of headerData.menu_tab" class="header-item">
           <a class="t t-accent t-accent-hover header-content" href="{{item.router_link}}">
             {{item.title}}

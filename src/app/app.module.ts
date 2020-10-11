@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, APP_INITIALIZER} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -15,6 +15,8 @@ import {GalleriaModule, SharedModule} from 'primeng/primeng';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import 'hammerjs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import localeEn from '@angular/common/locales/en';
+
 
 import {AppComponent} from './app.component';
 import {LanguageService} from './shared/services/language.service';
@@ -29,10 +31,17 @@ import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {SpinnerService} from './shared/services/spinner.service';
 import {ProjectService} from './shared/services/project.service';
 import {ScrollService} from './shared/services/scroll.service';
+import {StartupService} from './shared/services/startup.service';
 
 import {Angulartics2Module} from 'angulartics2';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
+import { DictionaryService } from './shared/services/dictionary.service';
+import {registerLocaleData} from '@angular/common';
+import { CookiesService } from './shared/services/cookies.service';
 
+registerLocaleData(localeEn, 'en');
+export function startupServiceFactory(startupService: StartupService): Function {
+  return () => startupService.load();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +79,17 @@ import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
     ResponsiveService,
     SpinnerService,
     ProjectService,
-    ScrollService
+    ScrollService,
+    CookiesService,
+    StartupService,
+    {
+      // Provider for APP_INITIALIZER
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [StartupService],
+      multi: true
+    },
+    DictionaryService
   ],
   bootstrap: [AppComponent],
 })

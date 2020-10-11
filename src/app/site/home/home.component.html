@@ -25,12 +25,12 @@
                              hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{ p.title}}
+              {{ trl(p.title) }}
             </mat-panel-title>
             <mat-icon>{{p.icon}}</mat-icon>
           </mat-expansion-panel-header>
           <mat-panel-description>
-            {{p.description}}
+            {{trl(p.description)}}
           </mat-panel-description>
           <mat-action-row>
             <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">Previous</button>
