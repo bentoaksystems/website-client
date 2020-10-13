@@ -5,7 +5,7 @@
        fxLayoutAlign="start stretch">
 
       <div fxFlex="40" [class.center]="isMobile">
-        <label class="t t-light footer-label">Contact us</label>
+        <label class="t t-light footer-label">{{trl('Contact')}}</label>
         <div class="t t-primary footer-content">
           <i class="fa fa-home" aria-hidden="true"></i>
           {{trl(address)}}
@@ -42,7 +42,7 @@
 
       </div>
     <div  fxFlex="20" class="t t-primary footer-content" [class.center]="isMobile">
-      <label class="t t-light footer-label"> {{'Follow us'}} </label>
+      <label class="t t-light footer-label"> {{trl('Follow us')}} </label>
       <div>
         <a target="_blank" href="{{social.linkedin}}">
           <i class="fa fa-linkedin" [class.mobileSocial]="isMobile" [class.desktopSocial]="!isMobile"></i>

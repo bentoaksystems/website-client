@@ -59,3 +59,10 @@
 a {
   color: black !important;
 }
+
+.mat-button-toggle{
+  background-color: transparent;
+}
+.mat-button-toggle-checked{
+  background-color: gray;
+}

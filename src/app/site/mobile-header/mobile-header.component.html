@@ -5,11 +5,20 @@
       <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item" (click)="navigate([item.router_link])"> 
         {{trl(item.title)}} <i class="{{item.iconLogo}}"></i>
       </div>
-      <div class="t t-primary t-primary-hover menu-item">
+      <!-- <div class="t t-primary t-primary-hover menu-item">
         <select [dir]="direction" name="language" id="languageId"  (change)="onChange($event)" [value]="selectedLanguage">
           <option *ngFor="let language of languages">{{trl(language)}}</option>
         </select>
+      </div> -->
+
+      
+      <div class="t t-primary t-primary-hover menu-item">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" >
+          <mat-button-toggle value="English">English</mat-button-toggle>
+          <mat-button-toggle value="German">German</mat-button-toggle>
+        </mat-button-toggle-group>
       </div>
+
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="menu-wrapper" fxLayout="row" fxLayoutAlign="center center">

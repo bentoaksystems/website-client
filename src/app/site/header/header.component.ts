@@ -13,7 +13,7 @@ import { TranslatorComponent } from '../../shared/components/translator.componen
 export class HeaderComponent extends TranslatorComponent implements OnInit {
   headerData: any = {};
   isMobile = false;
-  languages = ['English', 'Dutch', 'German', 'Persian']
+  languages = ['English', 'German'];
   selectedLanguage = 'English';
   constructor(
     private getJsonFileService: GetJsonFileService,

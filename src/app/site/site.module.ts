@@ -18,7 +18,9 @@ import {
   MatListModule,
   MatSliderModule,
   MatTooltipModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatButtonToggleModule,
+  MatSelectModule
 } from '@angular/material';
 import {SharedModule} from 'primeng/primeng';
 import {FooterComponent} from './footer/footer.component';
@@ -53,6 +55,8 @@ import { Angulartics2Module } from 'angulartics2';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatSelectModule,
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
