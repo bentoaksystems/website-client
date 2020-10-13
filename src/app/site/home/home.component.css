@@ -15,8 +15,8 @@
 }
 
 .image {
-  width: 50%;
-  height: 80%;
+  max-width: 50%;
+  max-height: 80%;
   margin-top: 10px;
   border-radius: 10px;
 }
