@@ -41,10 +41,10 @@ export class HeaderComponent extends TranslatorComponent implements OnInit {
         console.error('Cannot get header data from server: ', err);
       });
   }
-  async onChange(event) {
+  onChange(event) {
     const language = event.target.value;
-    await this.startupService.load(language);
-    window.location.reload();
     this.cookiesService.setCookie('language', language, 1);
+    this.startupService.load(language);
+    window.location.reload();
   }
 }

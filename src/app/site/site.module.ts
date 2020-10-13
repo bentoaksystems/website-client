@@ -34,6 +34,7 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import {PricingService} from '../shared/services/pricing.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Angulartics2Module } from 'angulartics2';
+import { TranslatorComponent } from 'app/shared/components/translator.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { Angulartics2Module } from 'angulartics2';
     PersonDialogComponent,
     ProjectDialogComponent,
     MobileHeaderComponent,
+    TranslatorComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],

@@ -66,11 +66,11 @@ export class MobileHeaderComponent extends TranslatorComponent implements OnInit
     this.router.navigate(arr);
     this.sideNavIsOpen = false;
   }
-  async onChange(event) {
+  onChange(event) {
     const language = event.target.value;
-    await this.startupService.load(language);
-    window.location.reload();
     this.cookiesService.setCookie('language', language, 1);
+    this.startupService.load(language);
+    window.location.reload();
   }
 
 }
