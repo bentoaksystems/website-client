@@ -5,18 +5,14 @@
       <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item" (click)="navigate([item.router_link])"> 
         {{trl(item.title)}} <i class="{{item.iconLogo}}"></i>
       </div>
-      <!-- <div class="t t-primary t-primary-hover menu-item">
-        <select [dir]="direction" name="language" id="languageId"  (change)="onChange($event)" [value]="selectedLanguage">
-          <option *ngFor="let language of languages">{{trl(language)}}</option>
-        </select>
-      </div> -->
-
-      
       <div class="t t-primary t-primary-hover menu-item">
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" >
-          <mat-button-toggle value="English">English</mat-button-toggle>
-          <mat-button-toggle value="German">German</mat-button-toggle>
-        </mat-button-toggle-group>
+        <select [dir]="direction" name="language" id="languageId"  (change)="onChange($event)" [value]="selectedLanguage" style="background-color:#F5F5F5;border: transparent;">
+          <option style="background-color: #F5F5F5;" *ngFor="let language of languages">{{trl(language)}}</option>
+        </select>
+        <span>
+          <img *ngIf="selectedLanguage==='English'" src="../../../assets/images/country-flags/united-kingdom-flag-round-icon-20.png" alt="">
+          <img *ngIf="selectedLanguage==='German'" src="../../../assets/images/country-flags/germany-flag-round-icon-20.png" alt="">
+        </span>
       </div>
 
     </mat-sidenav>

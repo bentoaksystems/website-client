@@ -35,7 +35,7 @@
                   {{prices[field][pricingPlan.title].toLocaleString()}} x
                 </div>
                 <mat-form-field [style.width.px]="quantity[field][pricingPlan.title] && !isMobile ? 30 : 114">
-                  <input matInput [placeholder]="field" [(ngModel)]="quantity[field][pricingPlan.title]"
+                  <input matInput placeholder={{trl(field)}} [(ngModel)]="quantity[field][pricingPlan.title]"
                     (keyup)="setPricingInfoToService(pricingPlan.title)">
                 </mat-form-field>
                 <span *ngIf="totalPrice(field, pricingPlan)"> = £

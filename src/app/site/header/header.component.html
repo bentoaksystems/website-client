@@ -12,7 +12,11 @@
           <!-- <img class="img-process" src="../../../assets/images/Globe_int_blue.svg"> -->
           <select class="t t-accent t-accent-hover header-content" [dir]="'ltr'" name="language" id="languageId" (change)="onChange($event)" [value]="selectedLanguage" style="background-color: transparent;border: transparent;">
             <option style="background-color: #E0E0E0;" *ngFor="let language of languages">{{trl(language)}}</option>
-          </select>       
+          </select>
+          <span>
+            <img *ngIf="selectedLanguage==='English'" src="../../../assets/images/country-flags/united-kingdom-flag-round-icon-20.png" alt="">
+            <img *ngIf="selectedLanguage==='German'" src="../../../assets/images/country-flags/germany-flag-round-icon-20.png" alt="">
+          </span>       
         </span>
         <span *ngFor="let item of headerData.menu_tab" class="header-item">
           <a class="t t-accent t-accent-hover header-content" href="{{item.router_link}}">
