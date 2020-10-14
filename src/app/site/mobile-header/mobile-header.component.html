@@ -1,4 +1,4 @@
-<div class="mobile-header">
+<div dir="rtl" class="mobile-header">
   <mat-sidenav-container class="header">
     <mat-sidenav #sidenav mode="push" class="primary-lighter side-nav" (opened)="sideNavIsOpen = true"
                  (closed)="sideNavIsOpen = false" [opened]="sideNavIsOpen">
@@ -14,7 +14,6 @@
           <img *ngIf="selectedLanguage==='German'" src="../../../assets/images/country-flags/germany-flag-round-icon-20.png" alt="">
         </span>
       </div>
-
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="menu-wrapper" fxLayout="row" fxLayoutAlign="center center">
