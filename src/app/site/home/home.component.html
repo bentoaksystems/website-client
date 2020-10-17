@@ -25,7 +25,7 @@
                              hideToggle="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{ trl(p.title) }}
+              {{trl(p.title) }}
             </mat-panel-title>
             <mat-icon>{{p.icon}}</mat-icon>
           </mat-expansion-panel-header>
@@ -33,7 +33,7 @@
             {{trl(p.description)}}
           </mat-panel-description>
           <mat-action-row>
-            <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button *ngIf="i !== 0" mat-button color="warn" (click)="prevStep()">{{trl('Previous')}}</button>
             <button *ngIf="i !== process.length-1" mat-button color="accent" (click)="nextStep()">{{trl('Next')}} </button>
             <button *ngIf="i === process.length-1" mat-button color="accent" (click)="nextStep()">{{trl('End')}} </button>
           </mat-action-row>

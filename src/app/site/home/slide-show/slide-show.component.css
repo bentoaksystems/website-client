@@ -1,11 +1,13 @@
 .desktopImg {
   display: block;
-  width: 100%
+  width: 100%;
+  height: 400px;
 }
 
 .mobileImg {
   display: inline-table !important;
   width: 200% !important;
+  height: 280px;
   position: relative;
   left: -50%;
 }

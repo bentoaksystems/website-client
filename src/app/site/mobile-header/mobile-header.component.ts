@@ -17,7 +17,7 @@ export class MobileHeaderComponent extends TranslatorComponent implements OnInit
   isMobile = false;
   sideNavIsOpen = false;
   array: any = [];
-  languages = ['English', 'Dutch', 'German', 'Persian']
+  languages = ['English', 'German'];
   selectedLanguage = 'English';
 
   constructor(private responsiveService: ResponsiveService,
