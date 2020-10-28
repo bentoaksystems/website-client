@@ -7,6 +7,7 @@ import {PricingService} from '../../shared/services/pricing.service';
 import {SpinnerService} from '../../shared/services/spinner.service';
 import { DictionaryService } from '../../shared/services/dictionary.service';
 import { TranslatorComponent } from '../../shared/components/translator.component';
+import { LanguageService } from 'app/shared/services/language.service';
 @Component({
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
@@ -27,7 +28,7 @@ export class PricingComponent extends TranslatorComponent implements OnInit {
               private getJsonFileService: GetJsonFileService,
               private responsiveService: ResponsiveService, protected router: Router,
               private pricingService: PricingService, private spinnerService: SpinnerService,
-              dictionaryService: DictionaryService) {
+              dictionaryService: DictionaryService, private langService: LanguageService) {
                 super(dictionaryService);
   }
 
@@ -83,7 +84,8 @@ export class PricingComponent extends TranslatorComponent implements OnInit {
   }
 
   goToContactPage() {
-    this.router.navigate(['/contact']);
+    // this.router.navigate(['/contact']);
+    this.router.navigate([this.langService.getNavigationLink('/contact')]);
   }
 
   totalPrice(planType, pricingPlan, q = this.quantity[planType] ? this.quantity[planType][pricingPlan.title] : null) {
