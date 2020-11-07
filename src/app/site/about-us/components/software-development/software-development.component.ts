@@ -17,7 +17,7 @@ export class SoftwareDevelopmentComponent extends TranslatorComponent implements
     if(!data) return;
 
     this.softwareDevInfo = data.filter(x => x.title === 'Software Development')[0];
-    this.desc = marked(this.softwareDevInfo.description)
+    this.desc = this.softwareDevInfo.description;
   }
   constructor(
     private responsiveService: ResponsiveService,

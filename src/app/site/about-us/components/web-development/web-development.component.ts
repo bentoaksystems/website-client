@@ -16,10 +16,12 @@ export class WebDevelopmentComponent extends TranslatorComponent implements OnIn
 
   @Input('webDevInfo')
   set webDev_Info(data) {
-    if (!data) return;
+    if (!data) {
+      return
+    }
 
     this.webDevInfo = data.filter(x => x.title === 'Web Development')[0];
-    this.desc = marked(this.webDevInfo.description)
+    this.desc = this.webDevInfo.description
   }
 
   constructor(

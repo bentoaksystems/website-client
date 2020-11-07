@@ -37,7 +37,7 @@ export class AboutUsComponent extends TranslatorComponent implements OnInit {
       .then((details) => {
         this.results = details;
         this.bentoakData = this.results.filter(x => x.title === 'Bent Oak Systems')[0];
-        this.bentoakData.description = marked(this.bentoakData.description);
+        this.bentoakData.description = this.bentoakData.description;
         this.spinnerService.disable();
         if (this.scrollService.position !== '') {
            this.scrollService.triggerScrollTo();

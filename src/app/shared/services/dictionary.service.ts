@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import * as marked from 'marked';
 
 @Injectable()
 export class DictionaryService {
@@ -30,18 +31,40 @@ export class DictionaryService {
   setDictionary(values) {
     this.dictionary = values;
   }
+  isEmpty(obj) {
+    for (const prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
   translate(keyword) {
+    if (this.isEmpty(keyword)) {
+      return;
+    }
     if (!keyword && keyword !== 0) {
       return;
     }
+    // console.log(keyword);
     if (+keyword + '' === keyword + '') {
       return (+keyword).toLocaleString(this.locale_symbol);
     } else {
       const found = this.dictionary[('' + keyword).toLowerCase()];
       if (found) {
-        return found;
+        if (found.includes('/n')) {
+          return marked(found.replace(/\/n/g, '\n'));
+        }
+        // return found;
+        return found.replace(/\/n/g, '\n');
+
       }
     }
-    return keyword;
+    if (keyword.includes('/n')) {
+      return marked(keyword.replace(/\/n/g, '\n'));
+    }
+    // return keyword;
+    return keyword.replace(/\/n/g, '\n');
+
   }
 }
