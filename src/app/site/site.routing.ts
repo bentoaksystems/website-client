@@ -5,13 +5,13 @@ import {SiteComponent} from './site.component';
 const Site_ROUTES: Routes = [
   {
     path: '', component: SiteComponent, pathMatch: 'prefix', children: [
-    {path: '', pathMatch: 'full', redirectTo: 'home'},
-    {path: 'home', loadChildren: 'app/site/home/home.module#HomeModule'},
-    {path: 'people', loadChildren: 'app/site/people/people.module#PeopleModule'},
-    {path: 'projects', loadChildren: 'app/site/projects/projects.module#ProjectsModule'},
-    {path: 'about-us', loadChildren: 'app/site/about-us/about-us.module#AboutUsModule'},
-    {path: 'contact', loadChildren: 'app/site/contact/contact.module#ContactModule'},
-    {path: 'pricing', loadChildren: 'app/site/pricing/pricing.module#PricingModule'},
+    {path: '', pathMatch: 'full', redirectTo: 'en/home'},
+    {path: ':lang/home', loadChildren: 'app/site/home/home.module#HomeModule'},
+    {path: ':lang/people', loadChildren: 'app/site/people/people.module#PeopleModule'},
+    {path: ':lang/projects', loadChildren: 'app/site/projects/projects.module#ProjectsModule'},
+    {path: ':lang/about-us', loadChildren: 'app/site/about-us/about-us.module#AboutUsModule'},
+    {path: ':lang/contact', loadChildren: 'app/site/contact/contact.module#ContactModule'},
+    {path: ':lang/pricing', loadChildren: 'app/site/pricing/pricing.module#PricingModule'},
   ],
   },
 ];

@@ -2,7 +2,7 @@
   <mat-sidenav-container class="header">
     <mat-sidenav #sidenav mode="push" class="primary-lighter side-nav" (opened)="sideNavIsOpen = true"
                  (closed)="sideNavIsOpen = false" [opened]="sideNavIsOpen">
-      <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item" (click)="navigate([item.router_link])"> 
+      <div *ngFor="let item of array" class="t t-primary t-primary-hover menu-item" (click)="navigate(item)"> 
         {{trl(item.title)}} <i class="{{item.iconLogo}}"></i>
       </div>
       <div class="t t-primary t-primary-hover menu-item">
@@ -23,7 +23,7 @@
           </a>
         </div>
         <div fxFlex="50" class="menu-logo-wrapper">
-          <a routerLink="/" class="mobile-header-item">
+          <a [routerLink]="homePath" class="mobile-header-item">
             <span>
             <img src="{{headerData.logo}}" class="logo-img">
             </span>

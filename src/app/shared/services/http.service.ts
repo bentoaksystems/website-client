@@ -14,7 +14,7 @@ export class HttpService {
   }
   post(address, data): Observable<any> {
     const headers = { language: this.getLanguage()};
-    return this.http.post(this.serverAddress + '/' + address, data, {observe: 'response', headers}).map(el => el.body);
+    return this.http.post(this.serverAddress + '/' + address, data, {observe: 'response', headers: headers}).map(el => el.body);
   }
 
   put(address, data): Observable<any> {
@@ -23,7 +23,9 @@ export class HttpService {
 
   get(address): Observable<any> {
     const headers = { language: this.getLanguage()};
-    return this.http.get(this.serverAddress + '/' + address, {observe: 'response', headers}).map(el => el.body);
+    let langPrefix = 'en';
+    if (headers.language === 'German') langPrefix = 'de';
+    return this.http.get(this.serverAddress + '/' + langPrefix + '/' + address, {observe: 'response', headers: headers}).map(el => el.body);
   }
 
   delete(address): Observable<any> {

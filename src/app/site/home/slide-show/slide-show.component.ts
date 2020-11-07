@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ScrollService } from 'app/shared/services/scroll.service';
 import { TranslatorComponent } from '../../../shared/components/translator.component';
 import { DictionaryService } from '../../../shared/services/dictionary.service';
+import { LanguageService } from 'app/shared/services/language.service';
 @Component({
   selector: 'app-slide-show',
   templateUrl: './slide-show.component.html',
@@ -23,7 +24,8 @@ export class SlideShowComponent extends TranslatorComponent implements OnInit {
               private getJsonFileService: GetJsonFileService,
               private responsiveService: ResponsiveService,
               private spinnerService: SpinnerService,
-              dictionaryService: DictionaryService) {
+              dictionaryService: DictionaryService,
+              private langService: LanguageService) {
                 super(dictionaryService);
   }
 
@@ -45,7 +47,11 @@ export class SlideShowComponent extends TranslatorComponent implements OnInit {
 
   }
   setPosition(positionStr) {
+    this.onNavigate('about-us');
     this.scrollService.position = positionStr;
+  }
 
+  onNavigate(link) {
+    this.router.navigate([this.langService.getNavigationLink(link)]);
   }
 }
