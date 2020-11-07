@@ -18,7 +18,7 @@ export class CICDComponent extends TranslatorComponent implements OnInit {
     if(!data) return;
 
     this.CICDInfo = data.filter(x => x.title === 'CI/CD')[0];
-    this.desc = marked(this.CICDInfo.description)
+    this.desc = this.CICDInfo.description;
   };
 
   constructor(

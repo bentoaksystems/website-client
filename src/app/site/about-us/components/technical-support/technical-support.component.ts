@@ -18,7 +18,7 @@ export class TechnicalSupportComponent  extends TranslatorComponent implements O
     @Input('techsuppInfo') set techsupp_Info (data) {
         if(!data) return;
         this.techsuppInfo = data.filter(x => x.title === 'Technical Support')[0];
-        this.desc = marked(this.techsuppInfo.description)
+        this.desc = this.techsuppInfo.description;
       };
 
     constructor(
