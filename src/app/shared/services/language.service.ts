@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
+import { Router } from '@angular/router';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
+import { CookiesService } from './cookies.service';
 
 @Injectable()
 export class LanguageService {
@@ -49,7 +51,7 @@ export class LanguageService {
     
   };
 
-  constructor() {
+  constructor(private cookiesService: CookiesService, private router:Router) {
     setTimeout(() => {
       let lang;
       try {
@@ -82,6 +84,24 @@ export class LanguageService {
       return this._translation[value.substring(0, 50).toLowerCase()];
     } else {
       return value;
+    }
+  }
+
+  getNavigationLink(primaryLink: string): string {
+    let lang = this.getLanguage();
+    if (lang === 'English') return '/en/' + primaryLink;
+    else if (lang === 'German') return '/de/' + primaryLink;
+  }
+
+  getLanguage(): string {
+    return this.cookiesService.getCookie('language') || 'English';
+  }
+
+  matchUrlWithSelectedLang() {
+    if (this.getLanguage() === 'English' && this.router.url.includes('/de/')) {
+      this.router.navigate([this.router.url.replace('/de/', '/en/')]);
+    } else if (this.getLanguage() === 'German' && this.router.url.includes('/en/')) {
+      this.router.navigate([this.router.url.replace('/en/', '/de/')]);
     }
   }
 }

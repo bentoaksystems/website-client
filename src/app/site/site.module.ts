@@ -18,7 +18,9 @@ import {
   MatListModule,
   MatSliderModule,
   MatTooltipModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatButtonToggleModule,
+  MatSelectModule
 } from '@angular/material';
 import {SharedModule} from 'primeng/primeng';
 import {FooterComponent} from './footer/footer.component';
@@ -32,6 +34,7 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import {PricingService} from '../shared/services/pricing.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Angulartics2Module } from 'angulartics2';
+import { TranslatorComponent } from 'app/shared/components/translator.component';
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import { Angulartics2Module } from 'angulartics2';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatSelectModule,
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
@@ -71,6 +76,7 @@ import { Angulartics2Module } from 'angulartics2';
     PersonDialogComponent,
     ProjectDialogComponent,
     MobileHeaderComponent,
+    TranslatorComponent
   ],
   entryComponents: [PersonDialogComponent,
     ProjectDialogComponent],

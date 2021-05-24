@@ -2,15 +2,26 @@
   <div fxLayout="row" fxLayoutAlign="center end"
        fxLayout.sm="column" fxLayout.xs="column">
     <div fxFlex="30">
-      <a style="cursor: pointer" routerLink="/">
+      <a style="cursor: pointer" [routerLink]="homePath">
         <img src="{{headerData.logo}}" style="height: 60px">
       </a>
     </div>
     <div fxFlex="70">
       <div class="header-content-wrapper">
+        <span class="header-item">
+          <!-- <img class="img-process" src="../../../assets/images/Globe_int_blue.svg"> -->
+          <select class="t t-accent t-accent-hover header-content" [dir]="'ltr'" name="language" id="languageId" (change)="onChange($event)" [value]="selectedLanguage" style="background-color: transparent;border: transparent;">
+            <option style="background-color: #E0E0E0;" *ngFor="let language of languages">{{trl(language)}}</option>
+          </select>
+          <span>
+            <img *ngIf="selectedLanguage==='English'" src="../../../assets/images/country-flags/united-kingdom-flag-round-icon-20.png" alt="">
+            <img *ngIf="selectedLanguage==='German'" src="../../../assets/images/country-flags/germany-flag-round-icon-20.png" alt="">
+          </span>       
+        </span>
         <span *ngFor="let item of headerData.menu_tab" class="header-item">
-          <a class="t t-accent t-accent-hover header-content" href="{{item.router_link}}">
-            {{item.title}}
+          <!-- <a class="t t-accent t-accent-hover header-content" href="{{item.router_link}}"> -->
+          <a class="t t-accent t-accent-hover header-content" (click)="onNavigate(item)" [routerLink]="">
+            {{trl(item.title)}}
           </a>
         </span>
       </div>

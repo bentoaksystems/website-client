@@ -3,13 +3,16 @@ import {GetJsonFileService} from '../../shared/services/get-json-file.service';
 import {ResponsiveService} from '../../shared/services/responsive.service';
 import {Router} from '@angular/router';
 import {ScrollService} from '../../shared/services/scroll.service';
+import { DictionaryService } from '../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../shared/components/translator.component';
+import { LanguageService } from 'app/shared/services/language.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent extends TranslatorComponent implements OnInit {
   address: any = {};
   phone: any = {};
   email: any = {};
@@ -18,10 +21,14 @@ export class FooterComponent implements OnInit {
 
 
   constructor(private getJsonFileService: GetJsonFileService, private scrollService: ScrollService,
-              private responsiveService: ResponsiveService, protected router: Router) {
+              private responsiveService: ResponsiveService, protected router: Router,
+              dictionaryService: DictionaryService, private langService: LanguageService) {
+                super(dictionaryService);
   }
 
   ngOnInit() {
+    this.langService.matchUrlWithSelectedLang();
+    
     this.getJsonFileService.getFooterData()
       .then((details) => {
         this.address = details[0].address;
@@ -38,9 +45,14 @@ export class FooterComponent implements OnInit {
   }
 
   setPosition(positionStr) {
+    this.onNavigate('about-us');
     this.scrollService.position = positionStr;
-    if (this.router.url === '/about-us') {
+    if (this.router.url === '/en/about-us' || this.router.url === '/de/about-us') {
       this.scrollService.triggerScrollTo();
     }
+  }
+
+  onNavigate(link) {
+    this.router.navigate([this.langService.getNavigationLink(link)]);
   }
 }

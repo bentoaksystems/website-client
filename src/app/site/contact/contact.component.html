@@ -2,7 +2,7 @@
      fxLayout.xs="column" fxLayoutAlign="start stretch" class="maxWidth">
     <div class="page" fxFlex="60">
         <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">
-            {{'Ready to start a project?'}}
+            {{trl('Ready to start a project?')}}
         </h4>
         <form [formGroup]="contactForm" (ngSubmit)="send()">
 
@@ -13,12 +13,12 @@
                        (focus)="setSeen('email')"
                        (blur)="curFocus = null"
                        [class.input-error]="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))"
-                       placeholder="{{'Your Email'}}"/>
+                       placeholder="{{trl('Your Email')}}"/>
                 <!--<mat-error *ngIf="seen['email'] && curFocus !== 'email' && (contactForm.controls['email'].hasError('required') || contactForm.controls['email'].hasError('email'))">{{'Email address is needed'}}</mat-error>-->
             </mat-form-field>
 
             <mat-form-field class="data-field contact-name english-style">
-                <input matInput type="text" formControlName="name" placeholder="{{'Your name'}}"/>
+                <input matInput type="text" formControlName="name" [placeholder]="trl('Your name')"/>
             </mat-form-field>
 
             <mat-form-field class="data-field contact-phone english-style">
@@ -27,13 +27,13 @@
                        formControlName="phoneNumber"
                        (focus)="setSeen('phoneNumber')"
                        (blur)="curFocus = null"
-                       placeholder="{{'Your phone number'}}"/>
+                       [placeholder]="trl('Your phone number')"/>
                 <!--<mat-error *ngIf="seen['phoneNumber'] && curFocus !== 'phoneNumber' && contactForm.controls['phoneNumber'].hasError('required')">{{'PhoneNumber is needed'}}</mat-error>-->
             </mat-form-field>
 
 
             <mat-form-field class="data-field contact-message english-style">
-        <textarea matInput rows="2" formControlName="content" placeholder="{{'Content'}}">
+        <textarea matInput rows="2" formControlName="content" [placeholder]="trl('Content')">
 
       </textarea>
             </mat-form-field>
@@ -41,14 +41,14 @@
            <re-captcha formControlName="recaptchaReactive"></re-captcha>
 
             <button mat-raised-button class="primary button" type="submit" [disabled]="!contactForm.valid">
-                <span class="t t-accent t-accent-hover">{{'Send your message'}}</span>
+                <span class="t t-accent t-accent-hover">{{trl('Send your message')}}</span>
             </button>
 
         </form>
     </div>
     <div fxFlex="5"></div>
     <div fxFlex="35" class="page">
-        <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">{{'Get in touch with us'}} </h4>
+        <h4 class="t t-dark t-dark-hover title" [class.title-mobile]="isMobile">{{trl('Get in touch with us')}} </h4>
         <h5 class="t t-primary contact-label">
             <i class="fa fa-home contact-image" aria-hidden="true"></i>
             {{address}}

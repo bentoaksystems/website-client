@@ -3,54 +3,54 @@
   <div fxLayout="column">
     <div fxFlex="85">
       <div style="margin-top: 15px" [class.center]="isMobile">
-        <h3 class="t t-primary t-primary-hover toolBox">Pricing</h3>
+        <h3 class="t t-primary t-primary-hover toolBox">{{trl('Pricing')}}</h3>
       </div>
       <div class="center" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center top">
         <mat-card *ngFor="let pricingPlan of pricing" class="primary-lighter matCard shadow tiny"
-                  [class.desktop]="!isMobile">
+          [class.desktop]="!isMobile">
           <mat-card-title class="title-box">
-            {{pricingPlan.title}} ({{pricingPlan.acronym}})
+            {{trl(pricingPlan.title)}} ({{trl(pricingPlan.acronym)}})
           </mat-card-title>
           <mat-card-content>
             <div class="prosncons">
-              <mat-card-subtitle>Pros/Cons</mat-card-subtitle>
+              <mat-card-subtitle>{{trl('Pros/Cons')}}</mat-card-subtitle>
               <mat-list-item class="list-item" *ngFor="let pro of pricingPlan.pros">
                 <p mat-line>
                   <mat-icon class="matIcon" style="color: darkgreen">done</mat-icon>
-                  <span>{{pro}}</span>
+                  <span>{{trl(pro)}}</span>
                 </p>
               </mat-list-item>
               <mat-list-item class="list-item" *ngFor="let con of pricingPlan.cons">
                 <p mat-line>
                   <mat-icon class="matIcon" style="color: darkred">clear</mat-icon>
-                  <span>{{con}}</span>
+                  <span>{{trl(con)}}</span>
                 </p>
               </mat-list-item>
             </div>
             <div class="cost">
-              <mat-card-subtitle>Cost</mat-card-subtitle>
+              <mat-card-subtitle>{{trl('Cost')}}</mat-card-subtitle>
               <div *ngFor="let field of fields[pricingPlan.title]">
+                <!-- TODO: currency -->
                 <div class="price-div">£
                   {{prices[field][pricingPlan.title].toLocaleString()}} x
                 </div>
                 <mat-form-field [style.width.px]="quantity[field][pricingPlan.title] && !isMobile ? 30 : 114">
-                  <input matInput [placeholder]="field" [(ngModel)]="quantity[field][pricingPlan.title]"
-                         (keyup)="setPricingInfoToService(pricingPlan.title)">
+                  <input matInput placeholder={{trl(field)}} [(ngModel)]="quantity[field][pricingPlan.title]"
+                    (keyup)="setPricingInfoToService(pricingPlan.title)">
                 </mat-form-field>
-                <span
-                  *ngIf="totalPrice(field, pricingPlan)"> = £ {{totalPrice(field, pricingPlan).toLocaleString()}}</span>
+                <span *ngIf="totalPrice(field, pricingPlan)"> = £
+                  {{totalPrice(field, pricingPlan).toLocaleString()}}</span>
               </div>
               <div *ngIf="equity(pricingPlan)" class="accent-darker" style="border-radius: 3px;margin-bottom:2px">
-                Total equity comp. £ {{equity(pricingPlan).toLocaleString()}}
+                {{trl('Total equity comp.')}} £ {{equity(pricingPlan).toLocaleString()}}
               </div>
-              <div *ngIf="totalPrice(null, pricingPlan)" class="accent" style="border-radius: 3px">Total cash price £
-                {{totalPrice(null, pricingPlan).toLocaleString()}}
+              <div *ngIf="totalPrice(null, pricingPlan)" class="accent" style="border-radius: 3px">{{trl('Total cash price')}} £ {{totalPrice(null, pricingPlan).toLocaleString()}}
               </div>
             </div>
           </mat-card-content>
           <mat-card-actions>
             <mat-checkbox [(ngModel)]="selectedPlan[pricingPlan.title]" (change)="chgPlan(pricingPlan.title)">
-              {{pricingPlan.acronym}}
+              {{trl(pricingPlan.acronym)}}
             </mat-checkbox>
           </mat-card-actions>
         </mat-card>
@@ -58,8 +58,7 @@
     </div>
     <div fxFlex="15" class="center" style="
     margin-top: 10px">
-      <button mat-raised-button class="accent" (click)="goToContactPage()"
-              [disabled]="!selected">Contact us to start
+      <button mat-raised-button class="accent" (click)="goToContactPage()" [disabled]="!selected">{{trl('Contact us to start')}}
       </button>
     </div>
   </div>

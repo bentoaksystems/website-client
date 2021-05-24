@@ -11,6 +11,8 @@ export class GetJsonFileService {
     return new Promise((resolve, reject) => {
       this.httpService.get('page_info/header').subscribe(
         (data) => {
+          // hide HOME in the header
+          data[0]['menu_tab'].splice(data[0]['menu_tab'].indexOf(data[0]['menu_tab'].find(it => it.title === 'Home')), 1);
           resolve(data);
         },
         (err) => {

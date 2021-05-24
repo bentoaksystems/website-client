@@ -6,19 +6,22 @@ import {WINDOW} from '../../../shared/services/window.service';
 import {ProjectDialogComponent} from '../project-dialog/project-dialog.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectService} from '../../../shared/services/project.service';
-
+import { DictionaryService } from '../../../shared/services/dictionary.service';
+import { TranslatorComponent } from '../../../shared/components/translator.component';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-export class ProjectComponent implements OnInit {
-  @Input('project') project: any;
+export class ProjectComponent extends TranslatorComponent implements OnInit {
+  @Input() project: any;
   @Input() isMobile: boolean;
   width = 500;
 
   constructor(public langService: LanguageService, @Inject(WINDOW) private window,
-              public dialog: MatDialog, protected router: Router, private route: ActivatedRoute, private projectService: ProjectService) {
+              public dialog: MatDialog, protected router: Router, private route: ActivatedRoute, private projectService: ProjectService,
+              dictionaryService: DictionaryService) {
+                super(dictionaryService)
   }
 
   ngOnInit() {

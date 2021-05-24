@@ -1,11 +1,10 @@
-<div class="maxWidth">
-  <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column"
-       fxLayoutAlign="start stretch">
+<div class="maxWidth" [dir]="direction">
+  <div *ngIf="!isMobile" fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
     <div class="page-section" fxFlex="50">
       <h2 class="t t-primary t-primary-hover title" style="font-family: aovel">
-        {{bentoakData?.title}}
+        {{trl(bentoakData?.title)}}
       </h2>
-      <div class="t t-primary description-section content-block" [innerHTML]="bentoakData?.description"></div>
+      <div class="t t-primary description-section content-block" [innerHTML]="trl(bentoakData?.description)"></div>
     </div>
     <div fxFlex="50">
       <img class="img img-section shadow tiny" src="{{bentoakData?.background}}">
@@ -13,12 +12,12 @@
   </div>
   <div *ngIf="isMobile">
     <h3 class="t t-primary t-primary-hover title" style="text-align: center; margin-top: 20px">
-      {{bentoakData?.title}}
+      {{trl(bentoakData?.title)}}
     </h3>
     <div class="img-mobile-wrapper">
       <img class="img-mobile" src="{{bentoakData?.background}}">
     </div>
-    <div class="t t-primary section-block-mobile content-block" [innerHTML]="bentoakData?.description"></div>
+    <div class="t t-primary section-block-mobile content-block" [innerHTML]="trl(bentoakData?.description)"></div>
   </div>
   <div id="CICD"></div>
   <app-cicd [CICDInfo]="results"></app-cicd>
@@ -30,4 +29,3 @@
   <div id="TechSupp"></div>
   <app-technical-support [techsuppInfo]="results"></app-technical-support>
 </div>
-
