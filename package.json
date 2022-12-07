@@ -59,7 +59,7 @@
     "@types/node": "^10.11.4",
     "codelyzer": "^4.5.0",
     "cpy-cli": "^1.0.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "http-server": "^0.10.0",
     "jasmine-core": "^3.2.1",
     "jasmine-spec-reporter": "^4.2.1",
